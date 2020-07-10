@@ -1,0 +1,69 @@
+const path = require("path")
+const HtmlWebPackPlugin = require("html-webpack-plugin")
+const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const TerserPlugin = require('terser-webpack-plugin');
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+module.exports = {
+    entry: {
+        main: './src/index.js'
+    },
+    output: {
+        path: path.join(__dirname, 'dist'),
+        publicPath: '/',
+        filename: '[name].js'
+    },
+    mode: 'production',
+    target: 'web',
+    devtool: 'source-map',
+    optimization: {
+        minimizer: [
+            new TerserPlugin({
+                cache: true,
+                parallel: true,
+                sourceMap: false
+            }),
+            new OptimizeCSSAssetsPlugin({})
+        ]
+    },
+    module: {
+        rules: [{
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: "babel-loader"
+                }
+            },
+            {
+                test: /\.html$/,
+                use: [{
+                    loader: "html-loader",
+                    options: {
+                        minimize: true
+                    }
+                }]
+            },
+            {
+                // Loads images and fonts into CSS and JavaScript files in a base64 encoded URI
+                test: /\.(png|svg|jpg|gif|woff|woff2|eot|ttf)$/,
+                use: [{
+                    loader: "url-loader"
+                }]
+            },
+            {
+                // SASS/SCSS to CSS
+                test: /\.(sc|c)ss$/,
+                use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
+            },
+        ]
+    },
+    plugins: [
+        new HtmlWebPackPlugin({
+            template: "./src/html/index.html",
+            filename: "./index.html"
+        }),
+        new MiniCssExtractPlugin({
+            filename: "[name].css",
+            chunkFilename: "[id].css"
+        })
+    ]
+}

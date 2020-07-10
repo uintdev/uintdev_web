@@ -1,0 +1,318 @@
+@import 'fonts/font';
+
+$primary-color: rgba(255, 255, 255, 1);
+$secondary-color: rgba(21, 22, 23, 1);
+$third-color: rgba(30, 32, 33, 1);
+$thumb-color: rgba(48, 50, 51, 1);
+$thumbhover-color: rgba(58, 60, 61, 1);
+$card-radius: 6px;
+
+@mixin unselectable {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+@mixin contentarea {
+  text-align: left;
+  font-size: 110%;
+  color: $primary-color;
+}
+@mixin cardimg($file) {
+  background-image: url(../img/#{$file});
+}
+
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02); 
+}
+
+::-webkit-scrollbar-thumb {
+  background: $thumb-color;
+  &:hover {
+    background: $thumbhover-color; 
+  }
+}
+
+html, body {
+  font-family: $font-stack;
+}
+
+html {
+  height: 105%;
+  max-width: 100%;
+  overflow: overlay;
+}
+
+.preload * {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -ms-transition: none !important;
+  -o-transition: none !important;
+  transition: none !important;
+}
+
+body {
+  margin: 0px;
+  font-family: 'Roboto', sans-serif;
+  color: $primary-color;
+  background-color: $third-color;
+  font-size: 100%;
+  -webkit-text-size-adjust: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+a {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border-bottom: 1px dotted;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+hr {
+  display: block;
+  height: 0.7px;
+  border: 0;
+  border-top: 4px solid $secondary-color;
+  margin: 6px 0;
+  padding: 0;
+  @include unselectable;
+}
+
+.header {
+  background-color: $secondary-color;
+  width: 100%;
+  @include unselectable;
+  .title {
+    display: inline-block;
+    font-size: 16.64px;
+    margin-left: 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 8px;
+    background-color: $primary-color;
+    color: #181a1b;
+    border-radius: 20px;
+  }
+}
+
+.initblk {
+  background-color: $secondary-color;
+  height: 91%;
+  max-width: 100%;
+  .titleblk {
+    width: 80%;
+    height: 85%;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    .titledes {
+      font-size: 150%;
+      text-align: center;
+    }
+  }
+  .scrollbox {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: 6.9%;
+    position: absolute;
+    bottom: 30px;
+    .titlescroll {
+      display: flex;
+      align-items: center;
+      box-sizing: border-box;
+      justify-content: center;
+      font-size: 150%;
+      position: relative;
+      width: 70px;
+      height: 70px;
+      border: 0px;
+      border-radius: 70px;
+      @include unselectable;
+      overflow: hidden;
+      z-index: 10;
+      .titlescrollicon {
+        z-index: 5;
+      }
+    }
+  }
+}
+
+.ink {
+  display: block;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 100%;
+  transform: scale(0);
+  &.animate {
+    animation: ripple 0.30s linear;
+  }
+}
+
+@keyframes ripple {
+  100% {
+    opacity: 0;
+    transform: scale(2.5);
+  }
+}
+
+.contentblk {
+  background-color: $third-color;
+  min-height: 105%;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 60px;
+  padding-left: 0px;
+  padding-right: 0px;
+  .contenttitle {
+    text-align: center;
+    color: $primary-color;
+    font-size: 250%;
+    margin-bottom: 50px;
+  }
+  .contentcenter {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%;
+    .contentinfo {
+      @include contentarea;
+    }
+  }
+  .contentinfo {
+    @include contentarea;
+    .cardcontainer {
+      display: flex;
+      flex-wrap: wrap;
+      height: 100%;
+      justify-content: center;
+      align-items: stretch;
+      line-height: 75px;
+      .card {
+        width: 320px;
+        margin-right: 20px;
+        margin-left: 20px;
+        margin-bottom: 30px;
+        text-decoration: none;
+        cursor: pointer;
+        border: 0;
+        border-radius: $card-radius;
+        color: $primary-color;
+        background-color: $secondary-color;
+        line-height: normal;
+        .preview {
+          height: 180px;
+          background-color: #fff;
+          border-radius: $card-radius $card-radius 0px 0px;
+        }
+        .info {
+          text-align: left;
+          padding: 20px;
+          box-sizing: border-box;
+          .title {
+            font-size: 120%;
+          }
+          .desc {
+            font-size: 85%;
+          }
+        }
+        .thumb {
+          width: 100px;
+          height: 100px;
+          background-repeat: no-repeat;
+          display: block;
+          background-position: center;
+          margin: auto;
+          padding-top: 80px;
+        }
+        .gh-dcd {
+          @include cardimg('gh-dcd.svg');
+        }
+        .gh-msg {
+          @include cardimg('gh-msg.svg');
+        }
+        .gh-dig {
+          @include cardimg('gh-dig.svg');
+        }
+        .gh-eet {
+          @include cardimg('gh-eet.svg');
+        }
+        .gh-dbcr {
+          @include cardimg('gh-dbcr.svg');
+        }
+        .gh-dhw {
+          @include cardimg('gh-dhw.svg');
+        }
+      }
+    }
+    .quote {
+      display: inline-block;
+      word-break: break-all;
+      background-color: $secondary-color;
+      font-family: monospace;
+      padding: 6px;
+      border-radius: 3px;
+    }
+    .buttonlink {
+      background-color: $primary-color;
+      color: $secondary-color;
+      padding: 12px;
+      border-radius: 9px;
+      border: 0px;
+      text-decoration: none;
+      &:hover {
+        background-color: rgba($primary-color, 0.8)
+      }
+      &:focus {
+        background-color: rgba($primary-color, 0.6)
+      }
+    }
+    .email {
+      cursor: pointer
+    }
+    .hide {
+      display: none;
+    }
+  }
+}
+
+.footer {
+  background-color: $secondary-color;
+  width: 100%;
+  padding: 20px;
+  padding-right: 40px;
+  text-align: center;
+  box-sizing: border-box;
+  @include unselectable;
+
+  .dirlnk {
+    color: rgba(200, 200, 200, 1);
+    text-decoration: none;
+    border-bottom: 0px;
+
+    &:hover {
+      color: rgba(150, 150, 150, 1);
+    }
+  }
+}
