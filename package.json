@@ -10,6 +10,10 @@
   "keywords": [],
   "author": "uintdev",
   "license": "MIT",
+  "repository":{
+    "type": "git",
+    "url": "git://github.com/uintdev/uintdev_web.git"
+  },
   "dependencies": {
     "@babel/core": "^7.11.4",
     "@babel/preset-env": "^7.11.0",
