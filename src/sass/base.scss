@@ -2,10 +2,10 @@
 
 $primary-color: rgba(255, 255, 255, 1);
 $secondary-color: rgba(21, 22, 23, 1);
-$third-color: rgba(30, 32, 33, 1);
+$third-color: rgba(34, 36, 38, 1);
 $thumb-color: rgba(48, 50, 51, 1);
 $thumbhover-color: rgba(58, 60, 61, 1);
-$card-radius: 6px;
+$card-radius: 10px;
 
 @mixin unselectable {
   -webkit-user-select: none;
@@ -84,9 +84,17 @@ hr {
   height: 0.7px;
   border: 0;
   border-top: 4px solid $secondary-color;
-  margin: 6px 0;
+  margin: 5px 0;
   padding: 0;
   @include unselectable;
+}
+.hrsp {
+  margin: 0;
+  margin-top: 15px;
+  margin-bottom: 30px;
+}
+.hrspl {
+  border-top: unset;
 }
 
 .header {
@@ -97,12 +105,12 @@ hr {
     display: inline-block;
     font-size: 16.64px;
     margin-left: 20px;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    padding: 8px;
-    background-color: $primary-color;
-    color: #181a1b;
-    border-radius: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 12px 18px;
+    background-color: $third-color;
+    color: $primary-color;
+    border-radius: 25px;
   }
 }
 
@@ -186,7 +194,7 @@ hr {
     text-align: center;
     color: $primary-color;
     font-size: 250%;
-    margin-bottom: 50px;
+    margin-bottom: 60px;
   }
   .contentcenter {
     display: flex;
@@ -195,7 +203,7 @@ hr {
     justify-content: center;
     margin-left: auto;
     margin-right: auto;
-    width: 95%;
+    width: 90%;
     .contentinfo {
       @include contentarea;
     }
@@ -213,7 +221,7 @@ hr {
         width: 320px;
         margin-right: 20px;
         margin-left: 20px;
-        margin-bottom: 30px;
+        margin-bottom: 40px;
         text-decoration: none;
         cursor: pointer;
         border: 0;
@@ -228,7 +236,7 @@ hr {
         }
         .info {
           text-align: left;
-          padding: 20px;
+          padding: 25px;
           box-sizing: border-box;
           .title {
             font-size: 120%;
@@ -271,21 +279,22 @@ hr {
       word-break: break-all;
       background-color: $secondary-color;
       font-family: monospace;
-      padding: 6px;
-      border-radius: 3px;
+      padding: 8px;
+      border-radius: 6px;
+      font-size: 13px;
     }
     .buttonlink {
-      background-color: $primary-color;
-      color: $secondary-color;
-      padding: 12px;
-      border-radius: 9px;
+      background-color: $secondary-color;
+      color: $primary-color;
+      padding: 15px;
+      border-radius: 10px;
       border: 0px;
       text-decoration: none;
       &:hover {
-        background-color: rgba($primary-color, 0.8)
+        background-color: rgba($primary-color, 0.2)
       }
       &:focus {
-        background-color: rgba($primary-color, 0.6)
+        background-color: rgba($primary-color, 0.1)
       }
     }
     .email {
