@@ -279,6 +279,10 @@ hr {
           padding-top: 80px;
         }
 
+        .gh-qrs {
+          @include cardimg('gh-qrs.svg');
+        }
+
         .gh-dcd {
           @include cardimg('gh-dcd.svg');
         }
