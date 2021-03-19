@@ -55,11 +55,3 @@ $('.titlescroll').click(function (e) {
         scrollto('#projects');
     }, 300);
 });
-
-/*
-window.onhashchange = function() {
-    if (location.href != '') {
-        scrollto(location.hash);
-    }
-}
-*/
