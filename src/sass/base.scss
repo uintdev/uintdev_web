@@ -1,11 +1,11 @@
 @import 'fonts/font';
 
 $primary-color: rgba(255, 255, 255, 1);
-$secondary-color: rgba(21, 22, 23, 1);
-$third-color: rgba(34, 36, 38, 1);
-$thumb-color: rgba(48, 50, 51, 1);
-$thumbhover-color: rgba(58, 60, 61, 1);
-$card-radius: 10px;
+$secondary-color: rgba(20, 20, 20, 1);
+$third-color: rgba(48, 48, 48, 1);
+$thumb-color: rgba(80, 80, 80, 0.6);
+$thumbhover-color: rgba(80, 80, 80, 0.8);
+$card-radius: 30px;
 
 @mixin unselectable {
   -webkit-user-select: none;
@@ -30,14 +30,15 @@ $card-radius: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(255, 255, 255, 0.03);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: $thumb-color;
+  background-color: $thumb-color;
+  border-radius: 20px;
 
   &:hover {
-    background: $thumbhover-color;
+    background-color: $thumbhover-color;
   }
 }
 
@@ -97,6 +98,7 @@ hr {
   margin: 0;
   margin-top: 15px;
   margin-bottom: 30px;
+  border-radius: 5px;
 }
 
 .hrspl {
@@ -155,6 +157,7 @@ hr {
     bottom: 30px;
 
     .titlescroll {
+      background-color: rgba(255, 255, 255, 0);
       display: flex;
       align-items: center;
       box-sizing: border-box;
@@ -168,6 +171,7 @@ hr {
       @include unselectable;
       overflow: hidden;
       z-index: 10;
+      transition: background-color 0.15s;
 
       .titlescrollicon {
         z-index: 5;
@@ -259,7 +263,7 @@ hr {
 
         .info {
           text-align: left;
-          padding: 25px;
+          padding: 28px 35px;
           box-sizing: border-box;
 
           .title {
@@ -316,16 +320,21 @@ hr {
       word-break: break-all;
       background-color: $secondary-color;
       font-family: monospace;
-      padding: 8px;
-      border-radius: 6px;
+      padding: 15px 20px;
+      border-radius: 15px;
       font-size: 13px;
+    }
+
+    .quoteblk {
+      padding: 30px;
+      border-radius: 30px;
     }
 
     .buttonlink {
       background-color: $secondary-color;
       color: $primary-color;
-      padding: 15px;
-      border-radius: 10px;
+      padding: 20px 30px;
+      border-radius: 20px;
       border: 0px;
       text-decoration: none;
 
@@ -351,10 +360,11 @@ hr {
 .footer {
   background-color: $secondary-color;
   width: 100%;
-  padding: 20px;
-  padding-right: 40px;
+  padding: 30px 20px 30px 20px;
   text-align: center;
   box-sizing: border-box;
+  border: 0;
+  border-radius: 30px 30px 0 0;
   @include unselectable;
 
   .dirlnk {
