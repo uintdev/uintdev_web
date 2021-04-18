@@ -328,7 +328,8 @@ hr {
       padding: 20px 30px;
       border-radius: 20px;
       border: 0px;
-      text-decoration: none;
+      font-size: 90%;
+      cursor: pointer;
 
       &:hover {
         background-color: rgba($primary-color, 0.2)
@@ -337,10 +338,6 @@ hr {
       &:focus {
         background-color: rgba($primary-color, 0.1)
       }
-    }
-
-    .email {
-      cursor: pointer
     }
 
     .hide {

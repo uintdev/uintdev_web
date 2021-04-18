@@ -6,7 +6,7 @@ $('.email').click(function (e) {
         window.open('mailto:' + emailactive, '_blank');
     } else {
         emailp = emailp.replace('the', 'uint').replace('please', 'core').replace('address', 'dev').replace('email', '&#46;').replace('reveal', '&#64;');
-        $('.email').html('Launch email client');
+        $('.email').val('Launch email client');
         $('.emailmsg').html(emailp);
         $('.emailcontainer').removeClass('hide');
         emailp = emailp.replace('&#64;', '@').replace('&#46;', '.');
