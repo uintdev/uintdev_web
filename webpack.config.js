@@ -2,7 +2,7 @@ const path = require("path")
 const HtmlWebPackPlugin = require("html-webpack-plugin")
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const TerserPlugin = require('terser-webpack-plugin');
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 module.exports = {
     entry: {
         main: './src/index.js'
@@ -14,15 +14,13 @@ module.exports = {
     },
     mode: 'production',
     target: 'web',
-    devtool: 'source-map',
     optimization: {
+        minimize: true,
         minimizer: [
             new TerserPlugin({
-                cache: true,
-                parallel: true,
-                sourceMap: false
+                
             }),
-            new OptimizeCSSAssetsPlugin({})
+            new CssMinimizerPlugin()
         ]
     },
     module: {
