@@ -183,6 +183,11 @@ hr {
 
     .contentinfo {
       @include contentarea;
+
+      .emailcontainer {
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
     }
   }
 
@@ -273,21 +278,28 @@ hr {
       border-radius: 30px;
     }
 
-    .buttonlink {
-      background-color: $secondary-color;
-      color: $primary-color;
-      padding: 20px 30px;
-      border-radius: 20px;
-      border: 0;
-      font-size: 90%;
-      cursor: pointer;
+    .buttoncontainer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
 
-      &:hover {
-        background-color: rgba($primary-color, 0.2)
-      }
-
-      &:focus {
-        background-color: rgba($primary-color, 0.1)
+      .buttonlink {
+        background-color: $secondary-color;
+        color: $primary-color;
+        padding: 20px 30px;
+        border-radius: 20px;
+        border: 0;
+        font-size: 90%;
+        cursor: pointer;
+  
+        &:hover {
+          background-color: rgba($primary-color, 0.2)
+        }
+  
+        &:focus {
+          background-color: rgba($primary-color, 0.1)
+        }
       }
     }
 
