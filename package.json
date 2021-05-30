@@ -1,11 +1,10 @@
 {
   "name": "uintdev",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Main site",
   "main": "index.js",
   "scripts": {
-    "build": "rm -rf dist && webpack --config webpack.server.config.js && webpack --config webpack.config.js",
-    "start": "node ./dist/server.js"
+    "build": "rm -rf dist && webpack --config webpack.config.js"
   },
   "keywords": [],
   "author": "uintdev",
