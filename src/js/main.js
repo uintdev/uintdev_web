@@ -1,20 +1,3 @@
-// Email deobfuscator
-$('.email').click(function (e) {
-    e.preventDefault();
-    var emailp = $('.email').attr('data-uri');
-    if (emailp.substring(0, 7) == 'mailto:') {
-        window.open('mailto:' + emailactive, '_blank');
-    } else {
-        emailp = emailp.replace('the', 'uint').replace('please', 'core').replace('address', 'dev').replace('email', '&#46;').replace('reveal', '&#64;');
-        $('.email').val('Launch email client');
-        $('.emailmsg').html(emailp);
-        $('.emailcontainer').removeClass('hide');
-        emailp = emailp.replace('&#64;', '@').replace('&#46;', '.');
-        emailactive = emailp;
-        $('.email').attr('data-uri', 'mailto:' + emailactive);
-    }
-});
-
 // Smooth scroll transition
 function scrollto(reqblk) {
     $('html,body').animate({
