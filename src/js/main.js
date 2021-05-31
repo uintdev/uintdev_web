@@ -1,6 +1,7 @@
 // Smooth scroll transition
-function scrollto(ele) {
-    document.querySelector(ele).scrollIntoView({
+function scrollAnimate(ele) {
+    window.scrollTo({
+        top: document.querySelector(ele).offsetTop,
         behavior: 'smooth'
     });
 }
@@ -35,6 +36,6 @@ $('.titlescroll').click(function (e) {
     }).addClass('animate');
 
     setTimeout(function () {
-        scrollto('#projects');
+        scrollAnimate('#projects');
     }, 300);
 });
