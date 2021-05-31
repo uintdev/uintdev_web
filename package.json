@@ -21,7 +21,6 @@
     "chokidar": "^3.5.1",
     "css-loader": "^5.2.4",
     "css-minimizer-webpack-plugin": "^2.0.0",
-    "express": "^4.17.1",
     "file-loader": "^6.2.0",
     "html-loader": "^2.1.2",
     "html-webpack-plugin": "^5.3.1",
