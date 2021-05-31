@@ -3,12 +3,25 @@ const HtmlWebPackPlugin = require("html-webpack-plugin")
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const TerserPlugin = require('terser-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const {
+    AssetAttributesPlugin
+} = require('@chipzhang/webpack-asset-attributes-plugin');
+
+const assetAttributesPlugin = new AssetAttributesPlugin({
+    scriptAttribs: {
+        defer: true
+    },
+    styleAttribs: {
+        defer: true
+    },
+})
+
 module.exports = {
     entry: {
         main: './src/index.js'
     },
     output: {
-        path: path.join(__dirname, 'dist'),
+        path: path.resolve(__dirname, 'dist'),
         publicPath: '/',
         filename: '[name].js'
     },
@@ -17,9 +30,7 @@ module.exports = {
     optimization: {
         minimize: true,
         minimizer: [
-            new TerserPlugin({
-                
-            }),
+            new TerserPlugin({}),
             new CssMinimizerPlugin()
         ]
     },
@@ -62,6 +73,7 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: "[name].css",
             chunkFilename: "[id].css"
-        })
+        }),
+        assetAttributesPlugin
     ]
 }
