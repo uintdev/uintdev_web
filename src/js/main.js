@@ -1,8 +1,8 @@
 // Smooth scroll transition
-function scrollto(reqblk) {
-    $('html,body').animate({
-        scrollTop: $(reqblk).offset().top
-    }, 350);
+function scrollto(ele) {
+    document.querySelector(ele).scrollIntoView({
+        behavior: 'smooth'
+    });
 }
 
 // Dynamic button ripple
