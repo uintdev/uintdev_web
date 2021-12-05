@@ -1,0 +1,25 @@
+html {
+    max-width: 100%;
+    overflow: overlay;
+}
+
+:root {
+    accent-color: var(--accent);
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-stack);
+    color: var(--primary);
+    background-color: var(--secondary);
+}
+
+a {
+    color: rgba(200, 200, 200, 1);
+    text-decoration: none;
+    border-bottom: 0;
+
+    &:hover {
+        color: rgba(150, 150, 150, 1);
+    }
+}

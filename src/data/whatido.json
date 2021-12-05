@@ -1,0 +1,56 @@
+{
+    "title": "What I do",
+    "description": "I work and develop with various technologies as well as platforms.",
+    "list": [
+        {
+            "category": "Software development",
+            "pills": [
+                {"name": "Flutter"},
+                {"name": "Dart"},
+                {"name": "Go"},
+                {"name": "Python"},
+                {"name": "Node.js"},
+                {"name": "C & C++"},
+                {"name": "Git"}
+            ]
+        },
+        {
+            "category": "Web development",
+            "pills": [
+                {"name": "PHP"},
+                {"name": "SQL"},
+                {"name": "JavaScript"},
+                {"name": "TypeScript"},
+                {"name": "SASS & CSS"}
+            ]
+        },
+        {
+            "category": "Template engines",
+            "pills": [
+                {"name": "EJS"},
+                {"name": "Freemarker"}
+            ]
+        },
+        {
+            "category": "System management",
+            "pills": [
+                {"name": "Linux"},
+                {"name": "Zsh/Bash/Shell"},
+                {"name": "Windows"},
+                {"name": "PowerShell"},
+                {"name": "DNS"},
+                {"name": "Networking"},
+                {"name": "Android"},
+                {"name": "iOS"}
+            ]
+        },
+        {
+            "category": "Other",
+            "pills": [
+                {"name": "Web & software security"},
+                {"name": "Electronics"},
+                {"name": "Graphic design"}
+            ]
+        }
+    ]
+}

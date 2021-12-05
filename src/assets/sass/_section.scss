@@ -1,0 +1,51 @@
+section {
+    background-color: var(--secondary);
+    padding: 60px 20px;
+
+    .content-title {
+        text-align: center;
+        font-size: 250%;
+        margin-bottom: 30px;
+    }
+
+    .content-desc {
+        text-align: center;
+        font-size: 110%;
+        margin-bottom: 40px;
+        max-width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .content-center {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
+        width: 90%;
+    }
+
+    .content-info {
+        @include content-area;
+
+        .sub-header {
+            margin-bottom: 18px;
+        }
+
+        .sub-title {
+            font-size: 115%;
+            margin-top: 15px;
+            margin-bottom: 15px;
+
+            &:first-of-type {
+                margin-top: unset;
+            }
+        }
+
+        @import "list";
+        @import "cards";
+        @import "quotes";
+        @import "buttons";
+    }
+}

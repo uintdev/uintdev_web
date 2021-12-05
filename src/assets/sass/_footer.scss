@@ -1,0 +1,12 @@
+footer {
+    width: 100%;
+    padding-top: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+    // Use !important to avoid using value for top -- [css-minimizer-webpack-plugin] bug
+    padding-bottom: calc(30px + env(safe-area-inset-bottom)) !important;
+    text-align: center;
+    box-sizing: border-box;
+    user-select: none;
+    font-size: 90%;
+}

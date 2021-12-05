@@ -1,0 +1,46 @@
+.button-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+
+    .button-link {
+        background-color: var(--third);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 80px;
+        height: 80px;
+        border-radius: 80px;
+        user-select: none;
+        z-index: 10;
+        transition: background-color 0.2s;
+        cursor: pointer;
+        @include box-shadow(2);
+        @include ripple-init();
+
+        &:hover {
+            background-color: var(--third-hover);
+        }
+
+        &:focus {
+            background-color: var(--third-focus);
+        }
+
+        .email {
+            @include image-loader('contact/email.svg');
+            background-position: 50%;
+            background-repeat: no-repeat;
+            padding-top: 70px;
+            width: 40px;
+        }
+
+        .keybase {
+            @include image-loader('contact/keybase.svg');
+            background-position: 50%;
+            background-repeat: no-repeat;
+            padding-top: 70px;
+            width: 40px;
+        }
+    }
+}

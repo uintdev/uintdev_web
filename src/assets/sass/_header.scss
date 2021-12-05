@@ -1,0 +1,24 @@
+header {
+    position: sticky;
+    top: 0;
+    background-color: rgba(var(--secondary), .4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    width: 100%;
+    user-select: none;
+    z-index: 11;
+    transition: top 0.5s;
+
+    &.hide {
+        top: -100px;
+    }
+
+    .title {
+        display: inline-block;
+        font-size: 16.64px;
+        margin: 20px 0 20px 20px;
+        padding: 12px 18px;
+        background-color: var(--third);
+        border-radius: 25px;
+    }
+}

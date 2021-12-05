@@ -1,0 +1,132 @@
+* {
+    --primary-dark: rgba(255, 255, 255, 1);
+    --secondary-dark: rgba(20, 20, 20, 1);
+    --secondary-focus-dark: rgba(24, 24, 24, 1);
+    --secondary-hover-dark: rgba(28, 28, 28, 1);
+    --third-dark: rgba(33, 33, 33, 1);
+    --third-focus-dark: rgba(37, 37, 37, 1);
+    --third-hover-dark: rgba(40, 40, 40, 1);
+    --thumb-dark: rgba(80, 80, 80, 0.6);
+    --thumb-hover-dark: rgba(80, 80, 80, 0.8);
+    --accent-dark: rgba(98, 100, 211, 1);
+    --ripple-dark: rgba(255, 255, 255, 0.4);
+    --archived-dark: rgba(243, 243, 126, 1);
+    --archived-focus-dark: rgba(247, 247, 130, 1);
+    --archived-hover-dark: rgba(251, 251, 134, 1);
+    --archived-text-dark: var(--secondary-dark);
+    --card-thumb-focus-dark: 1.025;
+    --card-thumb-hover-dark: 1.05;
+
+    --primary-light: rgba(20, 20, 20, 1);
+    --secondary-light: rgba(223, 232, 236, 1);
+    --secondary-focus-light: rgba(219, 228, 232, 1);
+    --secondary-hover-light: rgba(215, 224, 228, 1);
+    --third-light: rgba(209, 219, 224, 1);
+    --third-focus-light: rgba(205, 215, 220, 1);
+    --third-hover-light: rgba(201, 211, 216, 1);
+    --thumb-light: rgba(197, 207, 212, 0.6);
+    --thumb-hover-light: rgba(197, 207, 212, 0.8);
+    --accent-light: rgba(98, 100, 211, 1);
+    --ripple-light: rgba(0, 0, 0, 0.4);
+    --archived-light: rgba(255, 255, 160, 1);
+    --archived-focus-light: rgba(251, 251, 156, 1);
+    --archived-hover-light: rgba(247, 247, 152, 1);
+    --archived-text-light: var(--primary-light);
+    --card-thumb-focus-light: 0.985;
+    --card-thumb-hover-light: 0.95;
+}
+
+:root {
+    color-scheme: dark;
+
+    --primary: var(--primary-dark);
+    --secondary: var(--secondary-dark);
+    --secondary-focus: var(--secondary-focus-dark);
+    --secondary-hover: var(--secondary-hover-dark);
+    --third: var(--third-dark);
+    --third-focus: var(--third-focus-dark);
+    --third-hover: var(--third-hover-dark);
+    --thumb: var(--thumb-dark);
+    --thumb-hover: var(--thumb-hover-dark);
+    --accent: var(--accent-dark);
+    --ripple: var(--ripple-dark);
+    --archived: var(--archived-dark);
+    --archived-focus: var(--archived-focus-dark);
+    --archived-hover: var(--archived-hover-dark);
+    --archived-text: var(--archived-text-dark);
+    --card-thumb-focus: var(--card-thumb-focus-dark);
+    --card-thumb-hover: var(--card-thumb-hover-dark);
+
+    --pill-radius: 18px;
+    --card-radius: 30px;
+
+    --font-stack: Roboto, sans-serif;
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        color-scheme: light;
+
+        --primary: var(--primary-light);
+        --secondary: var(--secondary-light);
+        --secondary-focus: var(--secondary-focus-light);
+        --secondary-hover: var(--secondary-hover-light);
+        --third: var(--third-light);
+        --third-focus: var(--third-focus-light);
+        --third-hover: var(--third-hover-light);
+        --thumb: var(--thumb-light);
+        --thumb-hover: var(--thumb-hover-light);
+        --accent: var(--accent-light);
+        --ripple: var(--ripple-light);
+        --archived: var(--archived-light);
+        --archived-focus: var(--archived-focus-light);
+        --archived-hover: var(--archived-hover-light);
+        --archived-text: var(--archived-text-light);
+        --card-thumb-focus: var(--card-thumb-focus-light);
+        --card-thumb-hover: var(--card-thumb-hover-light);
+    }
+}
+
+[color-scheme="light"] {
+    color-scheme: light;
+
+    --primary: var(--primary-light);
+    --secondary: var(--secondary-light);
+    --secondary-focus: var(--secondary-focus-light);
+    --secondary-hover: var(--secondary-hover-light);
+    --third: var(--third-light);
+    --third-focus: var(--third-focus-light);
+    --third-hover: var(--third-hover-light);
+    --thumb: var(--thumb-light);
+    --thumb-hover: var(--thumb-hover-light);
+    --accent: var(--accent-light);
+    --ripple: var(--ripple-light);
+    --archived: var(--archived-light);
+    --archived-focus: var(--archived-focus-light);
+    --archived-hover: var(--archived-hover-light);
+    --archived-text: var(--archived-text-light);
+    --card-thumb-focus: var(--card-thumb-focus-light);
+    --card-thumb-hover: var(--card-thumb-hover-light);
+}
+
+[color-scheme="dark"] {
+    color-scheme: dark;
+
+    --primary: var(--primary-dark);
+    --secondary: var(--secondary-dark);
+    --secondary-focus: var(--secondary-focus-dark);
+    --secondary-hover: var(--secondary-hover-dark);
+    --third: var(--third-dark);
+    --third-focus: var(--third-focus-dark);
+    --third-hover: var(--third-hover-dark);
+    --thumb: var(--thumb-dark);
+    --thumb-hover: var(--thumb-hover-dark);
+    --accent: var(--accent-dark);
+    --ripple: var(--ripple-dark);
+    --archived: var(--archived-dark);
+    --archived-focus: var(--archived-focus-dark);
+    --archived-hover: var(--archived-hover-dark);
+    --archived-text: var(--archived-text-dark);
+    --card-thumb-focus: var(--card-thumb-focus-dark);
+    --card-thumb-hover: var(--card-thumb-hover-dark);
+}
