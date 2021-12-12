@@ -4,25 +4,25 @@
 <head>
     <meta charset="utf-8">
     <% const metaData=require('../data/meta.json') %>
-        <meta name="robots" content="nosnippet">
-        <meta name="keywords" content="<%= metaData.keywords %>">
-        <meta name="author" content="<%= metaData.name %>">
-        <meta name="description" content="<%= metaData.description %>">
-        <meta property="og:description" content="<%= metaData.description %>">
-        <meta property="og:type" content="website">
-        <meta property="og:title" content="<%= metaData.title %>">
-        <meta property="og:url" content="<%= metaData.url %>">
-        <meta name="twitter:card" content="summary">
-        <meta property="twitter:title" content="<%= metaData.title %>">
-        <meta name="twitter:site" content="<%= metaData.twitter %>">
-        <meta name="theme-color" content="<%= metaData.theme.dark %>" media="(prefers-color-scheme: dark)">
-        <meta name="theme-color" content="<%= metaData.theme.light %>" media="(prefers-color-scheme: light)">
-        <title><%= metaData.title %></title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="icon" href="<%- require('../assets/img/main/favicon.png') %>">
-        <link rel="apple-touch-icon" href="<%- require('../assets/img/main/favicon.png') %>">
-        <link href="<%- htmlWebpackPlugin.files.css[0] %>" rel="stylesheet">
-        <script type="text/javascript" src="<%- htmlWebpackPlugin.files.js[0] %>"></script>
+    <meta name="robots" content="nosnippet">
+    <meta name="keywords" content="<%= metaData.keywords %>">
+    <meta name="author" content="<%= metaData.name %>">
+    <meta name="description" content="<%= metaData.description %>">
+    <meta property="og:description" content="<%= metaData.description %>">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="<%= metaData.title %>">
+    <meta property="og:url" content="<%= metaData.url %>">
+    <meta name="twitter:card" content="summary">
+    <meta property="twitter:title" content="<%= metaData.title %>">
+    <meta name="twitter:site" content="<%= metaData.twitter %>">
+    <meta name="theme-color" content="<%= metaData.theme.dark %>" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="<%= metaData.theme.light %>" media="(prefers-color-scheme: light)">
+    <title><%= metaData.title %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="<%- require('../assets/img/main/favicon.png') %>">
+    <link rel="apple-touch-icon" href="<%- require('../assets/img/main/favicon.png') %>">
+    <link href="<%- htmlWebpackPlugin.files.css[0] %>" rel="stylesheet">
+    <script type="text/javascript" src="<%- htmlWebpackPlugin.files.js[0] %>"></script>
 </head>
 
 <body>
@@ -40,123 +40,123 @@
         </div>
         <section id="whatido">
             <% const whatidoData=require('../data/whatido.json') %>
-                <div class="content-title">
-                    <%= whatidoData.title %>
-                </div>
-                <div class="content-desc">
-                    <%= whatidoData.description %>
-                </div>
-                <div class="content-center">
-                    <div class="content-info">
-                        <% whatidoData.list.forEach(function(whatido) { %>
-                            <div class="sub-title">
-                                <%= whatido.category %>
-                            </div>
-                            <div class="pill-container">
-                                <% whatido.pills.forEach(function(pill) { %>
-                                    <span class="pill"><%= pill.name %></span>
-                                <% }); %>
-                            </div>
-                            <% }); %>
+            <div class="content-title">
+                <%= whatidoData.title %>
+            </div>
+            <div class="content-desc">
+                <%= whatidoData.description %>
+            </div>
+            <div class="content-center">
+                <div class="content-info">
+                    <% whatidoData.list.forEach(function(whatido) { %>
+                    <div class="sub-title">
+                        <%= whatido.category %>
                     </div>
+                    <div class="pill-container">
+                        <% whatido.pills.forEach(function(pill) { %>
+                        <span class="pill"><%= pill.name %></span>
+                        <% }); %>
+                    </div>
+                    <% }); %>
                 </div>
+            </div>
         </section>
         <section id="projects">
             <% const projectData=require('../data/projects.json') %>
-                <div class="content-title">
-                    <%= projectData.title %>
+            <div class="content-title">
+                <%= projectData.title %>
+            </div>
+            <div class="content-desc">
+                <%= projectData.description %>
+            </div>
+            <div class="content-info">
+                <div class="card-container">
+                    <% projectData.list.forEach(function(project) { %>
+                    <a class="card" href="<%= project.url %>">
+                        <div class="preview">
+                            <% if (project.archived) { %>
+                            <span class="archived">Archived</span>
+                            <% } %>
+                            <span class="thumb <%= project.image %>"></span>
+                        </div>
+                        <div class="info">
+                            <div class="name">
+                                <%= project.name %>
+                            </div>
+                            <div class="desc">
+                                <%= project.description %>
+                            </div>
+                            <div class="tag-container">
+                                <% project.tags.forEach(function(tag) { %>
+                                <span class="tag">
+                                    <%= tag %>
+                                </span>
+                                <% }); %>
+                            </div>
+                        </div>
+                    </a>
+                    <% }); %>
                 </div>
-                <div class="content-desc">
-                    <%= projectData.description %>
-                </div>
-                <div class="content-info">
-                    <div class="card-container">
-                        <% projectData.list.forEach(function(project) { %>
-                            <a class="card" href="<%= project.url %>">
-                                <div class="preview">
-                                    <% if (project.archived) { %>
-                                        <span class="archived">Archived</span>
-                                    <% } %>
-                                    <span class="thumb <%= project.image %>"></span>
-                                </div>
-                                <div class="info">
-                                    <div class="name">
-                                        <%= project.name %>
-                                    </div>
-                                    <div class="desc">
-                                        <%= project.description %>
-                                    </div>
-                                    <div class="tag-container">
-                                        <% project.tags.forEach(function(tag) { %>
-                                            <span class="tag">
-                                                <%= tag %>
-                                            </span>
-                                            <% }); %>
-                                    </div>
-                                </div>
-                            </a>
-                            <% }); %>
-                    </div>
-                </div>
+            </div>
         </section>
         <section id="contact">
             <% const contactData=require('../data/contact.json') %>
-                <div class="content-title">
-                    <%= contactData.title %>
-                </div>
-                <div class="content-desc">
-                    <%= contactData.description %>
-                </div>
-                <div class="content-center">
-                    <div class="content-info">
-                        <div class="button-container">
-                            <% contactData.options.forEach(function(option) { %>
-                                <a href="<%= option.url %>" class="button-link" title="<%= option.name %>"><span
-                                        class="<%= option.icon %>"></span></a>
-                                <% }); %>
-                        </div>
-                        <br>
-                        <br>
-                        <div class="sub-header">PGP for email</div>
-                        <br>
-                        <div class="sub-header">Type:</div>
-                        <span class="quote">ECC (ed25519)</span>
-                        <br>
-                        <br>
-                        <div class="sub-header">Fingerprint:</div>
-                        <span class="quote">87DC 2D58 5EEF D7BB 0D89 8EA1 879C 059C FE7B AEE4</span>
-                        <br>
-                        <br>
-                        <div class="sub-header">Public key:</div>
-                        <div class="quote quote-blk">
-                            -----BEGIN PGP PUBLIC KEY BLOCK-----
-                            <br>
-                            xjMEXMHO9xYJKwYBBAHaRw8BAQdApk/6iGiGHVmWekpaGRWxnaJp0gdRGJgS
-                            <br>
-                            peec7evKwgfNHyJjb3JlQHVpbnQuZGV2IiA8Y29yZUB1aW50LmRldj7CdwQQ
-                            <br>
-                            FgoAHwUCXMHO9wYLCQcIAwIEFQgKAgMWAgECGQECGwMCHgEACgkQh5wFnP57
-                            <br>
-                            ruRacQD+IgM4bRXXs9kuq8zyMZnU7TZaERnd8HLeNvQ+OcgEAgQA/japRSMq
-                            <br>
-                            NEbb+AUjXkp5N8evIDcUvF65rA4UDOMRrW0DzjgEXMHO9xIKKwYBBAGXVQEF
-                            <br>
-                            AQEHQIbWBu1tV2OMai9tyUqcbfuUZItfqeanHodnrs2kJqg1AwEIB8JhBBgW
-                            <br>
-                            CAAJBQJcwc73AhsMAAoJEIecBZz+e67k1zYA/1fbLWlWBI0tO/QF4xbqb7g3
-                            <br>
-                            ccZpyDCQzozkq6+YlMisAQDpaUtzoR+8qmrnhTzdLrVEqg+KWRc0EtdJ83BE
-                            <br>
-                            g23cBA==
-                            <br>
-                            =zRik
-                            <br>
-                            -----END PGP PUBLIC KEY BLOCK-----
-                        </div>
-                        <br>
-                        <br>
+            <div class="content-title">
+                <%= contactData.title %>
+            </div>
+            <div class="content-desc">
+                <%= contactData.description %>
+            </div>
+            <div class="content-center">
+                <div class="content-info">
+                    <div class="button-container">
+                        <% contactData.options.forEach(function(option) { %>
+                        <a href="<%= option.url %>" class="button-link" title="<%= option.name %>"><span
+                                class="<%= option.icon %>"></span></a>
+                        <% }); %>
                     </div>
+                    <br>
+                    <br>
+                    <div class="sub-header">PGP for email</div>
+                    <br>
+                    <div class="sub-header">Type:</div>
+                    <span class="quote">ECC (ed25519)</span>
+                    <br>
+                    <br>
+                    <div class="sub-header">Fingerprint:</div>
+                    <span class="quote">87DC 2D58 5EEF D7BB 0D89 8EA1 879C 059C FE7B AEE4</span>
+                    <br>
+                    <br>
+                    <div class="sub-header">Public key:</div>
+                    <div class="quote quote-blk">
+                        -----BEGIN PGP PUBLIC KEY BLOCK-----
+                        <br>
+                        xjMEXMHO9xYJKwYBBAHaRw8BAQdApk/6iGiGHVmWekpaGRWxnaJp0gdRGJgS
+                        <br>
+                        peec7evKwgfNHyJjb3JlQHVpbnQuZGV2IiA8Y29yZUB1aW50LmRldj7CdwQQ
+                        <br>
+                        FgoAHwUCXMHO9wYLCQcIAwIEFQgKAgMWAgECGQECGwMCHgEACgkQh5wFnP57
+                        <br>
+                        ruRacQD+IgM4bRXXs9kuq8zyMZnU7TZaERnd8HLeNvQ+OcgEAgQA/japRSMq
+                        <br>
+                        NEbb+AUjXkp5N8evIDcUvF65rA4UDOMRrW0DzjgEXMHO9xIKKwYBBAGXVQEF
+                        <br>
+                        AQEHQIbWBu1tV2OMai9tyUqcbfuUZItfqeanHodnrs2kJqg1AwEIB8JhBBgW
+                        <br>
+                        CAAJBQJcwc73AhsMAAoJEIecBZz+e67k1zYA/1fbLWlWBI0tO/QF4xbqb7g3
+                        <br>
+                        ccZpyDCQzozkq6+YlMisAQDpaUtzoR+8qmrnhTzdLrVEqg+KWRc0EtdJ83BE
+                        <br>
+                        g23cBA==
+                        <br>
+                        =zRik
+                        <br>
+                        -----END PGP PUBLIC KEY BLOCK-----
+                    </div>
+                    <br>
+                    <br>
                 </div>
+            </div>
         </section>
         <span class="fab-scroll hide"><span class="fab-scroll-icon"></span></span>
     </main>

@@ -95,8 +95,8 @@
             height: 80px;
             width: 80px;
 
-            -webkit-filter: brightness(1.0);
-            filter: brightness(1.0);
+            -webkit-filter: brightness(1);
+            filter: brightness(1);
             transition: -webkit-filter 0.2s;
             transition: filter 0.2s;
         }

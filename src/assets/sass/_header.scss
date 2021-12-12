@@ -1,7 +1,7 @@
 header {
     position: sticky;
     top: 0;
-    background-color: rgba(var(--color-secondary), .4);
+    background-color: rgba(var(--color-secondary), 0.4);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     user-select: none;
@@ -12,7 +12,6 @@ header {
     display: flex;
     justify-content: space-between;
     padding: 20px 30px 20px 30px;
-
 
     &.hide {
         top: -100px;

@@ -109,7 +109,7 @@
     }
 }
 
-[color-scheme="light"] {
+[color-scheme='light'] {
     color-scheme: light;
 
     --color-primary: var(--color-primary-light);
@@ -136,7 +136,7 @@
     --color-theme-invert-icon: var(--color-theme-invert-icon-light);
 }
 
-[color-scheme="dark"] {
+[color-scheme='dark'] {
     color-scheme: dark;
 
     --color-primary: var(--color-primary-dark);

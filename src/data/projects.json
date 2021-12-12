@@ -8,10 +8,7 @@
             "description": "Transfer files with ease over a network.",
             "url": "https://github.com/uintdev/qrserv",
             "archived": false,
-            "tags": [
-                "Flutter",
-                "Dart"
-            ]
+            "tags": ["Flutter", "Dart"]
         },
         {
             "name": "uintdev_web",
@@ -19,11 +16,7 @@
             "description": "Modular main website, with a touch of webpack and some transpiling.",
             "url": "https://github.com/uintdev/uintdev_web",
             "archived": false,
-            "tags": [
-                "Webpack",
-                "TypeScript",
-                "SASS"
-            ]
+            "tags": ["Webpack", "TypeScript", "SASS"]
         },
         {
             "name": "Discord Cache Dump",
@@ -31,9 +24,7 @@
             "description": "Save and identify cached files from Discord's desktop clients.",
             "url": "https://github.com/uintdev/Discord-Cache-Dump",
             "archived": false,
-            "tags": [
-                "Go"
-            ]
+            "tags": ["Go"]
         },
         {
             "name": "Msg",
@@ -41,11 +32,7 @@
             "description": "Modern mobile messaging web application.",
             "url": "https://github.com/uintdev/Msg",
             "archived": false,
-            "tags": [
-                "PHP",
-                "JavaScript",
-                "MySQL"
-            ]
+            "tags": ["PHP", "JavaScript", "MySQL"]
         },
         {
             "name": "Discord Invite Gateway",
@@ -53,11 +40,7 @@
             "description": "Discord invites with an additional protective layer.",
             "url": "https://github.com/uintdev/Discord-Invite-Gateway",
             "archived": true,
-            "tags": [
-                "PHP",
-                "JavaScript",
-                "CSS"
-            ]
+            "tags": ["PHP", "JavaScript", "CSS"]
         },
         {
             "name": "Ducky HID WSI",
@@ -65,9 +48,7 @@
             "description": "Custom USB Rubber Ducky HID only firmware with status indication.",
             "archived": true,
             "url": "https://github.com/uintdev/Ducky_HID_WSI",
-            "tags": [
-                "C"
-            ]
+            "tags": ["C"]
         }
     ]
 }
