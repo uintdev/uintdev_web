@@ -41,11 +41,11 @@ header {
         @include ripple-init(true, true);
 
         &:focus {
-            cursor: none;
-
+            outline: dashed var(--color-theme-invert);
             @media (hover: none) {
-                outline: dashed var(--color-theme-invert);
+                outline: none;
             }
+            background-color: var(--color-theme-invert-focus);
         }
 
         &:focus:not(:focus-visible) {
