@@ -18,48 +18,48 @@
         @include ripple-init();
 
         border: 0;
-        border-radius: var(--card-radius);
-        color: var(--primary);
-        background-color: var(--third);
+        border-radius: var(--radius-card);
+        color: var(--color-primary);
+        background-color: var(--color-third);
 
         transition: background-color 0.2s;
 
         &:focus {
-            background-color: var(--third-focus);
+            background-color: var(--color-third-focus);
 
             .tag-container .tag {
-                background-color: var(--secondary-focus);
+                background-color: var(--color-secondary-focus);
             }
 
             .archived {
-                background-color: var(--archived-focus);
+                background-color: var(--color-archived-focus);
             }
 
             .thumb {
-                -webkit-filter: brightness(var(--card-thumb-focus));
-                filter: brightness(var(--card-thumb-focus));
+                -webkit-filter: brightness(var(--brightness-card-thumb-focus));
+                filter: brightness(var(--brightness-card-thumb-focus));
             }
         }
 
         &:hover {
-            background-color: var(--third-hover);
+            background-color: var(--color-third-hover);
 
             .tag-container .tag {
-                background-color: var(--secondary-hover);
+                background-color: var(--color-secondary-hover);
             }
 
             .archived {
-                background-color: var(--archived-hover);
+                background-color: var(--color-archived-hover);
             }
 
             .thumb {
-                -webkit-filter: brightness(var(--card-thumb-hover));
-                filter: brightness(var(--card-thumb-hover));
+                -webkit-filter: brightness(var(--brightness-card-thumb-hover));
+                filter: brightness(var(--brightness-card-thumb-hover));
             }
         }
 
         .preview {
-            border-radius: var(--card-radius) var(--card-radius) 0px 0px;
+            border-radius: var(--radius-card) var(--radius-card) 0px 0px;
             padding: 28px 35px 0px 35px;
         }
 
@@ -67,8 +67,8 @@
             float: right;
             border-radius: 13px;
             padding: 10px 15px 10px 15px;
-            background-color: var(--archived);
-            color: var(--archived-text);
+            background-color: var(--color-archived);
+            color: var(--color-archived-text);
             font-size: 85%;
             transition: background-color 0.2s;
         }
@@ -136,7 +136,7 @@
         margin-top: 20px;
 
         .tag {
-            background-color: var(--secondary);
+            background-color: var(--color-secondary);
             padding: 10px 14px;
             border-radius: 10px;
             @include box-shadow(2);

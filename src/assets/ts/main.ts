@@ -69,8 +69,8 @@ function headerController(): void {
             headerEle.classList.remove('hide');
             headerActive = true;
         }
-    } else if (headerActive && window.scrollY > 50
-        && window.scrollY > headerPast) {
+    } else if (headerActive && window.scrollY > 50 &&
+        window.scrollY > headerPast) {
         if (headerState !== headerStates.HIDE) {
             headerState = headerStates.HIDE;
             headerEle.classList.add('hide');
@@ -200,15 +200,108 @@ function createRipple(event: InputHybridEvent): void {
             case 'fab-scroll':
                 scrollAnimate('body');
                 break;
+            case 'theme-invert':
+                setTheme()
+                break;
         }
     }, 400);
 }
 
+/**
+ * Gather current theme
+ * @method getTheme
+ * @returns {string}
+ */
+function getTheme(): string {
+    let fallbackTheme = 'dark';
+
+    if (document.documentElement.hasAttribute('color-scheme')) {
+        return document.documentElement.getAttribute('color-scheme');
+    } else if (window.matchMedia) {
+        let schemeDark = '(prefers-color-scheme: dark)';
+        let schemeLight = '(prefers-color-scheme: light)';
+        if (window.matchMedia(schemeDark).matches) {
+            return 'dark';
+        } else if (window.matchMedia(schemeLight).matches) {
+            return 'light';
+        } else {
+            return fallbackTheme;
+        }
+    } else {
+        return fallbackTheme;
+    }
+}
+
+/**
+ * Set theme
+ * @method setTheme
+ * @returns {string}
+ */
+function setTheme(): void {
+    let nextTheme: string;
+    let autoTheme = false;
+    let currentTheme = getTheme();
+
+    if (currentTheme === 'dark') {
+        nextTheme = 'light';
+    } else if (currentTheme === 'light') {
+        nextTheme = 'dark';
+    }
+
+    if (window.matchMedia) {
+        let schemeDark = '(prefers-color-scheme: dark)';
+        let schemeLight = '(prefers-color-scheme: light)';
+        if (window.matchMedia(schemeDark).matches && nextTheme === 'dark') {
+            document.documentElement.removeAttribute('color-scheme');
+            autoTheme = true;
+        } else if (window.matchMedia(schemeLight).matches && nextTheme === 'light') {
+            document.documentElement.removeAttribute('color-scheme');
+            autoTheme = true;
+        }
+
+        if (autoTheme) {
+            let themeIndex = 0;
+            let themeData: string;
+            document.querySelectorAll('meta[name="theme-color"]')
+                .forEach(function (ele) {
+                    themeData = originalThemeColors[themeIndex];
+                    ele.setAttribute('content', themeData);
+                    themeIndex++;
+                });
+        }
+    }
+
+    if (!autoTheme) {
+        let colorTheme: string;
+        if (nextTheme === 'dark') {
+            document.documentElement.setAttribute('color-scheme', 'dark');
+            colorTheme = originalThemeColors[0];
+        } else if (nextTheme === 'light') {
+            document.documentElement.setAttribute('color-scheme', 'light');
+            colorTheme = originalThemeColors[1];
+        }
+        document.querySelectorAll('meta[name="theme-color"]')
+            .forEach(function (ele) {
+                ele.setAttribute('content', colorTheme);
+            });
+    }
+}
+
+var originalThemeColors: Array<string> = [];
 
 window.onload = function () {
-    document.querySelectorAll('.fab-scroll, .button-link, .card')
+    // Set up listener
+    document.querySelectorAll('.fab-scroll, .button-link, .card, .theme-invert')
         .forEach(function (ele) {
             ele.addEventListener('click', createRipple);
+        });
+
+    // Build list of themes
+    document.querySelectorAll('meta[name="theme-color"]')
+        .forEach(function (ele) {
+            originalThemeColors.push(
+                ele.getAttribute('content')
+            );
         });
 
     // Initiate and listen to header & FAB

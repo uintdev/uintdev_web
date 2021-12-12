@@ -4,14 +4,14 @@ html {
 }
 
 :root {
-    accent-color: var(--accent);
+    accent-color: var(--color-accent);
 }
 
 body {
     margin: 0;
     font-family: var(--font-stack);
-    color: var(--primary);
-    background-color: var(--secondary);
+    color: var(--color-primary);
+    background-color: var(--color-secondary);
 }
 
 a {

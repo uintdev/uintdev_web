@@ -15,7 +15,6 @@
         <meta name="twitter:card" content="summary">
         <meta property="twitter:title" content="<%= metaData.title %>">
         <meta name="twitter:site" content="<%= metaData.twitter %>">
-        <meta name="theme-color" content="<%= metaData.theme %>">
         <meta name="theme-color" content="<%= metaData.theme.dark %>" media="(prefers-color-scheme: dark)">
         <meta name="theme-color" content="<%= metaData.theme.light %>" media="(prefers-color-scheme: light)">
         <title><%= metaData.title %></title>
@@ -29,6 +28,9 @@
 <body>
     <header>
         <span class="title">uint.dev</span>
+        <a href="javascript:void(0)" class="theme-invert" title="Invert theme">
+            <span class="theme-invert-icon"></span>
+        </a>
     </header>
     <main>
         <div class="init-blk">

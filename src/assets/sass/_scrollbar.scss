@@ -7,10 +7,10 @@
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: var(--thumb);
+    background-color: var(--color-thumb);
     border-radius: 20px;
 
     &:hover {
-        background-color: var(--thumb-hover);
+        background-color: var(--color-thumb-hover);
     }
 }

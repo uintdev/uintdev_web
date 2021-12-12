@@ -1,5 +1,5 @@
 .fab-scroll {
-    background-color: var(--third);
+    background-color: var(--color-third);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -17,7 +17,7 @@
     @include ripple-init(true);
 
     &:hover {
-        background-color: var(--third-hover);
+        background-color: var(--color-third-hover);
     }
 
     &.hide {
@@ -26,10 +26,10 @@
 
     .fab-scroll-icon {
         @include image-loader('fab/up-arrow.svg', true);
-        background-color: var(--primary);
+        background-color: var(--color-primary);
         background-position: 50%;
         background-repeat: no-repeat;
         padding-top: 70px;
-        width: 100px;
+        width: 100%;
     }
 }

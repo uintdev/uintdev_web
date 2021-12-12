@@ -7,9 +7,9 @@
     align-items: stretch;
 
     .pill {
-        border-radius: var(--pill-radius);
-        color: var(--primary);
-        background-color: var(--third);
+        border-radius: var(--radius-pill);
+        color: var(--color-primary);
+        background-color: var(--color-third);
         padding: 13px 23px;
         font-size: 80%;
         @include box-shadow(2);

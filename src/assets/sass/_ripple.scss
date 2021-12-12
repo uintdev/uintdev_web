@@ -3,7 +3,7 @@ span.ripple {
     border-radius: 50%;
     transform: scale(0);
     animation: ripple 450ms linear;
-    background-color: var(--ripple);
+    background-color: var(--color-ripple);
 }
 
 @keyframes ripple {

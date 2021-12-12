@@ -49,7 +49,7 @@
     font-size: 110%;
 }
 
-@mixin ripple-init($overridePosition: false) {
+@mixin ripple-init($overridePosition: false, $invertRipple: false) {
     @if $overridePosition==false {
         position: relative;
     }
@@ -64,6 +64,13 @@
     @media (hover: none) {
         cursor: none;
     }
+
+    @if $invertRipple==true {
+        span.ripple {
+            background-color: var(--color-ripple-inverted);
+        }
+    }
+
 
 }
 
