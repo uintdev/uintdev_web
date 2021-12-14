@@ -1,12 +1,13 @@
-class Theme {
-    originalThemeColors: Array<string> = []
+// Store theme color data
+let originalThemeColors: Array<string> = []
 
+class Theme {
     /**
      * Gather current theme
      * @method _get
      * @returns {string}
      */
-    _get(): string {
+    private _get(): string {
         let _fallbackTheme = 'dark'
 
         if (document.documentElement.hasAttribute('color-scheme')) {
@@ -65,7 +66,7 @@ class Theme {
                 document
                     .querySelectorAll('meta[name="theme-color"]')
                     .forEach(function (ele) {
-                        _themeData = this.originalThemeColors[_themeIndex]
+                        _themeData = originalThemeColors[_themeIndex]
                         ele.setAttribute('content', _themeData)
                         _themeIndex++
                     })
@@ -76,10 +77,10 @@ class Theme {
             let _colorTheme: string
             if (_nextTheme === 'dark') {
                 document.documentElement.setAttribute('color-scheme', 'dark')
-                _colorTheme = this.originalThemeColors[0]
+                _colorTheme = originalThemeColors[0]
             } else if (_nextTheme === 'light') {
                 document.documentElement.setAttribute('color-scheme', 'light')
-                _colorTheme = this.originalThemeColors[1]
+                _colorTheme = originalThemeColors[1]
             }
             document
                 .querySelectorAll('meta[name="theme-color"]')
@@ -189,6 +190,24 @@ class UIController {
             })
         }
     }
+
+    /**
+     * Determine offsets of element
+     * @method offset
+     * @param ele {HTMLElement} HTML element
+     * @returns {OffsetProps}
+     */
+    offset(ele: HTMLElement): OffsetProps {
+        let _rect = ele.getBoundingClientRect(),
+            _scrollLeft =
+                window.pageXOffset || document.documentElement.scrollLeft,
+            _scrollTop =
+                window.pageYOffset || document.documentElement.scrollTop
+        return {
+            top: _rect.top + _scrollTop,
+            left: _rect.left + _scrollLeft,
+        }
+    }
 }
 
 const uiController = new UIController()
@@ -211,25 +230,7 @@ interface InputHybridEvent {
 }
 
 class Ripple {
-    selector = '.fab-scroll, .button-link, .card, .theme-invert'
-
-    /**
-     * Determine offsets of element
-     * @method _offset
-     * @param ele {HTMLElement} HTML element
-     * @returns {OffsetProps}
-     */
-    static _offset(ele: HTMLElement): OffsetProps {
-        let _rect = ele.getBoundingClientRect(),
-            _scrollLeft =
-                window.pageXOffset || document.documentElement.scrollLeft,
-            _scrollTop =
-                window.pageYOffset || document.documentElement.scrollTop
-        return {
-            top: _rect.top + _scrollTop,
-            left: _rect.left + _scrollLeft,
-        }
-    }
+    readonly selector = '.fab-scroll, .button-link, .card, .theme-invert'
 
     /**
      * Create ripple effect
@@ -237,7 +238,7 @@ class Ripple {
      * @param event {InputHybridEvent} Mouse, keyboard and touch input event
      * @returns {void}
      */
-    static create(event: InputHybridEvent): void {
+    create(event: InputHybridEvent): void {
         event.preventDefault()
 
         const _button = event.currentTarget as HTMLElement
@@ -264,9 +265,12 @@ class Ripple {
             _circle.style.left = `${
                 +event.pageX - _button.offsetLeft - _radius
             }px`
-            _circle.style.top = `${
-                +event.pageY - this._offset(_button).top - _radius
-            }px`
+            _circle.style.top =
+                (
+                    +event.pageY -
+                    uiController.offset(_button).top -
+                    _radius
+                ).toString() + 'px'
         } else {
             _circle.style.left = '0px'
             _circle.style.top = '0px'
@@ -331,14 +335,14 @@ const egg = new Egg()
 window.onload = function () {
     // Set up listener
     document.querySelectorAll(ripple.selector).forEach(function (ele) {
-        ele.addEventListener('click', Ripple.create)
+        ele.addEventListener('click', ripple.create)
     })
 
     // Build list of themes
     document
         .querySelectorAll('meta[name="theme-color"]')
         .forEach(function (ele) {
-            theme.originalThemeColors.push(ele.getAttribute('content'))
+            originalThemeColors.push(ele.getAttribute('content'))
         })
 
     // Initiate and listen to header & FAB
