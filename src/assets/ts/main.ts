@@ -109,8 +109,8 @@ enum fabStates {
 
 class UIController {
     // Manage header state
-    _headerActive = false
     _headerPast = window.scrollY
+    _headerActive = false
     _headerState = headerStates.NULL
 
     /**
@@ -147,8 +147,8 @@ class UIController {
     }
 
     // Initiate FAB state
+    readonly _fabZone = 200
     _fabActive = false
-    _fabZone = 200
     _fabState = fabStates.NULL
 
     /**
