@@ -283,10 +283,10 @@ class Ripple {
 
         _button.appendChild(_circle)
 
-        let targetClass = _button.classList.item(0)
+        let _targetClass = _button.classList.item(0)
 
         setTimeout(function () {
-            switch (targetClass) {
+            switch (_targetClass) {
                 case 'card':
                 case 'button-link':
                     location.href = _button.getAttribute('href')
