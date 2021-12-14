@@ -220,13 +220,14 @@ class Ripple {
      * @returns {OffsetProps}
      */
     static _offset(ele: HTMLElement): OffsetProps {
-        let rect = ele.getBoundingClientRect(),
-            scrollLeft =
+        let _rect = ele.getBoundingClientRect(),
+            _scrollLeft =
                 window.pageXOffset || document.documentElement.scrollLeft,
-            scrollTop = window.pageYOffset || document.documentElement.scrollTop
+            _scrollTop =
+                window.pageYOffset || document.documentElement.scrollTop
         return {
-            top: rect.top + scrollTop,
-            left: rect.left + scrollLeft,
+            top: _rect.top + _scrollTop,
+            left: _rect.left + _scrollLeft,
         }
     }
 
