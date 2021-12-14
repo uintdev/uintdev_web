@@ -1,48 +1,96 @@
-/**
- * Smooth scroll transition
- * @method scrollAnimate
- * @param ele {string} HTML element ID or query
- * @returns {void}
- */
-function scrollAnimate(ele: string): void {
-    let eleObj =
-        document.getElementById(ele) ?? document.querySelector(ele) ?? null
-    if (eleObj === null) {
-        console.error(
-            'Attempted to scroll to element that does not exist: ' + ele
-        )
-    } else {
-        window.scrollTo({
-            top: eleObj.offsetTop,
-            behavior: 'smooth',
-        })
+class Theme {
+    originalThemeColors: Array<string> = []
+
+    /**
+     * Gather current theme
+     * @method _get
+     * @returns {string}
+     */
+    _get(): string {
+        let _fallbackTheme = 'dark'
+
+        if (document.documentElement.hasAttribute('color-scheme')) {
+            return document.documentElement.getAttribute('color-scheme')
+        } else if (window.matchMedia) {
+            let _schemeDark = '(prefers-color-scheme: dark)'
+            let _schemeLight = '(prefers-color-scheme: light)'
+            if (window.matchMedia(_schemeDark).matches) {
+                return 'dark'
+            } else if (window.matchMedia(_schemeLight).matches) {
+                return 'light'
+            } else {
+                return _fallbackTheme
+            }
+        } else {
+            return _fallbackTheme
+        }
+    }
+
+    /**
+     * Set theme
+     * @method set
+     * @returns {string}
+     */
+    set(): void {
+        let _nextTheme: string
+        let _autoTheme = false
+        let _currentTheme = this._get()
+
+        if (_currentTheme === 'dark') {
+            _nextTheme = 'light'
+        } else if (_currentTheme === 'light') {
+            _nextTheme = 'dark'
+        }
+
+        if (window.matchMedia) {
+            let _schemeDark = '(prefers-color-scheme: dark)'
+            let _schemeLight = '(prefers-color-scheme: light)'
+            if (
+                window.matchMedia(_schemeDark).matches &&
+                _nextTheme === 'dark'
+            ) {
+                document.documentElement.removeAttribute('color-scheme')
+                _autoTheme = true
+            } else if (
+                window.matchMedia(_schemeLight).matches &&
+                _nextTheme === 'light'
+            ) {
+                document.documentElement.removeAttribute('color-scheme')
+                _autoTheme = true
+            }
+
+            if (_autoTheme) {
+                let _themeIndex = 0
+                let _themeData: string
+                document
+                    .querySelectorAll('meta[name="theme-color"]')
+                    .forEach(function (ele) {
+                        _themeData = this.originalThemeColors[_themeIndex]
+                        ele.setAttribute('content', _themeData)
+                        _themeIndex++
+                    })
+            }
+        }
+
+        if (!_autoTheme) {
+            let _colorTheme: string
+            if (_nextTheme === 'dark') {
+                document.documentElement.setAttribute('color-scheme', 'dark')
+                _colorTheme = this.originalThemeColors[0]
+            } else if (_nextTheme === 'light') {
+                document.documentElement.setAttribute('color-scheme', 'light')
+                _colorTheme = this.originalThemeColors[1]
+            }
+            document
+                .querySelectorAll('meta[name="theme-color"]')
+                .forEach(function (ele) {
+                    ele.setAttribute('content', _colorTheme)
+                })
+        }
     }
 }
 
-interface OffsetProps {
-    top: number
-    left: number
-}
-
-/**
- * Determine offsets of element
- * @method offset
- * @param ele {HTMLElement} HTML element
- * @returns {OffsetProps}
- */
-function offset(ele: HTMLElement): OffsetProps {
-    let rect = ele.getBoundingClientRect(),
-        scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
-        scrollTop = window.pageYOffset || document.documentElement.scrollTop
-    return {
-        top: rect.top + scrollTop,
-        left: rect.left + scrollLeft,
-    }
-}
-
-// Manage header state
-let headerActive = false
-let headerPast = window.scrollY
+const theme = new Theme()
 
 // Header state types
 enum headerStates {
@@ -52,45 +100,6 @@ enum headerStates {
     NULL,
 }
 
-let headerState = headerStates.NULL
-
-/**
- * Controls header state
- * @method headerController
- * @returns {void}
- */
-function headerController(): void {
-    let headerEle = document.getElementsByTagName('header')[0]
-    if (!headerActive && window.scrollY <= headerPast) {
-        headerPast = window.scrollY
-        if (headerState !== headerStates.SHOW) {
-            headerState = headerStates.SHOW
-            headerEle.classList.remove('hide')
-            headerActive = true
-        }
-    } else if (
-        headerActive &&
-        window.scrollY > 50 &&
-        window.scrollY > headerPast
-    ) {
-        if (headerState !== headerStates.HIDE) {
-            headerState = headerStates.HIDE
-            headerEle.classList.add('hide')
-            headerActive = false
-        }
-    } else if (!headerActive && window.scrollY > 0) {
-        if (headerState !== headerStates.ONLOAD) {
-            headerState = headerStates.ONLOAD
-            headerEle.classList.add('hide')
-        }
-    }
-    headerPast = window.scrollY
-}
-
-// Initiate FAB state
-let fabActive = false
-const fabZone = 200
-
 // FAB state types
 enum fabStates {
     SHOW,
@@ -98,44 +107,96 @@ enum fabStates {
     NULL,
 }
 
-let fabState = fabStates.NULL
+class UIController {
+    // Manage header state
+    _headerActive = false
+    _headerPast = window.scrollY
+    _headerState = headerStates.NULL
 
-/**
- * Controls FAB (floating action button) state
- * @method fabController
- * @returns {void}
- */
-function fabController(): void {
-    let fabEle = document.getElementsByClassName('fab-scroll')[0]
-    if (fabActive && window.scrollY <= fabZone) {
-        if (fabState === fabStates.HIDE) return
-        fabEle.classList.add('hide')
-        fabActive = false
-    } else if (!fabActive && window.scrollY > fabZone) {
-        if (fabState === fabStates.SHOW) return
-        fabEle.classList.remove('hide')
-        fabActive = true
+    /**
+     * Controls header state
+     * @method header
+     * @returns {void}
+     */
+    header(): void {
+        let headerEle = document.getElementsByTagName('header')[0]
+        if (!this._headerActive && window.scrollY <= this._headerPast) {
+            this._headerPast = window.scrollY
+            if (this._headerState !== headerStates.SHOW) {
+                this._headerState = headerStates.SHOW
+                headerEle.classList.remove('hide')
+                this._headerActive = true
+            }
+        } else if (
+            this._headerActive &&
+            window.scrollY > 50 &&
+            window.scrollY > this._headerPast
+        ) {
+            if (this._headerState !== headerStates.HIDE) {
+                this._headerState = headerStates.HIDE
+                headerEle.classList.add('hide')
+                this._headerActive = false
+            }
+        } else if (!this._headerActive && window.scrollY > 0) {
+            if (this._headerState !== headerStates.ONLOAD) {
+                this._headerState = headerStates.ONLOAD
+                headerEle.classList.add('hide')
+            }
+        }
+        this._headerPast = window.scrollY
+    }
+
+    // Initiate FAB state
+    _fabActive = false
+    _fabZone = 200
+    _fabState = fabStates.NULL
+
+    /**
+     * Controls FAB (floating action button) state
+     * @method fab
+     * @returns {void}
+     */
+    fab(): void {
+        let fabEle = document.getElementsByClassName('fab-scroll')[0]
+        if (this._fabActive && window.scrollY <= this._fabZone) {
+            if (this._fabState === fabStates.HIDE) return
+            fabEle.classList.add('hide')
+            this._fabActive = false
+        } else if (!this._fabActive && window.scrollY > this._fabZone) {
+            if (this._fabState === fabStates.SHOW) return
+            fabEle.classList.remove('hide')
+            this._fabActive = true
+        }
+    }
+
+    /**
+     * Smooth scroll transition
+     * @method scroll
+     * @param ele {string} HTML element ID or query selector
+     * @returns {void}
+     */
+    scroll(ele: string): void {
+        let eleObj =
+            document.getElementById(ele) ?? document.querySelector(ele) ?? null
+        if (eleObj === null) {
+            console.error(
+                'Attempted to scroll to element that does not exist: ' + ele
+            )
+        } else {
+            window.scrollTo({
+                top: eleObj.offsetTop,
+                behavior: 'smooth',
+            })
+        }
     }
 }
 
-let pressedKeys: string
+const uiController = new UIController()
 
-/**
- * Easter egg -- wait, this shouldn't be documented...
- * @method eggTrip
- * @param event {KeyboardEvent} Event information from the keyboard
- * @returns {void}
- */
-function eggTrip(event: KeyboardEvent): void {
-    pressedKeys += event.code
-    if (
-        pressedKeys.match(
-            /ArrowUpArrowUpArrowDownArrowDownArrowLeftArrowRightArrowLeftArrowRightKeyBKeyAEnter$/g
-        )
-    ) {
-        document.removeEventListener('keydown', eggTrip)
-        console.log('do something fancy')
-    }
+// Offset property types
+interface OffsetProps {
+    top: number
+    left: number
 }
 
 // Create an interface that allows mouse, touch and keyboard properties
@@ -149,181 +210,143 @@ interface InputHybridEvent {
     pageY?: Number
 }
 
-/**
- * Create ripple effect
- * @method createRipple
- * @param event {InputHybridEvent} Mouse, keyboard and touch input event
- * @returns {void}
- */
-function createRipple(event: InputHybridEvent): void {
-    event.preventDefault()
+class Ripple {
+    selector = '.fab-scroll, .button-link, .card, .theme-invert'
 
-    const button = event.currentTarget as HTMLElement
-
-    const circle = document.createElement('span')
-    const diameter = Math.max(button.clientWidth, button.clientHeight)
-    const radius = diameter / 2
-
-    let inputKeyboard = false
-
-    let inputDetail = event.detail
-    let inputPointerId = event.pointerId
-    let inputMozSrc = event.mozInputSource
-
-    if (
-        (typeof inputMozSrc !== 'undefined' && inputMozSrc === 6) ||
-        (inputPointerId === -1 && inputDetail === 0)
-    ) {
-        inputKeyboard = true
-    }
-
-    circle.style.width = circle.style.height = `${diameter}px`
-    if (!inputKeyboard) {
-        circle.style.left = `${+event.pageX - button.offsetLeft - radius}px`
-        circle.style.top = `${+event.pageY - offset(button).top - radius}px`
-    } else {
-        circle.style.left = '0px'
-        circle.style.top = '0px'
-    }
-
-    circle.classList.add('ripple')
-
-    const ripple = button.getElementsByClassName('ripple')
-    var rippleEle = ripple[ripple.length - 1]
-
-    if (rippleEle) {
-        rippleEle.remove()
-    }
-
-    button.appendChild(circle)
-
-    let targetClass = button.classList.item(0)
-
-    setTimeout(function () {
-        switch (targetClass) {
-            case 'card':
-            case 'button-link':
-                location.href = button.getAttribute('href')
-                break
-            case 'fab-scroll':
-                scrollAnimate('body')
-                break
-            case 'theme-invert':
-                setTheme()
-                break
+    /**
+     * Determine offsets of element
+     * @method _offset
+     * @param ele {HTMLElement} HTML element
+     * @returns {OffsetProps}
+     */
+    static _offset(ele: HTMLElement): OffsetProps {
+        let rect = ele.getBoundingClientRect(),
+            scrollLeft =
+                window.pageXOffset || document.documentElement.scrollLeft,
+            scrollTop = window.pageYOffset || document.documentElement.scrollTop
+        return {
+            top: rect.top + scrollTop,
+            left: rect.left + scrollLeft,
         }
-    }, 400)
-}
-
-/**
- * Gather current theme
- * @method getTheme
- * @returns {string}
- */
-function getTheme(): string {
-    let fallbackTheme = 'dark'
-
-    if (document.documentElement.hasAttribute('color-scheme')) {
-        return document.documentElement.getAttribute('color-scheme')
-    } else if (window.matchMedia) {
-        let schemeDark = '(prefers-color-scheme: dark)'
-        let schemeLight = '(prefers-color-scheme: light)'
-        if (window.matchMedia(schemeDark).matches) {
-            return 'dark'
-        } else if (window.matchMedia(schemeLight).matches) {
-            return 'light'
-        } else {
-            return fallbackTheme
-        }
-    } else {
-        return fallbackTheme
-    }
-}
-
-/**
- * Set theme
- * @method setTheme
- * @returns {string}
- */
-function setTheme(): void {
-    let nextTheme: string
-    let autoTheme = false
-    let currentTheme = getTheme()
-
-    if (currentTheme === 'dark') {
-        nextTheme = 'light'
-    } else if (currentTheme === 'light') {
-        nextTheme = 'dark'
     }
 
-    if (window.matchMedia) {
-        let schemeDark = '(prefers-color-scheme: dark)'
-        let schemeLight = '(prefers-color-scheme: light)'
-        if (window.matchMedia(schemeDark).matches && nextTheme === 'dark') {
-            document.documentElement.removeAttribute('color-scheme')
-            autoTheme = true
-        } else if (
-            window.matchMedia(schemeLight).matches &&
-            nextTheme === 'light'
+    /**
+     * Create ripple effect
+     * @method create
+     * @param event {InputHybridEvent} Mouse, keyboard and touch input event
+     * @returns {void}
+     */
+    static create(event: InputHybridEvent): void {
+        event.preventDefault()
+
+        const _button = event.currentTarget as HTMLElement
+
+        const _circle = document.createElement('span')
+        const _diameter = Math.max(_button.clientWidth, _button.clientHeight)
+        const _radius = _diameter / 2
+
+        let _inputKeyboard = false
+
+        let _inputDetail = event.detail
+        let _inputPointerId = event.pointerId
+        let _inputMozSrc = event.mozInputSource
+
+        if (
+            (typeof _inputMozSrc !== 'undefined' && _inputMozSrc === 6) ||
+            (_inputPointerId === -1 && _inputDetail === 0)
         ) {
-            document.documentElement.removeAttribute('color-scheme')
-            autoTheme = true
+            _inputKeyboard = true
         }
 
-        if (autoTheme) {
-            let themeIndex = 0
-            let themeData: string
-            document
-                .querySelectorAll('meta[name="theme-color"]')
-                .forEach(function (ele) {
-                    themeData = originalThemeColors[themeIndex]
-                    ele.setAttribute('content', themeData)
-                    themeIndex++
-                })
+        _circle.style.width = _circle.style.height = `${_diameter}px`
+        if (!_inputKeyboard) {
+            _circle.style.left = `${
+                +event.pageX - _button.offsetLeft - _radius
+            }px`
+            _circle.style.top = `${
+                +event.pageY - this._offset(_button).top - _radius
+            }px`
+        } else {
+            _circle.style.left = '0px'
+            _circle.style.top = '0px'
         }
-    }
 
-    if (!autoTheme) {
-        let colorTheme: string
-        if (nextTheme === 'dark') {
-            document.documentElement.setAttribute('color-scheme', 'dark')
-            colorTheme = originalThemeColors[0]
-        } else if (nextTheme === 'light') {
-            document.documentElement.setAttribute('color-scheme', 'light')
-            colorTheme = originalThemeColors[1]
+        _circle.classList.add('ripple')
+
+        const _ripple = _button.getElementsByClassName('ripple')
+        let _rippleEle = _ripple[_ripple.length - 1]
+
+        if (_rippleEle) {
+            _rippleEle.remove()
         }
-        document
-            .querySelectorAll('meta[name="theme-color"]')
-            .forEach(function (ele) {
-                ele.setAttribute('content', colorTheme)
-            })
+
+        _button.appendChild(_circle)
+
+        let targetClass = _button.classList.item(0)
+
+        setTimeout(function () {
+            switch (targetClass) {
+                case 'card':
+                case 'button-link':
+                    location.href = _button.getAttribute('href')
+                    break
+                case 'fab-scroll':
+                    uiController.scroll('body')
+                    break
+                case 'theme-invert':
+                    theme.set()
+                    break
+            }
+        }, 400)
     }
 }
 
-var originalThemeColors: Array<string> = []
+const ripple = new Ripple()
+
+class Egg {
+    _pressedKeys: string
+
+    /**
+     * Easter egg -- wait, this shouldn't be documented...
+     * @method init
+     * @param event {KeyboardEvent} Event information from the keyboard
+     * @returns {void}
+     */
+    init(event: KeyboardEvent): void {
+        this._pressedKeys += event.code
+        if (
+            this._pressedKeys.match(
+                /ArrowUpArrowUpArrowDownArrowDownArrowLeftArrowRightArrowLeftArrowRightKeyBKeyAEnter$/g
+            )
+        ) {
+            document.removeEventListener('keydown', this.init)
+            console.log('do something fancy')
+        }
+    }
+}
+
+const egg = new Egg()
 
 window.onload = function () {
     // Set up listener
-    document
-        .querySelectorAll('.fab-scroll, .button-link, .card, .theme-invert')
-        .forEach(function (ele) {
-            ele.addEventListener('click', createRipple)
-        })
+    document.querySelectorAll(ripple.selector).forEach(function (ele) {
+        ele.addEventListener('click', Ripple.create)
+    })
 
     // Build list of themes
     document
         .querySelectorAll('meta[name="theme-color"]')
         .forEach(function (ele) {
-            originalThemeColors.push(ele.getAttribute('content'))
+            theme.originalThemeColors.push(ele.getAttribute('content'))
         })
 
     // Initiate and listen to header & FAB
-    headerController()
-    fabController()
+    uiController.header()
+    uiController.fab()
     window.onscroll = function () {
-        headerController()
-        fabController()
+        uiController.header()
+        uiController.fab()
     }
 
-    document.addEventListener('keydown', eggTrip)
+    document.addEventListener('keydown', egg.init)
 }
