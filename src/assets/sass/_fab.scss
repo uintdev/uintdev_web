@@ -33,3 +33,9 @@
         width: 100%;
     }
 }
+
+@media (prefers-reduced-motion) {
+    .fab-scroll {
+        transition: background-color 0s, bottom 0s;
+    }
+}

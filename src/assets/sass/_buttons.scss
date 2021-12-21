@@ -43,4 +43,10 @@
             width: 40px;
         }
     }
+
+    @media (prefers-reduced-motion) {
+        .button-link {
+            transition: background-color 0s;
+        }
+    }
 }

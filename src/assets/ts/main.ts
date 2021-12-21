@@ -177,6 +177,10 @@ class UIController {
      * @returns {void}
      */
     scroll(ele: string): void {
+        let reduceMotion: boolean =
+            !!window.matchMedia &&
+            window.matchMedia('(prefers-reduced-motion)').matches
+        let scrollBehavior: ScrollBehavior
         let eleObj =
             document.getElementById(ele) ?? document.querySelector(ele) ?? null
         if (eleObj === null) {
@@ -184,9 +188,13 @@ class UIController {
                 'Attempted to scroll to element that does not exist: ' + ele
             )
         } else {
+            scrollBehavior = reduceMotion
+                ? ('instant' as ScrollBehavior)
+                : ('smooth' as ScrollBehavior)
+
             window.scrollTo({
                 top: eleObj.offsetTop,
-                behavior: 'smooth',
+                behavior: scrollBehavior,
             })
         }
     }

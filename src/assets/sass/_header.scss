@@ -66,4 +66,16 @@ header {
             width: 100%;
         }
     }
+
+    @media (prefers-reduced-motion) {
+        .theme-invert {
+            transition: background-color 0s;
+        }
+    }
+}
+
+@media (prefers-reduced-motion) {
+    header {
+        transition: background-color 0s;
+    }
 }
