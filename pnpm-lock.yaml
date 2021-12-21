@@ -18,7 +18,7 @@ specifiers:
   html-webpack-plugin: ^5.5.0
   is-svg: ^4.3.2
   mini-css-extract-plugin: ^2.4.5
-  sass: ^1.45.0
+  sass: ^1.45.1
   sass-loader: ^12.4.0
   style-loader: ^3.3.1
   terser-webpack-plugin: ^5.3.0
@@ -47,8 +47,8 @@ dependencies:
   html-webpack-plugin: 5.5.0_webpack@5.65.0
   is-svg: 4.3.2
   mini-css-extract-plugin: 2.4.5_webpack@5.65.0
-  sass: 1.45.0
-  sass-loader: 12.4.0_sass@1.45.0+webpack@5.65.0
+  sass: 1.45.1
+  sass-loader: 12.4.0_sass@1.45.1+webpack@5.65.0
   style-loader: 3.3.1_webpack@5.65.0
   terser-webpack-plugin: 5.3.0_webpack@5.65.0
   ts-loader: 9.2.6_typescript@4.5.4+webpack@5.65.0
@@ -1903,7 +1903,7 @@ packages:
         optional: true
     dependencies:
       '@types/cssnano': 4.0.1
-      cssnano: 5.0.13_postcss@8.4.5
+      cssnano: 5.0.14_postcss@8.4.5
       jest-worker: 27.4.5
       postcss: 8.4.5
       schema-utils: 4.0.0
@@ -1988,14 +1988,13 @@ packages:
       postcss: 8.4.5
     dev: false
 
-  /cssnano/5.0.13_postcss@8.4.5:
-    resolution: {integrity: sha512-cAmLruIF28a7vKIOieXCTrllaLwbouxV1PPi8Z4M+XloXbmeooWAu4KhJgASo4vQUwbs2pqDgAlnZ1ZKJZKtuw==}
+  /cssnano/5.0.14_postcss@8.4.5:
+    resolution: {integrity: sha512-qzhRkFvBhv08tbyKCIfWbxBXmkIpLl1uNblt8SpTHkgLfON5OCPX/CCnkdNmEosvo8bANQYmTTMEgcVBlisHaw==}
     engines: {node: ^10 || ^12 || >=14.0}
     peerDependencies:
       postcss: ^8.2.15
     dependencies:
       cssnano-preset-default: 5.1.9_postcss@8.4.5
-      is-resolvable: 1.1.0
       lilconfig: 2.0.4
       postcss: 8.4.5
       yaml: 1.10.2
@@ -2414,10 +2413,6 @@ packages:
     engines: {node: '>=0.10.0'}
     dependencies:
       isobject: 3.0.1
-    dev: false
-
-  /is-resolvable/1.1.0:
-    resolution: {integrity: sha512-qgDYXFSR5WvEfuS5dMj6oTMEbrrSaM0CrFk2Yiq/gXnBvD9pMa2jGXxyhGLfvhZpuMZe18CJpFxAt3CRs42NMg==}
     dev: false
 
   /is-stream/2.0.1:
@@ -3246,7 +3241,7 @@ packages:
     resolution: {integrity: sha512-rp3So07KcdmmKbGvgaNxQSJr7bGVSVk5S9Eq1F+ppbRo70+YeaDxkw5Dd8NPN+GD6bjnYm2VuPuCXmpuYvmCXQ==}
     dev: false
 
-  /sass-loader/12.4.0_sass@1.45.0+webpack@5.65.0:
+  /sass-loader/12.4.0_sass@1.45.1+webpack@5.65.0:
     resolution: {integrity: sha512-7xN+8khDIzym1oL9XyS6zP6Ges+Bo2B2xbPrjdMHEYyV3AQYhd/wXeru++3ODHF0zMjYmVadblSKrPrjEkL8mg==}
     engines: {node: '>= 12.13.0'}
     peerDependencies:
@@ -3264,12 +3259,12 @@ packages:
     dependencies:
       klona: 2.0.5
       neo-async: 2.6.2
-      sass: 1.45.0
+      sass: 1.45.1
       webpack: 5.65.0_webpack-cli@4.9.1
     dev: false
 
-  /sass/1.45.0:
-    resolution: {integrity: sha512-ONy5bjppoohtNkFJRqdz1gscXamMzN3wQy1YH9qO2FiNpgjLhpz/IPRGg0PpCjyz/pWfCOaNEaiEGCcjOFAjqw==}
+  /sass/1.45.1:
+    resolution: {integrity: sha512-pwPRiq29UR0o4X3fiQyCtrESldXvUQAAE0QmcJTpsI4kuHHcLzZ54M1oNBVIXybQv8QF2zfkpFcTxp8ta97dUA==}
     engines: {node: '>=8.9.0'}
     hasBin: true
     dependencies:
