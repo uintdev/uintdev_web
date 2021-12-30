@@ -12,7 +12,7 @@ specifiers:
   '@types/webpack': ^5.28.0
   babel-loader: ^8.2.3
   css-loader: ^6.5.1
-  css-minimizer-webpack-plugin: ^3.3.0
+  css-minimizer-webpack-plugin: ^3.3.1
   file-loader: ^6.2.0
   html-loader: ^3.0.1
   html-webpack-plugin: ^5.5.0
@@ -41,7 +41,7 @@ dependencies:
   '@types/webpack': 5.28.0_webpack-cli@4.9.1
   babel-loader: 8.2.3_26251eab09162b25a254715ee98d7c5c
   css-loader: 6.5.1_webpack@5.65.0
-  css-minimizer-webpack-plugin: 3.3.0_webpack@5.65.0
+  css-minimizer-webpack-plugin: 3.3.1_webpack@5.65.0
   file-loader: 6.2.0_webpack@5.65.0
   html-loader: 3.0.1_webpack@5.65.0
   html-webpack-plugin: 5.5.0_webpack@5.65.0
@@ -1123,7 +1123,7 @@ packages:
       babel-plugin-polyfill-corejs2: 0.3.0_@babel+core@7.16.5
       babel-plugin-polyfill-corejs3: 0.4.0_@babel+core@7.16.5
       babel-plugin-polyfill-regenerator: 0.3.0_@babel+core@7.16.5
-      core-js-compat: 3.20.0
+      core-js-compat: 3.20.1
       semver: 6.3.0
     transitivePeerDependencies:
       - supports-color
@@ -1229,12 +1229,6 @@ packages:
       source-map: 0.6.1
     dev: false
 
-  /@types/cssnano/4.0.1:
-    resolution: {integrity: sha512-hGOroxRTBkYl5gSBRJOffhV4+io+Y2bFX1VP7LgKEVHJt/LPPJaWUIuDAz74Vlp7l7hCDZfaDi7iPxwNwuVA4Q==}
-    dependencies:
-      postcss: 7.0.39
-    dev: false
-
   /@types/eslint-scope/3.7.2:
     resolution: {integrity: sha512-TzgYCWoPiTeRg6RQYgtuW7iODtVoKu3RVL72k3WohqhjfaOLK5Mg2T4Tg1o2bSfu0vPkoI48wdQFv5b/Xe04wQ==}
     dependencies:
@@ -1263,8 +1257,8 @@ packages:
     resolution: {integrity: sha512-oh/6byDPnL1zeNXFrDXFLyZjkr1MsBG667IM792caf1L2UPOOMf65NFzjUH/ltyfwjAGfs1rsX1eftK0jC/KIg==}
     dev: false
 
-  /@types/html-minifier/4.0.1:
-    resolution: {integrity: sha512-6u58FWQbWP45bsxVeMJo0yk2LEsjjZsCwn0JDe/i5Edk3L+b9TR5eZ2FGaMCrLdtGYpME5AGxUqv8o+3hWKogw==}
+  /@types/html-minifier/4.0.2:
+    resolution: {integrity: sha512-4IkmkXJP/25R2fZsCHDX2abztXuQRzUAZq39PfCMz2loLFj8vS9y7aF6vDl58koXSTpsF+eL4Lc5Y4Aww/GCTQ==}
     dependencies:
       '@types/clean-css': 4.2.5
       '@types/relateurl': 0.2.29
@@ -1274,7 +1268,7 @@ packages:
   /@types/html-webpack-plugin/3.2.6:
     resolution: {integrity: sha512-U8uJSvlf9lwrKG6sKFnMhqY4qJw2QXad+PHlX9sqEXVUMilVt96aVvFde73tzsdXD+QH9JS6kEytuGO2JcYZog==}
     dependencies:
-      '@types/html-minifier': 4.0.1
+      '@types/html-minifier': 4.0.2
       '@types/tapable': 1.0.8
       '@types/webpack': 4.41.32
     dev: false
@@ -1515,12 +1509,12 @@ packages:
     resolution: {integrity: sha512-NuHqBY1PB/D8xU6s/thBgOAiAP7HOYDQ32+BFZILJ8ivkUkAHQnWfn6WhL79Owj1qmUnoN/YPhktdIoucipkAQ==}
     dev: false
 
-  /acorn-import-assertions/1.8.0_acorn@8.6.0:
+  /acorn-import-assertions/1.8.0_acorn@8.7.0:
     resolution: {integrity: sha512-m7VZ3jwz4eK6A4Vtt8Ew1/mNbP24u0FhdyfA7fSvnJR6LMdfOYnmuIrrJAgrYfYJ10F/otaHTtrtrtmHdMNzEw==}
     peerDependencies:
       acorn: ^8
     dependencies:
-      acorn: 8.6.0
+      acorn: 8.7.0
     dev: false
 
   /acorn-walk/8.2.0:
@@ -1528,8 +1522,8 @@ packages:
     engines: {node: '>=0.4.0'}
     dev: false
 
-  /acorn/8.6.0:
-    resolution: {integrity: sha512-U1riIR+lBSNi3IbxtaHOIKdH8sLFv3NYfNv8sg7ZsNhcfl4HF2++BfqqrNAxoCLQW1iiylOj76ecnaUxz+z9yw==}
+  /acorn/8.7.0:
+    resolution: {integrity: sha512-V/LGr1APy+PXIwKebEWrkZPwoeoF+w1jiOBUmuxuiUIaOHtob8Qc9BTrYo7VuI5fR8tqsy+buA2WFooR5olqvQ==}
     engines: {node: '>=0.4.0'}
     hasBin: true
     dev: false
@@ -1654,7 +1648,7 @@ packages:
     dependencies:
       '@babel/core': 7.16.5
       '@babel/helper-define-polyfill-provider': 0.3.0_@babel+core@7.16.5
-      core-js-compat: 3.20.0
+      core-js-compat: 3.20.1
     transitivePeerDependencies:
       - supports-color
     dev: false
@@ -1695,8 +1689,8 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001291
-      electron-to-chromium: 1.4.24
+      caniuse-lite: 1.0.30001294
+      electron-to-chromium: 1.4.30
       escalade: 3.1.1
       node-releases: 2.0.1
       picocolors: 1.0.0
@@ -1724,13 +1718,13 @@ packages:
     resolution: {integrity: sha512-bsTwuIg/BZZK/vreVTYYbSWoe2F+71P7K5QGEX+pT250DZbfU1MQ5prOKpPR+LL6uWKK3KMwMCAS74QB3Um1uw==}
     dependencies:
       browserslist: 4.19.1
-      caniuse-lite: 1.0.30001291
+      caniuse-lite: 1.0.30001294
       lodash.memoize: 4.1.2
       lodash.uniq: 4.5.0
     dev: false
 
-  /caniuse-lite/1.0.30001291:
-    resolution: {integrity: sha512-roMV5V0HNGgJ88s42eE70sstqGW/gwFndosYrikHthw98N5tLnOTxFqMLQjZVRxTWFlJ4rn+MsgXrR7MDPY4jA==}
+  /caniuse-lite/1.0.30001294:
+    resolution: {integrity: sha512-LiMlrs1nSKZ8qkNhpUf5KD0Al1KCBE3zaT7OLOwEkagXMEDij98SiOovn9wxVGQpklk9vVC/pUSqgYmkmKOS8g==}
     dev: false
 
   /chalk/2.4.2:
@@ -1839,8 +1833,8 @@ packages:
       safe-buffer: 5.1.2
     dev: false
 
-  /core-js-compat/3.20.0:
-    resolution: {integrity: sha512-relrah5h+sslXssTTOkvqcC/6RURifB0W5yhYBdBkaPYa5/2KBMiog3XiD+s3TwEHWxInWVv4Jx2/Lw0vng+IQ==}
+  /core-js-compat/3.20.1:
+    resolution: {integrity: sha512-AVhKZNpqMV3Jz8hU0YEXXE06qoxtQGsAqU0u1neUngz5IusDJRX/ZJ6t3i7mS7QxNyEONbCo14GprkBrxPlTZA==}
     dependencies:
       browserslist: 4.19.1
       semver: 7.0.0
@@ -1886,8 +1880,8 @@ packages:
       webpack: 5.65.0_webpack-cli@4.9.1
     dev: false
 
-  /css-minimizer-webpack-plugin/3.3.0_webpack@5.65.0:
-    resolution: {integrity: sha512-+SU5aHgGZkk2kxKsq/BZXnYee2cjHIiFARF2gGaG6gIFtLJ87330GeafqhxAemwi/WgQ40v0OQ7pBVljKAMoXg==}
+  /css-minimizer-webpack-plugin/3.3.1_webpack@5.65.0:
+    resolution: {integrity: sha512-SHA7Hu/EiF0dOwdmV2+agvqYpG+ljlUa7Dvn1AVOmSH3N8KOERoaM9lGpstz9nGsoTjANGyUXdrxl/EwdMScRg==}
     engines: {node: '>= 12.13.0'}
     peerDependencies:
       clean-css: '*'
@@ -1902,7 +1896,6 @@ packages:
       esbuild:
         optional: true
     dependencies:
-      '@types/cssnano': 4.0.1
       cssnano: 5.0.14_postcss@8.4.5
       jest-worker: 27.4.5
       postcss: 8.4.5
@@ -1912,8 +1905,8 @@ packages:
       webpack: 5.65.0_webpack-cli@4.9.1
     dev: false
 
-  /css-select/4.2.0:
-    resolution: {integrity: sha512-6YVG6hsH9yIb/si3Th/is8Pex7qnVHO6t7q7U6TIUnkQASGbS8tnUDBftnPynLNnuUl/r2+PTd0ekiiq7R0zJw==}
+  /css-select/4.2.1:
+    resolution: {integrity: sha512-/aUslKhzkTNCQUB2qTX84lVmfia9NyjP3WpDGtj/WxhwBzWBYUV3DgUpurHTme8UTPcPlAD1DJ+b0nN/t50zDQ==}
     dependencies:
       boolbase: 1.0.0
       css-what: 5.1.0
@@ -2071,8 +2064,8 @@ packages:
       tslib: 2.3.1
     dev: false
 
-  /electron-to-chromium/1.4.24:
-    resolution: {integrity: sha512-erwx5r69B/WFfFuF2jcNN0817BfDBdC4765kQ6WltOMuwsimlQo3JTEq0Cle+wpHralwdeX3OfAtw/mHxPK0Wg==}
+  /electron-to-chromium/1.4.30:
+    resolution: {integrity: sha512-609z9sIMxDHg+TcR/VB3MXwH+uwtrYyeAwWc/orhnr90ixs6WVGSrt85CDLGUdNnLqCA7liv426V20EecjvflQ==}
     dev: false
 
   /emojis-list/3.0.0:
@@ -2740,10 +2733,6 @@ packages:
     resolution: {integrity: sha512-LDJzPVEEEPR+y48z93A0Ed0yXb8pAByGWo/k5YYdYgpY2/2EsOsksJrq7lOHxryrVOn1ejG6oAp8ahvOIQD8sw==}
     dev: false
 
-  /picocolors/0.2.1:
-    resolution: {integrity: sha512-cMlDqaLEqfSaW8Z7N5Jw+lyIW869EzT73/F5lhtY9cLGoVxSXznfgfXMO0Z5K0o0Q2TkTXq+0KFsdnSe3jDViA==}
-    dev: false
-
   /picocolors/1.0.0:
     resolution: {integrity: sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==}
     dev: false
@@ -2766,7 +2755,7 @@ packages:
       postcss: ^8.2.2
     dependencies:
       postcss: 8.4.5
-      postcss-selector-parser: 6.0.7
+      postcss-selector-parser: 6.0.8
       postcss-value-parser: 4.2.0
     dev: false
 
@@ -2850,7 +2839,7 @@ packages:
       caniuse-api: 3.0.0
       cssnano-utils: 2.0.1_postcss@8.4.5
       postcss: 8.4.5
-      postcss-selector-parser: 6.0.7
+      postcss-selector-parser: 6.0.8
     dev: false
 
   /postcss-minify-font-values/5.0.1_postcss@8.4.5:
@@ -2896,7 +2885,7 @@ packages:
     dependencies:
       alphanum-sort: 1.0.2
       postcss: 8.4.5
-      postcss-selector-parser: 6.0.7
+      postcss-selector-parser: 6.0.8
     dev: false
 
   /postcss-modules-extract-imports/3.0.0_postcss@8.4.5:
@@ -2916,7 +2905,7 @@ packages:
     dependencies:
       icss-utils: 5.1.0_postcss@8.4.5
       postcss: 8.4.5
-      postcss-selector-parser: 6.0.7
+      postcss-selector-parser: 6.0.8
       postcss-value-parser: 4.2.0
     dev: false
 
@@ -2927,7 +2916,7 @@ packages:
       postcss: ^8.1.0
     dependencies:
       postcss: 8.4.5
-      postcss-selector-parser: 6.0.7
+      postcss-selector-parser: 6.0.8
     dev: false
 
   /postcss-modules-values/4.0.0_postcss@8.4.5:
@@ -3067,8 +3056,8 @@ packages:
       postcss-value-parser: 4.2.0
     dev: false
 
-  /postcss-selector-parser/6.0.7:
-    resolution: {integrity: sha512-U+b/Deoi4I/UmE6KOVPpnhS7I7AYdKbhGcat+qTQ27gycvaACvNEw11ba6RrkwVmDVRW7sigWgLj4/KbbJjeDA==}
+  /postcss-selector-parser/6.0.8:
+    resolution: {integrity: sha512-D5PG53d209Z1Uhcc0qAZ5U3t5HagH3cxu+WLZ22jt3gLUpXM4eXXfiO14jiDWST3NNooX/E8wISfOhZ9eIjGTQ==}
     engines: {node: '>=4'}
     dependencies:
       cssesc: 3.0.0
@@ -3094,19 +3083,11 @@ packages:
     dependencies:
       alphanum-sort: 1.0.2
       postcss: 8.4.5
-      postcss-selector-parser: 6.0.7
+      postcss-selector-parser: 6.0.8
     dev: false
 
   /postcss-value-parser/4.2.0:
     resolution: {integrity: sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==}
-    dev: false
-
-  /postcss/7.0.39:
-    resolution: {integrity: sha512-yioayjNbHn6z1/Bywyb2Y4s3yvDAeXGOyxqD+LnVOinq6Mdmd++SW2wUNVzavyyHxd6+DxzWGIuosg6P1Rj8uA==}
-    engines: {node: '>=6.0.0'}
-    dependencies:
-      picocolors: 0.2.1
-      source-map: 0.6.1
     dev: false
 
   /postcss/8.4.5:
@@ -3202,7 +3183,7 @@ packages:
   /renderkid/3.0.0:
     resolution: {integrity: sha512-q/7VIQA8lmM1hF+jn+sFSPWGlMkSAeNYcPLmDQx2zzuiDfaLrOmumR8iaUKlenFgh0XRPIUeSPlH3A+AW3Z5pg==}
     dependencies:
-      css-select: 4.2.0
+      css-select: 4.2.1
       dom-converter: 0.2.0
       htmlparser2: 6.1.0
       lodash: 4.17.21
@@ -3412,7 +3393,7 @@ packages:
     dependencies:
       browserslist: 4.19.1
       postcss: 8.4.5
-      postcss-selector-parser: 6.0.7
+      postcss-selector-parser: 6.0.8
     dev: false
 
   /supports-color/5.5.0:
@@ -3443,7 +3424,7 @@ packages:
     dependencies:
       '@trysound/sax': 0.2.0
       commander: 7.2.0
-      css-select: 4.2.0
+      css-select: 4.2.1
       css-tree: 1.1.3
       csso: 4.2.0
       picocolors: 1.0.0
@@ -3455,7 +3436,7 @@ packages:
     engines: {node: '>=6'}
     dev: false
 
-  /terser-webpack-plugin/5.3.0_acorn@8.6.0+webpack@5.65.0:
+  /terser-webpack-plugin/5.3.0_acorn@8.7.0+webpack@5.65.0:
     resolution: {integrity: sha512-LPIisi3Ol4chwAaPP8toUJ3L4qCM1G0wao7L3qNv57Drezxj6+VEyySpPw4B1HSO2Eg/hDY/MNF5XihCAoqnsQ==}
     engines: {node: '>= 10.13.0'}
     peerDependencies:
@@ -3475,7 +3456,7 @@ packages:
       schema-utils: 3.1.1
       serialize-javascript: 6.0.0
       source-map: 0.6.1
-      terser: 5.10.0_acorn@8.6.0
+      terser: 5.10.0_acorn@8.7.0
       webpack: 5.65.0_webpack-cli@4.9.1
     transitivePeerDependencies:
       - acorn
@@ -3522,7 +3503,7 @@ packages:
       source-map-support: 0.5.21
     dev: false
 
-  /terser/5.10.0_acorn@8.6.0:
+  /terser/5.10.0_acorn@8.7.0:
     resolution: {integrity: sha512-AMmF99DMfEDiRJfxfY5jj5wNH/bYO09cniSqhfoyxc8sFoYIgkJy86G04UoZU5VjlpnplVu0K6Tx6E9b5+DlHA==}
     engines: {node: '>=10'}
     hasBin: true
@@ -3532,7 +3513,7 @@ packages:
       acorn:
         optional: true
     dependencies:
-      acorn: 8.6.0
+      acorn: 8.7.0
       commander: 2.20.3
       source-map: 0.7.3
       source-map-support: 0.5.21
@@ -3589,7 +3570,7 @@ packages:
       '@tsconfig/node14': 1.0.1
       '@tsconfig/node16': 1.0.2
       '@types/node': 7.10.14
-      acorn: 8.6.0
+      acorn: 8.7.0
       acorn-walk: 8.2.0
       arg: 4.1.3
       create-require: 1.1.1
@@ -3734,8 +3715,8 @@ packages:
       '@webassemblyjs/ast': 1.11.1
       '@webassemblyjs/wasm-edit': 1.11.1
       '@webassemblyjs/wasm-parser': 1.11.1
-      acorn: 8.6.0
-      acorn-import-assertions: 1.8.0_acorn@8.6.0
+      acorn: 8.7.0
+      acorn-import-assertions: 1.8.0_acorn@8.7.0
       browserslist: 4.19.1
       chrome-trace-event: 1.0.3
       enhanced-resolve: 5.8.3
@@ -3750,7 +3731,7 @@ packages:
       neo-async: 2.6.2
       schema-utils: 3.1.1
       tapable: 2.2.1
-      terser-webpack-plugin: 5.3.0_acorn@8.6.0+webpack@5.65.0
+      terser-webpack-plugin: 5.3.0_acorn@8.7.0+webpack@5.65.0
       watchpack: 2.3.1
       webpack-cli: 4.9.1_webpack@5.65.0
       webpack-sources: 3.2.2
