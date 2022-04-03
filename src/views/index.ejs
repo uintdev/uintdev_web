@@ -38,22 +38,22 @@
                 <div class="title-des">Hello and welcome to my domain.</div>
             </div>
         </div>
-        <section id="whatido">
-            <% const whatidoData=require('../data/whatido.json') %>
+        <section id="skills">
+            <% const skillsData=require('../data/skills.json') %>
             <div class="content-title">
-                <%= whatidoData.title %>
+                <%= skillsData.title %>
             </div>
             <div class="content-desc">
-                <%= whatidoData.description %>
+                <%= skillsData.description %>
             </div>
             <div class="content-center">
                 <div class="content-info">
-                    <% whatidoData.list.forEach(function(whatido) { %>
+                    <% skillsData.list.forEach(function(skills) { %>
                     <div class="sub-title">
-                        <%= whatido.category %>
+                        <%= skills.category %>
                     </div>
                     <div class="pill-container">
-                        <% whatido.pills.forEach(function(pill) { %>
+                        <% skills.pills.forEach(function(pill) { %>
                         <span class="pill"><%= pill.name %></span>
                         <% }); %>
                     </div>
