@@ -341,18 +341,30 @@ class Egg {
 const egg = new Egg()
 
 class InitMsg {
+    // List of messages to potentially go with by random
     msgList: Array<string> = [
         'Test message',
         'More messages soon...',
         'Placeholder text',
     ]
 
+    /**
+     * Pick out a random string from the `msgList` array
+     * @method getRand
+     * @returns {string}
+     */
     getRand(): string {
         let res = ''
         res = this.msgList[(Math.random() * this.msgList.length) | 0]
         return res
     }
 
+    /**
+     * Set a message as the initial message
+     * @method setDat
+     * @param message {string} Message data
+     * @returns {void}
+     */
     setDat(message: string): void {
         let initDes = document.getElementsByClassName('title-des')
         if (initDes.length < 1) return
