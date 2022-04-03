@@ -340,7 +340,32 @@ class Egg {
 
 const egg = new Egg()
 
+class InitMsg {
+    msgList: Array<string> = [
+        'Test message',
+        'More messages soon...',
+        'Placeholder text',
+    ]
+
+    getRand(): string {
+        let res = ''
+        res = this.msgList[(Math.random() * this.msgList.length) | 0]
+        return res
+    }
+
+    setDat(message: string): void {
+        let initDes = document.getElementsByClassName('title-des')
+        if (initDes.length < 1) return
+        initDes[0].innerHTML = message
+    }
+}
+
+const initMsg = new InitMsg()
+
 window.onload = function () {
+    // Set initial random message
+    initMsg.setDat(initMsg.getRand())
+
     // Set up listener
     document.querySelectorAll(ripple.selector).forEach(function (ele) {
         ele.addEventListener('click', ripple.create)

@@ -14,6 +14,32 @@
         .title-des {
             font-size: 150%;
             text-align: center;
+            -webkit-animation: fade 1s;
+            animation: fade 1s;
         }
+    }
+}
+
+@-webkit-keyframes fade {
+    0% {
+        opacity: 0;
+    }
+    25% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+    25% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
     }
 }
