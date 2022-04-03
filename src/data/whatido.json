@@ -1,6 +1,6 @@
 {
-    "title": "What I do",
-    "description": "I work and develop with various technologies as well as platforms.",
+    "title": "Skills",
+    "description": "I work and develop with various technologies and platforms.",
     "list": [
         {
             "category": "Software development",
@@ -10,8 +10,10 @@
                 { "name": "Go" },
                 { "name": "Python" },
                 { "name": "Node.js" },
-                { "name": "C & C++" },
-                { "name": "Git" }
+                { "name": "C / C++" },
+                { "name": "Git" },
+                { "name": "C#" },
+                { "name": "Java" }
             ]
         },
         {
@@ -21,7 +23,8 @@
                 { "name": "SQL" },
                 { "name": "JavaScript" },
                 { "name": "TypeScript" },
-                { "name": "SASS & CSS" }
+                { "name": "SASS & CSS" },
+                { "name": "SuiteScript" }
             ]
         },
         {
@@ -29,16 +32,25 @@
             "pills": [{ "name": "EJS" }, { "name": "Freemarker" }]
         },
         {
+            "category": "Service management",
+            "pills": [
+                { "name": "Nginx" },
+                { "name": "Apache" },
+                { "name": "MariaDB" }
+            ]
+        },
+        {
             "category": "System management",
             "pills": [
                 { "name": "Linux" },
-                { "name": "Zsh/Bash/Shell" },
+                { "name": "Zsh / Bash" },
                 { "name": "Windows" },
                 { "name": "PowerShell" },
                 { "name": "DNS" },
                 { "name": "Networking" },
                 { "name": "Android" },
-                { "name": "iOS" }
+                { "name": "iOS" },
+                { "name": "macOS" }
             ]
         },
         {
