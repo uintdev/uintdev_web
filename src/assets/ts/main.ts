@@ -344,13 +344,16 @@ class InitMsg {
     // List of messages to potentially go with by random
     msgList: Array<string> = [
         'Wow. How modern.',
-        'Hosted within LXC.',
-        'Cloudflare is fine, I guess.',
         'It works!',
+        'Hosted within LXC under Proxmox.',
         'Proudly served by NGINX.',
-        'Something something NFTs.',
-        'I can neither confirm or deny to there being an easter egg.',
+        'Cloudflare is fine, I guess.',
+        'TypeScript is what JavaScript should have become.',
         'I wonder what this button does...',
+        'I can neither confirm or deny to there being an easter egg.',
+        'Something something NFTs.',
+        '"Web3", as defined by the delusional, really is not the future.',
+        'Buy high, sell low.',
     ]
 
     /**
