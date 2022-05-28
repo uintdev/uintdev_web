@@ -350,7 +350,7 @@ class InitMsg {
         'Proudly served by NGINX.',
         'Something something NFTs.',
         'I can neither confirm or deny to there being an easter egg.',
-        'I wonder what that button does...',
+        'I wonder what this button does...',
     ]
 
     /**
