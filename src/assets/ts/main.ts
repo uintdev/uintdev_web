@@ -343,9 +343,14 @@ const egg = new Egg()
 class InitMsg {
     // List of messages to potentially go with by random
     msgList: Array<string> = [
-        'Test message',
-        'More messages soon...',
-        'Placeholder text',
+        'Wow. How modern.',
+        'Hosted within LXC.',
+        'Cloudflare is fine, I guess.',
+        'It works!',
+        'Proudly served by NGINX.',
+        'Something something NFTs.',
+        'I can neither confirm or deny to there being an easter egg.',
+        'I wonder what that button does...',
     ]
 
     /**
