@@ -7,7 +7,7 @@ class Theme {
      * @method _get
      * @returns {string}
      */
-    private _get(): string {
+    private get(): string {
         let _fallbackTheme = 'dark'
 
         if (document.documentElement.hasAttribute('color-scheme')) {
@@ -35,7 +35,7 @@ class Theme {
     set(): void {
         let _nextTheme: string
         let _autoTheme = false
-        let _currentTheme = this._get()
+        let _currentTheme = this.get()
 
         if (_currentTheme === 'dark') {
             _nextTheme = 'light'
@@ -317,6 +317,31 @@ class Ripple {
 const ripple = new Ripple()
 
 class Egg {
+    /**
+     * Generate audio
+     * @method audioGen
+     * @param frequency {number} Frequency to be used
+     * @param type {OscillatorType} Oscillator to use
+     * @returns {void}
+     */
+    audioGen(frequency: number, type: OscillatorType): void {
+        let context: AudioContext = new AudioContext()
+        let oscillator = context.createOscillator()
+        let gain = context.createGain()
+        oscillator.type = type
+        oscillator.connect(gain)
+        oscillator.frequency.value = frequency
+        gain.connect(context.destination)
+        oscillator.start(0)
+
+        gain.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
+    }
+
+    payload = () => {
+        console.log('do something fancy')
+        this.audioGen(87.31, 'triangle')
+    }
+
     _pressedKeys: string
 
     /**
@@ -325,7 +350,7 @@ class Egg {
      * @param event {KeyboardEvent} Event information from the keyboard
      * @returns {void}
      */
-    init(event: KeyboardEvent): void {
+    init = (event: KeyboardEvent): void => {
         this._pressedKeys += event.code
         if (
             this._pressedKeys.match(
@@ -333,7 +358,7 @@ class Egg {
             )
         ) {
             document.removeEventListener('keydown', this.init)
-            console.log('do something fancy')
+            this.payload()
         }
     }
 }
