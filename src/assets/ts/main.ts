@@ -7,7 +7,7 @@ class Theme {
      * @method _get
      * @returns {string}
      */
-    private get(): string {
+    get(): string {
         let _fallbackTheme = 'dark'
 
         if (document.documentElement.hasAttribute('color-scheme')) {
@@ -380,6 +380,13 @@ class InitMsg {
         '"Web3", as defined by the delusional, really is not the future.',
         'Buy high, sell low.',
     ]
+
+    constructor() {
+        if (theme.get() === 'light') {
+            console.info('added')
+            this.msgList.push("Ooh, I'm blinded by the lights...")
+        }
+    }
 
     /**
      * Pick out a random string from the `msgList` array
