@@ -337,7 +337,7 @@ class Egg {
         gain.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
     }
 
-    payload = () => {
+    payload = (): void => {
         console.log('do something fancy')
         this.audioGen(87.31, 'triangle')
     }
