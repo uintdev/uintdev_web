@@ -383,7 +383,6 @@ class InitMsg {
 
     constructor() {
         if (theme.get() === 'light') {
-            console.info('added')
             this.msgList.push("Ooh, I'm blinded by the lights...")
         }
     }
