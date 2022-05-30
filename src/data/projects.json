@@ -35,14 +35,6 @@
             "tags": ["PHP", "JavaScript", "MySQL"]
         },
         {
-            "name": "Discord Invite Gateway",
-            "image": "gh-dig",
-            "description": "Discord invites with an additional protective layer.",
-            "url": "https://github.com/uintdev/Discord-Invite-Gateway",
-            "archived": true,
-            "tags": ["PHP", "JavaScript", "CSS"]
-        },
-        {
             "name": "Ducky HID WSI",
             "image": "gh-dhw",
             "description": "Custom USB Rubber Ducky HID only firmware with status indication.",
