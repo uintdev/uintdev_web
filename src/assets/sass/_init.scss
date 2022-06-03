@@ -5,7 +5,7 @@
     padding: 40px 0px;
     display: flex;
 
-    .title-blk {
+    .splash-blk {
         width: 80%;
         display: flex;
         align-items: center;
@@ -13,11 +13,15 @@
         margin-left: auto;
         margin-right: auto;
 
-        .title-des {
+        .splash-des {
             font-size: 150%;
             text-align: center;
             -webkit-animation: fade 1s;
             animation: fade 1s;
+
+            .subtext {
+                font-size: 80%;
+            }
         }
     }
 }

@@ -365,25 +365,26 @@ class Egg {
 
 const egg = new Egg()
 
-class InitMsg {
+class SplashMsg {
     // List of messages to potentially go with by random
-    msgList: Array<string> = [
+    splashList: Array<string> = [
         'Wow. How modern.',
         'It works!',
         'Hosted within LXC under Proxmox.',
-        'Proudly served by NGINX.',
-        'Cloudflare is fine, I guess.',
+        'Proudly served by Nginx.',
+        'Cloudflare is fine, I suppose.',
         'TypeScript is what JavaScript should have become.',
-        'I wonder what this button does...',
+        'Entirely keyboard navigable? I sure hope so.',
         'I can neither confirm or deny to there being an easter egg.',
-        'Something something NFTs.',
-        '"Web3", as defined by the delusional, really is not the future.',
-        'Buy high, sell low.',
+        'I would make a joke about NFTs, but the joke writes itself.',
+        '"Web3", as envisioned by the delusional, is not the future.',
+        'Buy high, sell low.' +
+            '<br><span class="subtext">(Not financial advice.)</span>',
     ]
 
     constructor() {
         if (theme.get() === 'light') {
-            this.msgList.push("Ooh, I'm blinded by the lights...")
+            this.splashList.push("Ooh, I'm blinded by the lights...")
         }
     }
 
@@ -394,28 +395,28 @@ class InitMsg {
      */
     getRand(): string {
         let res = ''
-        res = this.msgList[(Math.random() * this.msgList.length) | 0]
+        res = this.splashList[(Math.random() * this.splashList.length) | 0]
         return res
     }
 
     /**
-     * Set a message as the initial message
+     * Set a message as the splash message
      * @method setDat
      * @param message {string} Message data
      * @returns {void}
      */
     setDat(message: string): void {
-        let initDes = document.getElementsByClassName('title-des')
+        let initDes = document.getElementsByClassName('splash-des')
         if (initDes.length < 1) return
         initDes[0].innerHTML = message
     }
 }
 
-const initMsg = new InitMsg()
+const splashMsg = new SplashMsg()
 
 window.onload = function () {
     // Set initial random message
-    initMsg.setDat(initMsg.getRand())
+    splashMsg.setDat(splashMsg.getRand())
 
     // Set up listener
     document.querySelectorAll(ripple.selector).forEach(function (ele) {

@@ -9,5 +9,5 @@
         "dark": "#000000",
         "light": "#dfe8ec"
     },
-    "msg_fallback_noscript": "No JavaScript? No problem."
+    "splash_msg_fallback_noscript": "No JavaScript? No problem."
 }
