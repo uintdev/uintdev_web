@@ -4,12 +4,10 @@
     "options": [
         {
             "name": "Email",
-            "icon": "email",
             "url": "mailto:core@uint.dev"
         },
         {
             "name": "Keybase",
-            "icon": "keybase",
             "url": "https://keybase.io/uintdev"
         }
     ]
