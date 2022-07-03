@@ -69,7 +69,6 @@
 
 @mixin image-loader($file, $mask: false) {
     @if ($mask) {
-        -webkit-mask-image: url(../img/#{$file});
         mask-image: url(../img/#{$file});
     } @else {
         background-image: url(../img/#{$file});
