@@ -7,7 +7,7 @@ class Theme {
      * @method _get
      * @returns {string}
      */
-    get(): string {
+    get(): string | null {
         let _fallbackTheme = 'dark'
 
         if (document.documentElement.hasAttribute('color-scheme')) {
@@ -33,7 +33,7 @@ class Theme {
      * @returns {string}
      */
     set(): void {
-        let _nextTheme: string
+        let _nextTheme: string = ''
         let _autoTheme = false
         let _currentTheme = this.get()
 
@@ -261,6 +261,14 @@ class Ripple {
         let _inputPointerId = event.pointerId
         let _inputMozSrc = event.mozInputSource
 
+        if (typeof event.pageX === 'undefined') {
+            event.pageX = 0
+        }
+
+        if (typeof event.pageY === 'undefined') {
+            event.pageY = 0
+        }
+
         if (
             (typeof _inputMozSrc !== 'undefined' && _inputMozSrc === 6) ||
             (_inputPointerId === -1 && _inputDetail === 0)
@@ -301,7 +309,7 @@ class Ripple {
             switch (_targetClass) {
                 case 'card':
                 case 'button-link':
-                    location.href = _button.getAttribute('href')
+                    location.href = _button.getAttribute('href') ?? ''
                     break
                 case 'fab-scroll':
                     uiController.scroll('body')
@@ -427,7 +435,7 @@ window.onload = function () {
     document
         .querySelectorAll('meta[name="theme-color"]')
         .forEach(function (ele) {
-            originalThemeColors.push(ele.getAttribute('content'))
+            originalThemeColors.push(ele.getAttribute('content') ?? '')
         })
 
     // Initiate and listen to header & FAB

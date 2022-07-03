@@ -1,6 +1,6 @@
 {
     "title": "Skills",
-    "description": "I work and develop with various technologies and platforms.",
+    "description": "I work with various technologies and platforms.",
     "list": [
         {
             "category": "Software development",
@@ -23,7 +23,8 @@
                 { "name": "SQL" },
                 { "name": "JavaScript" },
                 { "name": "TypeScript" },
-                { "name": "SASS & CSS" },
+                { "name": "CSS" },
+                { "name": "SASS" },
                 { "name": "SuiteScript" }
             ]
         },
@@ -43,7 +44,8 @@
             "category": "System management",
             "pills": [
                 { "name": "Linux" },
-                { "name": "Zsh / Bash" },
+                { "name": "Zsh" },
+                { "name": "Bash" },
                 { "name": "Windows" },
                 { "name": "PowerShell" },
                 { "name": "DNS" },
@@ -59,7 +61,9 @@
                 { "name": "Web & software security" },
                 { "name": "Electronics" },
                 { "name": "Digital art" },
-                { "name": "Graphics design" }
+                { "name": "Graphics design" },
+                { "name": "Image editing" },
+                { "name": "Video editing" }
             ]
         }
     ]
