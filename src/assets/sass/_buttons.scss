@@ -16,7 +16,7 @@
         align-items: center;
         justify-content: center;
         user-select: none;
-        padding: 20px 30px;
+        padding: 20px 30px 20px 30px;
         z-index: 10;
         transition: background-color 0.2s;
         cursor: pointer;
@@ -33,10 +33,12 @@
 
     .left-round {
         border-radius: 40px 0px 0px 40px;
+        padding: 20px 20px 20px 30px;
     }
 
     .right-round {
         border-radius: 0px 40px 40px 0px;
+        padding: 20px 30px 20px 20px;
     }
 
     @media (prefers-reduced-motion) {
