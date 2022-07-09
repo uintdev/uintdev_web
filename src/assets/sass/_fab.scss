@@ -9,7 +9,7 @@
     bottom: calc(50px + env(safe-area-inset-bottom));
     right: 30px;
     border-radius: 70px;
-    user-select: none;
+    @include unselectable;
     z-index: 10;
     transition: background-color 0.2s, bottom 0.5s;
     cursor: pointer;

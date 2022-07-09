@@ -74,3 +74,8 @@
         background-image: url(../img/#{$file});
     }
 }
+
+@mixin unselectable {
+    -webkit-user-select: none;
+    user-select: none;
+}

@@ -76,7 +76,7 @@
         .info {
             text-align: left;
             padding: 28px 35px;
-            user-select: none;
+            @include unselectable;
 
             .name {
                 font-size: 120%;

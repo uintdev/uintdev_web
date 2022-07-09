@@ -4,11 +4,9 @@ header {
     background-color: rgba(var(--color-secondary), 0.4);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    user-select: none;
-    -webkit-user-select: none;
+    @include unselectable;
     z-index: 11;
     transition: top 0.5s;
-
     display: flex;
     justify-content: space-between;
     padding: 20px 30px 20px 30px;
@@ -34,7 +32,7 @@ header {
         width: 44px;
         height: 44px;
         border-radius: 44px;
-        user-select: none;
+        @include unselectable;
         z-index: 10;
         transition: background-color 0.2s;
         cursor: pointer;
