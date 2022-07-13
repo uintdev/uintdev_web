@@ -13,6 +13,7 @@
         background-color: var(--color-third);
         color: var(--color-primary);
         display: flex;
+        font-size: 85%;
         align-items: center;
         justify-content: center;
         @include unselectable;

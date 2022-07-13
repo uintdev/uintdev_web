@@ -29,10 +29,6 @@ section {
     .content-info {
         @include content-area;
 
-        .sub-header {
-            margin-bottom: 18px;
-        }
-
         .sub-title {
             font-size: 115%;
             margin-top: 15px;
@@ -45,7 +41,6 @@ section {
 
         @import 'list';
         @import 'cards';
-        @import 'quotes';
         @import 'buttons';
     }
 }
