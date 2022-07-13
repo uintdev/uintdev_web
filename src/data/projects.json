@@ -1,6 +1,6 @@
 {
     "title": "Projects",
-    "description": "These are some of the projects that I had worked on.",
+    "description": "These are some of the projects that I had worked on. See more on <a href='https://github.com/uintdev' class='clickable'>GitHub</a>.",
     "list": [
         {
             "name": "QRServ",
