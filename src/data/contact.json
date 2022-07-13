@@ -7,6 +7,10 @@
             "url": "mailto:core@uint.dev"
         },
         {
+            "name": "PGP",
+            "url": "data/pgp.asc"
+        },
+        {
             "name": "Keybase",
             "url": "https://keybase.io/uintdev"
         }

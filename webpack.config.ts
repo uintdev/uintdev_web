@@ -3,6 +3,7 @@ import HtmlWebPackPlugin from 'html-webpack-plugin'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import TerserPlugin from 'terser-webpack-plugin'
 import CssMinimizerPlugin from 'css-minimizer-webpack-plugin'
+import CopyPlugin from 'copy-webpack-plugin'
 
 const configBuild = {
     entry: {
@@ -76,6 +77,9 @@ const configBuild = {
         new MiniCssExtractPlugin({
             filename: '[name].css',
             chunkFilename: '[id].css',
+        }),
+        new CopyPlugin({
+            patterns: [{ from: 'src/assets/data', to: 'data/' }],
         }),
     ],
 }
