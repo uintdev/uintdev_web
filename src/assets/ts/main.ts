@@ -378,9 +378,8 @@ class SplashMsg {
     splashList: Array<string> = [
         'Wow. How modern.',
         'It works!',
-        'Hosted within LXC under Proxmox.',
+        'Hosted on the Cloud&#8482;.',
         'Proudly served by Nginx.',
-        'Cloudflare is fine, I suppose.',
         'TypeScript is what JavaScript should have become.',
         'Entirely keyboard navigable? I sure hope so.',
         'I can neither confirm or deny to there being an easter egg.',
