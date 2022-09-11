@@ -346,8 +346,13 @@ class Egg {
     }
 
     payload = (): void => {
-        console.log('do something fancy')
         this.audioGen(87.31, 'triangle')
+
+        var audioController = new Audio('data/easteregg.mp3')
+        audioController.volume = 0.5
+        setTimeout(function () {
+            audioController.play()
+        }, 1000)
     }
 
     _pressedKeys: string
