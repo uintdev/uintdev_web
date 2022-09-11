@@ -63,7 +63,8 @@
                 { "name": "Digital art" },
                 { "name": "Graphics design" },
                 { "name": "Image editing" },
-                { "name": "Video editing" }
+                { "name": "Video editing" },
+                { "name": "Audio editing" }
             ]
         }
     ]
