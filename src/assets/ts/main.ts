@@ -364,10 +364,14 @@ class Egg {
      * @returns {void}
      */
     init = (event: KeyboardEvent): void => {
-        this._pressedKeys += event.key
+        var eventKeyData: string = event.key
+        if (eventKeyData.length === 1) {
+            eventKeyData = event.key.toUpperCase()
+        }
+        this._pressedKeys += eventKeyData
         if (
             this._pressedKeys.match(
-                /ArrowUpArrowUpArrowDownArrowDownArrowLeftArrowRightArrowLeftArrowRightbaEnter$/g
+                /ArrowUpArrowUpArrowDownArrowDownArrowLeftArrowRightArrowLeftArrowRightBAEnter$/g
             )
         ) {
             document.removeEventListener('keydown', this.init)
