@@ -26,6 +26,9 @@ const configBuild = {
         minimize: true,
         minimizer: [new TerserPlugin({}), new CssMinimizerPlugin()],
     },
+    performance: {
+        hints: false,
+    },
     module: {
         rules: [
             {
