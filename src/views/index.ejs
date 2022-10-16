@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
-    <% const metaData=require('../data/meta.json') %>
+    <% const metaData = require('../data/meta.json') %>
     <meta name="robots" content="nosnippet">
     <meta name="keywords" content="<%= metaData.keywords %>">
     <meta name="author" content="<%= metaData.name %>">
@@ -28,31 +27,26 @@
 <body>
     <header>
         <span class="title">uint.dev</span>
-        <a href="#" class="theme-invert" title="Invert theme">
+        <a href="#" class="theme-invert hide" title="Invert theme">
             <span class="theme-invert-icon"></span>
         </a>
     </header>
     <main>
         <div class="init-blk">
             <div class="splash-blk">
-                <div class="splash-des">&nbsp;<noscript><%= metaData.splash_msg_fallback_noscript %></noscript>&nbsp;
+                <div class="splash-des">
+                    &nbsp;<noscript><%= metaData.splash_msg_fallback_noscript%></noscript>&nbsp;
                 </div>
             </div>
         </div>
         <section id="skills">
-            <% const skillsData=require('../data/skills.json') %>
-            <div class="content-title">
-                <%= skillsData.title %>
-            </div>
-            <div class="content-desc">
-                <%= skillsData.description %>
-            </div>
+            <% const skillsData = require('../data/skills.json') %>
+            <div class="content-title"><%= skillsData.title %></div>
+            <div class="content-desc"><%= skillsData.description %></div>
             <div class="content-center">
                 <div class="content-info">
                     <% skillsData.list.forEach(function(skills) { %>
-                    <div class="sub-title">
-                        <%= skills.category %>
-                    </div>
+                    <div class="sub-title"><%= skills.category %></div>
                     <div class="pill-container">
                         <% skills.pills.forEach(function(pill) { %>
                         <span class="pill"><%= pill.name %></span>
@@ -64,34 +58,26 @@
         </section>
         <section id="projects">
             <% const projectData=require('../data/projects.json') %>
-            <div class="content-title">
-                <%= projectData.title %>
-            </div>
-            <div class="content-desc">
-                <%= projectData.description %>
-            </div>
+            <div class="content-title"><%= projectData.title %></div>
+            <div class="content-desc"><%= projectData.description %></div>
             <div class="content-info">
                 <div class="card-container">
                     <% projectData.list.forEach(function(project) { %>
                     <a class="card" href="<%= project.url %>">
                         <div class="preview">
                             <% if (project.archived) { %>
-                            <span class="archived">Archived</span>
+                                <span class="archived">Archived</span>
                             <% } %>
                             <span class="thumb <%= project.image %>"></span>
                         </div>
                         <div class="info">
-                            <div class="name">
-                                <%= project.name %>
-                            </div>
+                            <div class="name"><%= project.name %></div>
                             <div class="desc">
                                 <%= project.description %>
                             </div>
                             <div class="tag-container">
                                 <% project.tags.forEach(function(tag) { %>
-                                <span class="tag">
-                                    <%= tag %>
-                                </span>
+                                <span class="tag"> <%= tag %> </span>
                                 <% }); %>
                             </div>
                         </div>
@@ -102,12 +88,8 @@
         </section>
         <section id="contact">
             <% const contactData=require('../data/contact.json') %>
-            <div class="content-title">
-                <%= contactData.title %>
-            </div>
-            <div class="content-desc">
-                <%= contactData.description %>
-            </div>
+            <div class="content-title"><%= contactData.title %></div>
+            <div class="content-desc"><%= contactData.description %></div>
             <div class="content-center">
                 <div class="content-info">
                     <div class="button-container">
@@ -125,7 +107,7 @@
                                 <% if (roundedSide.length > 0) { %>
                                     <% roundedSide = ' ' + roundedSide %>
                                 <% } %>
-                                    <a href="<%= contentDataInfo[i].url %>" class="button-link<%= roundedSide %>" title="<%= contentDataInfo[i].name %>"><%= contentDataInfo[i].name %></a>
+                                <a href="<%= contentDataInfo[i].url %>" class="button-link<%= roundedSide %>" title="<%= contentDataInfo[i].name %>"><%= contentDataInfo[i].name %></a>
                             <% } %>
                         </span>
                     </div>
@@ -134,15 +116,15 @@
         </section>
         <span class="fab-scroll hide"><span class="fab-scroll-icon"></span></span>
     </main>
-    <% const package=require('../../package.json') %>
-    <% const generationDate=(new Date()) %>
-    <% const dateYear=generationDate.getFullYear() %>
-    <% const dateMonth=(generationDate.getMonth()+1).toString().padStart(2, '0') %>
-    <% const dateDay=generationDate.getDate().toString().padStart(2, '0') %>
-    <% const dateHours=generationDate.getHours().toString().padStart(2, '0') %>
-    <% const dateMinutes=generationDate.getMinutes().toString().padStart(2, '0') %>
-    <% const dateSeconds=generationDate.getSeconds().toString().padStart(2, '0') %>
-    <% const buildDate= dateYear + dateMonth + dateDay + dateHours + dateMinutes + dateSeconds %>
+    <% const package = require('../../package.json') %>
+    <% const generationDate = (new Date()) %>
+    <% const dateYear = generationDate.getFullYear() %>
+    <% const dateMonth = (generationDate.getMonth()+1).toString().padStart(2, '0') %>
+    <% const dateDay = generationDate.getDate().toString().padStart(2, '0') %>
+    <% const dateHours = generationDate.getHours().toString().padStart(2, '0') %>
+    <% const dateMinutes = generationDate.getMinutes().toString().padStart(2, '0') %>
+    <% const dateSeconds = generationDate.getSeconds().toString().padStart(2, '0') %>
+    <% const buildDate = dateYear + dateMonth + dateDay + dateHours + dateMinutes + dateSeconds %>
     <footer>
         v<%= package.version %> -- Build: <%= buildDate %>
     </footer>

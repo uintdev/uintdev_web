@@ -23,6 +23,10 @@ header {
         border-radius: 25px;
     }
 
+    .hide {
+        display: none !important;
+    }
+
     .theme-invert {
         border: 0;
         background-color: var(--color-theme-invert);

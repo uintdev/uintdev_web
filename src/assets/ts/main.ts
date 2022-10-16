@@ -488,5 +488,10 @@ window.onload = function () {
         uiController.fab()
     }
 
+    // Unhide option if there is JavaScript enabled
+    document.querySelectorAll('.theme-invert').forEach(function (ele) {
+        ele.classList.remove('hide')
+    })
+
     document.addEventListener('keydown', egg.init)
 }
