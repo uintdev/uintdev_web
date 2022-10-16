@@ -384,18 +384,52 @@ const egg = new Egg()
 
 class SplashMsg {
     // List of messages to potentially go with by random
+    // Slight technical details, references and jokes.
     splashList: Array<string> = [
-        'Wow. How modern.',
+        // General commentary
+        'Wow, how modern.',
+        'Light theme inadvertently looks better than dark.',
+        'Admiring the auto-hiding header.',
+        'Seemless theme transition.',
+        // Web services
         'It works!',
-        'Hosted on the Cloud&#8482;.',
         'Proudly served by Nginx.',
-        'TypeScript is what JavaScript should have become.',
-        'Entirely keyboard navigable? I sure hope so.',
+        // Transport cryptography
+        'gTLD naturally HTTPS enforced.',
+        "Transport secured with Let's Encrypt and best practices.",
+        // Cloud services
+        '🇫🇷 Hébergé en Fr*nce. 🇫🇷',
+        'ARM inside.',
+        // DNS services
+        'DNS anycasted with over 30 POPs.',
+        "It's not always DNS.",
+        // Programming
+        'Can\'t spell "PowerShell" without "hell".',
+        'Please stop using Electron in projects and spare us of excessive ' +
+            'resource usage.',
+        // Programming but with Rust
+        'Rust? On goes the programming socks.',
+        '🦀 Rustaceans, assemble. 🦀',
+        // Functionality
+        'Entirely keyboard navigable? Yes.',
+        'JavaScript not required.',
         'I can neither confirm or deny to there being an easter egg.',
-        'I would make a joke about NFTs, but the joke writes itself.',
+        // Cryptocurrency & blockchain
+        '[Enter totally original joke of what NFT is short for here]',
         '"Web3", as envisioned by the delusional, is not the future.',
         'Buy high, sell low.' +
             '<br><span class="subtext">(Not financial advice.)</span>',
+        // Browsers
+        'Firefox try to keep ahead of modern times (instant fail).',
+        // Knowledge
+        'Sometimes, the cost of knowledge is cursed knowledge.',
+        // Digital art / image editing
+        'Oops, wrong layer.',
+        // Operating systems
+        '.DS_Store my beloved',
+        'Windows try to not maintain impractical amounts of backwards ' +
+            "compatibility at the user's expense (instant fail).",
+        'Is it the year of Linux on desktop yet?',
     ]
 
     constructor() {
