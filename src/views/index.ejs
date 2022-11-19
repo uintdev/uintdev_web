@@ -58,11 +58,38 @@
         </section>
         <section id="projects">
             <% const projectData=require('../data/projects.json') %>
-            <div class="content-title"><%= projectData.title %></div>
-            <div class="content-desc"><%= projectData.description %></div>
+            <div class="content-title"><%= projectData.metadata.title %></div>
+            <div class="content-desc"><%= projectData.metadata.description %></div>
             <div class="content-info">
+                <div class="sub-title"><%= projectData.active.subtitle %></div>
+                <div class="sub-desc"><%= projectData.active.description %></div>
                 <div class="card-container">
-                    <% projectData.list.forEach(function(project) { %>
+                    <% projectData.active.list.forEach(function(project) { %>
+                    <a class="card" href="<%= project.url %>">
+                        <div class="preview">
+                            <% if (project.archived) { %>
+                                <span class="archived">Archived</span>
+                            <% } %>
+                            <span class="thumb <%= project.image %>"></span>
+                        </div>
+                        <div class="info">
+                            <div class="name"><%= project.name %></div>
+                            <div class="desc">
+                                <%= project.description %>
+                            </div>
+                            <div class="tag-container">
+                                <% project.tags.forEach(function(tag) { %>
+                                <span class="tag"> <%= tag %> </span>
+                                <% }); %>
+                            </div>
+                        </div>
+                    </a>
+                    <% }); %>
+                </div>
+                <div class="sub-title"><%= projectData.inactive.subtitle %></div>
+                <div class="sub-desc"><%= projectData.inactive.description %></div>
+                <div class="card-container">
+                    <% projectData.inactive.list.forEach(function(project) { %>
                     <a class="card" href="<%= project.url %>">
                         <div class="preview">
                             <% if (project.archived) { %>

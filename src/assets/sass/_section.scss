@@ -30,9 +30,21 @@ section {
         @include content-area;
 
         .sub-title {
-            font-size: 115%;
-            margin-top: 15px;
+            text-align: center;
+            font-size: 130%;
+            margin-top: 20px;
             margin-bottom: 15px;
+
+            &:first-of-type {
+                margin-top: unset;
+            }
+        }
+
+        .sub-desc {
+            text-align: center;
+            font-size: 100%;
+            margin-top: 15px;
+            margin-bottom: 30px;
 
             &:first-of-type {
                 margin-top: unset;
