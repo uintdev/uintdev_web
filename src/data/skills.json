@@ -12,9 +12,9 @@
                 { "name": "Python" },
                 { "name": "Node.js" },
                 { "name": "C / C++" },
-                { "name": "Git" },
                 { "name": "C#" },
-                { "name": "Java" }
+                { "name": "Java" },
+                { "name": "Git" }
             ]
         },
         {
