@@ -67,9 +67,6 @@
                     <% projectData.active.list.forEach(function(project) { %>
                     <a class="card" href="<%= project.url %>">
                         <div class="preview">
-                            <% if (project.archived) { %>
-                                <span class="archived">Archived</span>
-                            <% } %>
                             <span class="thumb <%= project.image %>"></span>
                         </div>
                         <div class="info">
@@ -92,9 +89,6 @@
                     <% projectData.inactive.list.forEach(function(project) { %>
                     <a class="card" href="<%= project.url %>">
                         <div class="preview">
-                            <% if (project.archived) { %>
-                                <span class="archived">Archived</span>
-                            <% } %>
                             <span class="thumb <%= project.image %>"></span>
                         </div>
                         <div class="info">
