@@ -25,7 +25,7 @@
     },
     "inactive": {
         "subtitle": "Past",
-        "description": "Projects worked on previously",
+        "description": "Projects previously worked on",
         "list": [
             {
                 "name": "Discord Cache Dump",
