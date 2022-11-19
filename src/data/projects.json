@@ -1,7 +1,7 @@
 {
     "metadata": {
         "title": "Projects",
-        "description": "Projects that I had worked on. See more on <a href='https://github.com/uintdev' class='clickable'>GitHub</a>."
+        "description": "Projects that I had worked on &#8212; see more on <a href='https://github.com/uintdev' class='clickable'>GitHub</a>"
     },
     "active": {
         "subtitle": "Ongoing",
@@ -10,7 +10,7 @@
             {
                 "name": "QRServ",
                 "image": "gh-qrs",
-                "description": "Transfer files with ease over a network.",
+                "description": "Transfer files with ease over a network",
                 "url": "https://github.com/uintdev/qrserv",
                 "archived": false,
                 "tags": ["Flutter", "Dart"]
@@ -18,7 +18,7 @@
             {
                 "name": "uintdev_web",
                 "image": "gh-uw",
-                "description": "Modular main website, with a touch of webpack and some transpiling.",
+                "description": "Modular main website, with a touch of webpack and some transpiling",
                 "url": "https://github.com/uintdev/uintdev_web",
                 "archived": false,
                 "tags": ["Webpack", "TypeScript", "SASS"]
@@ -32,7 +32,7 @@
             {
                 "name": "Discord Cache Dump",
                 "image": "gh-dcd",
-                "description": "Save and identify cached files from Discord's desktop clients.",
+                "description": "Save and identify cached files from Discord's desktop clients",
                 "url": "https://github.com/uintdev/Discord-Cache-Dump",
                 "archived": false,
                 "tags": ["Go"]
@@ -40,7 +40,7 @@
             {
                 "name": "Msg",
                 "image": "gh-msg",
-                "description": "Modern mobile messaging web application.",
+                "description": "Modern mobile messaging web application",
                 "url": "https://github.com/uintdev/Msg",
                 "archived": false,
                 "tags": ["PHP", "JavaScript", "MySQL"]
@@ -48,7 +48,7 @@
             {
                 "name": "Ducky HID WSI",
                 "image": "gh-dhw",
-                "description": "Custom USB Rubber Ducky HID only firmware with status indication.",
+                "description": "Custom USB Rubber Ducky HID only firmware with status indication",
                 "archived": true,
                 "url": "https://github.com/uintdev/Ducky_HID_WSI",
                 "tags": ["C"]

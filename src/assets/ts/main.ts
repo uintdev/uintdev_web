@@ -388,47 +388,47 @@ class SplashMsg {
     splashList: Array<string> = [
         // General commentary
         'Wow, how modern.',
-        'Light theme inadvertently looks better than dark.',
-        'Admiring the auto-hiding header.',
-        'Seemless theme transition.',
+        'Light theme inadvertently looks better than dark',
+        'Admiring the auto-hiding header',
+        'Seemless theme transition',
         // Web services
         'It works!',
-        'Proudly served by Nginx.',
+        'Proudly served by Nginx',
         // Transport cryptography
-        'gTLD naturally HTTPS enforced.',
-        "Transport secured with Let's Encrypt and best practices.",
+        'gTLD naturally HTTPS enforced',
+        "Transport secured with Let's Encrypt and best practices",
         // Cloud services
-        '🇫🇷 Hébergé en Fr*nce. 🇫🇷',
-        'ARM inside.',
+        '🇫🇷 Hébergé en Fr*nce 🇫🇷',
+        'ARM inside',
         // DNS services
-        'DNS anycasted with over 30 POPs.',
-        "It's not always DNS.",
+        'DNS anycasted with over 30 POPs',
+        "It's not always DNS",
         // Programming
-        'Can\'t spell "PowerShell" without "hell".',
+        'Can\'t spell "PowerShell" without "hell"',
         'Please stop using Electron in projects and spare us of excessive ' +
-            'resource usage.',
+            'resource usage',
         // Programming but with Rust
-        'Rust? On goes the programming socks.',
-        '🦀 Rustaceans, assemble. 🦀',
+        'Rust? On goes the programming socks',
+        '🦀 Rustaceans, assemble 🦀',
         // Functionality
-        'Entirely keyboard navigable? Yes.',
-        'JavaScript not required.',
-        'I can neither confirm or deny to there being an easter egg.',
+        'Entirely keyboard navigable? Yes',
+        'JavaScript not required',
+        'I can neither confirm or deny to there being an easter egg',
         // Cryptocurrency & blockchain
         '[Enter totally original joke of what NFT is short for here]',
-        '"Web3", as envisioned by the delusional, is not the future.',
-        'Buy high, sell low.' +
-            '<br><span class="subtext">(Not financial advice.)</span>',
+        '"Web3", as envisioned by the delusional, is not the future',
+        'Buy high, sell low' +
+            '<br><span class="subtext">(Not financial advice)</span>',
         // Browsers
-        'Firefox try to keep ahead of modern times (instant fail).',
+        'Firefox try to keep ahead of modern times (instant fail)',
         // Knowledge
-        'Sometimes, the cost of knowledge is cursed knowledge.',
+        'Sometimes, the cost of knowledge is cursed knowledge',
         // Digital art / image editing
-        'Oops, wrong layer.',
+        'Oops, wrong layer',
         // Operating systems
         '.DS_Store my beloved',
         'Windows try to not maintain impractical amounts of backwards ' +
-            "compatibility at the user's expense (instant fail).",
+            "compatibility at the user's expense (instant fail)",
         'Is it the year of Linux on desktop yet?',
     ]
 
