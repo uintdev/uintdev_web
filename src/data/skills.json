@@ -5,6 +5,7 @@
         {
             "category": "Software development",
             "pills": [
+                { "name": "Rust" },
                 { "name": "Flutter" },
                 { "name": "Dart" },
                 { "name": "Go" },
@@ -19,13 +20,21 @@
         {
             "category": "Web development",
             "pills": [
+                { "name": "TypeScript" },
                 { "name": "PHP" },
                 { "name": "SQL" },
                 { "name": "JavaScript" },
-                { "name": "TypeScript" },
-                { "name": "CSS" },
                 { "name": "SASS" },
+                { "name": "CSS" },
                 { "name": "SuiteScript" }
+            ]
+        },
+        {
+            "category": "Scripting",
+            "pills": [
+                { "name": "Zsh" },
+                { "name": "Bash" },
+                { "name": "PowerShell" }
             ]
         },
         {
@@ -43,28 +52,47 @@
         {
             "category": "System management",
             "pills": [
-                { "name": "Linux" },
-                { "name": "Zsh" },
-                { "name": "Bash" },
-                { "name": "Windows" },
-                { "name": "PowerShell" },
-                { "name": "DNS" },
-                { "name": "Networking" },
-                { "name": "Android" },
                 { "name": "iOS" },
-                { "name": "macOS" }
+                { "name": "Android" },
+                { "name": "macOS" },
+                { "name": "Linux" },
+                { "name": "Windows" }
+            ]
+        },
+        {
+            "category": "Networking",
+            "pills": [
+                { "name": "DNS" },
+                { "name": "HTTP" },
+                { "name": "TLS/SSL" },
+                { "name": "UDP" },
+                { "name": "TCP" },
+                { "name": "Firewall" },
+                { "name": "Port forwarding" }
+            ]
+        },
+        {
+            "category": "Document & design",
+            "pills": [
+                { "name": "Markdown" },
+                { "name": "SVG" },
+                { "name": "Affinity Designer" },
+                { "name": "Affinity Photo" },
+                { "name": "Affinity Publisher" },
+                { "name": "Clip Studio Paint" },
+                { "name": "Final Cut Pro" },
+                { "name": "Logic Pro" },
+                { "name": "Audacity" },
+                { "name": "Photoshop" },
+                { "name": "Microsoft Office" }
             ]
         },
         {
             "category": "Other",
             "pills": [
                 { "name": "Web & software security" },
-                { "name": "Electronics" },
-                { "name": "Digital art" },
-                { "name": "Graphics design" },
-                { "name": "Image editing" },
-                { "name": "Video editing" },
-                { "name": "Audio editing" }
+                { "name": "Reverse engineering" },
+                { "name": "Electronics" }
             ]
         }
     ]
