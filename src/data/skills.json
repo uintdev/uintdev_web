@@ -39,7 +39,7 @@
             "category": "Developer tools",
             "pills": [
                 { "name": "Git" },
-                { "name": "Wrap" },
+                { "name": "Warp" },
                 { "name": "RapidAPI" },
                 { "name": "Visual Studio Code" },
                 { "name": "Visual Studio" },
