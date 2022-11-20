@@ -24,7 +24,7 @@
                 { "name": "JavaScript" },
                 { "name": "SASS" },
                 { "name": "CSS" },
-                { "name": "SuiteScript" }
+                { "name": "EJS" }
             ]
         },
         {
@@ -34,10 +34,6 @@
                 { "name": "Bash" },
                 { "name": "PowerShell" }
             ]
-        },
-        {
-            "category": "Template engines",
-            "pills": [{ "name": "EJS" }, { "name": "Freemarker" }]
         },
         {
             "category": "Service management",
