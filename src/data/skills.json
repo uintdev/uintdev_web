@@ -12,8 +12,7 @@
                 { "name": "Python" },
                 { "name": "Node.js" },
                 { "name": "C / C++" },
-                { "name": "SQLite" },
-                { "name": "Git" }
+                { "name": "SQLite" }
             ]
         },
         {
@@ -36,6 +35,19 @@
                 { "name": "PowerShell" }
             ]
         },
+        {
+            "category": "Developer tools",
+            "pills": [
+                { "name": "Git" },
+                { "name": "Wrap" },
+                { "name": "RapidAPI" },
+                { "name": "Visual Studio Code" },
+                { "name": "Visual Studio" },
+                { "name": "Android Studio" },
+                { "name": "Xcode" }
+            ]
+        },
+
         {
             "category": "Service management",
             "pills": [
@@ -77,6 +89,7 @@
                 { "name": "Clip Studio Paint" },
                 { "name": "Final Cut Pro" },
                 { "name": "Logic Pro" },
+                { "name": "HandBrake" },
                 { "name": "Audacity" },
                 { "name": "Photoshop" },
                 { "name": "Microsoft Office" }
