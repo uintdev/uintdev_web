@@ -12,6 +12,7 @@
                 { "name": "Python" },
                 { "name": "Node.js" },
                 { "name": "C / C++" },
+                { "name": "SQLite" },
                 { "name": "Git" }
             ]
         },
