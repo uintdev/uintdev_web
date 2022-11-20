@@ -137,17 +137,21 @@
         </section>
         <span class="fab-scroll hide"><span class="fab-scroll-icon"></span></span>
     </main>
-    <% const package = require('../../package.json') %>
-    <% const generationDate = (new Date()) %>
-    <% const dateYear = generationDate.getFullYear() %>
-    <% const dateMonth = (generationDate.getMonth()+1).toString().padStart(2, '0') %>
-    <% const dateDay = generationDate.getDate().toString().padStart(2, '0') %>
-    <% const dateHours = generationDate.getHours().toString().padStart(2, '0') %>
-    <% const dateMinutes = generationDate.getMinutes().toString().padStart(2, '0') %>
-    <% const dateSeconds = generationDate.getSeconds().toString().padStart(2, '0') %>
-    <% const buildDate = dateYear + dateMonth + dateDay + dateHours + dateMinutes + dateSeconds %>
     <footer>
-        v<%= package.version %> -- Build: <%= buildDate %>
+        <% var commitID = 'unknown_commit' %>
+        <% const fs = require('fs') %>
+        <% const process = require('process') %>
+        <% const commitPath = process.cwd() + '/.git/FETCH_HEAD' %>
+        <% try { %>
+        <%     var readData = fs.readFileSync(commitPath, 'utf8') %>
+        <%     commitID = readData %>
+        <%     commitID = commitID.slice(0, 7) %>
+        <% } catch (e) { %>
+        <%     console.error('Failed to access file:') %>
+        <%     console.error(e) %>
+        <% } %>
+        <% const package = require('../../package.json') %>
+        v<%= package.version %> &#8212; <%= commitID %>
     </footer>
 </body>
 
