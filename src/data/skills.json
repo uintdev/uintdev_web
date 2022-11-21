@@ -41,6 +41,7 @@
                 { "name": "Git" },
                 { "name": "Warp" },
                 { "name": "RapidAPI" },
+                { "name": "Proxyman" },
                 { "name": "Visual Studio Code" },
                 { "name": "Visual Studio" },
                 { "name": "Android Studio" },
