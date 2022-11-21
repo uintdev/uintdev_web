@@ -387,7 +387,7 @@ class SplashMsg {
     // Slight technical details, references and jokes.
     splashList: Array<string> = [
         // General commentary
-        'Wow, how modern.',
+        'Wow, how modern',
         'Light theme inadvertently looks better than dark',
         'Admiring the auto-hiding header',
         'Seemless theme transition',
