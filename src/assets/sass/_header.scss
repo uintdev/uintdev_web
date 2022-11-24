@@ -27,51 +27,96 @@ header {
         display: none !important;
     }
 
-    .theme-invert {
-        border: 0;
-        background-color: var(--color-theme-invert);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 44px;
-        height: 44px;
-        border-radius: 44px;
-        @include unselectable;
-        z-index: 10;
-        transition: background-color 0.2s;
-        cursor: pointer;
-        @include ripple-init(true, true);
+    .options {
+        display: inline-flex;
+        gap: 30px;
 
-        &:focus {
-            outline: dashed var(--color-theme-invert);
-            @media (hover: none) {
-                outline: none;
+        .hide {
+            display: none !important;
+        }
+
+        .button-link {
+            background-color: var(--color-theme-invert);
+            color: var(--color-theme-invert-icon);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 85%;
+            align-items: center;
+            justify-content: center;
+            @include unselectable;
+            width: 44px;
+            height: 44px;
+            border-radius: 44px;
+            z-index: 10;
+            transition: background-color 0.2s;
+            cursor: pointer;
+            @include ripple-init(true, true);
+
+            &:focus {
+                outline: dashed var(--color-theme-invert);
+                @media (hover: none) {
+                    outline: none;
+                }
+                background-color: var(--color-theme-invert-focus);
             }
-            background-color: var(--color-theme-invert-focus);
+
+            &:focus:not(:focus-visible) {
+                outline: none;
+                background-color: var(--color-theme-invert-focus);
+            }
+
+            &:hover {
+                background-color: var(--color-theme-invert-hover);
+            }
         }
 
-        &:focus:not(:focus-visible) {
-            outline: none;
-            background-color: var(--color-theme-invert-focus);
-        }
-
-        &:hover {
-            background-color: var(--color-theme-invert-hover);
-        }
-
-        .theme-invert-icon {
-            @include image-loader('header/invert.svg', true);
-            background-color: var(--color-theme-invert-icon);
-            background-position: 50%;
-            background-repeat: no-repeat;
-            padding-top: 44px;
-            width: 100%;
-        }
-    }
-
-    @media (prefers-reduced-motion) {
         .theme-invert {
-            transition: background-color 0s;
+            border: 0;
+            background-color: var(--color-theme-invert);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 44px;
+            @include unselectable;
+            z-index: 10;
+            transition: background-color 0.2s;
+            cursor: pointer;
+            @include ripple-init(true, true);
+
+            &:focus {
+                outline: dashed var(--color-theme-invert);
+                @media (hover: none) {
+                    outline: none;
+                }
+                background-color: var(--color-theme-invert-focus);
+            }
+
+            &:focus:not(:focus-visible) {
+                outline: none;
+                background-color: var(--color-theme-invert-focus);
+            }
+
+            &:hover {
+                background-color: var(--color-theme-invert-hover);
+            }
+
+            .theme-invert-icon {
+                @include image-loader('header/invert.svg', true);
+                background-color: var(--color-theme-invert-icon);
+                background-position: 50%;
+                background-repeat: no-repeat;
+                padding-top: 44px;
+                width: 100%;
+            }
+        }
+
+        @media (prefers-reduced-motion) {
+            .theme-invert {
+                transition: background-color 0s;
+            }
         }
     }
 }
