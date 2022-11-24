@@ -13,10 +13,10 @@
     --color-ripple-inverted-dark: var(--color-ripple-light);
     --brightness-card-thumb-focus-dark: 1.025;
     --brightness-card-thumb-hover-dark: 1.05;
-    --color-theme-invert-dark: var(--color-third-light);
-    --color-theme-invert-focus-dark: var(--color-third-focus-light);
-    --color-theme-invert-hover-dark: var(--color-third-hover-light);
-    --color-theme-invert-icon-dark: var(--color-primary-light);
+    --color-header-button-dark: var(--color-third-light);
+    --color-header-button-focus-dark: var(--color-third-focus-light);
+    --color-header-button-hover-dark: var(--color-third-hover-light);
+    --color-header-button-icon-dark: var(--color-primary-light);
 
     --color-primary-light: rgba(0, 0, 0, 1);
     --color-secondary-light: rgba(223, 232, 236, 1);
@@ -32,10 +32,10 @@
     --color-ripple-inverted-light: var(--color-ripple-dark);
     --brightness-card-thumb-focus-light: 0.985;
     --brightness-card-thumb-hover-light: 0.95;
-    --color-theme-invert-light: var(--color-third-dark);
-    --color-theme-invert-focus-light: var(--color-third-focus-dark);
-    --color-theme-invert-hover-light: var(--color-third-hover-dark);
-    --color-theme-invert-icon-light: var(--color-primary-dark);
+    --color-header-button-light: var(--color-third-dark);
+    --color-header-button-focus-light: var(--color-third-focus-dark);
+    --color-header-button-hover-light: var(--color-third-hover-dark);
+    --color-header-button-icon-light: var(--color-primary-dark);
 
     transition: background-color 0.5s;
 }
@@ -57,10 +57,10 @@
     --color-ripple-inverted: var(--color-ripple-inverted-dark);
     --brightness-card-thumb-focus: var(--brightness-card-thumb-focus-dark);
     --brightness-card-thumb-hover: var(--brightness-card-thumb-hover-dark);
-    --color-theme-invert: var(--color-theme-invert-dark);
-    --color-theme-invert-focus: var(--color-theme-invert-focus-dark);
-    --color-theme-invert-hover: var(--color-theme-invert-hover-dark);
-    --color-theme-invert-icon: var(--color-theme-invert-icon-dark);
+    --color-header-button: var(--color-header-button-dark);
+    --color-header-button-focus: var(--color-header-button-focus-dark);
+    --color-header-button-hover: var(--color-header-button-hover-dark);
+    --color-header-button-icon: var(--color-header-button-icon-dark);
 
     --radius-pill: 16px;
     --radius-card: 30px;
@@ -86,10 +86,10 @@
         --color-ripple-inverted: var(--color-ripple-inverted-light);
         --brightness-card-thumb-focus: var(--brightness-card-thumb-focus-light);
         --brightness-card-thumb-hover: var(--brightness-card-thumb-hover-light);
-        --color-theme-invert: var(--color-theme-invert-light);
-        --color-theme-invert-focus: var(--color-theme-invert-focus-light);
-        --color-theme-invert-hover: var(--color-theme-invert-hover-light);
-        --color-theme-invert-icon: var(--color-theme-invert-icon-light);
+        --color-header-button: var(--color-header-button-light);
+        --color-header-button-focus: var(--color-header-button-focus-light);
+        --color-header-button-hover: var(--color-header-button-hover-light);
+        --color-header-button-icon: var(--color-header-button-icon-light);
     }
 }
 
@@ -110,10 +110,10 @@
     --color-ripple-inverted: var(--color-ripple-inverted-light);
     --brightness-card-thumb-focus: var(--brightness-card-thumb-focus-light);
     --brightness-card-thumb-hover: var(--brightness-card-thumb-hover-light);
-    --color-theme-invert: var(--color-theme-invert-light);
-    --color-theme-invert-focus: var(--color-theme-invert-focus-light);
-    --color-theme-invert-hover: var(--color-theme-invert-hover-light);
-    --color-theme-invert-icon: var(--color-theme-invert-icon-light);
+    --color-header-button: var(--color-header-button-light);
+    --color-header-button-focus: var(--color-header-button-focus-light);
+    --color-header-button-hover: var(--color-header-button-hover-light);
+    --color-header-button-icon: var(--color-header-button-icon-light);
 }
 
 [color-scheme='dark'] {
@@ -133,8 +133,8 @@
     --color-ripple-inverted: var(--color-ripple-inverted-dark);
     --brightness-card-thumb-focus: var(--brightness-card-thumb-focus-dark);
     --brightness-card-thumb-hover: var(--brightness-card-thumb-hover-dark);
-    --color-theme-invert: var(--color-theme-invert-dark);
-    --color-theme-invert-focus: var(--color-theme-invert-focus-dark);
-    --color-theme-invert-hover: var(--color-theme-invert-hover-dark);
-    --color-theme-invert-icon: var(--color-theme-invert-icon-dark);
+    --color-header-button: var(--color-header-button-dark);
+    --color-header-button-focus: var(--color-header-button-focus-dark);
+    --color-header-button-hover: var(--color-header-button-hover-dark);
+    --color-header-button-icon: var(--color-header-button-icon-dark);
 }

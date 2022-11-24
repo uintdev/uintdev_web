@@ -36,8 +36,8 @@ header {
         }
 
         .button-link {
-            background-color: var(--color-theme-invert);
-            color: var(--color-theme-invert-icon);
+            background-color: var(--color-header-button);
+            color: var(--color-header-button-icon);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -54,26 +54,35 @@ header {
             @include ripple-init(true, true);
 
             &:focus {
-                outline: dashed var(--color-theme-invert);
+                outline: dashed var(--color-header-button);
                 @media (hover: none) {
                     outline: none;
                 }
-                background-color: var(--color-theme-invert-focus);
+                background-color: var(--color-header-button-focus);
             }
 
             &:focus:not(:focus-visible) {
                 outline: none;
-                background-color: var(--color-theme-invert-focus);
+                background-color: var(--color-header-button-focus);
             }
 
             &:hover {
-                background-color: var(--color-theme-invert-hover);
+                background-color: var(--color-header-button-hover);
+            }
+
+            .blog-icon {
+                @include image-loader('header/blog.svg', true);
+                background-color: var(--color-header-button-icon);
+                background-position: 50%;
+                background-repeat: no-repeat;
+                padding-top: 44px;
+                width: 100%;
             }
         }
 
         .theme-invert {
             border: 0;
-            background-color: var(--color-theme-invert);
+            background-color: var(--color-header-button);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -87,25 +96,25 @@ header {
             @include ripple-init(true, true);
 
             &:focus {
-                outline: dashed var(--color-theme-invert);
+                outline: dashed var(--color-header-button);
                 @media (hover: none) {
                     outline: none;
                 }
-                background-color: var(--color-theme-invert-focus);
+                background-color: var(--color-header-button-focus);
             }
 
             &:focus:not(:focus-visible) {
                 outline: none;
-                background-color: var(--color-theme-invert-focus);
+                background-color: var(--color-header-button-focus);
             }
 
             &:hover {
-                background-color: var(--color-theme-invert-hover);
+                background-color: var(--color-header-button-hover);
             }
 
             .theme-invert-icon {
                 @include image-loader('header/invert.svg', true);
-                background-color: var(--color-theme-invert-icon);
+                background-color: var(--color-header-button-icon);
                 background-position: 50%;
                 background-repeat: no-repeat;
                 padding-top: 44px;
