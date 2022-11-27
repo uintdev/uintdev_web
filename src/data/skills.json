@@ -84,16 +84,26 @@
             "pills": [
                 { "name": "Markdown" },
                 { "name": "SVG" },
+                { "name": "Affinity Publisher" },
+                { "name": "Microsoft Office" }
+            ]
+        },
+        {
+            "category": "Illustrations & graphics",
+            "pills": [
                 { "name": "Affinity Designer" },
                 { "name": "Affinity Photo" },
-                { "name": "Affinity Publisher" },
                 { "name": "Clip Studio Paint" },
+                { "name": "Photoshop" }
+            ]
+        },
+        {
+            "category": "Audio & video",
+            "pills": [
                 { "name": "Final Cut Pro" },
                 { "name": "Logic Pro" },
                 { "name": "HandBrake" },
-                { "name": "Audacity" },
-                { "name": "Photoshop" },
-                { "name": "Microsoft Office" }
+                { "name": "Audacity" }
             ]
         },
         {
