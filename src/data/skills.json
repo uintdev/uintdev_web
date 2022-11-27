@@ -48,7 +48,16 @@
                 { "name": "Xcode" }
             ]
         },
-
+        {
+            "category": "Virtualisation & emulation",
+            "pills": [
+                { "name": "QEMU" },
+                { "name": "Proxmox VE" },
+                { "name": "Parallels Desktop" },
+                { "name": "Oracle Virtualbox" },
+                { "name": "VMware Workstation" }
+            ]
+        },
         {
             "category": "Service management",
             "pills": [
