@@ -111,6 +111,7 @@
             "pills": [
                 { "name": "Final Cut Pro" },
                 { "name": "Logic Pro" },
+                { "name": "OBS Studio" },
                 { "name": "HandBrake" },
                 { "name": "Audacity" }
             ]
