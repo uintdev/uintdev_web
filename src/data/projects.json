@@ -15,6 +15,13 @@
                 "tags": ["Flutter", "Dart"]
             },
             {
+                "name": "Email Addr Extract",
+                "image": "gh-eae",
+                "description": "High performance email address extraction tool",
+                "url": "https://github.com/uintdev/email-addr-extract",
+                "tags": ["Rust"]
+            },
+            {
                 "name": "uintdev_web",
                 "image": "gh-uw",
                 "description": "Modular main website, with a touch of webpack and some transpiling",

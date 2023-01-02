@@ -120,6 +120,10 @@
         .gh-dhw {
             @include image-loader('projects/gh-dhw.svg');
         }
+
+        .gh-eae {
+            @include image-loader('projects/gh-eae.svg');
+        }
     }
 
     @media (prefers-reduced-motion) {
