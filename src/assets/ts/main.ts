@@ -259,6 +259,7 @@ class Ripple {
 
         let _inputDetail = event.detail
         let _inputPointerId = event.pointerId
+        // Imagine if Firefox paid attention to standards
         let _inputMozSrc = event.mozInputSource
 
         if (typeof event.pageX === 'undefined') {
@@ -384,13 +385,13 @@ const egg = new Egg()
 
 class SplashMsg {
     // List of messages to potentially go with by random
-    // Slight technical details, references and jokes.
+    // Slight technical details, roasts, and (internet cultural) references.
     splashList: Array<string> = [
         // General commentary
         'Wow, how modern',
         'Light theme inadvertently looks better than dark',
         'Admiring the auto-hiding header',
-        'Seemless theme transition',
+        'Seamless theme transition',
         // Web services
         'It works!',
         'Proudly served by Nginx',
@@ -400,29 +401,44 @@ class SplashMsg {
         // Cloud services
         '🇫🇷 Hébergé en Fr*nce 🇫🇷',
         'ARM inside',
+        'Accessible through IPv6',
         // DNS services
         'DNS anycasted with over 30 POPs',
         "It's not always DNS",
         // Programming
         'Can\'t spell "PowerShell" without "hell"',
-        'Please stop using Electron in projects and spare us of excessive ' +
-            'resource usage',
+        'Electron is why computers need more resources these days',
+        // Programming but with JavaScript
+        'Don\'t ask JavaScript what "[] + {}" and "{} + []" are equal to',
+        'JavaScript has the "completely detached from reality" type system',
+        'JavaScript modules: including unnecessary modules of their ' +
+            'own such as "is-odd"',
+        'For every JavaScript problem that is encountered, ' +
+            'a new JavaScript framework is made',
         // Programming but with Rust
-        'Rust? On goes the programming socks',
+        'Rust? Programming socks and Blåhaj at the ready',
         '🦀 Rustaceans, assemble 🦀',
+        '"Did you know that Rust is memory safe?," ' +
+            'the Rust dev asked the JavaScript dev',
+        // Tech tips
+        'Placing user input into a LIKE SQL query as a field string?' +
+            '<br>' +
+            'Escape the wildcard (%), unless you intend ' +
+            'for the user to.. well.. use it',
+        'Modern web search engines support search operators ' +
+            'that can help narrow down specific results',
         // Functionality
-        'Entirely keyboard navigable? Yes',
-        'JavaScript not required',
+        'Entirely keyboard navigable? As standard',
+        'JavaScript not required, unlike some websites',
         'I can neither confirm or deny to there being an easter egg',
-        // Cryptocurrency & blockchain
-        '[Enter totally original joke of what NFT is short for here]',
-        '"Web3", as envisioned by the delusional, is not the future',
-        'Buy high, sell low' +
-            '<br><span class="subtext">(Not financial advice)</span>',
-        // Browsers
-        'Firefox try to keep ahead of modern times (instant fail)',
+        // Browsers & web engines
+        'Chrome: I can use so much RAM' + '<br>' + 'Firefox: Hold my beer',
+        'Edge is just as bad as Chrome',
+        'Opera ""free"" VPN',
+        'There is no escape from Chromium',
         // Knowledge
-        'Sometimes, the cost of knowledge is cursed knowledge',
+        'Sometimes, the cost of knowledge is to also ' +
+            'carry the weight of cursed knowledge',
         // Digital art / image editing
         'Oops, wrong layer',
         // Operating systems
@@ -430,11 +446,12 @@ class SplashMsg {
         'Windows try to not maintain impractical amounts of backwards ' +
             "compatibility at the user's expense (instant fail)",
         'Is it the year of Linux on desktop yet?',
+        'btw i use arch',
     ]
 
     constructor() {
         if (theme.get() === 'light') {
-            this.splashList.push("Ooh, I'm blinded by the lights...")
+            this.splashList.push("Ooh, I'm blinded by the lights")
         }
     }
 
