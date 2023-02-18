@@ -434,7 +434,7 @@ class SplashMsg {
         // Browsers & web engines
         'Chrome: I can use so much RAM' + '<br>' + 'Firefox: Hold my beer',
         'Edge is just as bad as Chrome',
-        'Opera ""free"" VPN',
+        'Opera ""free"" ""VPN""',
         'There is no escape from Chromium',
         // Knowledge
         'Sometimes, the cost of knowledge is to also ' +
