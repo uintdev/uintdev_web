@@ -120,6 +120,7 @@ class UIController {
      * @returns {void}
      */
     header(): void {
+        if (this.overscrollDeadZone()) return
         let headerEle = document.getElementsByTagName('header')[0]
         if (!this._headerActive && window.scrollY <= this._headerPast) {
             this._headerPast = window.scrollY
@@ -215,6 +216,34 @@ class UIController {
             top: _rect.top + _scrollTop,
             left: _rect.left + _scrollLeft,
         }
+    }
+
+    /**
+     * Determine the dead zone to use when overscrolling (Safari-specific quirk)
+     * @method overscrollDeadZone
+     * @returns {boolean}
+     */
+    overscrollDeadZone(): boolean {
+        let result = true
+        let deadZone = 0
+
+        let currentPosition = window.scrollY
+        let overallHeight =
+            document.documentElement.scrollHeight -
+            document.documentElement.clientHeight
+
+        let difference = overallHeight - currentPosition
+
+        let platformType = window.navigator.platform ?? ''
+        if (platformType === 'iPhone') {
+            deadZone = 81
+        }
+
+        if (difference > deadZone) {
+            result = false
+        }
+
+        return result
     }
 }
 
