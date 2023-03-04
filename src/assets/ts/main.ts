@@ -110,9 +110,10 @@ enum fabStates {
 
 class UIController {
     // Manage header state
-    _headerPast = window.scrollY
-    _headerActive = false
-    _headerState = headerStates.NULL
+    private _headerPast = window.scrollY
+    private _headerActive = false
+    private _headerState = headerStates.NULL
+    private _headerPresent = true
 
     /**
      * Controls header state
@@ -120,8 +121,20 @@ class UIController {
      * @returns {void}
      */
     header(): void {
+        if (!this._headerPresent) return
         if (this.overscrollDeadZone()) return
+
         let headerEle = document.getElementsByTagName('header')[0]
+
+        if (typeof headerEle === 'undefined') {
+            alert("nahhh you didn't just remove the header 💀")
+            console.error(
+                'Header not present on page -- disabled UI header controller'
+            )
+            this._headerPresent = false
+            return
+        }
+
         if (!this._headerActive && window.scrollY <= this._headerPast) {
             this._headerPast = window.scrollY
             if (this._headerState !== headerStates.SHOW) {
@@ -150,8 +163,9 @@ class UIController {
 
     // Initiate FAB state
     readonly _fabZone = 200
-    _fabActive = false
-    _fabState = fabStates.NULL
+    private _fabActive = false
+    private _fabState = fabStates.NULL
+    private _fabPresent = true
 
     /**
      * Controls FAB (floating action button) state
@@ -159,7 +173,18 @@ class UIController {
      * @returns {void}
      */
     fab(): void {
+        if (!this._fabPresent) return
+
         let fabEle = document.getElementsByClassName('fab-scroll')[0]
+
+        if (typeof fabEle === 'undefined') {
+            console.error(
+                'FAB not present on page -- disabled UI FAB controller'
+            )
+            this._fabPresent = false
+            return
+        }
+
         if (this._fabActive && window.scrollY <= this._fabZone) {
             if (this._fabState === fabStates.HIDE) return
             fabEle.classList.add('hide')
@@ -503,7 +528,7 @@ class SplashMsg {
      */
     setDat(message: string): void {
         let initDes = document.getElementsByClassName('splash-des')
-        if (initDes.length < 1) return
+        if (initDes.length === 0) return
         initDes[0].innerHTML = message
     }
 }
