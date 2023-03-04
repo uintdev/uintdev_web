@@ -259,6 +259,13 @@ class UIController {
 
         let difference = overallHeight - currentPosition
 
+        /**
+         * MDN deems navigator.platform deprecated and instead is in favour of
+         * NavigatorUAData.platform, which frankly is just ridiculous
+         * as it's only supported in chromium-based browsers
+         * (I get that there are a lot of those sort of browsers around, but
+         * it doesn't mean that other web engines don't exist).
+         */
         let platformType = window.navigator.platform ?? ''
         if (platformType === 'iPhone') {
             deadZone = 81
