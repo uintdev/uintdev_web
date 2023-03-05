@@ -7,7 +7,7 @@ class Theme {
      * @method _get
      * @returns {string}
      */
-    get(): string | null {
+    public get(): string | null {
         let _fallbackTheme = 'dark'
 
         if (document.documentElement.hasAttribute('color-scheme')) {
@@ -32,7 +32,7 @@ class Theme {
      * @method set
      * @returns {string}
      */
-    set(): void {
+    public set(): void {
         let _nextTheme: string = ''
         let _autoTheme = false
         let _currentTheme = this.get()
@@ -120,7 +120,7 @@ class UIController {
      * @method header
      * @returns {void}
      */
-    header(): void {
+    public header(): void {
         if (!this._headerPresent) return
         if (this.overscrollDeadZone()) return
 
@@ -172,7 +172,7 @@ class UIController {
      * @method fab
      * @returns {void}
      */
-    fab(): void {
+    public fab(): void {
         if (!this._fabPresent) return
 
         let fabEle = document.getElementsByClassName('fab-scroll')[0]
@@ -202,7 +202,7 @@ class UIController {
      * @param ele {string} HTML element ID or query selector
      * @returns {void}
      */
-    scroll(ele: string): void {
+    public scroll(ele: string): void {
         let reduceMotion: boolean =
             !!window.matchMedia &&
             window.matchMedia('(prefers-reduced-motion)').matches
@@ -231,7 +231,7 @@ class UIController {
      * @param ele {HTMLElement} HTML element
      * @returns {OffsetProps}
      */
-    offset(ele: HTMLElement): OffsetProps {
+    public offset(ele: HTMLElement): OffsetProps {
         let _rect = ele.getBoundingClientRect(),
             _scrollLeft =
                 window.pageXOffset || document.documentElement.scrollLeft,
@@ -248,7 +248,7 @@ class UIController {
      * @method overscrollDeadZone
      * @returns {boolean}
      */
-    overscrollDeadZone(): boolean {
+    private overscrollDeadZone(): boolean {
         let result = true
         let deadZone = 0
 
@@ -307,7 +307,7 @@ class Ripple {
      * @param event {InputHybridEvent} Mouse, keyboard and touch input event
      * @returns {void}
      */
-    create(event: InputHybridEvent): void {
+    public create(event: InputHybridEvent): void {
         event.preventDefault()
 
         const _button = event.currentTarget as HTMLElement
@@ -394,7 +394,7 @@ class Egg {
      * @param type {OscillatorType} Oscillator to use
      * @returns {void}
      */
-    audioGen(frequency: number, type: OscillatorType): void {
+    private audioGen(frequency: number, type: OscillatorType): void {
         let context: AudioContext = new AudioContext()
         let oscillator = context.createOscillator()
         let gain = context.createGain()
@@ -407,7 +407,7 @@ class Egg {
         gain.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
     }
 
-    payload = (): void => {
+    private payload = (): void => {
         this.audioGen(87.31, 'triangle')
 
         var audioController = new Audio('data/easteregg.mp3')
@@ -417,7 +417,7 @@ class Egg {
         }, 1000)
     }
 
-    _pressedKeys: string
+    private _pressedKeys: string
 
     /**
      * Easter egg -- wait, this shouldn't be documented...
@@ -425,7 +425,7 @@ class Egg {
      * @param event {KeyboardEvent} Event information from the keyboard
      * @returns {void}
      */
-    init = (event: KeyboardEvent): void => {
+    public init = (event: KeyboardEvent): void => {
         var eventKeyData: string = event.key
         if (eventKeyData.length === 1) {
             eventKeyData = event.key.toUpperCase()
@@ -447,7 +447,7 @@ const egg = new Egg()
 class SplashMsg {
     // List of messages to potentially go with by random
     // Slight technical details, roasts, and (internet cultural) references.
-    splashList: Array<string> = [
+    private splashList: Array<string> = [
         // General commentary
         'Wow, how modern',
         'Light theme inadvertently looks better than dark',
@@ -521,7 +521,7 @@ class SplashMsg {
      * @method getRand
      * @returns {string}
      */
-    getRand(): string {
+    private getRand(): string {
         let res = ''
         res = this.splashList[(Math.random() * this.splashList.length) | 0]
         return res
@@ -529,14 +529,13 @@ class SplashMsg {
 
     /**
      * Set a message as the splash message
-     * @method setDat
-     * @param message {string} Message data
+     * @method set
      * @returns {void}
      */
-    setDat(message: string): void {
+    public set(): void {
         let initDes = document.getElementsByClassName('splash-des')
         if (initDes.length === 0) return
-        initDes[0].innerHTML = message
+        initDes[0].innerHTML = this.getRand()
     }
 }
 
@@ -544,7 +543,7 @@ const splashMsg = new SplashMsg()
 
 window.onload = function () {
     // Set initial random message
-    splashMsg.setDat(splashMsg.getRand())
+    splashMsg.set()
 
     // Set up listener
     document.querySelectorAll(ripple.selector).forEach(function (ele) {
