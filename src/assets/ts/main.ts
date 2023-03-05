@@ -2,14 +2,14 @@
 let originalThemeColors: Array<string> = []
 
 class Theme {
+    private readonly _fallbackTheme = 'dark'
+
     /**
      * Gather current theme
      * @method _get
      * @returns {string}
      */
     public get(): string | null {
-        let _fallbackTheme = 'dark'
-
         if (document.documentElement.hasAttribute('color-scheme')) {
             return document.documentElement.getAttribute('color-scheme')
         } else if (window.matchMedia) {
@@ -20,10 +20,10 @@ class Theme {
             } else if (window.matchMedia(_schemeLight).matches) {
                 return 'light'
             } else {
-                return _fallbackTheme
+                return this._fallbackTheme
             }
         } else {
-            return _fallbackTheme
+            return this._fallbackTheme
         }
     }
 
