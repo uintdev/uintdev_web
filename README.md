@@ -1,10 +1,12 @@
 # uintdev web
 
-This is the source code of the Node.js application behind building the website '[uint.dev](https://uint.dev/)'.
+This is the source code of the Node.js application behind bundling assets for the website '[uint.dev](https://uint.dev/)'.
 
 ## Setup
 
 ### CLI
+
+Ideally, PNPM would be used. The usual NPM should work, if that is of preference.
 
 ```bash
 # Install modules (initial setup)
@@ -15,7 +17,7 @@ pnpm run build
 
 ### Web server
 
-For the web server of your choice, point the document root for the virtualhost to the `dist/` directory that was created during the build process.
+For the web server of your choice, point the document root for the virtual host to the `dist/` directory (or its results) that was created from the build process.
 
 ## Licencing
 
