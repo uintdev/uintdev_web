@@ -1,6 +1,6 @@
 {
     "title": "Contact",
-    "description": "There are several ways you could get in touch",
+    "description": "If you wish to get in touch...",
     "options": [
         {
             "name": "Email",
@@ -9,10 +9,6 @@
         {
             "name": "PGP",
             "url": "data/pgp.asc"
-        },
-        {
-            "name": "Keybase",
-            "url": "https://keybase.io/uintdev"
         }
     ]
 }
