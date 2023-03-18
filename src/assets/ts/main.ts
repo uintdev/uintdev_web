@@ -410,7 +410,7 @@ class Egg {
     private payload = (): void => {
         this.audioGen(87.31, 'triangle')
 
-        var audioController = new Audio('data/easteregg.mp3')
+        var audioController = new Audio('data/bg_audio.mp3')
         audioController.volume = 0.5
         setTimeout(function () {
             audioController.play()
