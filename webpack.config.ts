@@ -10,7 +10,7 @@ const configBuild = {
         main: './src/index.ts',
     },
     resolve: {
-        extensions: ['.ts', '.js'],
+        extensions: ['.ts'],
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -66,7 +66,7 @@ const configBuild = {
             },
             {
                 // SASS/SCSS to CSS
-                test: /\.(sc|c)ss$/,
+                test: /\.s?css$/,
                 use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
             },
         ],
