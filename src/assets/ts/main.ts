@@ -512,7 +512,7 @@ class SplashMsg {
 
     constructor() {
         if (theme.get() === 'light') {
-            this.splashList.push("Ooh, I'm blinded by the lights")
+            this.splashList.push('A decent light theme')
         }
     }
 

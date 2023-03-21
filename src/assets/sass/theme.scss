@@ -1,15 +1,16 @@
 * {
+    // Theme - TBD -- Night Sky?
     --color-primary-dark: rgba(255, 255, 255, 1);
-    --color-secondary-dark: rgba(0, 0, 0, 1);
-    --color-secondary-focus-dark: rgba(2, 2, 2, 1);
-    --color-secondary-hover-dark: rgba(4, 4, 4, 1);
-    --color-third-dark: rgba(30, 30, 30, 1);
-    --color-third-focus-dark: rgba(34, 34, 34, 1);
-    --color-third-hover-dark: rgba(37, 37, 37, 1);
+    --color-secondary-dark: rgba(23, 24, 32, 1);
+    --color-secondary-focus-dark: rgba(25, 26, 34, 1);
+    --color-secondary-hover-dark: rgba(27, 28, 36, 1);
+    --color-third-dark: rgba(31, 34, 40, 1);
+    --color-third-focus-dark: rgba(35, 38, 44, 1);
+    --color-third-hover-dark: rgba(39, 42, 48, 1);
     --color-thumb-dark: rgba(80, 80, 80, 0.6);
     --color-thumb-hover-dark: rgba(80, 80, 80, 0.8);
     --color-accent-dark: rgba(98, 100, 211, 1);
-    --color-ripple-dark: rgba(255, 255, 255, 0.4);
+    --color-ripple-dark: rgba(233, 230, 219, 0.4);
     --color-ripple-inverted-dark: var(--color-ripple-light);
     --brightness-card-thumb-focus-dark: 1.025;
     --brightness-card-thumb-hover-dark: 1.05;
@@ -18,17 +19,18 @@
     --color-header-button-hover-dark: var(--color-third-hover-light);
     --color-header-button-icon-dark: var(--color-primary-light);
 
-    --color-primary-light: rgba(0, 0, 0, 1);
-    --color-secondary-light: rgba(223, 232, 236, 1);
-    --color-secondary-focus-light: rgba(219, 228, 232, 1);
-    --color-secondary-hover-light: rgba(215, 224, 228, 1);
-    --color-third-light: rgba(209, 219, 224, 1);
-    --color-third-focus-light: rgba(205, 215, 220, 1);
-    --color-third-hover-light: rgba(201, 211, 216, 1);
-    --color-thumb-light: rgba(187, 197, 202, 0.8);
-    --color-thumb-hover-light: rgba(187, 197, 202, 1);
+    // Theme - Cappuccino
+    --color-primary-light: rgba(113, 83, 41, 1);
+    --color-secondary-light: rgba(233, 230, 219, 1);
+    --color-secondary-focus-light: rgba(229, 226, 215, 1);
+    --color-secondary-hover-light: rgba(225, 222, 211, 1);
+    --color-third-light: rgba(222, 215, 202, 1);
+    --color-third-focus-light: rgba(218, 211, 198, 1);
+    --color-third-hover-light: rgba(214, 207, 194, 1);
+    --color-thumb-light: rgba(206, 199, 186, 1);
+    --color-thumb-hover-light: var(--color-third-hover-light);
     --color-accent-light: rgba(98, 100, 211, 1);
-    --color-ripple-light: rgba(0, 0, 0, 0.4);
+    --color-ripple-light: rgba(23, 24, 32, 0.4);
     --color-ripple-inverted-light: var(--color-ripple-dark);
     --brightness-card-thumb-focus-light: 0.985;
     --brightness-card-thumb-hover-light: 0.95;
@@ -65,7 +67,7 @@
     --radius-pill: 16px;
     --radius-card: 30px;
 
-    --font-stack: 'Quicksand', sans-serif;
+    --font-stack: monospace, sans-serif;
 }
 
 @media (prefers-color-scheme: light) {

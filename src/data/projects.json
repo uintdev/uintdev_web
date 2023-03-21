@@ -24,7 +24,7 @@
             {
                 "name": "uintdev_web",
                 "image": "gh-uw",
-                "description": "Modular main website, with a touch of webpack and some transpiling",
+                "description": "Modular main website, with bundled goodness",
                 "url": "https://github.com/uintdev/uintdev_web",
                 "tags": ["Webpack", "TypeScript", "SASS"]
             }

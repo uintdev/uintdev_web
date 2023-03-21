@@ -6,8 +6,8 @@
     "url": "https://uint.dev/",
     "twitter": "@uintdev",
     "theme": {
-        "dark": "#000000",
-        "light": "#dfe8ec"
+        "dark": "#171820",
+        "light": "#e9e6db"
     },
     "splash_msg_fallback_noscript": "No JavaScript? No problem."
 }

@@ -22,5 +22,3 @@ For the web server of your choice, point the document root for the virtual host 
 ## Licencing
 
 The '[MIT license](LICENSE)' is used for this project.
-<br>
-The font 'Quicksand' used is licenced under '[OFL](src/assets/sass/fonts/OFL.txt)'.
