@@ -1,7 +1,7 @@
 .pill-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 18px;
+    gap: 20px;
     height: 100%;
     justify-content: center;
     align-items: stretch;
@@ -10,7 +10,7 @@
         border-radius: var(--radius-pill);
         color: var(--color-primary);
         background-color: var(--color-third);
-        padding: 13px 23px;
+        padding: 13px 22px;
         font-size: 80%;
         @include box-shadow(2);
     }
