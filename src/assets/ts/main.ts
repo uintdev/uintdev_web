@@ -268,7 +268,7 @@ class UIController {
          */
         let platformType = window.navigator.platform ?? ''
         if (platformType === 'iPhone') {
-            deadZone = 81
+            deadZone = 110
         }
 
         if (difference > deadZone) {
