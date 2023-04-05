@@ -486,7 +486,7 @@ class SplashMsg {
             'that can help narrow down specific results',
         // Functionality
         'Entirely keyboard navigable? As standard',
-        'JavaScript not required, unlike some websites',
+        'JavaScript not required -- how rare',
         'I can neither confirm or deny to there being an easter egg',
         // Browsers & web engines
         'Chrome: I can use so much RAM' + '<br>' + 'Firefox: Hold my beer',
