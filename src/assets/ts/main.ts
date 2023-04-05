@@ -458,8 +458,6 @@ class SplashMsg {
         'gTLD naturally HTTPS enforced',
         "Transport secured with Let's Encrypt and best practices",
         // Cloud services
-        '🇫🇷 Hébergé en Fr*nce 🇫🇷',
-        'ARM inside',
         'Accessible through IPv6',
         // DNS services
         'DNS anycasted with over 30 POPs',
