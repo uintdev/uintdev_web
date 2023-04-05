@@ -73,8 +73,6 @@ header {
             .blog-icon {
                 @include image-loader('header/blog.svg', true);
                 background-color: var(--color-header-button-icon);
-                background-position: 50%;
-                background-repeat: no-repeat;
                 padding-top: 44px;
                 width: 100%;
             }
@@ -115,8 +113,6 @@ header {
             .theme-invert-icon {
                 @include image-loader('header/invert.svg', true);
                 background-color: var(--color-header-button-icon);
-                background-position: 50%;
-                background-repeat: no-repeat;
                 padding-top: 44px;
                 width: 100%;
             }

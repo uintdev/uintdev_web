@@ -72,6 +72,8 @@
         mask-image: url(../img/#{$file});
     } @else {
         background-image: url(../img/#{$file});
+        background-position: 50%;
+        background-repeat: no-repeat;
     }
 }
 

@@ -27,8 +27,6 @@
     .fab-scroll-icon {
         @include image-loader('fab/up-arrow.svg', true);
         background-color: var(--color-primary);
-        background-position: 50%;
-        background-repeat: no-repeat;
         padding-top: 70px;
         width: 100%;
     }
