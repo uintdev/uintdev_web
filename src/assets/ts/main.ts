@@ -356,13 +356,6 @@ class Ripple {
 
         _circle.classList.add('ripple')
 
-        const _ripple = _button.getElementsByClassName('ripple')
-        let _rippleEle = _ripple[_ripple.length - 1]
-
-        if (_rippleEle) {
-            _rippleEle.remove()
-        }
-
         _button.appendChild(_circle)
 
         let _targetClass = _button.classList.item(0)
@@ -380,6 +373,11 @@ class Ripple {
                     theme.set()
                     break
             }
+
+            // Clean up ripples
+            document.querySelectorAll('.ripple').forEach(function (ele) {
+                ele.remove()
+            })
         }, 350)
     }
 }
