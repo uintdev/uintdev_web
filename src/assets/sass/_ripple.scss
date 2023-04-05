@@ -2,7 +2,7 @@ span.ripple {
     position: absolute;
     border-radius: 50%;
     transform: scale(0);
-    animation: ripple 400ms linear;
+    animation: ripple 350ms linear;
     background-color: var(--color-ripple);
 }
 
