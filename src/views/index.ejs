@@ -119,23 +119,10 @@
             <div class="content-center">
                 <div class="content-info">
                     <div class="button-container">
-                        <span class="inline-shadow">
-                            <% let contentDataInfo = contactData.options %>
-                            <% for (let i = 0; i < contentDataInfo.length; i++) { %>
-                                <% let roundedSide = [] %>
-                                <% if (i === 0) { %>
-                                    <% roundedSide.push('left-round') %>
-                                <% } %>
-                                <% if (i === (contentDataInfo.length - 1)) { %>
-                                    <% roundedSide.push('right-round') %>
-                                <% } %>
-                                <% roundedSide = roundedSide.join(' ') %>
-                                <% if (roundedSide.length > 0) { %>
-                                    <% roundedSide = ' ' + roundedSide %>
-                                <% } %>
-                                <a href="<%= contentDataInfo[i].url %>" class="button-link<%= roundedSide %>" title="<%= contentDataInfo[i].name %>"><%= contentDataInfo[i].name %></a>
-                            <% } %>
-                        </span>
+                        <% let contentDataInfo = contactData.options %>
+                        <% for (let i = 0; i < contentDataInfo.length; i++) { %>
+                            <a href="<%= contentDataInfo[i].url %>" class="button-link" title="<%= contentDataInfo[i].name %>"><%= contentDataInfo[i].name %></a>
+                        <% } %>
                     </div>
                 </div>
             </div>
