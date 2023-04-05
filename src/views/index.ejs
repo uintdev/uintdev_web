@@ -2,21 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <% const metaData = require('../data/meta.json') %>
+    <% const meta = require('../data/meta.json') %>
     <meta name="robots" content="nosnippet">
-    <meta name="keywords" content="<%= metaData.keywords %>">
-    <meta name="author" content="<%= metaData.name %>">
-    <meta name="description" content="<%= metaData.description %>">
-    <meta property="og:description" content="<%= metaData.description %>">
+    <meta name="keywords" content="<%= meta.keywords %>">
+    <meta name="author" content="<%= meta.name %>">
+    <meta name="description" content="<%= meta.description %>">
+    <meta property="og:description" content="<%= meta.description %>">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="<%= metaData.title %>">
-    <meta property="og:url" content="<%= metaData.url %>">
+    <meta property="og:title" content="<%= meta.title %>">
+    <meta property="og:url" content="<%= meta.url %>">
     <meta name="twitter:card" content="summary">
-    <meta property="twitter:title" content="<%= metaData.title %>">
-    <meta name="twitter:site" content="<%= metaData.twitter %>">
-    <meta name="theme-color" content="<%= metaData.theme.dark %>" media="(prefers-color-scheme: dark)">
-    <meta name="theme-color" content="<%= metaData.theme.light %>" media="(prefers-color-scheme: light)">
-    <title><%= metaData.title %></title>
+    <meta property="twitter:title" content="<%= meta.title %>">
+    <meta name="twitter:site" content="<%= meta.twitter %>">
+    <meta name="theme-color" content="<%= meta.theme.dark %>" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="<%= meta.theme.light %>" media="(prefers-color-scheme: light)">
+    <title><%= meta.title %></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="<%- require('../assets/img/main/favicon.png') %>">
     <link rel="apple-touch-icon" href="<%- require('../assets/img/main/favicon.png') %>">
@@ -40,20 +40,20 @@
         <div class="init-blk">
             <div class="splash-blk">
                 <div class="splash-des">
-                    &nbsp;<noscript><%= metaData.splash_msg_fallback_noscript%></noscript>&nbsp;
+                    &nbsp;<noscript><%= meta.splash_msg_fallback_noscript%></noscript>&nbsp;
                 </div>
             </div>
         </div>
         <section id="skills">
-            <% const skillsData = require('../data/skills.json') %>
-            <div class="content-title"><%= skillsData.title %></div>
-            <div class="content-desc"><%= skillsData.description %></div>
+            <% const skills = require('../data/skills.json') %>
+            <div class="content-title"><%= skills.title %></div>
+            <div class="content-desc"><%= skills.description %></div>
             <div class="content-center">
                 <div class="content-info">
-                    <% skillsData.list.forEach(function(skills) { %>
-                    <div class="sub-title"><%= skills.category %></div>
+                    <% skills.list.forEach(function(skillsEntry) { %>
+                    <div class="sub-title"><%= skillsEntry.category %></div>
                     <div class="pill-container">
-                        <% skills.pills.forEach(function(pill) { %>
+                        <% skillsEntry.pills.forEach(function(pill) { %>
                         <span class="pill"><%= pill.name %></span>
                         <% }); %>
                     </div>
@@ -62,25 +62,25 @@
             </div>
         </section>
         <section id="projects">
-            <% const projectData=require('../data/projects.json') %>
-            <div class="content-title"><%= projectData.metadata.title %></div>
-            <div class="content-desc"><%= projectData.metadata.description %></div>
+            <% const project = require('../data/projects.json') %>
+            <div class="content-title"><%= project.metadata.title %></div>
+            <div class="content-desc"><%= project.metadata.description %></div>
             <div class="content-info">
-                <div class="sub-title"><%= projectData.active.subtitle %></div>
-                <div class="sub-desc"><%= projectData.active.description %></div>
+                <div class="sub-title"><%= project.active.subtitle %></div>
+                <div class="sub-desc"><%= project.active.description %></div>
                 <div class="card-container">
-                    <% projectData.active.list.forEach(function(project) { %>
-                    <a class="card" href="<%= project.url %>">
+                    <% project.active.list.forEach(function(projectEntry) { %>
+                    <a class="card" href="<%= projectEntry.url %>">
                         <div class="preview">
-                            <span class="thumb <%= project.image %>"></span>
+                            <span class="thumb <%= projectEntry.image %>"></span>
                         </div>
                         <div class="info">
-                            <div class="name"><%= project.name %></div>
+                            <div class="name"><%= projectEntry.name %></div>
                             <div class="desc">
-                                <%= project.description %>
+                                <%= projectEntry.description %>
                             </div>
                             <div class="tag-container">
-                                <% project.tags.forEach(function(tag) { %>
+                                <% projectEntry.tags.forEach(function(tag) { %>
                                 <span class="tag"> <%= tag %> </span>
                                 <% }); %>
                             </div>
@@ -88,21 +88,21 @@
                     </a>
                     <% }); %>
                 </div>
-                <div class="sub-title"><%= projectData.inactive.subtitle %></div>
-                <div class="sub-desc"><%= projectData.inactive.description %></div>
+                <div class="sub-title"><%= project.inactive.subtitle %></div>
+                <div class="sub-desc"><%= project.inactive.description %></div>
                 <div class="card-container">
-                    <% projectData.inactive.list.forEach(function(project) { %>
-                    <a class="card" href="<%= project.url %>">
+                    <% project.inactive.list.forEach(function(projectEntry) { %>
+                    <a class="card" href="<%= projectEntry.url %>">
                         <div class="preview">
-                            <span class="thumb <%= project.image %>"></span>
+                            <span class="thumb <%= projectEntry.image %>"></span>
                         </div>
                         <div class="info">
-                            <div class="name"><%= project.name %></div>
+                            <div class="name"><%= projectEntry.name %></div>
                             <div class="desc">
-                                <%= project.description %>
+                                <%= projectEntry.description %>
                             </div>
                             <div class="tag-container">
-                                <% project.tags.forEach(function(tag) { %>
+                                <% projectEntry.tags.forEach(function(tag) { %>
                                 <span class="tag"> <%= tag %> </span>
                                 <% }); %>
                             </div>
@@ -113,15 +113,15 @@
             </div>
         </section>
         <section id="contact">
-            <% const contactData=require('../data/contact.json') %>
-            <div class="content-title"><%= contactData.title %></div>
-            <div class="content-desc"><%= contactData.description %></div>
+            <% const contact = require('../data/contact.json') %>
+            <div class="content-title"><%= contact.title %></div>
+            <div class="content-desc"><%= contact.description %></div>
             <div class="content-center">
                 <div class="content-info">
                     <div class="button-container">
-                        <% let contentDataInfo = contactData.options %>
-                        <% for (let i = 0; i < contentDataInfo.length; i++) { %>
-                            <a href="<%= contentDataInfo[i].url %>" class="button-link" title="<%= contentDataInfo[i].name %>"><%= contentDataInfo[i].name %></a>
+                        <% let contactEntry = contact.options %>
+                        <% for (let i = 0; i < contactEntry.length; i++) { %>
+                            <a href="<%= contactEntry[i].url %>" class="button-link" title="<%= contactEntry[i].name %>"><%= contactEntry[i].name %></a>
                         <% } %>
                     </div>
                 </div>
