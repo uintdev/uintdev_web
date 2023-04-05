@@ -6,7 +6,7 @@
     width: 70px;
     height: 70px;
     position: fixed;
-    bottom: calc(50px + env(safe-area-inset-bottom));
+    bottom: calc(70px + env(safe-area-inset-bottom));
     right: 30px;
     border-radius: 70px;
     @include unselectable;
