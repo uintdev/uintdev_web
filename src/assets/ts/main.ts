@@ -380,7 +380,7 @@ class Ripple {
                     theme.set()
                     break
             }
-        }, 400)
+        }, 350)
     }
 }
 
