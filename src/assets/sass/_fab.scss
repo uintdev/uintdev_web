@@ -13,7 +13,6 @@
     z-index: 10;
     transition: background-color 0.2s, bottom 0.5s;
     cursor: pointer;
-    @include box-shadow(3);
     @include ripple-init(true);
 
     &:hover {
