@@ -101,13 +101,6 @@ enum headerStates {
     NONE,
 }
 
-// FAB state types
-enum fabStates {
-    SHOW,
-    HIDE,
-    NONE,
-}
-
 class UIController {
     // Manage header state
     private _headerPast = window.scrollY
@@ -159,41 +152,6 @@ class UIController {
             }
         }
         this._headerPast = window.scrollY
-    }
-
-    // Initiate FAB state
-    readonly _fabZone = 200
-    private _fabActive = false
-    private _fabState = fabStates.NONE
-    private _fabPresent = true
-
-    /**
-     * Controls FAB (floating action button) state
-     * @method fab
-     * @returns {void}
-     */
-    public fab(): void {
-        if (!this._fabPresent) return
-
-        let fabEle = document.getElementsByClassName('fab-scroll')[0]
-
-        if (typeof fabEle === 'undefined') {
-            console.error(
-                'FAB not present on page -- disabled UI FAB controller'
-            )
-            this._fabPresent = false
-            return
-        }
-
-        if (this._fabActive && window.scrollY <= this._fabZone) {
-            if (this._fabState === fabStates.HIDE) return
-            fabEle.classList.add('hide')
-            this._fabActive = false
-        } else if (!this._fabActive && window.scrollY > this._fabZone) {
-            if (this._fabState === fabStates.SHOW) return
-            fabEle.classList.remove('hide')
-            this._fabActive = true
-        }
     }
 
     /**
@@ -365,9 +323,6 @@ class Ripple {
                 case 'card':
                 case 'button-link':
                     location.href = _button.getAttribute('href') ?? ''
-                    break
-                case 'fab-scroll':
-                    uiController.scroll('body')
                     break
                 case 'theme-invert':
                     theme.set()
@@ -553,13 +508,17 @@ window.onload = function () {
             originalThemeColors.push(ele.getAttribute('content') ?? '')
         })
 
-    // Initiate and listen to header & FAB
+    // Initiate and listen to header
     uiController.header()
-    uiController.fab()
     window.onscroll = function () {
         uiController.header()
-        uiController.fab()
     }
+
+    // Listen for title interaction, for scrolling up
+    let headerTitle: HTMLElement = document.querySelector('header .title')
+    document.querySelector('header .title').addEventListener('click', () => {
+        uiController.scroll('body')
+    })
 
     // Unhide option if there is JavaScript enabled
     document.querySelectorAll('.theme-invert').forEach(function (ele) {
