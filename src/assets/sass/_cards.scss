@@ -69,12 +69,12 @@
             @include unselectable;
 
             .name {
-                font-size: 120%;
+                font-size: 1.2rem;
                 margin-bottom: 2px;
             }
 
             .desc {
-                font-size: 85%;
+                font-size: 0.8rem;
             }
         }
 
@@ -138,7 +138,7 @@
         flex-wrap: wrap;
         gap: 12px;
         justify-content: center;
-        font-size: 70%;
+        font-size: 0.7rem;
         margin-top: 25px;
 
         .tag {

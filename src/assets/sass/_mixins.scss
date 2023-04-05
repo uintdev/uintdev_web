@@ -41,7 +41,6 @@
 
 @mixin content-area {
     text-align: left;
-    font-size: 110%;
 }
 
 @mixin ripple-init($overridePosition: false, $invertRipple: false) {
