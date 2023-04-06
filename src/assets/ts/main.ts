@@ -516,7 +516,7 @@ window.onload = function () {
 
     // Listen for title interaction, for scrolling up
     let headerTitle: HTMLElement = document.querySelector('header .title')
-    document.querySelector('header .title').addEventListener('click', () => {
+    headerTitle.addEventListener('click', () => {
         uiController.scroll('body')
     })
 
