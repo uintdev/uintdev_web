@@ -129,6 +129,7 @@
         </section>
     </main>
     <footer>
+        <% // Get (shortened) commit hash %>
         <% var commitID = 'unknown_commit' %>
         <% const fs = require('fs') %>
         <% const process = require('process') %>
@@ -136,13 +137,21 @@
         <% try { %>
         <%     var readData = fs.readFileSync(commitPath, 'utf8') %>
         <%     commitID = readData %>
-        <%     commitID = commitID.slice(0, 7) %>
+        <%     var commitIDPartial = commitID.slice(0, 7) %>
         <% } catch (e) { %>
         <%     console.error('Failed to access file:') %>
         <%     console.error(e) %>
         <% } %>
+        <% // Access JSON for version %>
         <% const package = require('../../package.json') %>
-        Made with &#10084; &#8212; v<%= package.version %> &#8212; <%= commitID %>
+        <% // Construct URL to commit on GitHub %>
+        <% var commitURL = commitID.split("\x20") %>
+        <% commitURL = commitURL[commitURL.length - 1] %>
+        <% commitURL = commitURL.trim() %>
+        <% commitFull = commitID.split("\x09")[0] %>
+        <% // Output results %>
+        Made with &#10084; &#8212; v<%= package.version %> &#8212; 
+        <a href="<%= commitURL %>/commit/<%= commitFull %>"><%= commitIDPartial %></a>
     </footer>
 </body>
 
