@@ -1,6 +1,6 @@
 {
     "title": "Skills",
-    "description": "I use various technologies and platforms",
+    "description": "Various technologies and platforms",
     "list": [
         {
             "category": "Software development",
@@ -102,6 +102,7 @@
             "pills": [
                 { "name": "Affinity Designer" },
                 { "name": "Affinity Photo" },
+                { "name": "Affinity Publisher" },
                 { "name": "Clip Studio Paint" },
                 { "name": "Photoshop" }
             ]
