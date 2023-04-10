@@ -17,15 +17,17 @@
 
         @include ripple-init();
 
-        border: 0;
         border-radius: var(--radius-card);
+        border: 1px solid var(--color-primary);
+        box-sizing: border-box;
+
         color: var(--color-primary);
-        background-color: var(--color-third);
+        background-color: var(--color-secondary);
 
         transition: background-color 0.2s;
 
         &:focus {
-            background-color: var(--color-third-focus);
+            background-color: var(--color-secondary-focus);
 
             .thumb {
                 -webkit-filter: brightness(var(--brightness-card-thumb-focus));
@@ -34,7 +36,7 @@
         }
 
         &:hover {
-            background-color: var(--color-third-hover);
+            background-color: var(--color-secondary-hover);
 
             .thumb {
                 -webkit-filter: brightness(var(--brightness-card-thumb-hover));
@@ -78,11 +80,13 @@
         }
 
         .gh-qrs {
-            @include image-loader('projects/gh-qrs.svg');
+            @include image-loader('projects/gh-qrs.svg', true);
+            background-color: var(--color-primary);
         }
 
         .gh-uw {
-            @include image-loader('projects/gh-uw.svg');
+            @include image-loader('projects/gh-uw.svg', true);
+            background-color: var(--color-primary);
         }
 
         .gh-dcd {
@@ -98,7 +102,8 @@
         }
 
         .gh-eae {
-            @include image-loader('projects/gh-eae.svg');
+            @include image-loader('projects/gh-eae.svg', true);
+            background-color: var(--color-primary);
         }
     }
 

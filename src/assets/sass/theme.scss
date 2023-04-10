@@ -2,11 +2,8 @@
     // Theme - Night Sky
     --color-primary-dark: rgba(255, 255, 255, 1);
     --color-secondary-dark: rgba(23, 24, 32, 1);
-    --color-secondary-focus-dark: rgba(25, 26, 34, 1);
-    --color-secondary-hover-dark: rgba(27, 28, 36, 1);
-    --color-third-dark: rgba(31, 34, 40, 1);
-    --color-third-focus-dark: rgba(35, 38, 44, 1);
-    --color-third-hover-dark: rgba(39, 42, 48, 1);
+    --color-secondary-focus-dark: rgba(31, 32, 40, 1);
+    --color-secondary-hover-dark: rgba(35, 36, 44, 1);
     --color-thumb-dark: rgba(80, 80, 80, 0.6);
     --color-thumb-hover-dark: rgba(80, 80, 80, 0.8);
     --color-accent-dark: rgba(98, 100, 211, 1);
@@ -14,13 +11,13 @@
     --color-ripple-inverted-dark: var(--color-ripple-light);
     --brightness-card-thumb-focus-dark: 1.025;
     --brightness-card-thumb-hover-dark: 1.05;
-    --color-header-button-dark: var(--color-third-dark);
-    --color-header-button-focus-dark: var(--color-third-focus-dark);
-    --color-header-button-hover-dark: var(--color-third-hover-dark);
+    --color-header-button-dark: var(--color-secondary-dark);
+    --color-header-button-focus-dark: var(--color-secondary-focus-dark);
+    --color-header-button-hover-dark: var(--color-secondary-hover-dark);
     --color-header-button-icon-dark: var(--color-primary-dark);
-    --color-header-invert-button-dark: var(--color-third-light);
-    --color-header-invert-button-focus-dark: var(--color-third-focus-light);
-    --color-header-invert-button-hover-dark: var(--color-third-hover-light);
+    --color-header-invert-button-dark: var(--color-secondary-light);
+    --color-header-invert-button-focus-dark: var(--color-secondary-focus-light);
+    --color-header-invert-button-hover-dark: var(--color-secondary-hover-light);
     --color-header-invert-button-icon-dark: var(--color-primary-light);
 
     // Theme - Cappuccino
@@ -28,23 +25,20 @@
     --color-secondary-light: rgba(233, 230, 219, 1);
     --color-secondary-focus-light: rgba(229, 226, 215, 1);
     --color-secondary-hover-light: rgba(225, 222, 211, 1);
-    --color-third-light: rgba(222, 215, 202, 1);
-    --color-third-focus-light: rgba(218, 211, 198, 1);
-    --color-third-hover-light: rgba(214, 207, 194, 1);
     --color-thumb-light: rgba(206, 199, 186, 1);
-    --color-thumb-hover-light: var(--color-third-hover-light);
+    --color-thumb-hover-light: var(--color-secondary-hover-light);
     --color-accent-light: rgba(98, 100, 211, 1);
     --color-ripple-light: rgba(23, 24, 32, 0.4);
     --color-ripple-inverted-light: var(--color-ripple-dark);
     --brightness-card-thumb-focus-light: 0.985;
     --brightness-card-thumb-hover-light: 0.95;
-    --color-header-button-light: var(--color-third-light);
-    --color-header-button-focus-light: var(--color-third-focus-light);
-    --color-header-button-hover-light: var(--color-third-hover-light);
+    --color-header-button-light: var(--color-secondary-light);
+    --color-header-button-focus-light: var(--color-secondary-focus-light);
+    --color-header-button-hover-light: var(--color-secondary-hover-light);
     --color-header-button-icon-light: var(--color-primary-light);
-    --color-header-invert-button-light: var(--color-third-dark);
-    --color-header-invert-button-focus-light: var(--color-third-focus-dark);
-    --color-header-invert-button-hover-light: var(--color-third-hover-dark);
+    --color-header-invert-button-light: var(--color-secondary-dark);
+    --color-header-invert-button-focus-light: var(--color-secondary-focus-dark);
+    --color-header-invert-button-hover-light: var(--color-secondary-hover-dark);
     --color-header-invert-button-icon-light: var(--color-primary-dark);
 
     transition: background-color 0.5s;
@@ -57,9 +51,6 @@
     --color-secondary: var(--color-secondary-dark);
     --color-secondary-focus: var(--color-secondary-focus-dark);
     --color-secondary-hover: var(--color-secondary-hover-dark);
-    --color-third: var(--color-third-dark);
-    --color-third-focus: var(--color-third-focus-dark);
-    --color-third-hover: var(--color-third-hover-dark);
     --color-thumb: var(--color-thumb-dark);
     --color-thumb-hover: var(--color-thumb-hover-dark);
     --color-accent: var(--color-accent-dark);
@@ -90,9 +81,6 @@
         --color-secondary: var(--color-secondary-light);
         --color-secondary-focus: var(--color-secondary-focus-light);
         --color-secondary-hover: var(--color-secondary-hover-light);
-        --color-third: var(--color-third-light);
-        --color-third-focus: var(--color-third-focus-light);
-        --color-third-hover: var(--color-third-hover-light);
         --color-thumb: var(--color-thumb-light);
         --color-thumb-hover: var(--color-thumb-hover-light);
         --color-accent: var(--color-accent-light);
@@ -122,9 +110,6 @@
     --color-secondary: var(--color-secondary-light);
     --color-secondary-focus: var(--color-secondary-focus-light);
     --color-secondary-hover: var(--color-secondary-hover-light);
-    --color-third: var(--color-third-light);
-    --color-third-focus: var(--color-third-focus-light);
-    --color-third-hover: var(--color-third-hover-light);
     --color-thumb: var(--color-thumb-light);
     --color-thumb-hover: var(--color-thumb-hover-light);
     --color-accent: var(--color-accent-light);
@@ -149,9 +134,6 @@
     --color-secondary: var(--color-secondary-dark);
     --color-secondary-focus: var(--color-secondary-focus-dark);
     --color-secondary-hover: var(--color-secondary-hover-dark);
-    --color-third: var(--color-third-dark);
-    --color-third-focus: var(--color-third-focus-dark);
-    --color-third-hover: var(--color-third-hover-dark);
     --color-thumb: var(--color-thumb-dark);
     --color-thumb-hover: var(--color-thumb-hover-dark);
     --color-accent: var(--color-accent-dark);

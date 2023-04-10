@@ -5,7 +5,7 @@
     justify-content: center;
 
     .button-link {
-        background-color: var(--color-third);
+        background-color: var(--color-secondary);
         color: var(--color-primary);
         display: flex;
         font-size: 0.8rem;
@@ -13,6 +13,8 @@
         justify-content: center;
         @include unselectable;
         border-radius: 25px;
+        border: 1px solid var(--color-primary);
+        box-sizing: border-box;
         padding: 20px 30px;
         z-index: 10;
         transition: background-color 0.2s;
@@ -20,11 +22,11 @@
         @include ripple-init();
 
         &:hover {
-            background-color: var(--color-third-hover);
+            background-color: var(--color-secondary-hover);
         }
 
         &:focus {
-            background-color: var(--color-third-focus);
+            background-color: var(--color-secondary-focus);
         }
     }
 
