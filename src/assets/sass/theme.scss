@@ -14,10 +14,14 @@
     --color-ripple-inverted-dark: var(--color-ripple-light);
     --brightness-card-thumb-focus-dark: 1.025;
     --brightness-card-thumb-hover-dark: 1.05;
-    --color-header-button-dark: var(--color-third-light);
-    --color-header-button-focus-dark: var(--color-third-focus-light);
-    --color-header-button-hover-dark: var(--color-third-hover-light);
-    --color-header-button-icon-dark: var(--color-primary-light);
+    --color-header-button-dark: var(--color-third-dark);
+    --color-header-button-focus-dark: var(--color-third-focus-dark);
+    --color-header-button-hover-dark: var(--color-third-hover-dark);
+    --color-header-button-icon-dark: var(--color-primary-dark);
+    --color-header-invert-button-dark: var(--color-third-light);
+    --color-header-invert-button-focus-dark: var(--color-third-focus-light);
+    --color-header-invert-button-hover-dark: var(--color-third-hover-light);
+    --color-header-invert-button-icon-dark: var(--color-primary-light);
 
     // Theme - Cappuccino
     --color-primary-light: rgba(125, 94, 53, 1);
@@ -34,10 +38,14 @@
     --color-ripple-inverted-light: var(--color-ripple-dark);
     --brightness-card-thumb-focus-light: 0.985;
     --brightness-card-thumb-hover-light: 0.95;
-    --color-header-button-light: var(--color-third-dark);
-    --color-header-button-focus-light: var(--color-third-focus-dark);
-    --color-header-button-hover-light: var(--color-third-hover-dark);
-    --color-header-button-icon-light: var(--color-primary-dark);
+    --color-header-button-light: var(--color-third-light);
+    --color-header-button-focus-light: var(--color-third-focus-light);
+    --color-header-button-hover-light: var(--color-third-hover-light);
+    --color-header-button-icon-light: var(--color-primary-light);
+    --color-header-invert-button-light: var(--color-third-dark);
+    --color-header-invert-button-focus-light: var(--color-third-focus-dark);
+    --color-header-invert-button-hover-light: var(--color-third-hover-dark);
+    --color-header-invert-button-icon-light: var(--color-primary-dark);
 
     transition: background-color 0.5s;
 }
@@ -63,6 +71,10 @@
     --color-header-button-focus: var(--color-header-button-focus-dark);
     --color-header-button-hover: var(--color-header-button-hover-dark);
     --color-header-button-icon: var(--color-header-button-icon-dark);
+    --color-header-invert-button: var(--color-header-button-light);
+    --color-header-invert-button-focus: var(--color-header-button-focus-light);
+    --color-header-invert-button-hover: var(--color-header-button-hover-light);
+    --color-header-invert-button-icon: var(--color-header-button-icon-light);
 
     --radius-pill: 10px;
     --radius-card: 30px;
@@ -92,6 +104,14 @@
         --color-header-button-focus: var(--color-header-button-focus-light);
         --color-header-button-hover: var(--color-header-button-hover-light);
         --color-header-button-icon: var(--color-header-button-icon-light);
+        --color-header-invert-button: var(--color-header-button-dark);
+        --color-header-invert-button-focus: var(
+            --color-header-button-focus-dark
+        );
+        --color-header-invert-button-hover: var(
+            --color-header-button-hover-dark
+        );
+        --color-header-invert-button-icon: var(--color-header-button-icon-dark);
     }
 }
 
@@ -116,6 +136,10 @@
     --color-header-button-focus: var(--color-header-button-focus-light);
     --color-header-button-hover: var(--color-header-button-hover-light);
     --color-header-button-icon: var(--color-header-button-icon-light);
+    --color-header-invert-button: var(--color-header-button-dark);
+    --color-header-invert-button-focus: var(--color-header-button-focus-dark);
+    --color-header-invert-button-hover: var(--color-header-button-hover-dark);
+    --color-header-invert-button-icon: var(--color-header-button-icon-dark);
 }
 
 [color-scheme='dark'] {
@@ -139,4 +163,8 @@
     --color-header-button-focus: var(--color-header-button-focus-dark);
     --color-header-button-hover: var(--color-header-button-hover-dark);
     --color-header-button-icon: var(--color-header-button-icon-dark);
+    --color-header-invert-button: var(--color-header-button-light);
+    --color-header-invert-button-focus: var(--color-header-button-focus-light);
+    --color-header-invert-button-hover: var(--color-header-button-hover-light);
+    --color-header-invert-button-icon: var(--color-header-button-icon-light);
 }

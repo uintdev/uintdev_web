@@ -22,8 +22,8 @@ header {
         display: inline-block;
         font-size: 14px;
         padding: 14px 18px;
-        background-color: var(--color-third);
         border-radius: 25px;
+        border: 1px solid var(--color-primary);
         cursor: pointer;
     }
 
@@ -40,8 +40,7 @@ header {
         }
 
         .button-link {
-            background-color: var(--color-header-button);
-            color: var(--color-header-button-icon);
+            background-color: var(--color-secondary);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -53,9 +52,11 @@ header {
             height: 44px;
             border-radius: 44px;
             z-index: 10;
+            border: 1px solid var(--color-header-button-icon);
+            box-sizing: border-box;
             transition: background-color 0.2s;
             cursor: pointer;
-            @include ripple-init(true, true);
+            @include ripple-init(true);
 
             &:focus {
                 outline: dashed var(--color-header-button);
@@ -84,7 +85,7 @@ header {
 
         .theme-invert {
             border: 0;
-            background-color: var(--color-header-button);
+            background-color: var(--color-header-invert-button);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -98,25 +99,25 @@ header {
             @include ripple-init(true, true);
 
             &:focus {
-                outline: dashed var(--color-header-button);
+                outline: dashed var(--color-header-invert-button);
                 @media (hover: none) {
                     outline: none;
                 }
-                background-color: var(--color-header-button-focus);
+                background-color: var(--color-header-invert-button-focus);
             }
 
             &:focus:not(:focus-visible) {
                 outline: none;
-                background-color: var(--color-header-button-focus);
+                background-color: var(--color-header-invert-button-focus);
             }
 
             &:hover {
-                background-color: var(--color-header-button-hover);
+                background-color: var(--color-header-invert-button-hover);
             }
 
             .theme-invert-icon {
                 @include image-loader('header/invert.svg', true);
-                background-color: var(--color-header-button-icon);
+                background-color: var(--color-header-invert-button-icon);
                 padding-top: 44px;
                 width: 100%;
             }
