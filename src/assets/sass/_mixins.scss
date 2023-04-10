@@ -29,6 +29,7 @@
     @if ($mask) {
         -webkit-mask-image: url(../img/#{$file});
         mask-image: url(../img/#{$file});
+        mask-repeat: no-repeat;
     } @else {
         background-image: url(../img/#{$file});
         background-position: 50%;
