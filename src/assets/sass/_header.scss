@@ -80,7 +80,7 @@ header {
             .blog-icon {
                 @include image-loader('header/blog.svg', true);
                 background-color: var(--color-header-button-icon);
-                padding-top: 44px;
+                padding-top: 42px;
                 width: 100%;
             }
         }
