@@ -1,7 +1,8 @@
 .init-blk {
     background-color: var(--color-secondary);
     max-width: 100%;
-    min-height: 100vh;
+    height: 100vh;
+    min-height: 450px;
     display: flex;
 
     .splash-blk {
