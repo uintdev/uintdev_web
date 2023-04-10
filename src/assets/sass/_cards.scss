@@ -27,14 +27,6 @@
         &:focus {
             background-color: var(--color-third-focus);
 
-            .tag-container .tag {
-                background-color: var(--color-secondary-focus);
-            }
-
-            .archived {
-                background-color: var(--color-archived-focus);
-            }
-
             .thumb {
                 -webkit-filter: brightness(var(--brightness-card-thumb-focus));
                 filter: brightness(var(--brightness-card-thumb-focus));
@@ -43,14 +35,6 @@
 
         &:hover {
             background-color: var(--color-third-hover);
-
-            .tag-container .tag {
-                background-color: var(--color-secondary-hover);
-            }
-
-            .archived {
-                background-color: var(--color-archived-hover);
-            }
 
             .thumb {
                 -webkit-filter: brightness(var(--brightness-card-thumb-hover));
@@ -88,9 +72,6 @@
         }
 
         @media (prefers-reduced-motion) {
-            .archived {
-                transition: background-color 0s;
-            }
             .thumb {
                 transition: -webkit-filter 0s, filter 0s;
             }
@@ -137,10 +118,9 @@
         margin-top: 25px;
 
         .tag {
-            background-color: var(--color-secondary);
             padding: 10px 15px;
             border-radius: 10px;
-            transition: background-color 0.2s;
+            border: 1px solid var(--color-primary);
         }
 
         @media (prefers-reduced-motion) {
