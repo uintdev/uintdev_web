@@ -44,6 +44,12 @@
     transition: background-color 0.5s;
 }
 
+@media (prefers-reduced-motion) {
+    * {
+        transition: background-color 0s;
+    }
+}
+
 :root {
     color-scheme: dark;
 
