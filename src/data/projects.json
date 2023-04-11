@@ -42,13 +42,6 @@
                 "tags": ["Go"]
             },
             {
-                "name": "Msg",
-                "image": "gh-msg",
-                "description": "Modern mobile messaging web application",
-                "url": "https://github.com/uintdev/Msg",
-                "tags": ["PHP", "JavaScript", "MySQL"]
-            },
-            {
                 "name": "Ducky HID WSI",
                 "image": "gh-dhw",
                 "description": "Custom USB Rubber Ducky HID only firmware with status indication",
