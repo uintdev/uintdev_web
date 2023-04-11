@@ -95,7 +95,8 @@
         }
 
         .gh-dhw {
-            @include image-loader('projects/gh-dhw.svg');
+            @include image-loader('projects/gh-dhw.svg', true);
+            background-color: var(--color-primary);
         }
 
         .gh-eae {
