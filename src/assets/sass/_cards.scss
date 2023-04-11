@@ -80,27 +80,27 @@
         }
 
         .gh-qrs {
-            @include image-loader('projects/gh-qrs.svg', true);
+            @include image-loader('projects/gh-qrs.svg');
             background-color: var(--color-primary);
         }
 
         .gh-uw {
-            @include image-loader('projects/gh-uw.svg', true);
+            @include image-loader('projects/gh-uw.svg');
             background-color: var(--color-primary);
         }
 
         .gh-dcd {
-            @include image-loader('projects/gh-dcd.svg', true);
+            @include image-loader('projects/gh-dcd.svg');
             background-color: var(--color-primary);
         }
 
         .gh-dhw {
-            @include image-loader('projects/gh-dhw.svg', true);
+            @include image-loader('projects/gh-dhw.svg');
             background-color: var(--color-primary);
         }
 
         .gh-eae {
-            @include image-loader('projects/gh-eae.svg', true);
+            @include image-loader('projects/gh-eae.svg');
             background-color: var(--color-primary);
         }
     }
