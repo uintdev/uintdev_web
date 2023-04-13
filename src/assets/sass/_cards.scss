@@ -10,7 +10,7 @@
     margin-right: auto;
 
     .card {
-        max-width: 500px;
+        max-width: 450px;
         width: 100%;
         text-decoration: none;
         cursor: pointer;
@@ -20,6 +20,7 @@
         border-radius: var(--radius-card);
         border: 1px solid var(--color-primary);
         box-sizing: border-box;
+        padding: 30px;
 
         color: var(--color-primary);
         background-color: var(--color-secondary);
@@ -29,7 +30,7 @@
         &:focus {
             background-color: var(--color-secondary-focus);
 
-            .thumb {
+            .container .preview .thumb {
                 -webkit-filter: brightness(var(--brightness-card-thumb-focus));
                 filter: brightness(var(--brightness-card-thumb-focus));
             }
@@ -38,94 +39,108 @@
         &:hover {
             background-color: var(--color-secondary-hover);
 
-            .thumb {
+            .container .preview .thumb {
                 -webkit-filter: brightness(var(--brightness-card-thumb-hover));
                 filter: brightness(var(--brightness-card-thumb-hover));
             }
         }
 
-        .preview {
-            border-radius: var(--radius-card) var(--radius-card) 0px 0px;
-            padding: 28px 35px 0px 35px;
-        }
+        .container {
+            align-items: center;
+            display: flex;
+            gap: 30px;
+            margin-left: auto;
+            margin-right: auto;
 
-        .info {
-            text-align: left;
-            padding: 28px 35px;
-            @include unselectable;
+            .preview {
+                border-radius: var(--radius-card) var(--radius-card) 0px 0px;
+                width: 60px;
+                flex: 0 0 auto;
 
-            .name {
-                font-size: 1.2rem;
-                margin-bottom: 4px;
+                .thumb {
+                    display: block;
+                    height: 60px;
+                    width: 100%;
+                    background-color: var(--color-primary);
+                    -webkit-filter: brightness(1);
+                    filter: brightness(1);
+                    transition: -webkit-filter 0.2s, filter 0.2s;
+                }
+
+                @media (prefers-reduced-motion) {
+                    .thumb {
+                        transition: -webkit-filter 0s, filter 0s;
+                    }
+                }
+
+                .gh-qrs {
+                    @include image-loader('projects/gh-qrs.svg');
+                }
+
+                .gh-uw {
+                    @include image-loader('projects/gh-uw.svg');
+                }
+
+                .gh-dcd {
+                    @include image-loader('projects/gh-dcd.svg');
+                }
+
+                .gh-dhw {
+                    @include image-loader('projects/gh-dhw.svg');
+                }
+
+                .gh-eae {
+                    @include image-loader('projects/gh-eae.svg');
+                }
             }
 
-            .desc {
-                font-size: 0.8rem;
+            .info {
+                flex: 1 0 auto;
+                text-align: left;
+                @include unselectable;
+
+                .name {
+                    font-size: 1.1rem;
+                    margin-bottom: 4px;
+                }
+
+                .type {
+                    font-size: 0.8rem;
+                }
             }
         }
 
-        .thumb {
-            display: block;
-            height: 80px;
-            width: 100%;
-            background-color: var(--color-primary);
-            -webkit-filter: brightness(1);
-            filter: brightness(1);
-            transition: -webkit-filter 0.2s, filter 0.2s;
+        .description {
+            font-size: 0.85rem;
+            margin-top: 25px;
         }
 
-        @media (prefers-reduced-motion) {
-            .thumb {
-                transition: -webkit-filter 0s, filter 0s;
+        .tag-container {
+            align-items: stretch;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            font-size: 0.7rem;
+            margin-top: 25px;
+
+            .tag {
+                padding: 10px 15px;
+                border-radius: 10px;
+                border: 1px solid var(--color-primary);
             }
-        }
 
-        .gh-qrs {
-            @include image-loader('projects/gh-qrs.svg');
-        }
-
-        .gh-uw {
-            @include image-loader('projects/gh-uw.svg');
-        }
-
-        .gh-dcd {
-            @include image-loader('projects/gh-dcd.svg');
-        }
-
-        .gh-dhw {
-            @include image-loader('projects/gh-dhw.svg');
-        }
-
-        .gh-eae {
-            @include image-loader('projects/gh-eae.svg');
+            @media (prefers-reduced-motion) {
+                .tag {
+                    transition: background-color 0s;
+                }
+            }
         }
     }
 
     @media (prefers-reduced-motion) {
         .card {
             transition: background-color 0s;
-        }
-    }
-
-    .tag-container {
-        align-items: stretch;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-        justify-content: center;
-        font-size: 0.7rem;
-        margin-top: 25px;
-
-        .tag {
-            padding: 10px 15px;
-            border-radius: 10px;
-            border: 1px solid var(--color-primary);
-        }
-
-        @media (prefers-reduced-motion) {
-            .tag {
-                transition: background-color 0s;
-            }
         }
     }
 }

@@ -71,19 +71,22 @@
                 <div class="card-container">
                     <% project.active.list.forEach(function(projectEntry) { %>
                     <a class="card" href="<%= projectEntry.url %>">
-                        <div class="preview">
-                            <span class="thumb <%= projectEntry.image %>"></span>
+                        <div class="container">
+                            <div class="preview">
+                                <span class="thumb <%= projectEntry.image %>"></span>
+                            </div>
+                            <div class="info">
+                                <div class="name"><%= projectEntry.name %></div>
+                                <div class="type">
+                                    <%= projectEntry.type %>
+                                </div>
+                            </div>
                         </div>
-                        <div class="info">
-                            <div class="name"><%= projectEntry.name %></div>
-                            <div class="desc">
-                                <%= projectEntry.description %>
-                            </div>
-                            <div class="tag-container">
-                                <% projectEntry.tags.forEach(function(tag) { %>
-                                <span class="tag"> <%= tag %> </span>
-                                <% }); %>
-                            </div>
+                        <div class="description"> <%= projectEntry.description %> </div>
+                        <div class="tag-container">
+                            <% projectEntry.tags.forEach(function(tag) { %>
+                            <span class="tag"> <%= tag %> </span>
+                            <% }); %>
                         </div>
                     </a>
                     <% }); %>
@@ -93,19 +96,22 @@
                 <div class="card-container">
                     <% project.inactive.list.forEach(function(projectEntry) { %>
                     <a class="card" href="<%= projectEntry.url %>">
-                        <div class="preview">
-                            <span class="thumb <%= projectEntry.image %>"></span>
+                        <div class="container">
+                            <div class="preview">
+                                <span class="thumb <%= projectEntry.image %>"></span>
+                            </div>
+                            <div class="info">
+                                <div class="name"><%= projectEntry.name %></div>
+                                <div class="type">
+                                    <%= projectEntry.type %>
+                                </div>
+                            </div>
                         </div>
-                        <div class="info">
-                            <div class="name"><%= projectEntry.name %></div>
-                            <div class="desc">
-                                <%= projectEntry.description %>
-                            </div>
-                            <div class="tag-container">
-                                <% projectEntry.tags.forEach(function(tag) { %>
-                                <span class="tag"> <%= tag %> </span>
-                                <% }); %>
-                            </div>
+                        <div class="description"> <%= projectEntry.description %> </div>
+                        <div class="tag-container">
+                            <% projectEntry.tags.forEach(function(tag) { %>
+                            <span class="tag"> <%= tag %> </span>
+                            <% }); %>
                         </div>
                     </a>
                     <% }); %>
