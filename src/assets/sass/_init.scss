@@ -16,23 +16,10 @@
         .splash-info {
             font-size: 1.3rem;
             text-align: center;
-            -webkit-animation: fade 1s;
-            animation: fade 1s;
+            animation: fade 1s forward;
 
             @import 'buttons';
         }
-    }
-}
-
-@-webkit-keyframes fade {
-    0% {
-        opacity: 0;
-    }
-    25% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
     }
 }
 
