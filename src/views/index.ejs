@@ -39,8 +39,18 @@
     <main>
         <div class="init-blk">
             <div class="splash-blk">
-                <div class="splash-des">
-                    &nbsp;<noscript><%= meta.splash_msg_fallback_noscript%></noscript>&nbsp;
+                <div class="splash-info">
+                    Placeholder
+                    <br>
+                    <br>
+                    <br>
+                    <div class="button-container">
+                        <% const contact = require('../data/contact.json') %>
+                        <% let contactEntry = contact %>
+                        <% for (let i = 0; i < contactEntry.length; i++) { %>
+                            <a href="<%= contactEntry[i].url %>" class="button-link" title="<%= contactEntry[i].name %>"><%= contactEntry[i].name %></a>
+                        <% } %>
+                    </div>
                 </div>
             </div>
         </div>
@@ -115,21 +125,6 @@
                         </div>
                     </a>
                     <% }); %>
-                </div>
-            </div>
-        </section>
-        <section id="contact">
-            <% const contact = require('../data/contact.json') %>
-            <div class="content-title"><%= contact.title %></div>
-            <div class="content-desc"><%= contact.description %></div>
-            <div class="content-center">
-                <div class="content-info">
-                    <div class="button-container">
-                        <% let contactEntry = contact.options %>
-                        <% for (let i = 0; i < contactEntry.length; i++) { %>
-                            <a href="<%= contactEntry[i].url %>" class="button-link" title="<%= contactEntry[i].name %>"><%= contactEntry[i].name %></a>
-                        <% } %>
-                    </div>
                 </div>
             </div>
         </section>

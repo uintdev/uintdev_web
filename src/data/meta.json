@@ -8,6 +8,5 @@
     "theme": {
         "dark": "#171820",
         "light": "#e9e6db"
-    },
-    "splash_msg_fallback_noscript": "No JavaScript? No problem."
+    }
 }

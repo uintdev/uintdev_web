@@ -1,14 +1,10 @@
-{
-    "title": "Contact",
-    "description": "To get in touch...",
-    "options": [
-        {
-            "name": "Email",
-            "url": "mailto:core@uint.dev"
-        },
-        {
-            "name": "PGP",
-            "url": "data/pgp.asc"
-        }
-    ]
-}
+[
+    {
+        "name": "Email",
+        "url": "mailto:core@uint.dev"
+    },
+    {
+        "name": "PGP",
+        "url": "data/pgp.asc"
+    }
+]
