@@ -434,7 +434,7 @@ window.onload = function () {
         ele.addEventListener('click', (event) => {
             event.preventDefault()
             let title: string = ele.innerHTML
-            let details: string = ele.dataset.details
+            let details: string = ele.title
             if (details !== '') {
                 details = details.replaceAll('"', '&quot;')
                 details = details.replaceAll('\n', '<br>')

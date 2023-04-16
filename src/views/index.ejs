@@ -64,7 +64,7 @@
                     <div class="sub-title"><%= skillsEntry.category %></div>
                     <div class="pill-container">
                         <% skillsEntry.pills.forEach(function(pill) { %>
-                        <a href="#" class="pill" data-details="<%= pill.details %>"><%= pill.name %></a>
+                        <a href="#" class="pill" title="<%= pill.details %>"><%= pill.name %></a>
                         <% }); %>
                     </div>
                     <% }); %>
