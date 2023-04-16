@@ -46,25 +46,3 @@ dialog {
         height: 120lvh;
     }
 }
-
-@keyframes fadeDialog {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-@keyframes blurDialog {
-    0% {
-        opacity: 0;
-        backdrop-filter: blur(0px);
-        -webkit-backdrop-filter: blur(0px);
-    }
-    100% {
-        opacity: 1;
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-    }
-}
