@@ -525,5 +525,42 @@ window.onload = function () {
         ele.classList.remove('hide')
     })
 
+    // Construct the dialog
+    let dialogClose: HTMLElement = document.querySelector('dialog .close')
+    let dialog: HTMLDialogElement = document.querySelector('dialog')
+    document.querySelectorAll('.pill').forEach(function (ele: HTMLElement) {
+        ele.addEventListener('click', (event) => {
+            event.preventDefault()
+            let title: string = ele.innerHTML
+            let details: string = ele.dataset.details
+            if (details !== '') {
+                details = details.replaceAll('"', '&quot;')
+                details = details.replaceAll('\n', '<br>')
+            } else {
+                details = 'No details currently available for this entry'
+            }
+            dialog.getElementsByClassName('header')[0].innerHTML = title
+            dialog.getElementsByClassName('body')[0].innerHTML = details
+
+            dialog.showModal()
+
+            /**
+             * Avoid focusing on button by default
+             * Yes, this doesn't work without setTimeout.
+             * It seems as though asynchronous execution is what's allowing
+             * for it to function as intended. Average browser behaviour.
+             */
+            setTimeout(() => {
+                dialogClose.blur()
+            }, 0)
+        })
+    })
+
+    // Allow dialog to be closed
+    dialogClose.addEventListener('click', (event) => {
+        event.preventDefault()
+        dialog.close()
+    })
+
     document.addEventListener('keydown', egg.init)
 }

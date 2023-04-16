@@ -1,105 +1,281 @@
 {
     "title": "Skills",
-    "description": "Various technologies and platforms",
+    "description": "Press for more details",
     "list": [
         {
             "category": "Software development",
             "pills": [
-                "Rust",
-                "Flutter",
-                "Dart",
-                "Go",
-                "Python",
-                "Node.js",
-                "C / C++",
-                "SQLite"
+                {
+                    "name": "Rust",
+                    "details": "Tooling and API backends, among other possible uses, with a higher guarantee of robustness and performance\n\nProgramming socks accompanied by a Blåhaj gives a large productivity boost, even more so in the case of this particular programming language"
+                },
+                {
+                    "name": "Flutter / Dart",
+                    "details": "A cross-platform UI framework for producing graphical applications such as for Android and Windows platforms\n\nNot ideal to use if intending to use (modern) platform specific APIs (in specific ways)"
+                },
+                {
+                    "name": "Go",
+                    "details": "Ease of concurrency for software\n\nAlso known for being one of the programming languages out there where you have to use a very specific timestamp, to the second, just to get the current date and time:\ntime.Now().Format('2006-01-02--15-04-05')"
+                },
+                {
+                    "name": "Python",
+                    "details": "Concept prototyping and creation of quick tools\n\nIndentation my beloved"
+                },
+                {
+                    "name": "Node.js",
+                    "details": "Website bundling, content generation, among other things\n\nWhere not using a reverse proxy in front of a HTTP server is a bad idea"
+                },
+                {
+                    "name": "C / C++",
+                    "details": "More of interpretation than writing\n\nSegmentation fault (core dumped)"
+                },
+                {
+                    "name": "SQLite",
+                    "details": "A common way of storing database formatted data into files\n\nBasic and limited, but it works where suitable"
+                }
             ]
         },
         {
             "category": "Web development",
             "pills": [
-                "TypeScript",
-                "PHP",
-                "SQL",
-                "JavaScript",
-                "SASS",
-                "CSS",
-                "EJS"
+                {
+                    "name": "TypeScript",
+                    "details": "Mainly used in the development of this website for the purposes of type strictness -- ties in with JavaScript\n\nDeeming 'window.navigator.platform' (much like MDN) deprecated when there are no direct alternatives outside Chromium-based browsers"
+                },
+                {
+                    "name": "JavaScript",
+                    "details": "Mainly dynamic web page functionality\n\nDon't ask it what '0.2 + 0.1' is equal to"
+                },
+                {
+                    "name": "PHP",
+                    "details": "General purpose web application backend\n\nVersions 7 and later are the best things that happened"
+                },
+                {
+                    "name": "SQL",
+                    "details": "Relational databases, primarily\n\nPlease don't use BLOB for columns that won't be containing binary data"
+                },
+                {
+                    "name": "SASS",
+                    "details": "Used for its styling rule inheritance though nesting and avoiding too much boilerplate\n\nThis is what CSS should've mostly been like in the first place"
+                },
+                {
+                    "name": "CSS",
+                    "details": "Giving websites a good look when used right\n\nPutting up with browser vendors either having a CSS property and/or value behind a browser flag, not available for years, or not ever being included"
+                },
+                {
+                    "name": "EJS",
+                    "details": "JavaScript template used for on-build server-side rendering\n\nCode blocks are somehow still not a thing"
+                }
             ]
         },
         {
             "category": "Scripting",
-            "pills": ["Zsh", "Bash", "PowerShell"]
+            "pills": [
+                { "name": "Zsh", "details": "Probably one of the best shells" },
+                { "name": "Bash", "details": "The good old shell" },
+                {
+                    "name": "PowerShell",
+                    "details": "It exists and has some uses mainly under Windows"
+                }
+            ]
         },
         {
             "category": "Developer tools",
             "pills": [
-                "Git",
-                "Warp",
-                "RapidAPI",
-                "Proxyman",
-                "Visual Studio Code",
-                "Visual Studio",
-                "Android Studio",
-                "Xcode"
+                {
+                    "name": "Git",
+                    "details": "Highly praised, common, and well-known version control\n\nAn easy way to see who to (git) blame for a specific change"
+                },
+                {
+                    "name": "Warp",
+                    "details": "Fancy high performance terminal application\n\nContains ChatGPT client integration that only proves to be useful in very specific cases"
+                },
+                {
+                    "name": "RapidAPI",
+                    "details": "API design, testing and prototyping\n\nNow with more cloud"
+                },
+                {
+                    "name": "Proxyman",
+                    "details": "Versatile web debugging proxy\n\nCertificate pinning is sure convenient"
+                },
+                {
+                    "name": "Visual Studio Code",
+                    "details": "Highly versatile source code editor\n\nStill more efficient than an average JVM-powered source code editor or IDE"
+                },
+                {
+                    "name": "Xcode",
+                    "details": "Apple's IDE for development involving their platforms\n\nMost stable simulator"
+                },
+                {
+                    "name": "Visual Studio",
+                    "details": "Microsoft's IDE, primarily used for Windows development\n\nRequiring installation of entirely unnecessary dependencies"
+                },
+                {
+                    "name": "Android Studio",
+                    "details": "Google's and JetBrain's IDE, specifically designed for Android development\n\nMore bulky and convoluted than it should be"
+                }
             ]
         },
         {
             "category": "Virtualisation & emulation",
             "pills": [
-                "QEMU",
-                "Proxmox VE",
-                "Parallels Desktop",
-                "Oracle Virtualbox",
-                "VMware Workstation"
+                {
+                    "name": "Parallels Desktop",
+                    "details": "High performance hardware virtualisation software"
+                },
+                {
+                    "name": "Oracle Virtualbox",
+                    "details": "Low performance hardware virtualisation software"
+                },
+                {
+                    "name": "VMware Workstation",
+                    "details": "Decent performance hardware virtualisation software"
+                },
+                {
+                    "name": "Proxmox VE",
+                    "details": "Hyper-converged infrastructure software"
+                },
+                {
+                    "name": "QEMU",
+                    "details": "A free and open-source machine emulator"
+                }
             ]
         },
         {
             "category": "Service management",
-            "pills": ["Nginx", "Apache", "MariaDB"]
+            "pills": [
+                {
+                    "name": "Nginx",
+                    "details": "High performance and relatively versatile web server"
+                },
+                {
+                    "name": "Apache",
+                    "details": "Heavily inefficient web server that involves too much XML"
+                },
+                {
+                    "name": "MariaDB",
+                    "details": "Efficient community-driven fork of MySQL"
+                }
+            ]
         },
         {
             "category": "System management",
-            "pills": ["iOS", "Android", "macOS", "Linux", "Windows"]
+            "pills": [
+                {
+                    "name": "iOS",
+                    "details": "System maintenance, upgrades, configuration, recovery, DFU, jailbreak"
+                },
+                {
+                    "name": "Android",
+                    "details": "System maintenance, upgrades, configuration, APIs, file system, partitions, root, ADB, fastboot, recovery, EDL (emergency download mode -- Qualcomm, Mediatek)"
+                },
+                {
+                    "name": "macOS",
+                    "details": "System maintenance, upgrades, configuration, clean up, installation"
+                },
+                {
+                    "name": "Linux",
+                    "details": "System maintenance, upgrades, configuration, services, bootloader (GRUB2)"
+                },
+                {
+                    "name": "Windows",
+                    "details": "System maintenance, upgrades, configuration, services, registry, clean up, installation"
+                }
+            ]
         },
         {
             "category": "Networking",
-            "pills": ["DNS", "HTTP", "TLS/SSL", "UDP", "TCP", "Firewall"]
+            "pills": [
+                {
+                    "name": "DNS",
+                    "details": "DNS records, DNS zones, name servers"
+                },
+                {
+                    "name": "Protocols",
+                    "details": "Including, but not limited to: UDP, TCP, DHCP, IP, BGP, telnet, SMTP, IMAP, POP3, HTTP, HTTPS, TLS/SSL, FTP, SSH, SFTP"
+                },
+                {
+                    "name": "Firewall",
+                    "details": "Rules, ports, incoming and outgoing"
+                }
+            ]
         },
         {
             "category": "Document & design",
             "pills": [
-                "Markdown",
-                "SVG",
-                "Affinity Publisher",
-                "Microsoft Office"
+                {
+                    "name": "Markdown",
+                    "details": "Common, GitHub flavoured\n\nSomehow, how newlines are shown when it comes down to markdown (file) interpreters aren't so consistent"
+                },
+                {
+                    "name": "SVG",
+                    "details": "Familiarity with the file format\n\nPray that there won't be embedded base64 encoded images within"
+                },
+                {
+                    "name": "Affinity Publisher",
+                    "details": "Well-formatted documentations and presentations\n\nHighly logical design and solid toolset"
+                },
+                {
+                    "name": "Microsoft Office",
+                    "details": "Word, PowerPoint, Excel.. the usual\n\nThe fun that was had with CVE-2022-30190..."
+                }
             ]
         },
         {
             "category": "Illustrations & graphics",
             "pills": [
-                "Affinity Designer",
-                "Affinity Photo",
-                "Clip Studio Paint",
-                "Photoshop"
+                {
+                    "name": "Affinity Designer",
+                    "details": "Icons, full-on illustrative work, editing of vector images\n\nDon't zoom in too far"
+                },
+                {
+                    "name": "Affinity Photo",
+                    "details": "Editing of raster images\n\nHasn't gone the subscription route"
+                },
+                {
+                    "name": "Clip Studio Paint",
+                    "details": "Purely raster illustrations, sketches, animated\n\nReally hopping onto the subscription bandwagon"
+                },
+                {
+                    "name": "Photoshop",
+                    "details": "Editing of raster images\n\nOffered by a company that has an arbitrary contract termination fee of an extortionate amount of which can be waived by claiming to be in a difficult financial situation"
+                }
             ]
         },
         {
             "category": "Audio & video",
             "pills": [
-                "Final Cut Pro",
-                "Logic Pro",
-                "OBS Studio",
-                "HandBrake",
-                "Audacity"
+                {
+                    "name": "Final Cut Pro",
+                    "details": "Video editing and production"
+                },
+                {
+                    "name": "Logic Pro",
+                    "details": "Audio editing and production"
+                },
+                { "name": "OBS Studio", "details": "Streaming and recording" },
+                {
+                    "name": "HandBrake",
+                    "details": "Media conversion and compression"
+                },
+                { "name": "Audacity", "details": "Audio editing" }
             ]
         },
         {
             "category": "Other",
             "pills": [
-                "Web & software security",
-                "Reverse engineering",
-                "Electronics"
+                {
+                    "name": "Web & software security",
+                    "details": "Various web application vulnerabilities (common and otherwise), and some systems software vulnerabilities"
+                },
+                {
+                    "name": "Reverse engineering",
+                    "details": "WinPE, C#, Android, Java, Linux ELF, MIPS"
+                },
+                {
+                    "name": "Electronics",
+                    "details": "Soldering, electronic components, GPIO, UART, JTAG"
+                }
             ]
         }
     ]

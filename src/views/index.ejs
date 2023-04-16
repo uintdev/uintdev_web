@@ -54,7 +54,7 @@
                     <div class="sub-title"><%= skillsEntry.category %></div>
                     <div class="pill-container">
                         <% skillsEntry.pills.forEach(function(pill) { %>
-                        <span class="pill"><%= pill %></span>
+                        <a href="#" class="pill" data-details="<%= pill.details %>"><%= pill.name %></a>
                         <% }); %>
                     </div>
                     <% }); %>
@@ -133,6 +133,11 @@
                 </div>
             </div>
         </section>
+        <dialog>
+            <div class="header"></div>
+            <div class="body"></div>
+            <a href="#" class="close">Close</a>
+        </dialog>
     </main>
     <footer>
         <% // Get (shortened) commit hash %>
