@@ -33,5 +33,11 @@
 
             @import 'buttons';
         }
+
+        @media (prefers-reduced-motion) {
+            .splash-info {
+                animation: none;
+            }
+        }
     }
 }
