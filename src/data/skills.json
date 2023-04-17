@@ -239,6 +239,10 @@
                 {
                     "name": "Photoshop",
                     "details": "Editing of raster images\n\nOffered by a company that has an arbitrary contract termination fee of an extortionate amount of which can be waived by claiming to be in a difficult financial situation"
+                },
+                {
+                    "name": "Blender",
+                    "details": "3D models and rendering\n\nThe UI could do with some work"
                 }
             ]
         },
