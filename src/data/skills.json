@@ -23,7 +23,7 @@
                 },
                 {
                     "name": "Node.js",
-                    "details": "Website bundling, content generation, among other things\n\nWhere not using a reverse proxy in front of a HTTP server is a bad idea"
+                    "details": "Website bundling, content generation, among other things\n\nUsing a reverse proxy in front of the HTTP server would be wise"
                 },
                 {
                     "name": "C / C++",
