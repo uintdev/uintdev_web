@@ -1,6 +1,10 @@
 // Store theme color data
 let originalThemeColors: Array<string> = []
 
+interface NodeExt extends Node {
+    getAttribute: Function
+}
+
 class Theme {
     private readonly _fallbackTheme = 'dark'
 
@@ -183,6 +187,11 @@ class UIController {
         }
     }
 
+    public scrollHander(event: Event) {
+        event.preventDefault()
+        this.scroll('body')
+    }
+
     /**
      * Determine offsets of element
      * @method offset
@@ -257,7 +266,7 @@ interface InputHybridEvent {
 }
 
 class Ripple {
-    readonly selector = '.fab-scroll, .button-link, .card, .theme-invert'
+    public readonly selector = '.fab-scroll, .button-link, .card, .theme-invert'
 
     /**
      * Create ripple effect
@@ -397,7 +406,64 @@ class Egg {
 
 const egg = new Egg()
 
+class DialogController {
+    /**
+     * Compose a dialog box
+     * @method open
+     * @param event {MouseEvent} Event
+     * @param ele {HTMLElement} HTML element
+     * @returns {void}
+     */
+    public open(event: MouseEvent, ele: HTMLElement): void {
+        event.preventDefault()
+
+        let dialogClose: HTMLElement = document.querySelector('dialog .close')
+        let dialog: HTMLDialogElement = document.querySelector('dialog')
+
+        let title: string = ele.innerHTML
+        let details: string = ele.title
+        if (details !== '') {
+            details = details.replaceAll('"', '&quot;')
+            details = details.replaceAll('\n', '<br>')
+        } else {
+            details = 'No details currently available for this entry'
+        }
+        dialog.getElementsByClassName('header')[0].innerHTML = title
+        dialog.getElementsByClassName('body')[0].innerHTML = details
+
+        dialog.showModal()
+
+        /**
+         * Avoid focusing on button by default
+         * Yes, this doesn't work without setTimeout.
+         * It seems as though asynchronous execution is what's allowing
+         * for it to function as intended. Average browser behaviour.
+         */
+        setTimeout(() => {
+            dialogClose.blur()
+        }, 0)
+    }
+
+    /**
+     * Close dialog box
+     * @method open
+     * @param event {MouseEvent} Event
+     * @returns {void}
+     */
+    public close(event: MouseEvent): void {
+        event.preventDefault()
+
+        let dialog: HTMLDialogElement = document.querySelector('dialog')
+        dialog.close()
+    }
+}
+
+const dialogController = new DialogController()
+
 window.onload = function () {
+    // Unhide option if there is JavaScript enabled
+    document.querySelector('.theme-invert').classList.remove('hide')
+
     // Set up listener
     document.querySelectorAll(ripple.selector).forEach(function (ele) {
         ele.addEventListener('click', ripple.create)
@@ -406,64 +472,34 @@ window.onload = function () {
     // Build list of themes
     document
         .querySelectorAll('meta[name="theme-color"]')
-        .forEach(function (ele) {
+        .forEach(function (ele: NodeExt) {
             originalThemeColors.push(ele.getAttribute('content') ?? '')
         })
 
     // Initiate and listen to header
     uiController.header()
-    window.onscroll = function () {
+    window.onscroll = () => {
         uiController.header()
     }
 
     // Listen for title interaction, for scrolling up
-    let headerTitle: HTMLElement = document.querySelector('header .title')
-    headerTitle.addEventListener('click', (event) => {
-        event.preventDefault()
-        uiController.scroll('body')
-    })
+    document
+        .querySelector('header .title')
+        .addEventListener('click', (event) => {
+            uiController.scrollHander(event)
+        })
 
-    // Unhide option if there is JavaScript enabled
-    document.querySelectorAll('.theme-invert').forEach(function (ele) {
-        ele.classList.remove('hide')
-    })
-
-    // Construct the dialog
-    let dialogClose: HTMLElement = document.querySelector('dialog .close')
-    let dialog: HTMLDialogElement = document.querySelector('dialog')
+    // Listen for pill input
     document.querySelectorAll('.pill').forEach(function (ele: HTMLElement) {
         ele.addEventListener('click', (event) => {
-            event.preventDefault()
-            let title: string = ele.innerHTML
-            let details: string = ele.title
-            if (details !== '') {
-                details = details.replaceAll('"', '&quot;')
-                details = details.replaceAll('\n', '<br>')
-            } else {
-                details = 'No details currently available for this entry'
-            }
-            dialog.getElementsByClassName('header')[0].innerHTML = title
-            dialog.getElementsByClassName('body')[0].innerHTML = details
-
-            dialog.showModal()
-
-            /**
-             * Avoid focusing on button by default
-             * Yes, this doesn't work without setTimeout.
-             * It seems as though asynchronous execution is what's allowing
-             * for it to function as intended. Average browser behaviour.
-             */
-            setTimeout(() => {
-                dialogClose.blur()
-            }, 0)
+            dialogController.open(event, ele)
         })
     })
 
     // Allow dialog to be closed
-    dialogClose.addEventListener('click', (event) => {
-        event.preventDefault()
-        dialog.close()
-    })
+    document
+        .querySelector('dialog .close')
+        .addEventListener('click', dialogController.close)
 
     document.addEventListener('keydown', egg.init)
 }
