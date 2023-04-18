@@ -8,6 +8,54 @@
     }
 }
 
+@mixin dark_theme {
+    color-scheme: dark;
+
+    --color-primary: var(--color-primary-dark);
+    --color-secondary: var(--color-secondary-dark);
+    --color-secondary-focus: var(--color-secondary-focus-dark);
+    --color-secondary-hover: var(--color-secondary-hover-dark);
+    --color-thumb: var(--color-thumb-dark);
+    --color-thumb-hover: var(--color-thumb-hover-dark);
+    --color-accent: var(--color-accent-dark);
+    --color-ripple: var(--color-ripple-dark);
+    --color-ripple-inverted: var(--color-ripple-inverted-dark);
+    --brightness-card-thumb-focus: var(--brightness-card-thumb-focus-dark);
+    --brightness-card-thumb-hover: var(--brightness-card-thumb-hover-dark);
+    --color-header-button: var(--color-header-button-dark);
+    --color-header-button-focus: var(--color-header-button-focus-dark);
+    --color-header-button-hover: var(--color-header-button-hover-dark);
+    --color-header-button-icon: var(--color-header-button-icon-dark);
+    --color-header-invert-button: var(--color-header-button-light);
+    --color-header-invert-button-focus: var(--color-header-button-focus-light);
+    --color-header-invert-button-hover: var(--color-header-button-hover-light);
+    --color-header-invert-button-icon: var(--color-header-button-icon-light);
+}
+
+@mixin light_theme {
+    color-scheme: light;
+
+    --color-primary: var(--color-primary-light);
+    --color-secondary: var(--color-secondary-light);
+    --color-secondary-focus: var(--color-secondary-focus-light);
+    --color-secondary-hover: var(--color-secondary-hover-light);
+    --color-thumb: var(--color-thumb-light);
+    --color-thumb-hover: var(--color-thumb-hover-light);
+    --color-accent: var(--color-accent-light);
+    --color-ripple: var(--color-ripple-light);
+    --color-ripple-inverted: var(--color-ripple-inverted-light);
+    --brightness-card-thumb-focus: var(--brightness-card-thumb-focus-light);
+    --brightness-card-thumb-hover: var(--brightness-card-thumb-hover-light);
+    --color-header-button: var(--color-header-button-light);
+    --color-header-button-focus: var(--color-header-button-focus-light);
+    --color-header-button-hover: var(--color-header-button-hover-light);
+    --color-header-button-icon: var(--color-header-button-icon-light);
+    --color-header-invert-button: var(--color-header-button-dark);
+    --color-header-invert-button-focus: var(--color-header-button-focus-dark);
+    --color-header-invert-button-hover: var(--color-header-button-hover-dark);
+    --color-header-invert-button-icon: var(--color-header-button-icon-dark);
+}
+
 :root {
     // Theme - Noir Outline
     --color-primary-dark: rgba(255, 255, 255, 1);
@@ -53,27 +101,7 @@
 
     // End of theme
 
-    color-scheme: dark;
-
-    --color-primary: var(--color-primary-dark);
-    --color-secondary: var(--color-secondary-dark);
-    --color-secondary-focus: var(--color-secondary-focus-dark);
-    --color-secondary-hover: var(--color-secondary-hover-dark);
-    --color-thumb: var(--color-thumb-dark);
-    --color-thumb-hover: var(--color-thumb-hover-dark);
-    --color-accent: var(--color-accent-dark);
-    --color-ripple: var(--color-ripple-dark);
-    --color-ripple-inverted: var(--color-ripple-inverted-dark);
-    --brightness-card-thumb-focus: var(--brightness-card-thumb-focus-dark);
-    --brightness-card-thumb-hover: var(--brightness-card-thumb-hover-dark);
-    --color-header-button: var(--color-header-button-dark);
-    --color-header-button-focus: var(--color-header-button-focus-dark);
-    --color-header-button-hover: var(--color-header-button-hover-dark);
-    --color-header-button-icon: var(--color-header-button-icon-dark);
-    --color-header-invert-button: var(--color-header-button-light);
-    --color-header-invert-button-focus: var(--color-header-button-focus-light);
-    --color-header-invert-button-hover: var(--color-header-button-hover-light);
-    --color-header-invert-button-icon: var(--color-header-button-icon-light);
+    @include dark_theme;
 
     --radius-pill: 10px;
     --radius-card: 30px;
@@ -83,78 +111,14 @@
 
 @media (prefers-color-scheme: light) {
     :root {
-        color-scheme: light;
-
-        --color-primary: var(--color-primary-light);
-        --color-secondary: var(--color-secondary-light);
-        --color-secondary-focus: var(--color-secondary-focus-light);
-        --color-secondary-hover: var(--color-secondary-hover-light);
-        --color-thumb: var(--color-thumb-light);
-        --color-thumb-hover: var(--color-thumb-hover-light);
-        --color-accent: var(--color-accent-light);
-        --color-ripple: var(--color-ripple-light);
-        --color-ripple-inverted: var(--color-ripple-inverted-light);
-        --brightness-card-thumb-focus: var(--brightness-card-thumb-focus-light);
-        --brightness-card-thumb-hover: var(--brightness-card-thumb-hover-light);
-        --color-header-button: var(--color-header-button-light);
-        --color-header-button-focus: var(--color-header-button-focus-light);
-        --color-header-button-hover: var(--color-header-button-hover-light);
-        --color-header-button-icon: var(--color-header-button-icon-light);
-        --color-header-invert-button: var(--color-header-button-dark);
-        --color-header-invert-button-focus: var(
-            --color-header-button-focus-dark
-        );
-        --color-header-invert-button-hover: var(
-            --color-header-button-hover-dark
-        );
-        --color-header-invert-button-icon: var(--color-header-button-icon-dark);
+        @include light_theme;
     }
 }
 
 [color-scheme='light'] {
-    color-scheme: light;
-
-    --color-primary: var(--color-primary-light);
-    --color-secondary: var(--color-secondary-light);
-    --color-secondary-focus: var(--color-secondary-focus-light);
-    --color-secondary-hover: var(--color-secondary-hover-light);
-    --color-thumb: var(--color-thumb-light);
-    --color-thumb-hover: var(--color-thumb-hover-light);
-    --color-accent: var(--color-accent-light);
-    --color-ripple: var(--color-ripple-light);
-    --color-ripple-inverted: var(--color-ripple-inverted-light);
-    --brightness-card-thumb-focus: var(--brightness-card-thumb-focus-light);
-    --brightness-card-thumb-hover: var(--brightness-card-thumb-hover-light);
-    --color-header-button: var(--color-header-button-light);
-    --color-header-button-focus: var(--color-header-button-focus-light);
-    --color-header-button-hover: var(--color-header-button-hover-light);
-    --color-header-button-icon: var(--color-header-button-icon-light);
-    --color-header-invert-button: var(--color-header-button-dark);
-    --color-header-invert-button-focus: var(--color-header-button-focus-dark);
-    --color-header-invert-button-hover: var(--color-header-button-hover-dark);
-    --color-header-invert-button-icon: var(--color-header-button-icon-dark);
+    @include light_theme;
 }
 
 [color-scheme='dark'] {
-    color-scheme: dark;
-
-    --color-primary: var(--color-primary-dark);
-    --color-secondary: var(--color-secondary-dark);
-    --color-secondary-focus: var(--color-secondary-focus-dark);
-    --color-secondary-hover: var(--color-secondary-hover-dark);
-    --color-thumb: var(--color-thumb-dark);
-    --color-thumb-hover: var(--color-thumb-hover-dark);
-    --color-accent: var(--color-accent-dark);
-    --color-ripple: var(--color-ripple-dark);
-    --color-ripple-inverted: var(--color-ripple-inverted-dark);
-    --brightness-card-thumb-focus: var(--brightness-card-thumb-focus-dark);
-    --brightness-card-thumb-hover: var(--brightness-card-thumb-hover-dark);
-    --color-header-button: var(--color-header-button-dark);
-    --color-header-button-focus: var(--color-header-button-focus-dark);
-    --color-header-button-hover: var(--color-header-button-hover-dark);
-    --color-header-button-icon: var(--color-header-button-icon-dark);
-    --color-header-invert-button: var(--color-header-button-light);
-    --color-header-invert-button-focus: var(--color-header-button-focus-light);
-    --color-header-invert-button-hover: var(--color-header-button-hover-light);
-    --color-header-invert-button-icon: var(--color-header-button-icon-light);
+    @include dark_theme;
 }
