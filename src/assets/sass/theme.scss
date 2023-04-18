@@ -1,4 +1,14 @@
 * {
+    transition: background-color 0.5s;
+}
+
+@media (prefers-reduced-motion) {
+    * {
+        transition: background-color 3s;
+    }
+}
+
+:root {
     // Theme - Noir Outline
     --color-primary-dark: rgba(255, 255, 255, 1);
     --color-secondary-dark: rgba(23, 24, 32, 1);
@@ -41,16 +51,8 @@
     --color-header-invert-button-hover-light: var(--color-secondary-hover-dark);
     --color-header-invert-button-icon-light: var(--color-primary-dark);
 
-    transition: background-color 0.5s;
-}
+    // End of theme
 
-@media (prefers-reduced-motion) {
-    * {
-        transition: background-color 3s;
-    }
-}
-
-:root {
     color-scheme: dark;
 
     --color-primary: var(--color-primary-dark);
