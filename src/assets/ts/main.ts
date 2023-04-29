@@ -295,10 +295,12 @@ class Ripple {
             event.pageY = 0
         }
 
-        if (
-            (typeof _inputMozSrc !== 'undefined' && _inputMozSrc === 6) ||
-            (_inputPointerId === -1 && _inputDetail === 0)
-        ) {
+        let firefoxBrowser: boolean =
+            typeof _inputMozSrc !== 'undefined' && _inputMozSrc === 6
+        let normalBrowser: boolean =
+            _inputPointerId === -1 && _inputDetail === 0
+
+        if (firefoxBrowser || normalBrowser) {
             _inputKeyboard = true
         }
 
