@@ -1,5 +1,5 @@
 // Store theme color data
-let originalThemeColors: Array<string> = []
+let originalThemeColors: string[] = []
 
 interface NodeExt extends Node {
     getAttribute: Function
