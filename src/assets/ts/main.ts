@@ -13,7 +13,7 @@ class Theme {
      * @method _get
      * @returns {string}
      */
-    public get(): string | null {
+    public get(): string {
         if (document.documentElement.hasAttribute('color-scheme')) {
             return document.documentElement.getAttribute('color-scheme')
         } else if (window.matchMedia) {
