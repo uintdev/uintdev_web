@@ -6,11 +6,11 @@ interface NodeExt extends Node {
 }
 
 class Theme {
-    private readonly _fallbackTheme: string = 'dark'
+    private readonly fallbackTheme: string = 'dark'
 
     /**
      * Gather current theme
-     * @method _get
+     * @method get
      * @returns {string}
      */
     public get(): string {
@@ -24,10 +24,10 @@ class Theme {
             } else if (window.matchMedia(_schemeLight).matches) {
                 return 'light'
             } else {
-                return this._fallbackTheme
+                return this.fallbackTheme
             }
         } else {
-            return this._fallbackTheme
+            return this.fallbackTheme
         }
     }
 
@@ -37,59 +37,56 @@ class Theme {
      * @returns {string}
      */
     public set(): void {
-        let _nextTheme: string = ''
-        let _autoTheme: boolean = false
-        let _currentTheme: string = this.get()
+        let nextTheme: string = ''
+        let autoTheme: boolean = false
+        let currentTheme: string = this.get()
 
-        if (_currentTheme === 'dark') {
-            _nextTheme = 'light'
-        } else if (_currentTheme === 'light') {
-            _nextTheme = 'dark'
+        if (currentTheme === 'dark') {
+            nextTheme = 'light'
+        } else if (currentTheme === 'light') {
+            nextTheme = 'dark'
         }
 
         if (window.matchMedia) {
-            let _schemeDark: string = '(prefers-color-scheme: dark)'
-            let _schemeLight: string = '(prefers-color-scheme: light)'
-            if (
-                window.matchMedia(_schemeDark).matches &&
-                _nextTheme === 'dark'
-            ) {
+            let schemeDark: string = '(prefers-color-scheme: dark)'
+            let schemeLight: string = '(prefers-color-scheme: light)'
+            if (window.matchMedia(schemeDark).matches && nextTheme === 'dark') {
                 document.documentElement.removeAttribute('color-scheme')
-                _autoTheme = true
+                autoTheme = true
             } else if (
-                window.matchMedia(_schemeLight).matches &&
-                _nextTheme === 'light'
+                window.matchMedia(schemeLight).matches &&
+                nextTheme === 'light'
             ) {
                 document.documentElement.removeAttribute('color-scheme')
-                _autoTheme = true
+                autoTheme = true
             }
 
-            if (_autoTheme) {
-                let _themeIndex = 0
-                let _themeData: string
+            if (autoTheme) {
+                let themeIndex: number = 0
+                let themeData: string
                 document
                     .querySelectorAll('meta[name="theme-color"]')
                     .forEach(function (ele) {
-                        _themeData = originalThemeColors[_themeIndex]
-                        ele.setAttribute('content', _themeData)
-                        _themeIndex++
+                        themeData = originalThemeColors[themeIndex]
+                        ele.setAttribute('content', themeData)
+                        themeIndex++
                     })
             }
         }
 
-        if (!_autoTheme) {
-            let _colorTheme: string
-            if (_nextTheme === 'dark') {
+        if (!autoTheme) {
+            let colorTheme: string
+            if (nextTheme === 'dark') {
                 document.documentElement.setAttribute('color-scheme', 'dark')
-                _colorTheme = originalThemeColors[0]
-            } else if (_nextTheme === 'light') {
+                colorTheme = originalThemeColors[0]
+            } else if (nextTheme === 'light') {
                 document.documentElement.setAttribute('color-scheme', 'light')
-                _colorTheme = originalThemeColors[1]
+                colorTheme = originalThemeColors[1]
             }
             document
                 .querySelectorAll('meta[name="theme-color"]')
                 .forEach(function (ele) {
-                    ele.setAttribute('content', _colorTheme)
+                    ele.setAttribute('content', colorTheme)
                 })
         }
     }
@@ -107,10 +104,10 @@ enum headerStates {
 
 class UIController {
     // Manage header state
-    private _headerPast: number = window.scrollY
-    private _headerActive: boolean = false
-    private _headerState: headerStates = headerStates.NONE
-    private _headerPresent: boolean = true
+    private headerPast: number = window.scrollY
+    private headerActive: boolean = false
+    private headerState: headerStates = headerStates.NONE
+    private headerPresent: boolean = true
 
     /**
      * Controls header state
@@ -118,41 +115,41 @@ class UIController {
      * @returns {void}
      */
     public header(): void {
-        if (!this._headerPresent) return
+        if (!this.headerPresent) return
         if (this.overscrollDeadZone()) return
 
         let headerEle: HTMLElement = document.getElementsByTagName('header')[0]
 
         if (typeof headerEle === 'undefined') {
             console.error('Header is gone -- disabled UI header controller')
-            this._headerPresent = false
+            this.headerPresent = false
             return
         }
 
-        if (!this._headerActive && window.scrollY <= this._headerPast) {
-            this._headerPast = window.scrollY
-            if (this._headerState !== headerStates.SHOW) {
-                this._headerState = headerStates.SHOW
+        if (!this.headerActive && window.scrollY <= this.headerPast) {
+            this.headerPast = window.scrollY
+            if (this.headerState !== headerStates.SHOW) {
+                this.headerState = headerStates.SHOW
                 headerEle.classList.remove('hide')
-                this._headerActive = true
+                this.headerActive = true
             }
         } else if (
-            this._headerActive &&
+            this.headerActive &&
             window.scrollY > 50 &&
-            window.scrollY > this._headerPast
+            window.scrollY > this.headerPast
         ) {
-            if (this._headerState !== headerStates.HIDE) {
-                this._headerState = headerStates.HIDE
+            if (this.headerState !== headerStates.HIDE) {
+                this.headerState = headerStates.HIDE
                 headerEle.classList.add('hide')
-                this._headerActive = false
+                this.headerActive = false
             }
-        } else if (!this._headerActive && window.scrollY > 0) {
-            if (this._headerState !== headerStates.ONLOAD) {
-                this._headerState = headerStates.ONLOAD
+        } else if (!this.headerActive && window.scrollY > 0) {
+            if (this.headerState !== headerStates.ONLOAD) {
+                this.headerState = headerStates.ONLOAD
                 headerEle.classList.add('hide')
             }
         }
-        this._headerPast = window.scrollY
+        this.headerPast = window.scrollY
     }
 
     /**
@@ -196,15 +193,15 @@ class UIController {
      * @returns {OffsetProps}
      */
     public offset(ele: HTMLElement): OffsetProps {
-        let _rect: DOMRect = ele.getBoundingClientRect()
-        let _scrollLeft: number =
+        let rect: DOMRect = ele.getBoundingClientRect()
+        let scrollLeft: number =
             window.pageXOffset || document.documentElement.scrollLeft
-        let _scrollTop: number =
+        let scrollTop: number =
             window.pageYOffset || document.documentElement.scrollTop
 
         return {
-            top: _rect.top + _scrollTop,
-            left: _rect.left + _scrollLeft,
+            top: rect.top + scrollTop,
+            left: rect.left + scrollLeft,
         }
     }
 
@@ -275,21 +272,21 @@ class Ripple {
     public create(event: InputHybridEvent): void {
         event.preventDefault()
 
-        const _button = event.currentTarget as HTMLElement
+        const button = event.currentTarget as HTMLElement
 
-        const _circle: HTMLSpanElement = document.createElement('span')
-        const _diameter: number = Math.max(
-            _button.clientWidth,
-            _button.clientHeight
+        const circle: HTMLSpanElement = document.createElement('span')
+        const diameter: number = Math.max(
+            button.clientWidth,
+            button.clientHeight
         )
-        const _radius: number = _diameter / 2
+        const radius: number = diameter / 2
 
-        let _inputKeyboard: boolean = false
+        let inputKeyboard: boolean = false
 
-        let _inputDetail: number = event.detail
-        let _inputPointerId: number = event.pointerId
+        let inputDetail: number = event.detail
+        let inputPointerId: number = event.pointerId
         // Imagine if Firefox paid attention to standards
-        let _inputMozSrc: number = event.mozInputSource
+        let inputMozSrc: number = event.mozInputSource
 
         if (typeof event.pageX === 'undefined') {
             event.pageX = 0
@@ -300,45 +297,44 @@ class Ripple {
         }
 
         let firefoxBrowser: boolean =
-            typeof _inputMozSrc !== 'undefined' && _inputMozSrc === 6
-        let normalBrowser: boolean =
-            _inputPointerId === -1 && _inputDetail === 0
+            typeof inputMozSrc !== 'undefined' && inputMozSrc === 6
+        let normalBrowser: boolean = inputPointerId === -1 && inputDetail === 0
 
         if (firefoxBrowser || normalBrowser) {
-            _inputKeyboard = true
+            inputKeyboard = true
         }
 
-        _circle.style.width = _circle.style.height = _diameter.toString() + 'px'
+        circle.style.width = circle.style.height = diameter.toString() + 'px'
 
-        if (!_inputKeyboard) {
-            _circle.style.left =
+        if (!inputKeyboard) {
+            circle.style.left =
                 (
                     event.pageX.valueOf() -
-                    _button.offsetLeft -
-                    _radius
+                    button.offsetLeft -
+                    radius
                 ).toString() + 'px'
-            _circle.style.top =
+            circle.style.top =
                 (
                     event.pageY.valueOf() -
-                    uiController.offset(_button).top -
-                    _radius
+                    uiController.offset(button).top -
+                    radius
                 ).toString() + 'px'
         } else {
-            _circle.style.left = '0px'
-            _circle.style.top = '0px'
+            circle.style.left = '0px'
+            circle.style.top = '0px'
         }
 
-        _circle.classList.add('ripple')
+        circle.classList.add('ripple')
 
-        _button.appendChild(_circle)
+        button.appendChild(circle)
 
-        let _targetClass: string = _button.classList.item(0)
+        let targetClass: string = button.classList.item(0)
 
         setTimeout(function () {
-            switch (_targetClass) {
+            switch (targetClass) {
                 case 'card':
                 case 'button-link':
-                    location.href = _button.getAttribute('href') ?? ''
+                    location.href = button.getAttribute('href') ?? ''
                     break
                 case 'theme-invert':
                     theme.set()
@@ -367,6 +363,7 @@ class Egg {
         let context: AudioContext = new AudioContext()
         let oscillator: OscillatorNode = context.createOscillator()
         let gain: GainNode = context.createGain()
+
         oscillator.type = type
         oscillator.connect(gain)
         oscillator.frequency.value = frequency
@@ -386,7 +383,7 @@ class Egg {
         }, 1000)
     }
 
-    private _pressedKeys: string
+    private pressedKeys: string
 
     /**
      * Easter egg -- wait, this shouldn't be documented...
@@ -395,13 +392,14 @@ class Egg {
      * @returns {void}
      */
     public init = (event: KeyboardEvent): void => {
-        var eventKeyData: string = event.key
+        let eventKeyData: string = event.key
         if (eventKeyData.length === 1) {
             eventKeyData = event.key.toUpperCase()
         }
-        this._pressedKeys += eventKeyData
+        this.pressedKeys += eventKeyData
+
         if (
-            this._pressedKeys.match(
+            this.pressedKeys.match(
                 /ArrowUpArrowUpArrowDownArrowDownArrowLeftArrowRightArrowLeftArrowRightBAEnter$/g
             )
         ) {
