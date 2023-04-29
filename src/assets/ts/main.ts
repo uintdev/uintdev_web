@@ -330,7 +330,7 @@ class Ripple {
 
         let targetClass: string = button.classList.item(0)
 
-        setTimeout(function () {
+        setTimeout(function (): void {
             switch (targetClass) {
                 case 'card':
                 case 'button-link':
@@ -342,7 +342,7 @@ class Ripple {
             }
 
             // Clean up ripples
-            document.querySelectorAll('.ripple').forEach(function (ele) {
+            document.querySelectorAll('.ripple').forEach(function (ele): void {
                 ele.remove()
             })
         }, 350)
@@ -378,7 +378,7 @@ class Egg {
 
         let audioController: HTMLAudioElement = new Audio('data/bg_audio.mp3')
         audioController.volume = 0.5
-        setTimeout(function () {
+        setTimeout(function (): void {
             audioController.play()
         }, 1000)
     }
@@ -444,7 +444,7 @@ class DialogController {
          * It seems as though asynchronous execution is what's allowing
          * for it to function as intended. Average browser behaviour.
          */
-        setTimeout(() => {
+        setTimeout((): void => {
             dialogClose.blur()
         }, 0)
     }
@@ -465,7 +465,7 @@ class DialogController {
 
 const dialogController = new DialogController()
 
-window.onload = function () {
+window.onload = function (): void {
     // Unhide option if there is JavaScript enabled
     document.querySelector('.theme-invert').classList.remove('hide')
 
@@ -483,23 +483,25 @@ window.onload = function () {
 
     // Initiate and listen to header
     uiController.header()
-    window.onscroll = () => {
+    window.onscroll = (): void => {
         uiController.header()
     }
 
     // Listen for title interaction, for scrolling up
     document
         .querySelector('header .title')
-        .addEventListener('click', (event) => {
+        .addEventListener('click', (event): void => {
             uiController.scrollHander(event)
         })
 
     // Listen for pill input
-    document.querySelectorAll('.pill').forEach(function (ele: HTMLElement) {
-        ele.addEventListener('click', (event) => {
-            dialogController.open(event, ele)
+    document
+        .querySelectorAll('.pill')
+        .forEach(function (ele: HTMLElement): void {
+            ele.addEventListener('click', (event): void => {
+                dialogController.open(event, ele)
+            })
         })
-    })
 
     // Allow dialog to be closed
     document
