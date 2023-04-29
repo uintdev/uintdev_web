@@ -124,10 +124,7 @@ class UIController {
         let headerEle = document.getElementsByTagName('header')[0]
 
         if (typeof headerEle === 'undefined') {
-            alert("nahhh you didn't just remove the header 💀")
-            console.error(
-                'Header not present on page -- disabled UI header controller'
-            )
+            console.error('Header is gone -- disabled UI header controller')
             this._headerPresent = false
             return
         }
