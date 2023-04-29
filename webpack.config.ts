@@ -37,13 +37,6 @@ const configBuild = {
                 include: [path.resolve(__dirname, 'src')],
             },
             {
-                test: /\.js$/,
-                exclude: /node_modules/,
-                use: {
-                    loader: 'babel-loader',
-                },
-            },
-            {
                 test: /\.html$/,
                 use: [
                     {

@@ -14,13 +14,11 @@
         "url": "git://github.com/uintdev/uintdev_web.git"
     },
     "dependencies": {
-        "@babel/core": "^7.21.5",
         "@types/file-loader": "^5.0.1",
         "@types/html-webpack-plugin": "^3.2.6",
         "@types/node": "^18.16.3",
         "@types/sass-loader": "^8.0.4",
         "@types/webpack": "^5.28.1",
-        "babel-loader": "^9.1.2",
         "copy-webpack-plugin": "^11.0.0",
         "css-loader": "^6.7.3",
         "css-minimizer-webpack-plugin": "^4.2.2",
