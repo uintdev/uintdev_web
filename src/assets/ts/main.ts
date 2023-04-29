@@ -6,7 +6,7 @@ interface NodeExt extends Node {
 }
 
 class Theme {
-    private readonly _fallbackTheme = 'dark'
+    private readonly _fallbackTheme: string = 'dark'
 
     /**
      * Gather current theme
@@ -17,8 +17,8 @@ class Theme {
         if (document.documentElement.hasAttribute('color-scheme')) {
             return document.documentElement.getAttribute('color-scheme')
         } else if (window.matchMedia) {
-            let _schemeDark = '(prefers-color-scheme: dark)'
-            let _schemeLight = '(prefers-color-scheme: light)'
+            let _schemeDark: string = '(prefers-color-scheme: dark)'
+            let _schemeLight: string = '(prefers-color-scheme: light)'
             if (window.matchMedia(_schemeDark).matches) {
                 return 'dark'
             } else if (window.matchMedia(_schemeLight).matches) {
@@ -38,8 +38,8 @@ class Theme {
      */
     public set(): void {
         let _nextTheme: string = ''
-        let _autoTheme = false
-        let _currentTheme = this.get()
+        let _autoTheme: boolean = false
+        let _currentTheme: string = this.get()
 
         if (_currentTheme === 'dark') {
             _nextTheme = 'light'
@@ -48,8 +48,8 @@ class Theme {
         }
 
         if (window.matchMedia) {
-            let _schemeDark = '(prefers-color-scheme: dark)'
-            let _schemeLight = '(prefers-color-scheme: light)'
+            let _schemeDark: string = '(prefers-color-scheme: dark)'
+            let _schemeLight: string = '(prefers-color-scheme: light)'
             if (
                 window.matchMedia(_schemeDark).matches &&
                 _nextTheme === 'dark'
@@ -107,10 +107,10 @@ enum headerStates {
 
 class UIController {
     // Manage header state
-    private _headerPast = window.scrollY
-    private _headerActive = false
-    private _headerState = headerStates.NONE
-    private _headerPresent = true
+    private _headerPast: number = window.scrollY
+    private _headerActive: boolean = false
+    private _headerState: headerStates = headerStates.NONE
+    private _headerPresent: boolean = true
 
     /**
      * Controls header state
@@ -121,7 +121,7 @@ class UIController {
         if (!this._headerPresent) return
         if (this.overscrollDeadZone()) return
 
-        let headerEle = document.getElementsByTagName('header')[0]
+        let headerEle: HTMLElement = document.getElementsByTagName('header')[0]
 
         if (typeof headerEle === 'undefined') {
             console.error('Header is gone -- disabled UI header controller')
@@ -166,7 +166,7 @@ class UIController {
             !!window.matchMedia &&
             window.matchMedia('(prefers-reduced-motion)').matches
         let scrollBehavior: ScrollBehavior
-        let eleObj =
+        let eleObj: HTMLElement =
             document.getElementById(ele) ?? document.querySelector(ele) ?? null
         if (eleObj === null) {
             console.error(
@@ -196,11 +196,12 @@ class UIController {
      * @returns {OffsetProps}
      */
     public offset(ele: HTMLElement): OffsetProps {
-        let _rect = ele.getBoundingClientRect(),
-            _scrollLeft =
-                window.pageXOffset || document.documentElement.scrollLeft,
-            _scrollTop =
-                window.pageYOffset || document.documentElement.scrollTop
+        let _rect: DOMRect = ele.getBoundingClientRect()
+        let _scrollLeft: number =
+            window.pageXOffset || document.documentElement.scrollLeft
+        let _scrollTop: number =
+            window.pageYOffset || document.documentElement.scrollTop
+
         return {
             top: _rect.top + _scrollTop,
             left: _rect.left + _scrollLeft,
@@ -213,15 +214,15 @@ class UIController {
      * @returns {boolean}
      */
     private overscrollDeadZone(): boolean {
-        let result = true
-        let deadZone = 0
+        let result: boolean = true
+        let deadZone: number = 0
 
-        let currentPosition = window.scrollY
-        let overallHeight =
+        let currentPosition: number = window.scrollY
+        let overallHeight: number =
             document.documentElement.scrollHeight -
             document.documentElement.clientHeight
 
-        let difference = overallHeight - currentPosition
+        let difference: number = overallHeight - currentPosition
 
         /**
          * MDN deems navigator.platform deprecated and instead is in favour of
@@ -230,7 +231,7 @@ class UIController {
          * (I get that there are a lot of those sort of browsers around, but
          * it doesn't mean that other web engines don't exist).
          */
-        let platformType = window.navigator.platform ?? ''
+        let platformType: string = window.navigator.platform ?? ''
         if (platformType === 'iPhone') {
             deadZone = 110
         }
@@ -255,11 +256,11 @@ interface OffsetProps {
 interface InputHybridEvent {
     preventDefault: Function
     currentTarget: Object
-    detail?: Number
-    pointerId?: Number
-    mozInputSource?: Number
-    pageX?: Number
-    pageY?: Number
+    detail?: number
+    pointerId?: number
+    mozInputSource?: number
+    pageX?: number
+    pageY?: number
 }
 
 class Ripple {
@@ -276,16 +277,19 @@ class Ripple {
 
         const _button = event.currentTarget as HTMLElement
 
-        const _circle = document.createElement('span')
-        const _diameter = Math.max(_button.clientWidth, _button.clientHeight)
-        const _radius = _diameter / 2
+        const _circle: HTMLSpanElement = document.createElement('span')
+        const _diameter: number = Math.max(
+            _button.clientWidth,
+            _button.clientHeight
+        )
+        const _radius: number = _diameter / 2
 
-        let _inputKeyboard = false
+        let _inputKeyboard: boolean = false
 
-        let _inputDetail = event.detail
-        let _inputPointerId = event.pointerId
+        let _inputDetail: number = event.detail
+        let _inputPointerId: number = event.pointerId
         // Imagine if Firefox paid attention to standards
-        let _inputMozSrc = event.mozInputSource
+        let _inputMozSrc: number = event.mozInputSource
 
         if (typeof event.pageX === 'undefined') {
             event.pageX = 0
@@ -304,14 +308,18 @@ class Ripple {
             _inputKeyboard = true
         }
 
-        _circle.style.width = _circle.style.height = `${_diameter}px`
+        _circle.style.width = _circle.style.height = _diameter.toString() + 'px'
+
         if (!_inputKeyboard) {
-            _circle.style.left = `${
-                +event.pageX - _button.offsetLeft - _radius
-            }px`
+            _circle.style.left =
+                (
+                    event.pageX.valueOf() -
+                    _button.offsetLeft -
+                    _radius
+                ).toString() + 'px'
             _circle.style.top =
                 (
-                    +event.pageY -
+                    event.pageY.valueOf() -
                     uiController.offset(_button).top -
                     _radius
                 ).toString() + 'px'
@@ -324,7 +332,7 @@ class Ripple {
 
         _button.appendChild(_circle)
 
-        let _targetClass = _button.classList.item(0)
+        let _targetClass: string = _button.classList.item(0)
 
         setTimeout(function () {
             switch (_targetClass) {
@@ -357,8 +365,8 @@ class Egg {
      */
     private audioGen(frequency: number, type: OscillatorType): void {
         let context: AudioContext = new AudioContext()
-        let oscillator = context.createOscillator()
-        let gain = context.createGain()
+        let oscillator: OscillatorNode = context.createOscillator()
+        let gain: GainNode = context.createGain()
         oscillator.type = type
         oscillator.connect(gain)
         oscillator.frequency.value = frequency
@@ -371,7 +379,7 @@ class Egg {
     private payload = (): void => {
         this.audioGen(87.31, 'triangle')
 
-        var audioController = new Audio('data/bg_audio.mp3')
+        let audioController: HTMLAudioElement = new Audio('data/bg_audio.mp3')
         audioController.volume = 0.5
         setTimeout(function () {
             audioController.play()
