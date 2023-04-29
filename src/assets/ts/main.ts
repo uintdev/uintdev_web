@@ -398,11 +398,23 @@ class Egg {
         }
         this.pressedKeys += eventKeyData
 
-        if (
-            this.pressedKeys.match(
-                /ArrowUpArrowUpArrowDownArrowDownArrowLeftArrowRightArrowLeftArrowRightBAEnter$/g
-            )
-        ) {
+        let comboKeys: string[] = [
+            'ArrowUp',
+            'ArrowUp',
+            'ArrowDown',
+            'ArrowDown',
+            'ArrowLeft',
+            'ArrowRight',
+            'ArrowLeft',
+            'ArrowRight',
+            'B',
+            'A',
+            'Enter',
+        ]
+
+        let comboKeysCombined: string = comboKeys.join('')
+
+        if (this.pressedKeys.match(comboKeysCombined)) {
             document.removeEventListener('keydown', this.init)
             this.payload()
         }
