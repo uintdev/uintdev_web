@@ -14,18 +14,13 @@
         "url": "git://github.com/uintdev/uintdev_web.git"
     },
     "dependencies": {
-        "@types/file-loader": "^5.0.1",
-        "@types/html-webpack-plugin": "^3.2.6",
         "@types/node": "^18.16.3",
         "@types/sass-loader": "^8.0.4",
-        "@types/webpack": "^5.28.1",
         "copy-webpack-plugin": "^11.0.0",
         "css-loader": "^6.7.3",
         "css-minimizer-webpack-plugin": "^5.0.0",
-        "file-loader": "^6.2.0",
         "html-loader": "^4.2.0",
         "html-webpack-plugin": "^5.5.1",
-        "is-svg": "^5.0.0",
         "mini-css-extract-plugin": "^2.7.5",
         "sass": "^1.62.1",
         "sass-loader": "^13.2.2",
@@ -34,7 +29,6 @@
         "ts-loader": "^9.4.2",
         "ts-node": "^10.9.1",
         "typescript": "^5.0.4",
-        "url-loader": "^4.1.1",
         "webpack": "^5.81.0",
         "webpack-cli": "^5.0.2"
     }
