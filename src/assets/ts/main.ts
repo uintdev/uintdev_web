@@ -383,7 +383,7 @@ class Egg {
         }, 1000)
     }
 
-    private pressedKeys: string
+    private pressedKeys: string[] = []
 
     /**
      * Easter egg -- wait, this shouldn't be documented...
@@ -396,7 +396,6 @@ class Egg {
         if (eventKeyData.length === 1) {
             eventKeyData = event.key.toUpperCase()
         }
-        this.pressedKeys += eventKeyData
 
         let comboKeys: string[] = [
             'ArrowUp',
@@ -412,9 +411,20 @@ class Egg {
             'Enter',
         ]
 
+        this.pressedKeys.push(eventKeyData)
+
+        let indexMatch: string = comboKeys[this.pressedKeys.length - 1]
+
+        if (typeof indexMatch === 'undefined' || indexMatch !== eventKeyData) {
+            this.pressedKeys = []
+            return
+        }
+
+        let pressedKeysCombined: string = this.pressedKeys.join('')
         let comboKeysCombined: string = comboKeys.join('')
 
-        if (this.pressedKeys.match(comboKeysCombined)) {
+        if (pressedKeysCombined.match(comboKeysCombined)) {
+            this.pressedKeys = []
             document.removeEventListener('keydown', this.init)
             this.payload()
         }
