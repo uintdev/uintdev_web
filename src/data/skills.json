@@ -117,7 +117,7 @@
             ]
         },
         {
-            "category": "Virtualisation & emulation",
+            "category": "Virtualisation &amp; emulation",
             "pills": [
                 {
                     "name": "Parallels Desktop",
@@ -201,7 +201,7 @@
             ]
         },
         {
-            "category": "Document & design",
+            "category": "Document &amp; design",
             "pills": [
                 {
                     "name": "Markdown",
@@ -222,7 +222,7 @@
             ]
         },
         {
-            "category": "Illustrations & graphics",
+            "category": "Illustrations &amp; graphics",
             "pills": [
                 {
                     "name": "Affinity Designer",
@@ -247,7 +247,7 @@
             ]
         },
         {
-            "category": "Audio & video",
+            "category": "Audio &amp; video",
             "pills": [
                 {
                     "name": "Final Cut Pro",
