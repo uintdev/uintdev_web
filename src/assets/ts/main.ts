@@ -1,12 +1,14 @@
 // Store theme color data
-let originalThemeColors: string[] = []
+let themeOriginalColors: string[] = []
 
 interface NodeExt extends Node {
     getAttribute: Function
 }
 
 class Theme {
-    private readonly fallbackTheme: string = 'dark'
+    private readonly themeFallback: string = 'dark'
+    private readonly schemeDark: string = '(prefers-color-scheme: dark)'
+    private readonly schemeLight: string = '(prefers-color-scheme: light)'
 
     /**
      * Gather current theme
@@ -17,17 +19,15 @@ class Theme {
         if (document.documentElement.hasAttribute('color-scheme')) {
             return document.documentElement.getAttribute('color-scheme')
         } else if (window.matchMedia) {
-            let _schemeDark: string = '(prefers-color-scheme: dark)'
-            let _schemeLight: string = '(prefers-color-scheme: light)'
-            if (window.matchMedia(_schemeDark).matches) {
+            if (window.matchMedia(this.schemeDark).matches) {
                 return 'dark'
-            } else if (window.matchMedia(_schemeLight).matches) {
+            } else if (window.matchMedia(this.schemeLight).matches) {
                 return 'light'
             } else {
-                return this.fallbackTheme
+                return this.themeFallback
             }
         } else {
-            return this.fallbackTheme
+            return this.themeFallback
         }
     }
 
@@ -37,56 +37,57 @@ class Theme {
      * @returns {string}
      */
     public set(): void {
-        let nextTheme: string = ''
-        let autoTheme: boolean = false
-        let currentTheme: string = this.get()
+        let themeNext: string = ''
+        let themeAuto: boolean = false
+        let themeCurrent: string = this.get()
 
-        if (currentTheme === 'dark') {
-            nextTheme = 'light'
-        } else if (currentTheme === 'light') {
-            nextTheme = 'dark'
+        if (themeCurrent === 'dark') {
+            themeNext = 'light'
+        } else if (themeCurrent === 'light') {
+            themeNext = 'dark'
         }
 
         if (window.matchMedia) {
-            let schemeDark: string = '(prefers-color-scheme: dark)'
-            let schemeLight: string = '(prefers-color-scheme: light)'
-            if (window.matchMedia(schemeDark).matches && nextTheme === 'dark') {
-                document.documentElement.removeAttribute('color-scheme')
-                autoTheme = true
-            } else if (
-                window.matchMedia(schemeLight).matches &&
-                nextTheme === 'light'
+            if (
+                window.matchMedia(this.schemeDark).matches &&
+                themeNext === 'dark'
             ) {
                 document.documentElement.removeAttribute('color-scheme')
-                autoTheme = true
+                themeAuto = true
+            } else if (
+                window.matchMedia(this.schemeLight).matches &&
+                themeNext === 'light'
+            ) {
+                document.documentElement.removeAttribute('color-scheme')
+                themeAuto = true
             }
 
-            if (autoTheme) {
+            if (themeAuto) {
                 let themeIndex: number = 0
                 let themeData: string
                 document
                     .querySelectorAll('meta[name="theme-color"]')
                     .forEach(function (ele) {
-                        themeData = originalThemeColors[themeIndex]
+                        themeData = themeOriginalColors[themeIndex]
                         ele.setAttribute('content', themeData)
                         themeIndex++
                     })
             }
         }
 
-        if (!autoTheme) {
-            let colorTheme: string
-            if (nextTheme === 'dark') {
+        if (!themeAuto) {
+            let themeColor: string
+            if (themeNext === 'dark') {
                 document.documentElement.setAttribute('color-scheme', 'dark')
-                colorTheme = originalThemeColors[0]
-            } else if (nextTheme === 'light') {
+                themeColor = themeOriginalColors[0]
+            } else if (themeNext === 'light') {
                 document.documentElement.setAttribute('color-scheme', 'light')
-                colorTheme = originalThemeColors[1]
+                themeColor = themeOriginalColors[1]
             }
             document
                 .querySelectorAll('meta[name="theme-color"]')
                 .forEach(function (ele) {
-                    ele.setAttribute('content', colorTheme)
+                    ele.setAttribute('content', themeColor)
                 })
         }
     }
@@ -189,19 +190,19 @@ class UIController {
     /**
      * Determine offsets of element
      * @method offset
-     * @param ele {HTMLElement} HTML element
+     * @param element {HTMLElement} HTML element
      * @returns {OffsetProps}
      */
-    public offset(ele: HTMLElement): OffsetProps {
-        let rect: DOMRect = ele.getBoundingClientRect()
+    public offset(element: HTMLElement): OffsetProps {
+        let rectBounding: DOMRect = element.getBoundingClientRect()
         let scrollLeft: number =
             window.pageXOffset || document.documentElement.scrollLeft
         let scrollTop: number =
             window.pageYOffset || document.documentElement.scrollTop
 
         return {
-            top: rect.top + scrollTop,
-            left: rect.left + scrollLeft,
+            top: rectBounding.top + scrollTop,
+            left: rectBounding.left + scrollLeft,
         }
     }
 
@@ -272,12 +273,12 @@ class Ripple {
     public create(event: InputHybridEvent): void {
         event.preventDefault()
 
-        const button = event.currentTarget as HTMLElement
+        const buttonElement = event.currentTarget as HTMLElement
 
-        const circle: HTMLSpanElement = document.createElement('span')
+        const rippleElement: HTMLSpanElement = document.createElement('span')
         const diameter: number = Math.max(
-            button.clientWidth,
-            button.clientHeight
+            buttonElement.clientWidth,
+            buttonElement.clientHeight
         )
         const radius: number = diameter / 2
 
@@ -296,45 +297,46 @@ class Ripple {
             event.pageY = 0
         }
 
-        let firefoxBrowser: boolean =
+        let browserFirefox: boolean =
             typeof inputMozSrc !== 'undefined' && inputMozSrc === 6
-        let normalBrowser: boolean = inputPointerId === -1 && inputDetail === 0
+        let browserNormal: boolean = inputPointerId === -1 && inputDetail === 0
 
-        if (firefoxBrowser || normalBrowser) {
+        if (browserFirefox || browserNormal) {
             inputKeyboard = true
         }
 
-        circle.style.width = circle.style.height = diameter.toString() + 'px'
+        rippleElement.style.width = rippleElement.style.height =
+            diameter.toString() + 'px'
 
         if (!inputKeyboard) {
-            circle.style.left =
+            rippleElement.style.left =
                 (
                     event.pageX.valueOf() -
-                    button.offsetLeft -
+                    buttonElement.offsetLeft -
                     radius
                 ).toString() + 'px'
-            circle.style.top =
+            rippleElement.style.top =
                 (
                     event.pageY.valueOf() -
-                    uiController.offset(button).top -
+                    uiController.offset(buttonElement).top -
                     radius
                 ).toString() + 'px'
         } else {
-            circle.style.left = '0px'
-            circle.style.top = '0px'
+            rippleElement.style.left = '0px'
+            rippleElement.style.top = '0px'
         }
 
-        circle.classList.add('ripple')
+        rippleElement.classList.add('ripple')
 
-        button.appendChild(circle)
+        buttonElement.appendChild(rippleElement)
 
-        let targetClass: string = button.classList.item(0)
+        let targetClass: string = buttonElement.classList.item(0)
 
         setTimeout(function (): void {
             switch (targetClass) {
                 case 'card':
                 case 'button-link':
-                    location.href = button.getAttribute('href') ?? ''
+                    location.href = buttonElement.getAttribute('href') ?? ''
                     break
                 case 'theme-invert':
                     theme.set()
@@ -342,9 +344,11 @@ class Ripple {
             }
 
             // Clean up ripples
-            document.querySelectorAll('.ripple').forEach(function (ele): void {
-                ele.remove()
-            })
+            document
+                .querySelectorAll('.ripple')
+                .forEach(function (ele: Element): void {
+                    ele.remove()
+                })
         }, 350)
     }
 }
@@ -383,7 +387,7 @@ class Egg {
         }, 1000)
     }
 
-    private pressedKeys: string[] = []
+    private keysPressed: string[] = []
 
     /**
      * Easter egg -- wait, this shouldn't be documented...
@@ -392,12 +396,12 @@ class Egg {
      * @returns {void}
      */
     public init = (event: KeyboardEvent): void => {
-        let eventKeyData: string = event.key
-        if (eventKeyData.length === 1) {
-            eventKeyData = event.key.toUpperCase()
+        let keyEventData: string = event.key
+        if (keyEventData.length === 1) {
+            keyEventData = event.key.toUpperCase()
         }
 
-        let comboKeys: string[] = [
+        let keysCombo: string[] = [
             'ArrowUp',
             'ArrowUp',
             'ArrowDown',
@@ -411,20 +415,20 @@ class Egg {
             'Enter',
         ]
 
-        this.pressedKeys.push(eventKeyData)
+        this.keysPressed.push(keyEventData)
 
-        let indexMatch: string = comboKeys[this.pressedKeys.length - 1]
+        let indexMatch: string = keysCombo[this.keysPressed.length - 1]
 
-        if (typeof indexMatch === 'undefined' || indexMatch !== eventKeyData) {
-            this.pressedKeys = []
+        if (typeof indexMatch === 'undefined' || indexMatch !== keyEventData) {
+            this.keysPressed = []
             return
         }
 
-        let pressedKeysCombined: string = this.pressedKeys.join('')
-        let comboKeysCombined: string = comboKeys.join('')
+        let keysPressedCombined: string = this.keysPressed.join('')
+        let keysComboCombined: string = keysCombo.join('')
 
-        if (pressedKeysCombined.match(comboKeysCombined)) {
-            this.pressedKeys = []
+        if (keysPressedCombined.match(keysComboCombined)) {
+            this.keysPressed = []
             document.removeEventListener('keydown', this.init)
             this.payload()
         }
@@ -445,20 +449,20 @@ class DialogController {
         event.preventDefault()
 
         let dialogClose: HTMLElement = document.querySelector('dialog .close')
-        let dialog: HTMLDialogElement = document.querySelector('dialog')
+        let dialogMain: HTMLDialogElement = document.querySelector('dialog')
 
-        let title: string = ele.innerHTML
-        let details: string = ele.title
-        if (details !== '') {
-            details = details.replaceAll('"', '&quot;')
-            details = details.replaceAll('\n', '<br>')
+        let dialogTitle: string = ele.innerHTML
+        let dialogDetails: string = ele.title
+        if (dialogDetails !== '') {
+            dialogDetails = dialogDetails.replaceAll('"', '&quot;')
+            dialogDetails = dialogDetails.replaceAll('\n', '<br>')
         } else {
-            details = 'No details currently available for this entry'
+            dialogDetails = 'No details currently available for this entry'
         }
-        dialog.getElementsByClassName('header')[0].innerHTML = title
-        dialog.getElementsByClassName('body')[0].innerHTML = details
+        dialogMain.getElementsByClassName('header')[0].innerHTML = dialogTitle
+        dialogMain.getElementsByClassName('body')[0].innerHTML = dialogDetails
 
-        dialog.showModal()
+        dialogMain.showModal()
 
         /**
          * Avoid focusing on button by default
@@ -480,8 +484,8 @@ class DialogController {
     public close(event: MouseEvent): void {
         event.preventDefault()
 
-        let dialog: HTMLDialogElement = document.querySelector('dialog')
-        dialog.close()
+        let dialogMain: HTMLDialogElement = document.querySelector('dialog')
+        dialogMain.close()
     }
 }
 
@@ -500,7 +504,7 @@ window.onload = function (): void {
     document
         .querySelectorAll('meta[name="theme-color"]')
         .forEach(function (ele: NodeExt) {
-            originalThemeColors.push(ele.getAttribute('content') ?? '')
+            themeOriginalColors.push(ele.getAttribute('content') ?? '')
         })
 
     // Initiate and listen to header
