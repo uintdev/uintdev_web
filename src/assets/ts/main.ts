@@ -113,6 +113,7 @@ class UIController {
     private headerActive: boolean = false
     private headerState: headerStates = headerStates.NONE
     private headerPresent: boolean = true
+    private headerDeadZone: number = 50
 
     /**
      * Controls header state
@@ -141,7 +142,7 @@ class UIController {
             }
         } else if (
             this.headerActive &&
-            window.scrollY > 50 &&
+            window.scrollY > this.headerDeadZone &&
             window.scrollY > this.headerPast
         ) {
             // Hide header if scrolling down beyond the header dead zone
