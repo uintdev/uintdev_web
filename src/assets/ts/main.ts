@@ -6,7 +6,7 @@ interface NodeExt extends Node {
 }
 
 class Theme {
-    private readonly themeFallback: string = 'dark'
+    private readonly themeDefault: string = 'dark'
     private readonly schemeDark: string = '(prefers-color-scheme: dark)'
     private readonly schemeLight: string = '(prefers-color-scheme: light)'
 
@@ -24,10 +24,10 @@ class Theme {
             } else if (window.matchMedia(this.schemeLight).matches) {
                 return 'light'
             } else {
-                return this.themeFallback
+                return this.themeDefault
             }
         } else {
-            return this.themeFallback
+            return this.themeDefault
         }
     }
 
@@ -37,7 +37,7 @@ class Theme {
      * @returns {string}
      */
     public set(): void {
-        let themeNext: string = ''
+        let themeNext: string
         let themeAuto: boolean = false
         let themeCurrent: string = this.get()
 
@@ -174,6 +174,7 @@ class UIController {
         let scrollBehavior: ScrollBehavior
         let eleObj: HTMLElement =
             document.getElementById(ele) ?? document.querySelector(ele) ?? null
+
         if (eleObj === null) {
             console.error(
                 'Attempted to scroll to element that does not exist: ' + ele
@@ -182,7 +183,6 @@ class UIController {
             scrollBehavior = reduceMotion
                 ? ('instant' as ScrollBehavior)
                 : ('smooth' as ScrollBehavior)
-
             window.scrollTo({
                 top: eleObj.offsetTop,
                 behavior: scrollBehavior,
