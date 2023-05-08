@@ -242,9 +242,7 @@ class UIController {
             deadZone = 110
         }
 
-        if (difference > deadZone) {
-            result = false
-        }
+        if (difference > deadZone) result = false
 
         return result
     }
