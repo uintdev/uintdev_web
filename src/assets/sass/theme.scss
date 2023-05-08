@@ -18,8 +18,6 @@
     --color-thumb: var(--color-thumb-dark);
     --color-thumb-hover: var(--color-thumb-hover-dark);
     --color-accent: var(--color-accent-dark);
-    --color-ripple: var(--color-ripple-dark);
-    --color-ripple-inverted: var(--color-ripple-inverted-dark);
     --brightness-card-thumb-focus: var(--brightness-card-thumb-focus-dark);
     --brightness-card-thumb-hover: var(--brightness-card-thumb-hover-dark);
     --color-header-button: var(--color-header-button-dark);
@@ -42,8 +40,6 @@
     --color-thumb: var(--color-thumb-light);
     --color-thumb-hover: var(--color-thumb-hover-light);
     --color-accent: var(--color-accent-light);
-    --color-ripple: var(--color-ripple-light);
-    --color-ripple-inverted: var(--color-ripple-inverted-light);
     --brightness-card-thumb-focus: var(--brightness-card-thumb-focus-light);
     --brightness-card-thumb-hover: var(--brightness-card-thumb-hover-light);
     --color-header-button: var(--color-header-button-light);
@@ -65,8 +61,6 @@
     --color-thumb-dark: rgba(80, 80, 80, 0.6);
     --color-thumb-hover-dark: rgba(80, 80, 80, 0.8);
     --color-accent-dark: rgba(98, 100, 211, 1);
-    --color-ripple-dark: rgba(233, 230, 219, 0.4);
-    --color-ripple-inverted-dark: var(--color-ripple-light);
     --brightness-card-thumb-focus-dark: 1.025;
     --brightness-card-thumb-hover-dark: 1.05;
     --color-header-button-dark: var(--color-secondary-dark);
@@ -86,8 +80,6 @@
     --color-thumb-light: rgba(206, 199, 186, 1);
     --color-thumb-hover-light: var(--color-secondary-hover-light);
     --color-accent-light: rgba(98, 100, 211, 1);
-    --color-ripple-light: rgba(23, 24, 32, 0.4);
-    --color-ripple-inverted-light: var(--color-ripple-dark);
     --brightness-card-thumb-focus-light: 0.985;
     --brightness-card-thumb-hover-light: 0.95;
     --color-header-button-light: var(--color-secondary-light);

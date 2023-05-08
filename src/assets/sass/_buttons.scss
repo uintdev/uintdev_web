@@ -19,7 +19,6 @@
         z-index: 10;
         transition: background-color 0.2s;
         cursor: pointer;
-        @include ripple-init();
 
         &:hover {
             background-color: var(--color-secondary-hover);

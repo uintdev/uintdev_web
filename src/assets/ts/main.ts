@@ -196,25 +196,6 @@ class UIController {
     }
 
     /**
-     * Determine offsets of element
-     * @method offset
-     * @param element {HTMLElement} HTML element
-     * @returns {OffsetProps}
-     */
-    public offset(element: HTMLElement): OffsetProps {
-        let rectBounding: DOMRect = element.getBoundingClientRect()
-        let scrollLeft: number =
-            window.pageXOffset || document.documentElement.scrollLeft
-        let scrollTop: number =
-            window.pageYOffset || document.documentElement.scrollTop
-
-        return {
-            top: rectBounding.top + scrollTop,
-            left: rectBounding.left + scrollLeft,
-        }
-    }
-
-    /**
      * Determine the dead zone to use when overscrolling (Safari-specific quirk)
      * @method overscrollDeadZone
      * @returns {boolean}
@@ -250,112 +231,36 @@ class UIController {
 
 const uiController = new UIController()
 
-// Offset property types
-interface OffsetProps {
-    top: number
-    left: number
-}
-
-// Create an interface that allows mouse, touch and keyboard properties
-interface InputHybridEvent {
-    preventDefault: Function
-    currentTarget: Object
-    detail?: number
-    pointerId?: number
-    mozInputSource?: number
-    pageX?: number
-    pageY?: number
-}
-
-class Ripple {
+class EventController {
     public readonly selector: string =
         '.fab-scroll, .button-link, .card, .theme-invert'
 
     /**
-     * Create ripple effect
-     * @method create
-     * @param event {InputHybridEvent} Mouse, keyboard and touch input event
+     * Initiate input event
+     * @method init
+     * @param event {Event} Event data to utilise
      * @returns {void}
      */
-    public create(event: InputHybridEvent): void {
+    public init(event: Event): void {
         event.preventDefault()
 
         const buttonElement = event.currentTarget as HTMLElement
 
-        const rippleElement: HTMLSpanElement = document.createElement('span')
-        const diameter: number = Math.max(
-            buttonElement.clientWidth,
-            buttonElement.clientHeight
-        )
-        const radius: number = diameter / 2
-
-        let inputKeyboard: boolean = false
-
-        let inputDetail: number = event.detail
-        let inputPointerId: number = event.pointerId
-        // Imagine if Firefox paid attention to standards
-        let inputMozSrc: number = event.mozInputSource
-
-        if (typeof event.pageX === 'undefined') event.pageX = 0
-        if (typeof event.pageY === 'undefined') event.pageY = 0
-
-        let browserFirefox: boolean =
-            typeof inputMozSrc !== 'undefined' && inputMozSrc === 6
-        let browserNormal: boolean = inputPointerId === -1 && inputDetail === 0
-
-        if (browserFirefox || browserNormal) {
-            inputKeyboard = true
-        }
-
-        rippleElement.style.width = rippleElement.style.height =
-            diameter.toString() + 'px'
-
-        if (!inputKeyboard) {
-            rippleElement.style.left =
-                (
-                    event.pageX.valueOf() -
-                    buttonElement.offsetLeft -
-                    radius
-                ).toString() + 'px'
-            rippleElement.style.top =
-                (
-                    event.pageY.valueOf() -
-                    uiController.offset(buttonElement).top -
-                    radius
-                ).toString() + 'px'
-        } else {
-            rippleElement.style.left = '0px'
-            rippleElement.style.top = '0px'
-        }
-
-        rippleElement.classList.add('ripple')
-
-        buttonElement.appendChild(rippleElement)
-
         let targetClass: string = buttonElement.classList.item(0)
 
-        setTimeout(function (): void {
-            switch (targetClass) {
-                case 'card':
-                case 'button-link':
-                    location.href = buttonElement.getAttribute('href') ?? ''
-                    break
-                case 'theme-invert':
-                    theme.set()
-                    break
-            }
-
-            // Clean up ripples
-            document
-                .querySelectorAll('.ripple')
-                .forEach(function (ele: Element): void {
-                    ele.remove()
-                })
-        }, 350)
+        switch (targetClass) {
+            case 'card':
+            case 'button-link':
+                location.href = buttonElement.getAttribute('href') ?? ''
+                break
+            case 'theme-invert':
+                theme.set()
+                break
+        }
     }
 }
 
-const ripple = new Ripple()
+const eventController = new EventController()
 
 class Egg {
     private readonly initAudioDuration: number = 1000
@@ -503,8 +408,8 @@ window.onload = function (): void {
     document.querySelector('.theme-invert').classList.remove('hide')
 
     // Set up listener
-    document.querySelectorAll(ripple.selector).forEach(function (ele) {
-        ele.addEventListener('click', ripple.create)
+    document.querySelectorAll(eventController.selector).forEach(function (ele) {
+        ele.addEventListener('click', eventController.init)
     })
 
     // Build list of themes
