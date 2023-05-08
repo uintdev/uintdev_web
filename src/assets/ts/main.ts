@@ -78,6 +78,7 @@ class Theme {
         if (!themeAuto) {
             let themeColor: string
             let themeIndex: number
+
             if (themeNext === 'dark') {
                 themeIndex = 0
             } else if (themeNext === 'light') {
@@ -131,6 +132,7 @@ class UIController {
         }
 
         if (!this.headerActive && window.scrollY <= this.headerPast) {
+            // Show header if scrolling up
             this.headerPast = window.scrollY
             if (this.headerState !== headerStates.SHOW) {
                 this.headerState = headerStates.SHOW
@@ -142,12 +144,14 @@ class UIController {
             window.scrollY > 50 &&
             window.scrollY > this.headerPast
         ) {
+            // Hide header if scrolling down beyond the header dead zone
             if (this.headerState !== headerStates.HIDE) {
                 this.headerState = headerStates.HIDE
                 headerEle.classList.add('hide')
                 this.headerActive = false
             }
         } else if (!this.headerActive && window.scrollY > 0) {
+            // Hide header if it should be hidden after page load
             if (this.headerState !== headerStates.ONLOAD) {
                 this.headerState = headerStates.ONLOAD
                 headerEle.classList.add('hide')
