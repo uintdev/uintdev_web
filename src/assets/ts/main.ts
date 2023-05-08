@@ -378,7 +378,7 @@ class Egg {
 
         oscillator.type = 'triangle'
         oscillator.connect(gain)
-        oscillator.frequency.value = 87.31
+        oscillator.frequency.value = 90
         gain.connect(context.destination)
         oscillator.start(0)
 
