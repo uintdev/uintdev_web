@@ -77,13 +77,16 @@ class Theme {
 
         if (!themeAuto) {
             let themeColor: string
+            let themeIndex: number
             if (themeNext === 'dark') {
-                document.documentElement.setAttribute('color-scheme', 'dark')
-                themeColor = themeOriginalColors[0]
+                themeIndex = 0
             } else if (themeNext === 'light') {
-                document.documentElement.setAttribute('color-scheme', 'light')
-                themeColor = themeOriginalColors[1]
+                themeIndex = 1
             }
+
+            document.documentElement.setAttribute('color-scheme', themeNext)
+            themeColor = themeOriginalColors[themeIndex]
+
             document
                 .querySelectorAll('meta[name="theme-color"]')
                 .forEach(function (ele) {
