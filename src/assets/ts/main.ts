@@ -298,13 +298,8 @@ class Ripple {
         // Imagine if Firefox paid attention to standards
         let inputMozSrc: number = event.mozInputSource
 
-        if (typeof event.pageX === 'undefined') {
-            event.pageX = 0
-        }
-
-        if (typeof event.pageY === 'undefined') {
-            event.pageY = 0
-        }
+        if (typeof event.pageX === 'undefined') event.pageX = 0
+        if (typeof event.pageY === 'undefined') event.pageY = 0
 
         let browserFirefox: boolean =
             typeof inputMozSrc !== 'undefined' && inputMozSrc === 6
