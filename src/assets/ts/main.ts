@@ -371,14 +371,14 @@ class Egg {
      * @param type {OscillatorType} Oscillator to use
      * @returns {void}
      */
-    private audioGen(frequency: number, type: OscillatorType): void {
+    private audioGen(): void {
         let context: AudioContext = new AudioContext()
         let oscillator: OscillatorNode = context.createOscillator()
         let gain: GainNode = context.createGain()
 
-        oscillator.type = type
+        oscillator.type = 'triangle'
         oscillator.connect(gain)
-        oscillator.frequency.value = frequency
+        oscillator.frequency.value = 87.31
         gain.connect(context.destination)
         oscillator.start(0)
 
@@ -386,7 +386,7 @@ class Egg {
     }
 
     private payload = (): void => {
-        this.audioGen(87.31, 'triangle')
+        this.audioGen()
 
         let audioController: HTMLAudioElement = new Audio('data/bg_audio.mp3')
         audioController.volume = 0.5
