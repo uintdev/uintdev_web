@@ -15,7 +15,7 @@ class Theme {
      * @method get
      * @returns {string}
      */
-    public get(): string {
+    private get(): string {
         if (document.documentElement.hasAttribute('color-scheme')) {
             return document.documentElement.getAttribute('color-scheme')
         } else if (window.matchMedia) {
