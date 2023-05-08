@@ -365,7 +365,7 @@ class Ripple {
 const ripple = new Ripple()
 
 class Egg {
-    private readonly initSoundDuration: number = 1000
+    private readonly initAudioDuration: number = 1000
 
     /**
      * Generate audio
@@ -387,7 +387,7 @@ class Egg {
 
         gain.gain.exponentialRampToValueAtTime(
             0.00001,
-            context.currentTime + this.initSoundDuration / 1000
+            context.currentTime + this.initAudioDuration / 1000
         )
     }
 
@@ -398,7 +398,7 @@ class Egg {
         audioController.volume = 0.5
         setTimeout(function (): void {
             audioController.play()
-        }, this.initSoundDuration)
+        }, this.initAudioDuration)
     }
 
     private keysPressed: string[] = []
