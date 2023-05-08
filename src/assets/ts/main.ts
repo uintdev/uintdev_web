@@ -270,7 +270,8 @@ interface InputHybridEvent {
 }
 
 class Ripple {
-    public readonly selector = '.fab-scroll, .button-link, .card, .theme-invert'
+    public readonly selector: string =
+        '.fab-scroll, .button-link, .card, .theme-invert'
 
     /**
      * Create ripple effect
