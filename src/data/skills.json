@@ -11,15 +11,15 @@
                 },
                 {
                     "name": "Flutter / Dart",
-                    "details": "A cross-platform UI framework for producing graphical applications such as for Android and Windows platforms\n\nNot ideal to use if intending to use (modern) platform specific APIs (in specific ways)"
+                    "details": "A cross-platform UI framework for producing graphical applications such as for Android and Windows platforms\n\nNot ideal if not prepared to use (modern) platform specific APIs (in specific ways) directly"
                 },
                 {
                     "name": "Go",
-                    "details": "Ease of concurrency for software\n\nAlso known for being one of the programming languages out there where you have to use a very specific timestamp, to the second, just to get the current date and time:\ntime.Now().Format('2006-01-02--15-04-05')"
+                    "details": "Ease of concurrency for software\n\nAlso known for being one of the programming languages out there where you have to use a very specific timestamp, to the second, just to get the current date and time:\n`time.Now().Format('2006-01-02--15-04-05')`"
                 },
                 {
                     "name": "Python",
-                    "details": "Concept prototyping and creation of quick tools\n\nIndentation my beloved"
+                    "details": "Concept prototyping and creation of quick tools\n\nIndentation to denote code blocks was a mistake"
                 },
                 {
                     "name": "Node.js",
@@ -44,19 +44,19 @@
                 },
                 {
                     "name": "JavaScript",
-                    "details": "Mainly dynamic web page functionality\n\nDon't ask it what '0.2 + 0.1' is equal to"
+                    "details": "Mainly dynamic web page functionality\n\nDon't ask it what `0.2 + 0.1` is equal to"
                 },
                 {
                     "name": "PHP",
-                    "details": "General purpose web application backend\n\nVersions 7 and later are the best things that happened"
+                    "details": "General purpose web application backend\n\nOnce you see the result of running `md5('240610708') == md5('QNKCDZO')`, you'd probably want to be running for the hills"
                 },
                 {
                     "name": "SQL",
-                    "details": "Relational databases, primarily\n\nPlease don't use BLOB for columns that won't be containing binary data"
+                    "details": "Relational databases, primarily\n\nUsing BLOB on rows that won't be containing binary data is an unforgivable sin"
                 },
                 {
                     "name": "SASS",
-                    "details": "Used for its styling rule inheritance though nesting and avoiding too much boilerplate\n\nThis is what CSS should've mostly been like in the first place"
+                    "details": "Used for its styling rule inheritance though nesting and avoiding too much boilerplate\n\nThis is what CSS should've been like for the most part in the first place"
                 },
                 {
                     "name": "CSS",
@@ -72,10 +72,13 @@
             "category": "Scripting",
             "pills": [
                 { "name": "Zsh", "details": "Probably one of the best shells" },
-                { "name": "Bash", "details": "The good old shell" },
+                {
+                    "name": "Bash",
+                    "details": "The good old shell\n\nWe don't speak of Shellshock"
+                },
                 {
                     "name": "PowerShell",
-                    "details": "It exists and has some uses mainly under Windows"
+                    "details": "It exists and has some Windows specific use cases"
                 }
             ]
         },
@@ -84,11 +87,11 @@
             "pills": [
                 {
                     "name": "Git",
-                    "details": "Highly praised, common, and well-known version control\n\nAn easy way to see who to (git) blame for a specific change"
+                    "details": "Highly praised, common, and well-known version control\n\nAn easy way to see who to (git) blame for a specific change and git reset away your sins"
                 },
                 {
                     "name": "Warp",
-                    "details": "Fancy high performance terminal application\n\nContains ChatGPT client integration that only proves to be useful in very specific cases"
+                    "details": "Fancy high performance terminal application\n\nContains ChatGPT client integration that very rarely comes up with a working solution, even with plenty of hand holding"
                 },
                 {
                     "name": "RapidAPI",
@@ -96,7 +99,7 @@
                 },
                 {
                     "name": "Proxyman",
-                    "details": "Versatile web debugging proxy\n\nCertificate pinning is sure convenient"
+                    "details": "Versatile web debugging proxy\n\nThe convenience of certificate pinning"
                 },
                 {
                     "name": "Visual Studio Code",
