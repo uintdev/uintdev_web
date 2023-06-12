@@ -1,6 +1,6 @@
 {
     "name": "uintdev",
-    "version": "2.3.0",
+    "version": "2.3.1",
     "description": "Main website",
     "main": "index.js",
     "scripts": {

@@ -45,7 +45,7 @@
             }
             @media (prefers-reduced-motion) {
                 .level {
-                    transition: -webkit-filter 0s, filter 0s;
+                    transition: background-color 0s, border-color 0s;
                 }
             }
 
