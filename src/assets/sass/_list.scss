@@ -8,10 +8,11 @@
 
     .pill {
         border-radius: var(--radius-pill);
-        color: var(--color-primary);
-        padding: 13px 22px;
+        color: rgba(var(--color-primary), 1);
+        padding: 14px 22px;
         font-size: 0.8rem;
-        border: 1px solid var(--color-primary);
+        text-align: center;
+        border: 1px solid rgba(var(--color-primary), 1);
         transition: background-color 0.2s;
         cursor: pointer;
 
@@ -21,6 +22,39 @@
 
         &:hover {
             background-color: var(--color-secondary-hover);
+        }
+
+        .level_container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 8px;
+            justify-content: center;
+            align-items: stretch;
+            text-decoration: none;
+
+            .level {
+                height: 15px;
+                width: 15px;
+                background-color: rgba(var(--color-primary), 0);
+                border: 1px solid;
+                border-radius: 20px;
+                border-color: rgba(var(--color-primary), 1);
+                transition: background-color 0.2s, border-color 0.2s;
+                box-sizing: border-box;
+            }
+            @media (prefers-reduced-motion) {
+                .level {
+                    transition: -webkit-filter 0s, filter 0s;
+                }
+            }
+
+            .level_fill {
+                background-color: rgba(var(--color-primary), 1);
+            }
+            .level_empty {
+                background-color: rgba(var(--color-primary), 0);
+            }
         }
     }
 }

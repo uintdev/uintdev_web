@@ -5,6 +5,14 @@ interface NodeExt extends Node {
     getAttribute: Function
 }
 
+enum ProficiencyType {
+    'Beginner',
+    'Intermediate',
+    'Competent',
+    'Proficient',
+    'Expert',
+}
+
 class Theme {
     private readonly themeDefault: string = 'dark'
     private readonly schemeDark: string = '(prefers-color-scheme: dark)'
@@ -371,8 +379,31 @@ class DialogController {
         } else {
             dialogDetails = 'No details currently available for this entry'
         }
+
+        // Proficiency levels
+        let proficiencyLevelResult: string
+        let proficiencyLevelType: string
+        let proficiencyLevelStore: string = ele.dataset.level
+        let proficiencyLevelFallback = 'Unknown'
+
+        if (isNaN(Number(proficiencyLevelStore))) {
+            proficiencyLevelType = proficiencyLevelFallback
+        } else {
+            let proficiencyLevel: number = Number(proficiencyLevelStore)
+            proficiencyLevelType = ProficiencyType[proficiencyLevel - 1]
+            if (typeof proficiencyLevelType === 'undefined') {
+                proficiencyLevelType = proficiencyLevelFallback
+            }
+        }
+
+        proficiencyLevelResult =
+            'Proficiency level: ' + proficiencyLevelType + '<br><br>'
+
         dialogMain.getElementsByClassName('header')[0].innerHTML = dialogTitle
-        dialogMain.getElementsByClassName('body')[0].innerHTML = dialogDetails
+
+        dialogMain.getElementsByClassName('body')[0].innerHTML =
+            proficiencyLevelResult
+        dialogMain.getElementsByClassName('body')[0].innerHTML += dialogDetails
 
         dialogMain.showModal()
 

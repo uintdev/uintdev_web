@@ -62,7 +62,18 @@
                     <div class="sub-title"><%= skillsEntry.category %></div>
                     <div class="pill-container">
                         <% skillsEntry.pills.forEach(function(pill) { %>
-                        <a href="#" class="pill" title="<%= pill.details %>"><%= pill.name %></a>
+                        <a href="#" class="pill" data-level="<%= pill.level %>" title="<%= pill.details %>">
+                            <%= pill.name %>
+                            <div class="level_container">
+                                <% for (let i = 1; i <= 5; i++) { %>
+                                    <% let level_element = 'level_empty'; %>
+                                    <% if (pill.level >= i) { %>
+                                    <%     level_element = 'level_fill'; %>
+                                    <% } %>
+                                    <span class="level <%= level_element %>"></span>
+                                <% } %>
+                            </div>
+                        </a>
                         <% }); %>
                     </div>
                     <% }); %>
