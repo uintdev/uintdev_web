@@ -28,9 +28,6 @@ dependencies:
   sass-loader:
     specifier: ^13.3.2
     version: 13.3.2(sass@1.64.0)(webpack@5.88.2)
-  style-loader:
-    specifier: ^3.3.3
-    version: 3.3.3(webpack@5.88.2)
   terser-webpack-plugin:
     specifier: ^5.3.9
     version: 5.3.9(webpack@5.88.2)
@@ -2000,15 +1997,6 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       ansi-regex: 5.0.1
-    dev: false
-
-  /style-loader@3.3.3(webpack@5.88.2):
-    resolution: {integrity: sha512-53BiGLXAcll9maCYtZi2RCQZKa8NQQai5C4horqKyRmHj9H7QmcUyucrH+4KW/gBQbXM2AsB0axoEcFZPlfPcw==}
-    engines: {node: '>= 12.13.0'}
-    peerDependencies:
-      webpack: ^5.0.0
-    dependencies:
-      webpack: 5.88.2(webpack-cli@5.1.4)
     dev: false
 
   /stylehacks@6.0.0(postcss@8.4.26):
