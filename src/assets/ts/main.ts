@@ -373,10 +373,7 @@ class DialogController {
 
         let dialogTitle: string = ele.innerHTML
         let dialogDetails: string = ele.title
-        if (dialogDetails !== '') {
-            dialogDetails = dialogDetails.replaceAll('"', '&quot;')
-            dialogDetails = dialogDetails.replaceAll('\n', '<br>')
-        } else {
+        if (dialogDetails === '') {
             dialogDetails = 'No details currently available for this entry'
         }
 
@@ -399,10 +396,28 @@ class DialogController {
         proficiencyLevelResult =
             'Proficiency level: ' + proficiencyLevelType + '<br><br>'
 
+        this.build(dialogTitle, proficiencyLevelResult + dialogDetails)
+    }
+
+    /**
+     * Compose a dialog box
+     * @method build
+     * @param title {string} Title of dialog
+     * @param body {string} Body of dialog
+     * @returns {void}
+     */
+    public build(title: string, body: string): void {
+        let dialogClose: HTMLElement = document.querySelector('dialog .close')
+        let dialogMain: HTMLDialogElement = document.querySelector('dialog')
+
+        let dialogTitle: string = title
+        let dialogDetails: string = body
+
+        dialogDetails = dialogDetails.replaceAll('"', '&quot;')
+        dialogDetails = dialogDetails.replaceAll('\n', '<br>')
+
         dialogMain.getElementsByClassName('header')[0].innerHTML = dialogTitle
-        dialogMain.getElementsByClassName('body')[0].innerHTML =
-            proficiencyLevelResult
-        dialogMain.getElementsByClassName('body')[0].innerHTML += dialogDetails
+        dialogMain.getElementsByClassName('body')[0].innerHTML = dialogDetails
 
         dialogMain.showModal()
 
@@ -441,15 +456,18 @@ interface NavigatorWEI extends Navigator {
 }
 
 class WEIAwareness {
+    /**
+     * Show message up-on detection of the Web Environment Integrity API
+     * @method detect
+     * @returns {void}
+     */
     public detect(): void {
         let environmentIntegrityFeature: NavigatorWEIExt = (
             navigator as NavigatorWEI
         ).getEnvironmentIntegrity
 
+        // Alright, which one of you browsers seriously implemented this abomination?
         if (typeof environmentIntegrityFeature === 'undefined') return
-
-        let dialogClose: HTMLElement = document.querySelector('dialog .close')
-        let dialogMain: HTMLDialogElement = document.querySelector('dialog')
 
         let dialogTitle: string = '⚠️ WEI Detected'
         let dialogDetails: string =
@@ -464,16 +482,7 @@ class WEIAwareness {
             'That said, please consider using another browser if possible. Examples such as a Chromium-based browser that does not include such change, Firefox (forks), or Safari (if that is an option). ' +
             'Essentially, a browser vendor that is not willing to give in.'
 
-        dialogDetails = dialogDetails.replaceAll('\n', '<br>')
-
-        dialogMain.getElementsByClassName('header')[0].innerHTML = dialogTitle
-        dialogMain.getElementsByClassName('body')[0].innerHTML = dialogDetails
-
-        dialogMain.showModal()
-
-        setTimeout((): void => {
-            dialogClose.blur()
-        }, 0)
+        dialogController.build(dialogTitle, dialogDetails)
     }
 }
 
@@ -522,7 +531,8 @@ window.onload = function (): void {
         .querySelector('dialog .close')
         .addEventListener('click', dialogController.close)
 
-    document.addEventListener('keydown', egg.init)
-
+    // Initiate WEI check
     weiDetect.detect()
+
+    document.addEventListener('keydown', egg.init)
 }
