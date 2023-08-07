@@ -16,14 +16,6 @@
                 "tags": ["Flutter", "Dart"]
             },
             {
-                "name": "Email Addr Extract",
-                "image": "gh-eae",
-                "type": "CLI",
-                "description": "High performance email address extraction tool",
-                "url": "https://github.com/uintdev/email-addr-extract",
-                "tags": ["Rust"]
-            },
-            {
                 "name": "uintdev web",
                 "image": "gh-uw",
                 "type": "Website",
@@ -37,6 +29,14 @@
         "subtitle": "Past",
         "description": "Projects previously worked on",
         "list": [
+            {
+                "name": "Email Addr Extract",
+                "image": "gh-eae",
+                "type": "CLI",
+                "description": "High performance email address extraction tool",
+                "url": "https://github.com/uintdev/email-addr-extract",
+                "tags": ["Rust"]
+            },
             {
                 "name": "Discord Cache Dump",
                 "image": "gh-dcd",
