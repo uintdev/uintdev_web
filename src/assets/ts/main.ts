@@ -443,6 +443,9 @@ class DialogController {
 
         let dialogMain: HTMLDialogElement = document.querySelector('dialog')
         dialogMain.close()
+
+        dialogMain.getElementsByClassName('header')[0].innerHTML = ''
+        dialogMain.getElementsByClassName('body')[0].innerHTML = ''
     }
 }
 
