@@ -49,11 +49,11 @@
                 }
             }
 
-            .level_fill {
-                background-color: rgba(var(--color-primary), 1);
-            }
-            .level_empty {
+            .empty {
                 background-color: rgba(var(--color-primary), 0);
+            }
+            .fill {
+                background-color: rgba(var(--color-primary), 1);
             }
         }
     }

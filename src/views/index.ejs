@@ -123,9 +123,9 @@
                             <%= pill.name %>
                             <div class="level_container">
                                 <% for (let i = 1; i <= 5; i++) { %>
-                                    <% let level_element = 'level_empty'; %>
+                                    <% let level_element = 'empty'; %>
                                     <% if (pill.level >= i) { %>
-                                    <%     level_element = 'level_fill'; %>
+                                    <%     level_element = 'fill'; %>
                                     <% } %>
                                     <span class="level <%= level_element %>"></span>
                                 <% } %>
