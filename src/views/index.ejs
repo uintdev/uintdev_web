@@ -52,34 +52,6 @@
                 </div>
             </div>
         </div>
-        <section id="skills">
-            <% const skills = require('../data/skills.json') %>
-            <div class="content-title"><%= skills.title %></div>
-            <div class="content-desc"><%= skills.description %></div>
-            <div class="content-center">
-                <div class="content-info">
-                    <% skills.list.forEach(function(skillsEntry) { %>
-                    <div class="sub-title"><%= skillsEntry.category %></div>
-                    <div class="pill-container">
-                        <% skillsEntry.pills.forEach(function(pill) { %>
-                        <a href="#" class="pill" data-level="<%= pill.level %>" title="<%= pill.details %>">
-                            <%= pill.name %>
-                            <div class="level_container">
-                                <% for (let i = 1; i <= 5; i++) { %>
-                                    <% let level_element = 'level_empty'; %>
-                                    <% if (pill.level >= i) { %>
-                                    <%     level_element = 'level_fill'; %>
-                                    <% } %>
-                                    <span class="level <%= level_element %>"></span>
-                                <% } %>
-                            </div>
-                        </a>
-                        <% }); %>
-                    </div>
-                    <% }); %>
-                </div>
-            </div>
-        </section>
         <section id="projects">
             <% const project = require('../data/projects.json') %>
             <div class="content-title"><%= project.metadata.title %></div>
@@ -133,6 +105,34 @@
                             <% }); %>
                         </div>
                     </a>
+                    <% }); %>
+                </div>
+            </div>
+        </section>
+        <section id="skills">
+            <% const skills = require('../data/skills.json') %>
+            <div class="content-title"><%= skills.title %></div>
+            <div class="content-desc"><%= skills.description %></div>
+            <div class="content-center">
+                <div class="content-info">
+                    <% skills.list.forEach(function(skillsEntry) { %>
+                    <div class="sub-title"><%= skillsEntry.category %></div>
+                    <div class="pill-container">
+                        <% skillsEntry.pills.forEach(function(pill) { %>
+                        <a href="#" class="pill" data-level="<%= pill.level %>" title="<%= pill.details %>">
+                            <%= pill.name %>
+                            <div class="level_container">
+                                <% for (let i = 1; i <= 5; i++) { %>
+                                    <% let level_element = 'level_empty'; %>
+                                    <% if (pill.level >= i) { %>
+                                    <%     level_element = 'level_fill'; %>
+                                    <% } %>
+                                    <span class="level <%= level_element %>"></span>
+                                <% } %>
+                            </div>
+                        </a>
+                        <% }); %>
+                    </div>
                     <% }); %>
                 </div>
             </div>
