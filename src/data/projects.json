@@ -5,7 +5,7 @@
     },
     "active": {
         "subtitle": "Ongoing",
-        "description": "Projects being working on",
+        "description": "Actively maintained",
         "list": [
             {
                 "name": "QRServ",
@@ -27,7 +27,7 @@
     },
     "inactive": {
         "subtitle": "Past",
-        "description": "Projects previously worked on",
+        "description": "Previously worked on",
         "list": [
             {
                 "name": "Email Addr Extract",
