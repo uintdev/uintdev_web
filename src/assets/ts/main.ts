@@ -103,6 +103,20 @@ class Theme {
                 })
         }
     }
+
+    private readonly executionRate: number = 450
+    private executionLast: number = 0
+
+    public rateLimit(): boolean {
+        let timeCurrent: number = Date.now()
+        let timeDifference = timeCurrent - this.executionLast
+
+        if (timeDifference <= this.executionRate) return true
+
+        this.executionLast = timeCurrent
+
+        return false
+    }
 }
 
 const theme = new Theme()
@@ -262,6 +276,7 @@ class EventController {
                 location.href = buttonElement.getAttribute('href') ?? ''
                 break
             case 'theme-invert':
+                if (theme.rateLimit()) return
                 theme.set()
                 break
         }
