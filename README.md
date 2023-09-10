@@ -6,13 +6,13 @@ This is the source code of the Node.js application behind bundling assets for th
 
 ### CLI
 
-Bun is used for building. Although, if desired, it can be built under Node.js with package managers such as PNPM or NPM.
+Ideally, PNPM would be used. The usual NPM should work, if that is of preference.
 
 ```bash
 # Install modules (initial setup)
-bun install
+pnpm install
 # (Re)build distribution files from 'src/'
-bun run build
+pnpm run build
 ```
 
 ### Web server

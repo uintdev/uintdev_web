@@ -7,12 +7,6 @@
         "allowJs": false,
         "esModuleInterop": true,
         "moduleResolution": "node",
-        "types": ["node"],
-
-        "moduleDetection": "force",
-
-        "strict": true,
-        "forceConsistentCasingInFileNames": true,
-        "skipLibCheck": true
+        "types": ["node"]
     }
 }
