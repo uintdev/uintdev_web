@@ -25,7 +25,10 @@ class Theme {
      */
     private get(): string {
         if (document.documentElement.hasAttribute('color-scheme')) {
-            return document.documentElement.getAttribute('color-scheme')
+            return (
+                document.documentElement.getAttribute('color-scheme') ??
+                this.themeDefault
+            )
         } else if (window.matchMedia) {
             if (window.matchMedia(this.schemeDark).matches) {
                 return 'dark'
@@ -45,7 +48,7 @@ class Theme {
      * @returns {string}
      */
     public set(): void {
-        let themeNext: string
+        let themeNext: string = 'unknown'
         let themeAuto: boolean = false
         let themeCurrent: string = this.get()
 
@@ -85,7 +88,7 @@ class Theme {
 
         if (!themeAuto) {
             let themeColor: string
-            let themeIndex: number
+            let themeIndex: number = 0
 
             if (themeNext === 'dark') {
                 themeIndex = 0
@@ -194,7 +197,7 @@ class UIController {
             !!window.matchMedia &&
             window.matchMedia('(prefers-reduced-motion)').matches
         let scrollBehavior: ScrollBehavior
-        let eleObj: HTMLElement =
+        let eleObj: HTMLElement | null =
             document.getElementById(ele) ?? document.querySelector(ele) ?? null
 
         if (eleObj === null) {
@@ -268,7 +271,10 @@ class EventController {
 
         const buttonElement = event.currentTarget as HTMLElement
 
-        let targetClass: string = buttonElement.classList.item(0)
+        let targetClass: string | null = buttonElement.classList.item(0)
+
+        if (targetClass === null)
+            return console.error('Unable to perform button action')
 
         switch (targetClass) {
             case 'card':
@@ -380,11 +386,13 @@ class DialogController {
      * @param ele {HTMLElement} HTML element
      * @returns {void}
      */
-    public open(event: MouseEvent, ele: HTMLElement): void {
+    public open(event: Event, ele: HTMLElement): void {
         event.preventDefault()
 
-        let dialogClose: HTMLElement = document.querySelector('dialog .close')
-        let dialogMain: HTMLDialogElement = document.querySelector('dialog')
+        let dialogClose: HTMLElement | null =
+            document.querySelector('dialog .close')
+        let dialogMain: HTMLDialogElement | null =
+            document.querySelector('dialog')
 
         let dialogTitle: string = ele.innerHTML
         let dialogDetails: string = ele.title
@@ -395,7 +403,7 @@ class DialogController {
         // Proficiency levels
         let proficiencyLevelResult: string
         let proficiencyLevelType: string
-        let proficiencyLevelStore: string = ele.dataset.level
+        let proficiencyLevelStore: string | undefined = ele.dataset.level
         let proficiencyLevelFallback = 'Unknown'
 
         if (isNaN(Number(proficiencyLevelStore))) {
@@ -422,8 +430,13 @@ class DialogController {
      * @returns {void}
      */
     public build(title: string, body: string): void {
-        let dialogClose: HTMLElement = document.querySelector('dialog .close')
-        let dialogMain: HTMLDialogElement = document.querySelector('dialog')
+        let dialogClose: HTMLElement | null =
+            document.querySelector('dialog .close')
+        let dialogMain: HTMLDialogElement | null =
+            document.querySelector('dialog')
+
+        if (dialogMain === null)
+            return console.error('Dialog not present while attempting to build')
 
         let dialogTitle: string = title
         let dialogDetails: string = body
@@ -443,6 +456,9 @@ class DialogController {
          * for it to function as intended. Average browser behaviour.
          */
         setTimeout((): void => {
+            if (dialogClose === null)
+                return console.error('Dialog is missing close option')
+
             dialogClose.blur()
         }, 0)
     }
@@ -456,7 +472,12 @@ class DialogController {
     public close(event: MouseEvent): void {
         event.preventDefault()
 
-        let dialogMain: HTMLDialogElement = document.querySelector('dialog')
+        let dialogMain: HTMLDialogElement | null =
+            document.querySelector('dialog')
+
+        if (dialogMain === null)
+            return console.error('Dialog not present while attempting to close')
+
         dialogMain.close()
 
         dialogMain.getElementsByClassName('header')[0].innerHTML = ''
@@ -508,7 +529,12 @@ const weiDetect = new WEIAwareness()
 
 window.onload = function (): void {
     // Unhide option if there is JavaScript enabled
-    document.querySelector('.theme-invert').classList.remove('hide')
+    let revealToggle: Element | null = document.querySelector('.theme-invert')
+    if (revealToggle === null) {
+        console.error('Unable to remove toggle')
+    } else {
+        revealToggle.classList.remove('hide')
+    }
 
     // Set up listener
     document.querySelectorAll(eventController.selector).forEach(function (ele) {
@@ -529,25 +555,33 @@ window.onload = function (): void {
     }
 
     // Listen for title interaction, for scrolling up
-    document
-        .querySelector('header .title')
-        .addEventListener('click', (event): void => {
+    let headerScroll: Element | null = document.querySelector('header .title')
+    if (headerScroll === null) {
+        console.error('Failed to initiate header scroll event listener')
+    } else {
+        headerScroll.addEventListener('click', (event): void => {
             uiController.scrollHander(event)
         })
+    }
 
     // Listen for pill input
     document
         .querySelectorAll('.pill')
-        .forEach(function (ele: HTMLElement): void {
-            ele.addEventListener('click', (event): void => {
-                dialogController.open(event, ele)
+        .forEach(function (value: Element, _, __): void {
+            value.addEventListener('click', (event): void => {
+                dialogController.open(event, value as HTMLElement)
             })
         })
 
     // Allow dialog to be closed
-    document
-        .querySelector('dialog .close')
-        .addEventListener('click', dialogController.close)
+    let dialogCloseOpt: Element | null = document.querySelector('dialog .close')
+    if (dialogCloseOpt === null) {
+        console.error('Failed to initiate header scroll event listener')
+    } else {
+        dialogCloseOpt.addEventListener('click', (event): void => {
+            dialogController.close(event as MouseEvent)
+        })
+    }
 
     // Initiate WEI check
     weiDetect.detect()
