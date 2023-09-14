@@ -21,7 +21,7 @@
         "html-loader": "^4.2.0",
         "html-webpack-plugin": "^5.5.3",
         "mini-css-extract-plugin": "^2.7.6",
-        "sass": "^1.66.1",
+        "sass": "^1.67.0",
         "sass-loader": "^13.3.2",
         "terser-webpack-plugin": "^5.3.9",
         "ts-loader": "^9.4.4",
