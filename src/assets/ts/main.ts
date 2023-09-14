@@ -453,7 +453,7 @@ class DialogController {
          * Avoid focusing on button by default
          * Yes, this doesn't work without setTimeout.
          * It seems as though asynchronous execution is what's allowing
-         * for it to function as intended. Average browser behaviour.
+         * for it to function as intended. This is a Webkit bug.
          */
         setTimeout((): void => {
             if (dialogClose === null)
