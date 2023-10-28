@@ -329,6 +329,19 @@ class Egg {
     }
 
     private keysPressed: string[] = []
+    private readonly keysCombo: string[] = [
+        'ArrowUp',
+        'ArrowUp',
+        'ArrowDown',
+        'ArrowDown',
+        'ArrowLeft',
+        'ArrowRight',
+        'ArrowLeft',
+        'ArrowRight',
+        'B',
+        'A',
+        'Enter',
+    ]
 
     /**
      * Easter egg -- wait, this shouldn't be documented...
@@ -342,23 +355,9 @@ class Egg {
             keyEventData = event.key.toUpperCase()
         }
 
-        let keysCombo: string[] = [
-            'ArrowUp',
-            'ArrowUp',
-            'ArrowDown',
-            'ArrowDown',
-            'ArrowLeft',
-            'ArrowRight',
-            'ArrowLeft',
-            'ArrowRight',
-            'B',
-            'A',
-            'Enter',
-        ]
-
         this.keysPressed.push(keyEventData)
 
-        let indexMatch: string = keysCombo[this.keysPressed.length - 1]
+        let indexMatch: string = this.keysCombo[this.keysPressed.length - 1]
 
         if (typeof indexMatch === 'undefined' || indexMatch !== keyEventData) {
             this.keysPressed = []
@@ -366,7 +365,7 @@ class Egg {
         }
 
         let keysPressedCombined: string = this.keysPressed.join('')
-        let keysComboCombined: string = keysCombo.join('')
+        let keysComboCombined: string = this.keysCombo.join('')
 
         if (keysPressedCombined.match(keysComboCombined)) {
             this.keysPressed = []
