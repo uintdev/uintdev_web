@@ -302,19 +302,19 @@ class Egg {
      * @returns {void}
      */
     private audioGen(): void {
-        let context: AudioContext = new AudioContext()
-        let oscillator: OscillatorNode = context.createOscillator()
-        let gain: GainNode = context.createGain()
+        let audioContext: AudioContext = new AudioContext()
+        let createOscillator: OscillatorNode = audioContext.createOscillator()
+        let createGain: GainNode = audioContext.createGain()
 
-        oscillator.type = 'triangle'
-        oscillator.connect(gain)
-        oscillator.frequency.value = 90
-        gain.connect(context.destination)
-        oscillator.start(0)
+        createOscillator.type = 'triangle'
+        createOscillator.connect(createGain)
+        createOscillator.frequency.value = 90
+        createGain.connect(audioContext.destination)
+        createOscillator.start(0)
 
-        gain.gain.exponentialRampToValueAtTime(
+        createGain.gain.exponentialRampToValueAtTime(
             0.00001,
-            context.currentTime + this.initAudioDuration / 1000
+            audioContext.currentTime + this.initAudioDuration / 1000
         )
     }
 
