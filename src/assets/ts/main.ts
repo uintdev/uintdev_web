@@ -388,11 +388,6 @@ class DialogController {
     public open(event: Event, ele: HTMLElement): void {
         event.preventDefault()
 
-        let dialogClose: HTMLElement | null =
-            document.querySelector('dialog .close')
-        let dialogMain: HTMLDialogElement | null =
-            document.querySelector('dialog')
-
         let dialogTitle: string = ele.innerHTML
         let dialogDetails: string = ele.title
         if (dialogDetails === '') {
