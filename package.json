@@ -14,7 +14,7 @@
         "url": "git://github.com/uintdev/uintdev_web.git"
     },
     "dependencies": {
-        "@types/node": "^20.8.9",
+        "@types/node": "^20.8.10",
         "copy-webpack-plugin": "^11.0.0",
         "css-loader": "^6.8.1",
         "css-minimizer-webpack-plugin": "^5.0.1",
