@@ -288,6 +288,7 @@ class EventController {
 const eventController = new EventController()
 
 class Egg {
+    private readonly audioFile: string = 'data/bg_audio.mp3'
     private readonly initAudioDuration: number = 1000
 
     /**
@@ -317,7 +318,7 @@ class Egg {
     private payload = (): void => {
         this.audioGen()
 
-        let audioController: HTMLAudioElement = new Audio('data/bg_audio.mp3')
+        let audioController: HTMLAudioElement = new Audio(this.audioFile)
         audioController.volume = 0.5
         setTimeout(function (): void {
             audioController.play()
