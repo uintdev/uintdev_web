@@ -78,9 +78,9 @@ class Theme {
                 let themeData: string
                 document
                     .querySelectorAll('meta[name="theme-color"]')
-                    .forEach(function (ele) {
+                    .forEach(function (element) {
                         themeData = themeOriginalColors[themeIndex]
-                        ele.setAttribute('content', themeData)
+                        element.setAttribute('content', themeData)
                         themeIndex++
                     })
             }
@@ -101,8 +101,8 @@ class Theme {
 
             document
                 .querySelectorAll('meta[name="theme-color"]')
-                .forEach(function (ele) {
-                    ele.setAttribute('content', themeColor)
+                .forEach(function (element) {
+                    element.setAttribute('content', themeColor)
                 })
         }
     }
@@ -149,9 +149,10 @@ class UIController {
         if (!this.headerPresent) return
         if (this.overscrollDeadZone()) return
 
-        let headerEle: HTMLElement = document.getElementsByTagName('header')[0]
+        let headerElement: HTMLElement =
+            document.getElementsByTagName('header')[0]
 
-        if (typeof headerEle === 'undefined') {
+        if (typeof headerElement === 'undefined') {
             console.error('Header is gone -- disabled UI header controller')
             this.headerPresent = false
             return
@@ -162,7 +163,7 @@ class UIController {
             this.headerPast = window.scrollY
             if (this.headerState !== headerStates.SHOW) {
                 this.headerState = headerStates.SHOW
-                headerEle.classList.remove('hide')
+                headerElement.classList.remove('hide')
                 this.headerActive = true
             }
         } else if (
@@ -173,14 +174,14 @@ class UIController {
             // Hide header if scrolling down beyond the header dead zone
             if (this.headerState !== headerStates.HIDE) {
                 this.headerState = headerStates.HIDE
-                headerEle.classList.add('hide')
+                headerElement.classList.add('hide')
                 this.headerActive = false
             }
         } else if (!this.headerActive && window.scrollY > 0) {
             // Hide header if it should be hidden after page load
             if (this.headerState !== headerStates.ONLOAD) {
                 this.headerState = headerStates.ONLOAD
-                headerEle.classList.add('hide')
+                headerElement.classList.add('hide')
             }
         }
         this.headerPast = window.scrollY
@@ -189,27 +190,29 @@ class UIController {
     /**
      * Smooth scroll transition
      * @method scroll
-     * @param ele {string} HTML element ID or query selector
+     * @param element {string} HTML element ID or query selector
      * @returns {void}
      */
-    public scroll(ele: string): void {
+    public scroll(element: string): void {
         let reduceMotion: boolean =
             !!window.matchMedia &&
             window.matchMedia('(prefers-reduced-motion)').matches
         let scrollBehavior: ScrollBehavior
-        let eleObj: HTMLElement | null =
-            document.getElementById(ele) ?? document.querySelector(ele) ?? null
+        let elementObject: HTMLElement | null =
+            document.getElementById(element) ??
+            document.querySelector(element) ??
+            null
 
-        if (eleObj === null) {
+        if (elementObject === null) {
             console.error(
-                'Attempted to scroll to element that does not exist: ' + ele
+                'Attempted to scroll to element that does not exist: ' + element
             )
         } else {
             scrollBehavior = reduceMotion
                 ? ('instant' as ScrollBehavior)
                 : ('smooth' as ScrollBehavior)
             window.scrollTo({
-                top: eleObj.offsetTop,
+                top: elementObject.offsetTop,
                 behavior: scrollBehavior,
             })
         }
@@ -382,14 +385,14 @@ class DialogController {
      * Compose a dialog box
      * @method open
      * @param event {MouseEvent} Event
-     * @param ele {HTMLElement} HTML element
+     * @param element {HTMLElement} HTML element
      * @returns {void}
      */
-    public open(event: Event, ele: HTMLElement): void {
+    public open(event: Event, element: HTMLElement): void {
         event.preventDefault()
 
-        let dialogTitle: string = ele.innerHTML
-        let dialogDetails: string = ele.title
+        let dialogTitle: string = element.innerHTML
+        let dialogDetails: string = element.title
         if (dialogDetails === '') {
             dialogDetails = 'No details currently available for this entry'
         }
@@ -397,7 +400,7 @@ class DialogController {
         // Proficiency levels
         let proficiencyLevelResult: string
         let proficiencyLevelType: string
-        let proficiencyLevelStore: string | undefined = ele.dataset.level
+        let proficiencyLevelStore: string | undefined = element.dataset.level
         let proficiencyLevelFallback = 'Unknown'
 
         let proficiencyLevel: number = Number(proficiencyLevelStore)
@@ -532,15 +535,17 @@ window.onload = function (): void {
     }
 
     // Set up listener
-    document.querySelectorAll(eventController.selector).forEach(function (ele) {
-        ele.addEventListener('click', eventController.init)
-    })
+    document
+        .querySelectorAll(eventController.selector)
+        .forEach(function (element) {
+            element.addEventListener('click', eventController.init)
+        })
 
     // Build list of themes
     document
         .querySelectorAll('meta[name="theme-color"]')
-        .forEach(function (ele: NodeExt) {
-            themeOriginalColors.push(ele.getAttribute('content') ?? '')
+        .forEach(function (element: NodeExt) {
+            themeOriginalColors.push(element.getAttribute('content') ?? '')
         })
 
     // Initiate and listen to header
