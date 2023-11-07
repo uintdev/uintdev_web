@@ -387,7 +387,7 @@ class DialogController {
         let dialogTitle: string = element.innerHTML
         let dialogDetails: string = element.title
         if (dialogDetails === '') {
-            dialogDetails = 'No details currently available for this entry'
+            dialogDetails = 'No details yet'
         }
 
         // Proficiency levels
