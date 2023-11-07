@@ -482,7 +482,7 @@ window.onload = function (): void {
     // Unhide option if there is JavaScript enabled
     let revealToggle: Element | null = document.querySelector('.theme-invert')
     if (revealToggle === null) {
-        console.error('Unable to remove toggle')
+        console.error('Unable to unhide toggle')
     } else {
         revealToggle.classList.remove('hide')
     }
