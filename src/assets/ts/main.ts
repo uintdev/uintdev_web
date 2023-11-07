@@ -153,7 +153,9 @@ class UIController {
             document.getElementsByTagName('header')[0]
 
         if (typeof headerElement === 'undefined') {
-            console.error('Header is gone -- disabled UI header controller')
+            console.error(
+                'Header had gone out to get some milk -- disabled UI header controller'
+            )
             this.headerPresent = false
             return
         }
@@ -205,7 +207,7 @@ class UIController {
 
         if (elementObject === null) {
             console.error(
-                'Attempted to scroll to element that does not exist: ' + element
+                'Cannot scroll to an element that does not exist: ' + element
             )
         } else {
             scrollBehavior = reduceMotion
@@ -269,8 +271,9 @@ class EventController {
 
         let targetClass: string | null = buttonElement.classList.item(0)
 
-        if (targetClass === null)
-            return console.error('Unable to perform button action')
+        if (targetClass === null) {
+            return console.error('Lacking class')
+        }
 
         switch (targetClass) {
             case 'card':
@@ -428,7 +431,9 @@ class DialogController {
             document.querySelector('dialog')
 
         if (dialogMain === null)
-            return console.error('Dialog not present while attempting to build')
+            return console.error(
+                'Cannot build message without dialog being present'
+            )
 
         let dialogTitle: string = title
         let dialogDetails: string = body
@@ -449,7 +454,7 @@ class DialogController {
          */
         setTimeout((): void => {
             if (dialogClose === null)
-                return console.error('Dialog is missing close option')
+                return console.error('Dialog is missing close button')
 
             dialogClose.blur()
         }, 0)
@@ -483,7 +488,7 @@ window.onload = function (): void {
     // Unhide option if there is JavaScript enabled
     let revealToggle: Element | null = document.querySelector('.theme-invert')
     if (revealToggle === null) {
-        console.error('Unable to unhide toggle')
+        console.error('Unable to unhide theme toggle')
     } else {
         revealToggle.classList.remove('hide')
     }
@@ -530,7 +535,7 @@ window.onload = function (): void {
     // Allow dialog to be closed
     let dialogCloseOpt: Element | null = document.querySelector('dialog .close')
     if (dialogCloseOpt === null) {
-        console.error('Failed to initiate header scroll event listener')
+        console.error('Failed to initiate dialog closure event listener')
     } else {
         dialogCloseOpt.addEventListener('click', (event): void => {
             dialogController.close(event as MouseEvent)
