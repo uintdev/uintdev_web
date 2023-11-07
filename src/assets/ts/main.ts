@@ -485,40 +485,6 @@ interface NavigatorWEI extends Navigator {
     getEnvironmentIntegrity: NavigatorWEIType
 }
 
-class WEIAwareness {
-    /**
-     * Show message up-on detection of the Web Environment Integrity API
-     * @method detect
-     * @returns {void}
-     */
-    public detect(): void {
-        let environmentIntegrityFeature: NavigatorWEIType = (
-            navigator as NavigatorWEI
-        ).getEnvironmentIntegrity
-
-        // Alright, which one of you browsers seriously implemented this abomination?
-        if (typeof environmentIntegrityFeature === 'undefined') return
-        // Construct the callout and put the subject on blast
-
-        let dialogTitle: string = '⚠️ WEI Detected'
-        let dialogDetails: string =
-            'You are viewing this website in a browser with "Web Environment Integrity" (WEI).\n\n' +
-            "WEI is Google's browser integrity API that is designed to essentially determine if a 'legitimate' user is interacting with a website.\n\n" +
-            'It introduces concerns of (but not limited to):\n' +
-            '&bull; More browser fingerprinting attributes\n' +
-            '&bull; Detecting attempts to block advertising &amp; scripts reliably\n' +
-            '&bull; Needing to be a Google-approved browser\n\n' +
-            'This goes against the spirit of the open web.\n\n' +
-            'Other browser vendors, especially those using Chromium, might be pressured to include WEI due to services using the WEI API potentially rejecting browsers without it.\n\n' +
-            'Please consider using another browser if possible. Examples such as: a Chromium-based browser that is not impacted, Firefox (or its forks), or Safari (where available). ' +
-            'Essentially, a browser vendor that is not willing to give in.'
-
-        dialogController.build(dialogTitle, dialogDetails)
-    }
-}
-
-const weiDetect = new WEIAwareness()
-
 window.onload = function (): void {
     // Unhide option if there is JavaScript enabled
     let revealToggle: Element | null = document.querySelector('.theme-invert')
@@ -576,9 +542,6 @@ window.onload = function (): void {
             dialogController.close(event as MouseEvent)
         })
     }
-
-    // Initiate WEI check
-    weiDetect.detect()
 
     document.addEventListener('keydown', egg.initiate)
 }
