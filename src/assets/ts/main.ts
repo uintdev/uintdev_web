@@ -400,10 +400,11 @@ class DialogController {
         let proficiencyLevelStore: string | undefined = ele.dataset.level
         let proficiencyLevelFallback = 'Unknown'
 
-        if (isNaN(Number(proficiencyLevelStore))) {
+        let proficiencyLevel: number = Number(proficiencyLevelStore)
+
+        if (isNaN(proficiencyLevel)) {
             proficiencyLevelType = proficiencyLevelFallback
         } else {
-            let proficiencyLevel: number = Number(proficiencyLevelStore)
             proficiencyLevelType = ProficiencyType[proficiencyLevel - 1]
             if (typeof proficiencyLevelType === 'undefined') {
                 proficiencyLevelType = proficiencyLevelFallback
