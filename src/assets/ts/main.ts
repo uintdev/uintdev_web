@@ -1,7 +1,7 @@
 // Store theme color data
 let themeOriginalColors: string[] = []
 
-interface NodeExt extends Node {
+interface NodeInterface extends Node {
     getAttribute: Function
 }
 
@@ -340,12 +340,12 @@ class Egg {
     ]
 
     /**
-     * Easter egg -- wait, this shouldn't be documented...
+     * Easter egg
      * @method init
      * @param event {KeyboardEvent} Event information from the keyboard
      * @returns {void}
      */
-    public init = (event: KeyboardEvent): void => {
+    public initiate = (event: KeyboardEvent): void => {
         let keyEventData: string = event.key
         if (keyEventData.length === 1) {
             keyEventData = event.key.toUpperCase()
@@ -365,7 +365,7 @@ class Egg {
 
         if (keysPressedCombined.match(keysComboCombined)) {
             this.keysPressed = []
-            document.removeEventListener('keydown', this.init)
+            document.removeEventListener('keydown', this.initiate)
             this.payload()
         }
     }
@@ -478,11 +478,11 @@ class DialogController {
 
 const dialogController = new DialogController()
 
-type NavigatorWEIExt = {
+type NavigatorWEIType = {
     getEnvironmentIntegrity: Function
 }
 interface NavigatorWEI extends Navigator {
-    getEnvironmentIntegrity: NavigatorWEIExt
+    getEnvironmentIntegrity: NavigatorWEIType
 }
 
 class WEIAwareness {
@@ -492,7 +492,7 @@ class WEIAwareness {
      * @returns {void}
      */
     public detect(): void {
-        let environmentIntegrityFeature: NavigatorWEIExt = (
+        let environmentIntegrityFeature: NavigatorWEIType = (
             navigator as NavigatorWEI
         ).getEnvironmentIntegrity
 
@@ -537,7 +537,7 @@ window.onload = function (): void {
     // Build list of themes
     document
         .querySelectorAll('meta[name="theme-color"]')
-        .forEach(function (element: NodeExt) {
+        .forEach(function (element: NodeInterface) {
             themeOriginalColors.push(element.getAttribute('content') ?? '')
         })
 
@@ -579,5 +579,5 @@ window.onload = function (): void {
     // Initiate WEI check
     weiDetect.detect()
 
-    document.addEventListener('keydown', egg.init)
+    document.addEventListener('keydown', egg.initiate)
 }
