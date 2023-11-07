@@ -498,6 +498,7 @@ class WEIAwareness {
 
         // Alright, which one of you browsers seriously implemented this abomination?
         if (typeof environmentIntegrityFeature === 'undefined') return
+        // Construct the callout and put the subject on blast
 
         let dialogTitle: string = '⚠️ WEI Detected'
         let dialogDetails: string =
@@ -508,8 +509,8 @@ class WEIAwareness {
             '&bull; Detecting attempts to block advertising &amp; scripts reliably\n' +
             '&bull; Needing to be a Google-approved browser\n\n' +
             'This goes against the spirit of the open web.\n\n' +
-            'Other browser vendors, especially those based on Chromium, might be pressured to include said API, due to services using the API potentially rejecting browsers without it.\n\n' +
-            'That said, please consider using another browser if possible. Examples such as a Chromium-based browser that does not include such change, Firefox (forks), or Safari (if that is an option). ' +
+            'Other browser vendors, especially those using Chromium, might be pressured to include WEI due to services using the WEI API potentially rejecting browsers without it.\n\n' +
+            'Please consider using another browser if possible. Examples such as: a Chromium-based browser that is not impacted, Firefox (or its forks), or Safari (where available). ' +
             'Essentially, a browser vendor that is not willing to give in.'
 
         dialogController.build(dialogTitle, dialogDetails)
