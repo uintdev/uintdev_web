@@ -478,13 +478,6 @@ class DialogController {
 
 const dialogController = new DialogController()
 
-type NavigatorWEIType = {
-    getEnvironmentIntegrity: Function
-}
-interface NavigatorWEI extends Navigator {
-    getEnvironmentIntegrity: NavigatorWEIType
-}
-
 window.onload = function (): void {
     // Unhide option if there is JavaScript enabled
     let revealToggle: Element | null = document.querySelector('.theme-invert')
