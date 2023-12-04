@@ -153,9 +153,7 @@ class UIController {
             document.getElementsByTagName('header')[0]
 
         if (typeof headerElement === 'undefined') {
-            console.error(
-                'Header had gone out to get some milk -- disabled UI header controller'
-            )
+            console.error('Header had gone out to get some milk')
             this.headerPresent = false
             return
         }
