@@ -118,7 +118,7 @@
                 {
                     "name": "Warp",
                     "level": 4,
-                    "details": "Fancy high performance terminal application\n\nContains ChatGPT client integration that very rarely comes up with a working solution, even with plenty of hand holding"
+                    "details": "Fancy high performance terminal application\n\nWarp initiation commands and environment variables jump scare"
                 },
                 {
                     "name": "RapidAPI",
@@ -217,7 +217,7 @@
                 },
                 {
                     "name": "Power Apps",
-                    "level": 2,
+                    "level": 3,
                     "details": "Building Power applications"
                 }
             ]
