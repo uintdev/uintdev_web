@@ -325,7 +325,7 @@ class Egg {
         this.audioGen()
 
         let audioController: HTMLAudioElement = new Audio(this.audioFile)
-        audioController.volume = 0.5
+        audioController.volume = 0.6
         setTimeout(function (): void {
             audioController.play()
         }, this.initAudioDuration)
