@@ -136,14 +136,13 @@ enum headerStates {
     SHOW,
     HIDE,
     ONLOAD,
-    NONE,
 }
 
 class UIController {
     // Manage header state
     private headerPast: number = window.scrollY
     private headerActive: boolean = false
-    private headerState: headerStates = headerStates.NONE
+    private headerState: headerStates = headerStates.ONLOAD
     private headerPresent: boolean = true
     private headerDeadZone: number = 50
 
