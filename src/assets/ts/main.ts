@@ -441,6 +441,7 @@ class DialogController {
         let dialogTitle: string = title
         let dialogDetails: string = body
 
+        // Escape and convert special characters/bytes
         dialogDetails = dialogDetails.replaceAll('"', '&quot;')
         dialogDetails = dialogDetails.replaceAll('\n', '<br>')
 
