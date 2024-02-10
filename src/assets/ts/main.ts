@@ -275,9 +275,7 @@ class EventController {
 
         let targetClass: string | null = buttonElement.classList.item(0)
 
-        if (targetClass === null) {
-            return console.error('Lacking class')
-        }
+        if (targetClass === null) return
 
         switch (targetClass) {
             case 'card':
