@@ -14,7 +14,11 @@ enum ProficiencyType {
 }
 
 class Theme {
-    private readonly themeDefault: string = 'dark'
+    public readonly themeMeta = 'meta[name="theme-color"]'
+    private readonly themeOverride = 'color-scheme'
+    private readonly themeDark: string = 'dark'
+    private readonly themeLight: string = 'light'
+    private readonly themeDefault: string = this.themeDark
     private readonly schemeDark: string = '(prefers-color-scheme: dark)'
     private readonly schemeLight: string = '(prefers-color-scheme: light)'
 
@@ -24,16 +28,16 @@ class Theme {
      * @returns {string}
      */
     private get(): string {
-        if (document.documentElement.hasAttribute('color-scheme')) {
+        if (document.documentElement.hasAttribute(this.themeOverride)) {
             return (
-                document.documentElement.getAttribute('color-scheme') ??
+                document.documentElement.getAttribute(this.themeOverride) ??
                 this.themeDefault
             )
         } else if (window.matchMedia) {
             if (window.matchMedia(this.schemeDark).matches) {
-                return 'dark'
+                return this.themeDark
             } else if (window.matchMedia(this.schemeLight).matches) {
-                return 'light'
+                return this.themeLight
             } else {
                 return this.themeDefault
             }
@@ -52,24 +56,24 @@ class Theme {
         let themeAuto: boolean = false
         let themeCurrent: string = this.get()
 
-        if (themeCurrent === 'dark') {
-            themeNext = 'light'
-        } else if (themeCurrent === 'light') {
-            themeNext = 'dark'
+        if (themeCurrent === this.themeDark) {
+            themeNext = this.themeLight
+        } else if (themeCurrent === this.themeLight) {
+            themeNext = this.themeDark
         }
 
         if (window.matchMedia) {
             if (
                 window.matchMedia(this.schemeDark).matches &&
-                themeNext === 'dark'
+                themeNext === this.themeDark
             ) {
-                document.documentElement.removeAttribute('color-scheme')
+                document.documentElement.removeAttribute(this.themeOverride)
                 themeAuto = true
             } else if (
                 window.matchMedia(this.schemeLight).matches &&
-                themeNext === 'light'
+                themeNext === this.themeLight
             ) {
-                document.documentElement.removeAttribute('color-scheme')
+                document.documentElement.removeAttribute(this.themeOverride)
                 themeAuto = true
             }
 
@@ -77,7 +81,7 @@ class Theme {
                 let themeIndex: number = 0
                 let themeData: string
                 document
-                    .querySelectorAll('meta[name="theme-color"]')
+                    .querySelectorAll(this.themeMeta)
                     .forEach(function (element) {
                         themeData = themeOriginalColors[themeIndex]
                         element.setAttribute('content', themeData)
@@ -90,17 +94,17 @@ class Theme {
             let themeColor: string
             let themeIndex: number = 0
 
-            if (themeNext === 'dark') {
+            if (themeNext === this.themeDark) {
                 themeIndex = 0
-            } else if (themeNext === 'light') {
+            } else if (themeNext === this.themeLight) {
                 themeIndex = 1
             }
 
-            document.documentElement.setAttribute('color-scheme', themeNext)
+            document.documentElement.setAttribute(this.themeOverride, themeNext)
             themeColor = themeOriginalColors[themeIndex]
 
             document
-                .querySelectorAll('meta[name="theme-color"]')
+                .querySelectorAll(this.themeMeta)
                 .forEach(function (element) {
                     element.setAttribute('content', themeColor)
                 })
@@ -500,7 +504,7 @@ window.onload = function (): void {
 
     // Build list of themes
     document
-        .querySelectorAll('meta[name="theme-color"]')
+        .querySelectorAll(theme.themeMeta)
         .forEach(function (element: NodeInterface) {
             themeOriginalColors.push(element.getAttribute('content') ?? '')
         })
