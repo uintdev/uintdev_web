@@ -145,6 +145,7 @@ class UIController {
     private headerState: headerStates = headerStates.ONLOAD
     private headerPresent: boolean = true
     private headerDeadZone: number = 50
+    private readonly headerHideClass = 'hide'
 
     /**
      * Controls header state
@@ -169,7 +170,7 @@ class UIController {
             this.headerPast = window.scrollY
             if (this.headerState !== headerStates.SHOW) {
                 this.headerState = headerStates.SHOW
-                headerElement.classList.remove('hide')
+                headerElement.classList.remove(this.headerHideClass)
                 this.headerActive = true
             }
         } else if (
@@ -180,14 +181,14 @@ class UIController {
             // Hide header if scrolling down beyond the header dead zone
             if (this.headerState !== headerStates.HIDE) {
                 this.headerState = headerStates.HIDE
-                headerElement.classList.add('hide')
+                headerElement.classList.add(this.headerHideClass)
                 this.headerActive = false
             }
         } else if (!this.headerActive && window.scrollY > 0) {
             // Hide header if it should be hidden after page load
             if (this.headerState !== headerStates.ONLOAD) {
                 this.headerState = headerStates.ONLOAD
-                headerElement.classList.add('hide')
+                headerElement.classList.add(this.headerHideClass)
             }
         }
         this.headerPast = window.scrollY
