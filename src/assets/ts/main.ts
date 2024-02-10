@@ -225,7 +225,7 @@ class UIController {
         }
     }
 
-    public scrollHander(event: Event) {
+    public scrollHandler(event: Event) {
         event.preventDefault()
         this.scroll('body')
     }
@@ -522,7 +522,7 @@ window.onload = function (): void {
         console.error('Failed to initiate header scroll event listener')
     } else {
         headerScroll.addEventListener('click', (event): void => {
-            uiController.scrollHander(event)
+            uiController.scrollHandler(event)
         })
     }
 
