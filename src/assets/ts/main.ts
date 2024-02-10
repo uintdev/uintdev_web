@@ -231,7 +231,7 @@ class UIController {
     }
 
     /**
-     * Determine the dead zone to use when overscrolling (Safari-specific quirk)
+     * Determine the dead zone to use when overscrolling (Safari mobile specific quirk)
      * @method overscrollDeadZone
      * @returns {boolean}
      */
