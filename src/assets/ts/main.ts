@@ -19,8 +19,9 @@ class Theme {
     private readonly themeDark: string = 'dark'
     private readonly themeLight: string = 'light'
     private readonly themeDefault: string = this.themeDark
-    private readonly schemeDark: string = '(prefers-color-scheme: dark)'
-    private readonly schemeLight: string = '(prefers-color-scheme: light)'
+    private readonly schemeType: Function = (schemeColor: string) => {
+        return '(prefers-color-scheme: ' + schemeColor + ')'
+    }
 
     /**
      * Gather current theme
@@ -34,9 +35,11 @@ class Theme {
                 this.themeDefault
             )
         } else if (window.matchMedia) {
-            if (window.matchMedia(this.schemeDark).matches) {
+            if (window.matchMedia(this.schemeType(this.themeDark)).matches) {
                 return this.themeDark
-            } else if (window.matchMedia(this.schemeLight).matches) {
+            } else if (
+                window.matchMedia(this.schemeType(this.themeLight)).matches
+            ) {
                 return this.themeLight
             } else {
                 return this.themeDefault
@@ -64,13 +67,13 @@ class Theme {
 
         if (window.matchMedia) {
             if (
-                window.matchMedia(this.schemeDark).matches &&
+                window.matchMedia(this.schemeType(this.themeDark)).matches &&
                 themeNext === this.themeDark
             ) {
                 document.documentElement.removeAttribute(this.themeOverride)
                 themeAuto = true
             } else if (
-                window.matchMedia(this.schemeLight).matches &&
+                window.matchMedia(this.schemeType(this.themeLight)).matches &&
                 themeNext === this.themeLight
             ) {
                 document.documentElement.removeAttribute(this.themeOverride)
