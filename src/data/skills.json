@@ -217,7 +217,7 @@
                 },
                 {
                     "name": "Power Apps",
-                    "level": 3,
+                    "level": 4,
                     "details": "Building Power applications"
                 }
             ]
@@ -227,7 +227,7 @@
             "pills": [
                 {
                     "name": "Apple Shortcuts",
-                    "level": 2,
+                    "level": 3,
                     "details": "Various actions bundled under a single task, that can be automated and/or used with on-device applications"
                 },
                 {
