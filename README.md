@@ -1,6 +1,8 @@
 # uintdev web
 
-This is the source code of the Node.js application behind bundling assets for the website '[uint.dev](https://uint.dev/)'.
+This is the source code of the Node.js application behind bundling assets for the website [uint.dev](https://uint.dev/).
+
+This website is hosted using Cloudflare Pages.
 
 ## Setup
 
@@ -21,4 +23,4 @@ For the web server of your choice, point the document root for the virtual host 
 
 ## Licensing
 
-The '[MIT license](LICENSE)' is used for this project. The font is under [Apache 2.0](src/assets/sass/fonts/LICENSE.txt) -- more details can be found here [here](https://fonts.google.com/specimen/Roboto+Mono).
+The [MIT license](LICENSE) is used for this project. The font is under [Apache 2.0](src/assets/sass/fonts/LICENSE.txt) -- more details can be found [here](https://fonts.google.com/specimen/Roboto+Mono).
