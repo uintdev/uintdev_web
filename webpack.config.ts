@@ -75,7 +75,10 @@ const configBuild = {
             chunkFilename: '[id].css',
         }),
         new CopyPlugin({
-            patterns: [{ from: 'src/assets/data', to: 'data/' }],
+            patterns: [
+                { from: 'src/assets/data', to: 'data/' },
+                { from: 'src/assets/pages', to: './' },
+            ],
         }),
     ],
 }
