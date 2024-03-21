@@ -61,7 +61,12 @@ header {
             height: 44px;
             border-radius: 44px;
             z-index: 10;
-            border: 1px solid rgba(var(--color-header-button-icon), 1);
+            border: 1px solid
+                color-mix(
+                    in srgb,
+                    var(--color-header-button-icon) 100%,
+                    transparent
+                );
             box-sizing: border-box;
             transition: background-color 0.2s;
             cursor: pointer;
@@ -84,7 +89,11 @@ header {
 
             .blog-icon {
                 @include image-loader('header/blog.svg');
-                background-color: rgba(var(--color-header-button-icon), 1);
+                background-color: color-mix(
+                    in srgb,
+                    var(--color-header-button-icon) 100%,
+                    transparent
+                );
                 padding-top: 42px;
                 width: 100%;
             }
