@@ -21,7 +21,8 @@ header {
         font-size: 14px;
         padding: 13px 18px;
         border-radius: 25px;
-        border: 1px solid rgba(var(--color-primary), 1);
+        border: 1px solid
+            color-mix(in srgb, var(--color-primary) 100%, transparent);
         transition: background-color 0.2s;
         cursor: pointer;
 
@@ -121,9 +122,10 @@ header {
 
             .theme-invert-icon {
                 @include image-loader('header/invert.svg');
-                background-color: rgba(
-                    var(--color-header-invert-button-icon),
-                    1
+                background-color: color-mix(
+                    in srgb,
+                    var(--color-header-invert-button-icon) 100%,
+                    transparent
                 );
                 padding-top: 44px;
                 width: 100%;

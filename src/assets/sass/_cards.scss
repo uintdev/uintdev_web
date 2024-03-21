@@ -16,11 +16,12 @@
         cursor: pointer;
 
         border-radius: var(--radius-card);
-        border: 1px solid rgba(var(--color-primary), 1);
+        border: 1px solid
+            color-mix(in srgb, var(--color-primary) 100%, transparent);
         box-sizing: border-box;
         padding: 30px;
 
-        color: rgba(var(--color-primary), 1);
+        color: color-mix(in srgb, var(--color-primary) 100%, transparent);
         background-color: var(--color-secondary);
 
         transition: background-color 0.2s;
@@ -59,7 +60,11 @@
                     display: block;
                     height: 60px;
                     width: 100%;
-                    background-color: rgba(var(--color-primary), 1);
+                    background-color: color-mix(
+                        in srgb,
+                        var(--color-primary) 100%,
+                        transparent
+                    );
                     -webkit-filter: brightness(1);
                     filter: brightness(1);
                     transition: -webkit-filter 0.2s, filter 0.2s;
@@ -125,7 +130,8 @@
             .tag {
                 padding: 10px 15px;
                 border-radius: 10px;
-                border: 1px solid rgba(var(--color-primary), 1);
+                border: 1px solid
+                    color-mix(in srgb, var(--color-primary) 100%, transparent);
             }
 
             @media (prefers-reduced-motion) {

@@ -8,11 +8,12 @@
 
     .pill {
         border-radius: var(--radius-pill);
-        color: rgba(var(--color-primary), 1);
+        color: color-mix(in srgb, var(--color-primary) 100%, transparent);
         padding: 14px 22px;
         font-size: 0.85rem;
         text-align: center;
-        border: 1px solid rgba(var(--color-primary), 1);
+        border: 1px solid
+            color-mix(in srgb, var(--color-primary) 100%, transparent);
         transition: background-color 0.2s;
         cursor: pointer;
 
@@ -36,10 +37,18 @@
             .level {
                 height: 15px;
                 width: 15px;
-                background-color: rgba(var(--color-primary), 0);
+                background-color: color-mix(
+                    in srgb,
+                    var(--color-primary) 0%,
+                    transparent
+                );
                 border: 1px solid;
                 border-radius: 20px;
-                border-color: rgba(var(--color-primary), 1);
+                border-color: color-mix(
+                    in srgb,
+                    var(--color-primary) 100%,
+                    transparent
+                );
                 transition: background-color 0.2s, border-color 0.2s;
                 box-sizing: border-box;
             }
@@ -50,10 +59,18 @@
             }
 
             .empty {
-                background-color: rgba(var(--color-primary), 0);
+                background-color: color-mix(
+                    in srgb,
+                    var(--color-primary) 0%,
+                    transparent
+                );
             }
             .fill {
-                background-color: rgba(var(--color-primary), 1);
+                background-color: color-mix(
+                    in srgb,
+                    var(--color-primary) 100%,
+                    transparent
+                );
             }
         }
     }

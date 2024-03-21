@@ -11,17 +11,17 @@ html {
 body {
     margin: 0;
     font-family: var(--font-stack);
-    color: rgba(var(--color-primary), 1);
+    color: color-mix(in srgb, var(--color-primary) 100%, transparent);
     background-color: var(--color-secondary);
 }
 
 a {
-    color: rgba(var(--color-primary), 1);
+    color: color-mix(in srgb, var(--color-primary) 100%, transparent);
     text-decoration: none;
     border-bottom: 0;
 
     &:hover {
-        color: rgba(var(--color-primary), 1);
+        color: color-mix(in srgb, var(--color-primary) 100%, transparent);
     }
 }
 
@@ -29,7 +29,7 @@ a {
     display: inline-block;
     cursor: pointer;
     font-weight: bold;
-    color: rgba(var(--color-primary), 1);
+    color: color-mix(in srgb, var(--color-primary) 100%, transparent);
 
     &:hover {
         color: #7f7f7f;

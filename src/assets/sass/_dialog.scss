@@ -2,12 +2,12 @@ dialog {
     padding: 25px 35px;
     background-color: var(--color-secondary);
     animation: fadeDialog 0.1s forwards;
-    color: rgba(var(--color-primary), 1);
+    color: color-mix(in srgb, var(--color-primary) 100%, transparent);
     width: 450px;
     max-width: 90%;
     box-sizing: border-box;
 
-    border: 1px solid rgba(var(--color-primary), 1);
+    border: 1px solid color-mix(in srgb, var(--color-primary) 100%, transparent);
     border-radius: 20px;
     .header {
         font-size: 1.1em;
@@ -20,9 +20,10 @@ dialog {
     }
     .close {
         background-color: var(--color-secondary);
-        color: rgba(var(--color-primary), 1);
+        color: color-mix(in srgb, var(--color-primary) 100%, transparent);
         border-radius: 25px;
-        border: 1px solid rgba(var(--color-primary), 1);
+        border: 1px solid
+            color-mix(in srgb, var(--color-primary) 100%, transparent);
         box-sizing: border-box;
         padding: 20px 30px;
         font-family: var(--font-stack);
