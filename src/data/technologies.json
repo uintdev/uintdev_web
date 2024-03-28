@@ -8,7 +8,7 @@
                 {
                     "name": "Rust",
                     "level": 4,
-                    "details": "Tooling and API backends, among other use cases, with a higher guarantee of robustness and performance\n\nProgramming languages such as this so happen to have a large productivity boost when programming socks are worn and accompanied by a Blåhaj"
+                    "details": "Tooling and backend APIs, among other use cases, with a higher guarantee of robustness and performance\n\nProgramming languages such as this so happen to have a large productivity boost when programming socks are worn and accompanied by a Blåhaj"
                 },
                 {
                     "name": "Dart / Flutter",
@@ -18,7 +18,7 @@
                 {
                     "name": "Swift / SwiftUI",
                     "level": 2,
-                    "details": "Getting to know these technologies -- check back soon"
+                    "details": "Getting to know these technologies more when I get around to it -- check back soon"
                 },
                 {
                     "name": "Go",
@@ -58,7 +58,7 @@
                 {
                     "name": "JavaScript",
                     "level": 4,
-                    "details": "Mainly dynamic web page functionality\n\nDon't ask it what `0.2 + 0.1` is equal to"
+                    "details": "Mainly dynamic web page functionality\n\nUsing Electron might be a time-saver and a cost reduction in development, but usually this is done deliberately at an expense of the end user's system resources -- likewise with React"
                 },
                 {
                     "name": "PHP",
@@ -183,7 +183,7 @@
             ]
         },
         {
-            "category": "Service management",
+            "category": "Server software",
             "pills": [
                 {
                     "name": "Nginx",
@@ -203,7 +203,7 @@
             ]
         },
         {
-            "category": "Online service management",
+            "category": "Online services",
             "pills": [
                 {
                     "name": "Cloudflare",
@@ -238,7 +238,7 @@
             ]
         },
         {
-            "category": "System management",
+            "category": "Systems",
             "pills": [
                 {
                     "name": "iOS",
@@ -278,7 +278,7 @@
                 {
                     "name": "Protocols",
                     "level": 3,
-                    "details": "Including, but not limited to: UDP, TCP, DHCP, IP, BGP, telnet, SMTP, IMAP, POP3, HTTP, HTTPS, TLS/SSL, FTP, SSH, SFTP"
+                    "details": "Concept of protocols and how some operate. Including, but not limited to: UDP, TCP, DHCP, IP, BGP, telnet, SMTP, IMAP, POP3, HTTP, HTTPS, TLS/SSL, FTP, SSH, SFTP"
                 },
                 {
                     "name": "Firewall",
@@ -288,7 +288,7 @@
             ]
         },
         {
-            "category": "Document &amp; design",
+            "category": "Document & design",
             "pills": [
                 {
                     "name": "Markdown",
@@ -313,7 +313,7 @@
             ]
         },
         {
-            "category": "Illustrations &amp; graphics",
+            "category": "Illustrations & graphics",
             "pills": [
                 {
                     "name": "Affinity Designer",
@@ -343,7 +343,7 @@
             ]
         },
         {
-            "category": "Audio &amp; video",
+            "category": "Audio & video",
             "pills": [
                 {
                     "name": "Final Cut Pro",
