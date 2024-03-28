@@ -208,7 +208,7 @@
                 {
                     "name": "Cloudflare",
                     "level": 3,
-                    "details": "Domain configuration, cache/performance/security management"
+                    "details": "Domain configuration, cache/performance/security management, pages service"
                 },
                 {
                     "name": "SharePoint",
