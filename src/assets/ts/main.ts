@@ -114,7 +114,7 @@ class Theme {
         }
     }
 
-    private readonly executionRate: number = 450
+    private readonly executionRate: number = 250
     private executionLast: number = 0
 
     public rateLimit(): boolean {
