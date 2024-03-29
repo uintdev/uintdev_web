@@ -12,6 +12,7 @@ header {
     display: flex;
     justify-content: space-between;
     padding: 20px 30px 20px 30px;
+    border-radius: 0px 0px 20px 20px;
 
     &.hide {
         top: -100px;

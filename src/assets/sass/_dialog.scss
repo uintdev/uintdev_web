@@ -21,7 +21,7 @@ dialog {
     .close {
         background-color: var(--color-secondary);
         color: color-mix(in srgb, var(--color-primary) 100%, transparent);
-        border-radius: 25px;
+        border-radius: 20px;
         border: 1px solid
             color-mix(in srgb, var(--color-primary) 100%, transparent);
         box-sizing: border-box;
