@@ -35,8 +35,8 @@ header {
         color: color-mix(in srgb, var(--color-secondary) 100%, transparent);
         border: 1px solid
             color-mix(in srgb, var(--color-secondary) 100%, transparent);
-        transition: background-color var(--interactive-transition-speed) border
-            background-color var(--interactive-transition-speed);
+        transition: background-color var(--interactive-transition-speed),
+            border var(--interactive-transition-speed);
         cursor: pointer;
 
         &:focus {
@@ -77,8 +77,8 @@ header {
                 transparent
             );
             border: 1px solid var(--color-header-button-icon);
-            transition: background-color var(--interactive-transition-speed)
-                border background-color var(--interactive-transition-speed);
+            transition: background-color var(--interactive-transition-speed),
+                border var(--interactive-transition-speed);
             cursor: pointer;
 
             &:focus {
@@ -113,8 +113,8 @@ header {
             @include unselectable;
             z-index: 10;
             border: 1px solid var(--color-header-button-icon);
-            transition: background-color var(--interactive-transition-speed)
-                border background-color var(--interactive-transition-speed);
+            transition: background-color var(--interactive-transition-speed),
+                border var(--interactive-transition-speed);
             cursor: pointer;
 
             &:focus {
