@@ -450,18 +450,10 @@ class DialogController {
 
         dialogMain.showModal()
 
-        /**
-         * Avoid focusing on button by default
-         * Yes, this doesn't work without setTimeout.
-         * It seems as though asynchronous execution is what's allowing
-         * for it to function as intended. This is a WebKit bug.
-         */
-        setTimeout((): void => {
-            if (dialogClose === null)
-                return console.error('Dialog is missing close button')
+        if (dialogClose === null)
+            return console.error('Dialog is missing close button')
 
-            dialogClose.blur()
-        }, 0)
+        dialogClose.blur()
     }
 
     /**
