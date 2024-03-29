@@ -30,7 +30,7 @@ dialog {
         padding: 20px 30px;
         font-family: var(--font-stack);
         font-size: 0.75em;
-        transition: background-color 0.2s;
+        transition: background-color var(--interactive-transition-speed);
         cursor: pointer;
         @include unselectable;
         float: right;

@@ -17,7 +17,7 @@
             var(--color-primary) 100%,
             transparent
         );
-        transition: background-color 0.2s;
+        transition: background-color var(--interactive-transition-speed);
         cursor: pointer;
 
         &:focus {
@@ -54,7 +54,8 @@
                     var(--color-secondary) 100%,
                     transparent
                 );
-                transition: background-color 0.2s, border-color 0.2s;
+                transition: background-color var(--interactive-transition-speed),
+                    border-color var(--interactive-transition-speed);
                 box-sizing: border-box;
             }
             @media (prefers-reduced-motion) {
