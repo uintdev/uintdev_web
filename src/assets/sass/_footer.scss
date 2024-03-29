@@ -53,7 +53,7 @@ footer {
             padding: 12px 16px;
             border-radius: 6px;
             background-color: rgba(0, 0, 0, 0);
-            transition: background-color var(--interactive-transition-speed);
+            transition: background-color 0.1s;
 
             &:focus {
                 background-color: color-mix(
