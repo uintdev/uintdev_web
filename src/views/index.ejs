@@ -126,9 +126,15 @@
         <% commitURL = commitURL.trim() %>
         <% commitFull = commitID.split("\x09")[0] %>
         <% // Output results %>
-        Made with <span class="heart">&#10084;</span> &#8212; 
-        <a href="<%= commitURL %>/commit/<%= commitFull %>" title="View latest commit on GitHub"><%= commitIDPartial %></a>
+        <div class="content">
+            <div class="label">made with <span class="heart">&#10084;</span></div>
+            <a href="<%= commitURL %>/commit/<%= commitFull %>" title="View latest commit on GitHub" class="commit">
+                <span class="git-icon-container"><span class="git-icon"></span></span>
+                <span class="commit-id">
+                    <%= commitIDPartial %>
+                </span>
+            </a>
+        </div>
     </footer>
 </body>
-
 </html>

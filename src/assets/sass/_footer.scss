@@ -1,8 +1,8 @@
 footer {
     width: 100%;
     padding-top: 50px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
     // Use !important to avoid using value for top -- [css-minimizer-webpack-plugin] bug
     padding-bottom: calc(50px + env(safe-area-inset-bottom)) !important;
     text-align: center;
@@ -10,11 +10,67 @@ footer {
     font-size: 0.85rem;
     color: var(--color-third);
 
-    .heart {
-        color: rgba(255, 94, 94, 1);
-    }
-
     a {
         color: var(--color-third);
+    }
+
+    .content {
+        display: flex;
+        align-items: baseline;
+        flex-wrap: wrap;
+        gap: 40px;
+        height: 100%;
+        //justify-content: center;
+        justify-content: space-between;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 95%;
+
+        .label {
+            display: inline-block;
+
+            .heart {
+                color: rgba(255, 94, 94, 1);
+            }
+        }
+
+        .commit {
+            //box-sizing: border-box;
+            display: flex;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 6px;
+            height: 100%;
+            justify-content: space-between;
+
+            .git-icon-container {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                align-items: center;
+                justify-content: center;
+                @include unselectable;
+                width: 0.95rem;
+                height: 0.95rem;
+                box-sizing: border-box;
+                align-self: center;
+
+                .git-icon {
+                    display: inline-block;
+                    @include image-loader('footer/git.svg');
+                    background-color: color-mix(
+                        in srgb,
+                        var(--color-primary) 100%,
+                        transparent
+                    );
+                    height: 15px;
+                    width: 100%;
+                }
+            }
+
+            .commit-id {
+                display: inline-block;
+            }
+        }
     }
 }
