@@ -16,31 +16,25 @@
         cursor: pointer;
 
         border-radius: var(--radius-card);
-        border: 1px solid
-            color-mix(in srgb, var(--color-primary) 100%, transparent);
+        background-color: color-mix(
+            in srgb,
+            var(--color-primary) 100%,
+            transparent
+        );
         box-sizing: border-box;
         padding: 25px;
 
-        color: color-mix(in srgb, var(--color-primary) 100%, transparent);
-        background-color: var(--color-secondary);
+        color: color-mix(in srgb, var(--color-secondary) 100%, transparent);
 
         transition: background-color 0.2s;
 
         &:focus {
             background-color: var(--color-secondary-focus);
-
-            .container .preview .thumb {
-                -webkit-filter: brightness(var(--brightness-card-thumb-focus));
-                filter: brightness(var(--brightness-card-thumb-focus));
-            }
         }
 
-        &:hover {
-            background-color: var(--color-secondary-hover);
-
-            .container .preview .thumb {
-                -webkit-filter: brightness(var(--brightness-card-thumb-hover));
-                filter: brightness(var(--brightness-card-thumb-hover));
+        @media (hover: hover) {
+            &:hover {
+                background-color: var(--color-secondary-hover);
             }
         }
 

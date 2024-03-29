@@ -24,8 +24,10 @@
             background-color: var(--color-secondary-focus);
         }
 
-        &:hover {
-            background-color: var(--color-secondary-hover);
+        @media (hover: hover) {
+            &:hover {
+                background-color: var(--color-secondary-hover);
+            }
         }
 
         .level_container {

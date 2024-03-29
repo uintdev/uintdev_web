@@ -10,7 +10,9 @@
     background-color: var(--color-thumb);
     border-radius: 20px;
 
-    &:hover {
-        background-color: var(--color-thumb-hover);
+    @media (hover: hover) {
+        &:hover {
+            background-color: var(--color-thumb-hover);
+        }
     }
 }

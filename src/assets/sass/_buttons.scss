@@ -5,28 +5,32 @@
     justify-content: center;
 
     .button-link {
-        background-color: var(--color-secondary);
-        color: color-mix(in srgb, var(--color-primary) 100%, transparent);
+        color: color-mix(in srgb, var(--color-secondary) 100%, transparent);
         display: flex;
         font-size: 0.85rem;
         align-items: center;
         justify-content: center;
         @include unselectable;
         border-radius: 20px;
-        border: 1px solid
-            color-mix(in srgb, var(--color-primary) 100%, transparent);
+        background-color: color-mix(
+            in srgb,
+            var(--color-primary) 100%,
+            transparent
+        );
         box-sizing: border-box;
         padding: 18px 26px;
         z-index: 10;
         transition: background-color 0.2s;
         cursor: pointer;
 
-        &:hover {
-            background-color: var(--color-secondary-hover);
-        }
-
         &:focus {
             background-color: var(--color-secondary-focus);
+        }
+
+        @media (hover: hover) {
+            &:hover {
+                background-color: var(--color-secondary-hover);
+            }
         }
     }
 

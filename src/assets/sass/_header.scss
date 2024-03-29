@@ -1,7 +1,7 @@
 header {
     position: fixed;
     top: 0px;
-    max-width: 1080px;
+    max-width: var(--max-width-ui);
     width: 100%;
     box-sizing: border-box;
     backdrop-filter: blur(20px);
@@ -12,7 +12,6 @@ header {
     display: flex;
     justify-content: space-between;
     padding: 20px 30px 20px 30px;
-    border-radius: 0px 0px 20px 20px;
 
     &.hide {
         top: -100px;
@@ -33,15 +32,11 @@ header {
         cursor: pointer;
 
         &:focus {
-            background-color: var(--color-header-button-focus);
+            background-color: var(--color-secondary-focus);
         }
 
         &:focus:not(:focus-visible) {
-            background-color: var(--color-header-button-focus);
-        }
-
-        &:hover {
-            background-color: var(--color-header-button-hover);
+            background-color: var(--color-secondary-focus);
         }
     }
 
@@ -51,7 +46,7 @@ header {
 
     .options {
         display: inline-flex;
-        gap: 30px;
+        gap: 20px;
 
         .hide {
             display: none !important;
@@ -67,13 +62,13 @@ header {
             align-items: center;
             justify-content: center;
             @include unselectable;
-            width: 44px;
-            height: 44px;
-            border-radius: 44px;
+            width: var(--header-icon-size);
+            height: var(--header-icon-size);
+            border-radius: var(--header-icon-size);
             z-index: 10;
             background-color: color-mix(
                 in srgb,
-                var(--color-header-button) 100%,
+                var(--color-primary) 100%,
                 transparent
             );
             box-sizing: border-box;
@@ -81,15 +76,11 @@ header {
             cursor: pointer;
 
             &:focus {
-                background-color: var(--color-header-button-focus);
+                background-color: var(--color-secondary-focus);
             }
 
             &:focus:not(:focus-visible) {
-                background-color: var(--color-header-button-focus);
-            }
-
-            &:hover {
-                background-color: var(--color-header-button-hover);
+                background-color: var(--color-secondary-focus);
             }
 
             .blog-icon {
@@ -99,7 +90,7 @@ header {
                     var(--color-header-button-icon) 100%,
                     transparent
                 );
-                padding-top: 42px;
+                padding-top: var(--header-icon-size);
                 width: 100%;
             }
         }
@@ -110,9 +101,9 @@ header {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 44px;
-            height: 44px;
-            border-radius: 44px;
+            width: var(--header-icon-size);
+            height: var(--header-icon-size);
+            border-radius: var(--header-icon-size);
             @include unselectable;
             z-index: 10;
             transition: background-color 0.2s;
@@ -130,10 +121,6 @@ header {
                 background-color: var(--color-header-button-focus);
             }
 
-            &:hover {
-                background-color: var(--color-header-button-hover);
-            }
-
             .theme-invert-icon {
                 @include image-loader('header/invert.svg');
                 background-color: color-mix(
@@ -141,7 +128,7 @@ header {
                     var(--color-header-button-icon) 100%,
                     transparent
                 );
-                padding-top: 44px;
+                padding-top: var(--header-icon-size);
                 width: 100%;
             }
         }
@@ -149,6 +136,26 @@ header {
         @media (prefers-reduced-motion) {
             .theme-invert {
                 transition: background-color 0s;
+            }
+        }
+    }
+
+    @media (hover: hover) {
+        .title {
+            &:hover {
+                background-color: var(--color-secondary-hover);
+            }
+        }
+        .options {
+            .button-link {
+                &:hover {
+                    background-color: var(--color-header-button-hover);
+                }
+            }
+            .theme-invert {
+                &:hover {
+                    background-color: var(--color-header-button-hover);
+                }
             }
         }
     }

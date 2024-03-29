@@ -6,9 +6,9 @@ dialog {
     width: 450px;
     max-width: 90%;
     box-sizing: border-box;
-
-    border: 1px solid color-mix(in srgb, var(--color-primary) 100%, transparent);
+    border: 0;
     border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     .header {
         font-size: 1.1em;
         font-weight: bold;
@@ -19,11 +19,13 @@ dialog {
         margin-bottom: 20px;
     }
     .close {
-        background-color: var(--color-secondary);
-        color: color-mix(in srgb, var(--color-primary) 100%, transparent);
+        color: color-mix(in srgb, var(--color-secondary) 100%, transparent);
         border-radius: 20px;
-        border: 1px solid
-            color-mix(in srgb, var(--color-primary) 100%, transparent);
+        background-color: color-mix(
+            in srgb,
+            var(--color-primary) 100%,
+            transparent
+        );
         box-sizing: border-box;
         padding: 20px 30px;
         font-family: var(--font-stack);
@@ -33,12 +35,14 @@ dialog {
         @include unselectable;
         float: right;
 
-        &:hover {
-            background-color: var(--color-secondary-hover);
-        }
-
         &:focus {
             background-color: var(--color-secondary-focus);
+        }
+
+        @media (hover: hover) {
+            &:hover {
+                background-color: var(--color-secondary-hover);
+            }
         }
     }
 
