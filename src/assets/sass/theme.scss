@@ -117,6 +117,8 @@
 
     --radius-card: 10px;
 
+    // If this changes, so does the hard coded value in the header media query
+    // (it does not support CSS variables)
     --max-width-ui: 900px;
 
     --header-icon-size: 46px;
