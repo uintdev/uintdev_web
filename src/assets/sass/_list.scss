@@ -1,4 +1,4 @@
-.pill-container {
+.list-container {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
@@ -6,14 +6,17 @@
     justify-content: center;
     align-items: stretch;
 
-    .pill {
-        border-radius: var(--radius-pill);
-        color: color-mix(in srgb, var(--color-primary) 100%, transparent);
+    .list {
+        border-radius: var(--radius-card);
+        color: color-mix(in srgb, var(--color-secondary) 100%, transparent);
         padding: 14px 22px;
         font-size: 0.85rem;
         text-align: center;
-        border: 1px solid
-            color-mix(in srgb, var(--color-primary) 100%, transparent);
+        background-color: color-mix(
+            in srgb,
+            var(--color-primary) 100%,
+            transparent
+        );
         transition: background-color 0.2s;
         cursor: pointer;
 
@@ -39,14 +42,14 @@
                 width: 15px;
                 background-color: color-mix(
                     in srgb,
-                    var(--color-primary) 0%,
+                    var(--color-secondary) 0%,
                     transparent
                 );
                 border: 1px solid;
                 border-radius: 20px;
                 border-color: color-mix(
                     in srgb,
-                    var(--color-primary) 100%,
+                    var(--color-secondary) 100%,
                     transparent
                 );
                 transition: background-color 0.2s, border-color 0.2s;
@@ -61,14 +64,14 @@
             .empty {
                 background-color: color-mix(
                     in srgb,
-                    var(--color-primary) 0%,
+                    var(--color-secondary) 0%,
                     transparent
                 );
             }
             .fill {
                 background-color: color-mix(
                     in srgb,
-                    var(--color-primary) 100%,
+                    var(--color-secondary) 100%,
                     transparent
                 );
             }

@@ -80,14 +80,14 @@
                 <div class="content-info">
                     <% technologies.list.forEach(function(technologiesEntry) { %>
                     <div class="sub-title"><%= technologiesEntry.category %></div>
-                    <div class="pill-container">
-                        <% technologiesEntry.pills.forEach(function(pill) { %>
-                        <a href="#" class="pill" data-level="<%= pill.level %>" title="<%= pill.details %>">
-                            <%= pill.name %>
+                    <div class="list-container">
+                        <% technologiesEntry.list.forEach(function(record) { %>
+                        <a href="#" class="list" data-level="<%= record.level %>" title="<%= record.details %>">
+                            <%= record.name %>
                             <div class="level_container">
                                 <% for (let i = 1; i <= 5; i++) { %>
                                     <% let level_element = 'empty'; %>
-                                    <% if (pill.level >= i) { %>
+                                    <% if (record.level >= i) { %>
                                     <%     level_element = 'fill'; %>
                                     <% } %>
                                     <span class="level <%= level_element %>"></span>

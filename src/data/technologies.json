@@ -4,7 +4,7 @@
     "list": [
         {
             "category": "Software development",
-            "pills": [
+            "list": [
                 {
                     "name": "Rust",
                     "level": 4,
@@ -49,7 +49,7 @@
         },
         {
             "category": "Web development",
-            "pills": [
+            "list": [
                 {
                     "name": "TypeScript",
                     "level": 4,
@@ -89,7 +89,7 @@
         },
         {
             "category": "Scripting",
-            "pills": [
+            "list": [
                 {
                     "name": "Zsh",
                     "level": 3,
@@ -109,7 +109,7 @@
         },
         {
             "category": "Developer tools",
-            "pills": [
+            "list": [
                 {
                     "name": "Git",
                     "level": 3,
@@ -154,7 +154,7 @@
         },
         {
             "category": "Virtualisation & emulation",
-            "pills": [
+            "list": [
                 {
                     "name": "Parallels Desktop",
                     "level": 4,
@@ -184,7 +184,7 @@
         },
         {
             "category": "Server software",
-            "pills": [
+            "list": [
                 {
                     "name": "Nginx",
                     "level": 4,
@@ -204,7 +204,7 @@
         },
         {
             "category": "Online services",
-            "pills": [
+            "list": [
                 {
                     "name": "Cloudflare",
                     "level": 3,
@@ -224,7 +224,7 @@
         },
         {
             "category": "Automation",
-            "pills": [
+            "list": [
                 {
                     "name": "Apple Shortcuts",
                     "level": 3,
@@ -239,7 +239,7 @@
         },
         {
             "category": "Systems",
-            "pills": [
+            "list": [
                 {
                     "name": "iOS",
                     "level": 3,
@@ -269,7 +269,7 @@
         },
         {
             "category": "Networking",
-            "pills": [
+            "list": [
                 {
                     "name": "DNS",
                     "level": 4,
@@ -289,7 +289,7 @@
         },
         {
             "category": "Document & design",
-            "pills": [
+            "list": [
                 {
                     "name": "Markdown",
                     "level": 4,
@@ -314,7 +314,7 @@
         },
         {
             "category": "Illustrations & graphics",
-            "pills": [
+            "list": [
                 {
                     "name": "Affinity Designer",
                     "level": 4,
@@ -344,7 +344,7 @@
         },
         {
             "category": "Audio & video",
-            "pills": [
+            "list": [
                 {
                     "name": "Final Cut Pro",
                     "level": 2,
@@ -374,7 +374,7 @@
         },
         {
             "category": "Other",
-            "pills": [
+            "list": [
                 {
                     "name": "Web & software security",
                     "level": 4,

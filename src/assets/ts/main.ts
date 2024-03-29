@@ -527,9 +527,9 @@ window.onload = function (): void {
         })
     }
 
-    // Listen for pill input
+    // Listen for list input
     document
-        .querySelectorAll('.pill')
+        .querySelectorAll('.list')
         .forEach(function (value: Element, _, __): void {
             value.addEventListener('click', (event): void => {
                 dialogController.open(event, value as HTMLElement)
