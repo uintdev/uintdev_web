@@ -57,35 +57,8 @@
             <div class="content-title"><%= project.metadata.title %></div>
             <div class="content-desc"><%= project.metadata.description %></div>
             <div class="content-info">
-                <div class="sub-title"><%= project.active.subtitle %></div>
-                <div class="sub-desc"><%= project.active.description %></div>
                 <div class="card-container">
-                    <% project.active.list.forEach(function(projectEntry) { %>
-                    <a class="card" href="<%= projectEntry.url %>">
-                        <div class="container">
-                            <div class="preview">
-                                <span class="thumb <%= projectEntry.image %>"></span>
-                            </div>
-                            <div class="info">
-                                <div class="name"><%= projectEntry.name %></div>
-                                <div class="type">
-                                    <%= projectEntry.type %>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="description"> <%= projectEntry.description %> </div>
-                        <div class="tag-container">
-                            <% projectEntry.tags.forEach(function(tag) { %>
-                            <span class="tag"> <%= tag %> </span>
-                            <% }); %>
-                        </div>
-                    </a>
-                    <% }); %>
-                </div>
-                <div class="sub-title"><%= project.inactive.subtitle %></div>
-                <div class="sub-desc"><%= project.inactive.description %></div>
-                <div class="card-container">
-                    <% project.inactive.list.forEach(function(projectEntry) { %>
+                    <% project.list.forEach(function(projectEntry) { %>
                     <a class="card" href="<%= projectEntry.url %>">
                         <div class="container">
                             <div class="preview">

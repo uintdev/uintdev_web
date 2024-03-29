@@ -3,56 +3,46 @@
         "title": "Projects",
         "description": "See more on <a href='https://github.com/uintdev' class='clickable'>GitHub</a>"
     },
-    "active": {
-        "subtitle": "Ongoing",
-        "description": "Actively maintained",
-        "list": [
-            {
-                "name": "QRServ",
-                "image": "gh-qrs",
-                "type": "App",
-                "description": "Transfer files with ease over a network",
-                "url": "https://github.com/uintdev/qrserv",
-                "tags": ["Flutter", "Dart"]
-            },
-            {
-                "name": "uintdev web",
-                "image": "gh-uw",
-                "type": "Website",
-                "description": "Modular main website, with bundled goodness",
-                "url": "https://github.com/uintdev/uintdev_web",
-                "tags": ["Webpack", "TypeScript", "SASS"]
-            }
-        ]
-    },
-    "inactive": {
-        "subtitle": "Past",
-        "description": "Previously worked on",
-        "list": [
-            {
-                "name": "Email Addr Extract",
-                "image": "gh-eae",
-                "type": "CLI",
-                "description": "High performance email address extraction tool",
-                "url": "https://github.com/uintdev/email-addr-extract",
-                "tags": ["Rust"]
-            },
-            {
-                "name": "Discord Cache Dump",
-                "image": "gh-dcd",
-                "type": "CLI",
-                "description": "Save and identify cached files from Discord's desktop clients",
-                "url": "https://github.com/uintdev/Discord-Cache-Dump",
-                "tags": ["Go"]
-            },
-            {
-                "name": "Ducky HID WSI",
-                "image": "gh-dhw",
-                "type": "Firmware",
-                "description": "Custom USB Rubber Ducky HID only firmware with status indication",
-                "url": "https://github.com/uintdev/Ducky_HID_WSI",
-                "tags": ["C"]
-            }
-        ]
-    }
+    "list": [
+        {
+            "name": "QRServ",
+            "image": "gh-qrs",
+            "type": "App",
+            "description": "Transfer files with ease over a network",
+            "url": "https://github.com/uintdev/qrserv",
+            "tags": ["Flutter", "Dart"]
+        },
+        {
+            "name": "uintdev web",
+            "image": "gh-uw",
+            "type": "Website",
+            "description": "Modular main website, with bundled goodness",
+            "url": "https://github.com/uintdev/uintdev_web",
+            "tags": ["Webpack", "TypeScript", "SASS"]
+        },
+        {
+            "name": "Email Addr Extract",
+            "image": "gh-eae",
+            "type": "CLI",
+            "description": "High performance email address extraction tool",
+            "url": "https://github.com/uintdev/email-addr-extract",
+            "tags": ["Rust"]
+        },
+        {
+            "name": "Discord Cache Dump",
+            "image": "gh-dcd",
+            "type": "CLI",
+            "description": "Save and identify cached files from Discord's desktop clients",
+            "url": "https://github.com/uintdev/Discord-Cache-Dump",
+            "tags": ["Go"]
+        },
+        {
+            "name": "Ducky HID WSI",
+            "image": "gh-dhw",
+            "type": "Firmware",
+            "description": "Custom USB Rubber Ducky HID only firmware with status indication",
+            "url": "https://github.com/uintdev/Ducky_HID_WSI",
+            "tags": ["C"]
+        }
+    ]
 }
