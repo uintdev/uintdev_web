@@ -50,14 +50,28 @@ footer {
             gap: 6px;
             height: 100%;
             justify-content: space-between;
+            padding: 12px 16px;
+            border-radius: 6px;
+            background-color: rgba(0, 0, 0, 0);
+            transition: background-color var(--interactive-transition-speed);
+
+            &:focus {
+                background-color: color-mix(
+                    in srgb,
+                    var(--color-secondary-focus) 20%,
+                    transparent
+                );
+                color: var(--color-third);
+            }
 
             @media (hover: hover) {
-                &:hover > .git-icon-container .git-icon {
+                &:hover {
                     background-color: color-mix(
                         in srgb,
-                        var(--color-primary) 75%,
+                        var(--color-secondary-hover) 20%,
                         transparent
                     );
+                    color: var(--color-third);
                 }
             }
 
