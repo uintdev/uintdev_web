@@ -140,7 +140,7 @@ header {
                     var(--color-header-button-icon) 100%,
                     transparent
                 );
-                height: calc(var(--header-icon-size) - 2px);
+                height: var(--header-icon-size);
                 width: 100%;
             }
         }
