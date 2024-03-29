@@ -10,7 +10,7 @@
     margin-right: auto;
 
     .card {
-        max-width: 450px;
+        max-width: 100%;
         width: 100%;
         text-decoration: none;
         cursor: pointer;
@@ -19,7 +19,7 @@
         border: 1px solid
             color-mix(in srgb, var(--color-primary) 100%, transparent);
         box-sizing: border-box;
-        padding: 30px;
+        padding: 25px;
 
         color: color-mix(in srgb, var(--color-primary) 100%, transparent);
         background-color: var(--color-secondary);
@@ -44,101 +44,23 @@
             }
         }
 
-        .container {
-            align-items: center;
-            display: flex;
-            gap: 30px;
-            margin-left: auto;
-            margin-right: auto;
+        .info {
+            text-align: left;
+            @include unselectable;
 
-            .preview {
-                border-radius: var(--radius-card) var(--radius-card) 0px 0px;
-                width: 60px;
-                flex: 0 0 auto;
-
-                .thumb {
-                    display: block;
-                    height: 60px;
-                    width: 100%;
-                    background-color: color-mix(
-                        in srgb,
-                        var(--color-primary) 100%,
-                        transparent
-                    );
-                    -webkit-filter: brightness(1);
-                    filter: brightness(1);
-                    transition: -webkit-filter 0.2s, filter 0.2s;
-                }
-
-                @media (prefers-reduced-motion) {
-                    .thumb {
-                        transition: -webkit-filter 0s, filter 0s;
-                    }
-                }
-
-                .gh-qrs {
-                    @include image-loader('projects/gh-qrs.svg');
-                }
-
-                .gh-uw {
-                    @include image-loader('projects/gh-uw.svg');
-                }
-
-                .gh-dcd {
-                    @include image-loader('projects/gh-dcd.svg');
-                }
-
-                .gh-dhw {
-                    @include image-loader('projects/gh-dhw.svg');
-                }
-
-                .gh-eae {
-                    @include image-loader('projects/gh-eae.svg');
-                }
+            .name {
+                font-size: 1.1rem;
+                margin-bottom: 2px;
             }
 
-            .info {
-                flex: 1 0 auto;
-                text-align: left;
-                @include unselectable;
-
-                .name {
-                    font-size: 1.1rem;
-                    margin-bottom: 4px;
-                }
-
-                .type {
-                    font-size: 0.8rem;
-                }
+            .type {
+                font-size: 0.82rem;
             }
         }
 
         .description {
-            font-size: 0.85rem;
-            margin-top: 25px;
-        }
-
-        .tag-container {
-            align-items: stretch;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            justify-content: center;
-            font-size: 0.7rem;
-            margin-top: 25px;
-
-            .tag {
-                padding: 10px 15px;
-                border-radius: 10px;
-                border: 1px solid
-                    color-mix(in srgb, var(--color-primary) 100%, transparent);
-            }
-
-            @media (prefers-reduced-motion) {
-                .tag {
-                    transition: background-color 0s;
-                }
-            }
+            font-size: 0.89rem;
+            margin-top: 15px;
         }
     }
 
