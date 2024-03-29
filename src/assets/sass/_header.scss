@@ -61,12 +61,9 @@ header {
         }
 
         .button-link {
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.8rem;
             align-items: center;
             justify-content: center;
             @include unselectable;
@@ -79,7 +76,6 @@ header {
                 var(--color-primary) 100%,
                 transparent
             );
-            box-sizing: border-box;
             border: 1px solid var(--color-header-button-icon);
             transition: background-color var(--interactive-transition-speed)
                 border background-color var(--interactive-transition-speed);
@@ -100,7 +96,7 @@ header {
                     var(--color-header-button-icon) 100%,
                     transparent
                 );
-                height: calc(var(--header-icon-size) - 2px);
+                height: var(--header-icon-size);
                 width: 100%;
             }
         }
