@@ -157,15 +157,13 @@
         <%     console.error('Failed to access file:') %>
         <%     console.error(e) %>
         <% } %>
-        <% // Access JSON for version %>
-        <% const package = require('../../package.json') %>
         <% // Construct URL to commit on GitHub %>
         <% var commitURL = commitID.split("\x20") %>
         <% commitURL = commitURL[commitURL.length - 1] %>
         <% commitURL = commitURL.trim() %>
         <% commitFull = commitID.split("\x09")[0] %>
         <% // Output results %>
-        Made with <span class="heart">&#10084;</span> &#8212; v<%= package.version %> &#8212; 
+        Made with <span class="heart">&#10084;</span> &#8212; 
         <a href="<%= commitURL %>/commit/<%= commitFull %>"><%= commitIDPartial %></a>
     </footer>
 </body>
