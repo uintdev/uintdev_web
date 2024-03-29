@@ -6,7 +6,6 @@
     "list": [
         {
             "name": "QRServ",
-            "image": "gh-qrs",
             "type": "App",
             "description": "Transfer files with ease over a network",
             "url": "https://github.com/uintdev/qrserv",
@@ -14,7 +13,6 @@
         },
         {
             "name": "uintdev web",
-            "image": "gh-uw",
             "type": "Website",
             "description": "Modular main website, with bundled goodness",
             "url": "https://github.com/uintdev/uintdev_web",
@@ -22,7 +20,6 @@
         },
         {
             "name": "Email Addr Extract",
-            "image": "gh-eae",
             "type": "CLI",
             "description": "High performance email address extraction tool",
             "url": "https://github.com/uintdev/email-addr-extract",
@@ -30,7 +27,6 @@
         },
         {
             "name": "Discord Cache Dump",
-            "image": "gh-dcd",
             "type": "CLI",
             "description": "Save and identify cached files from Discord's desktop clients",
             "url": "https://github.com/uintdev/Discord-Cache-Dump",
@@ -38,7 +34,6 @@
         },
         {
             "name": "Ducky HID WSI",
-            "image": "gh-dhw",
             "type": "Firmware",
             "description": "Custom USB Rubber Ducky HID only firmware with status indication",
             "url": "https://github.com/uintdev/Ducky_HID_WSI",
