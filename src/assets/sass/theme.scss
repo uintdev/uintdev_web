@@ -15,6 +15,7 @@
     --color-secondary: var(--color-secondary-dark);
     --color-secondary-focus: var(--color-secondary-focus-dark);
     --color-secondary-hover: var(--color-secondary-hover-dark);
+    --color-third: var(--color-third-dark);
     --color-thumb: var(--color-thumb-dark);
     --color-thumb-hover: var(--color-thumb-hover-dark);
     --color-accent: var(--color-accent-dark);
@@ -24,10 +25,6 @@
     --color-header-button-focus: var(--color-header-button-focus-dark);
     --color-header-button-hover: var(--color-header-button-hover-dark);
     --color-header-button-icon: var(--color-header-button-icon-dark);
-    --color-header-invert-button: var(--color-header-button-light);
-    --color-header-invert-button-focus: var(--color-header-button-focus-light);
-    --color-header-invert-button-hover: var(--color-header-button-hover-light);
-    --color-header-invert-button-icon: var(--color-header-button-icon-light);
 }
 
 @mixin light_theme {
@@ -37,6 +34,7 @@
     --color-secondary: var(--color-secondary-light);
     --color-secondary-focus: var(--color-secondary-focus-light);
     --color-secondary-hover: var(--color-secondary-hover-light);
+    --color-third: var(--color-third-light);
     --color-thumb: var(--color-thumb-light);
     --color-thumb-hover: var(--color-thumb-hover-light);
     --color-accent: var(--color-accent-light);
@@ -46,10 +44,6 @@
     --color-header-button-focus: var(--color-header-button-focus-light);
     --color-header-button-hover: var(--color-header-button-hover-light);
     --color-header-button-icon: var(--color-header-button-icon-light);
-    --color-header-invert-button: var(--color-header-button-dark);
-    --color-header-invert-button-focus: var(--color-header-button-focus-dark);
-    --color-header-invert-button-hover: var(--color-header-button-hover-dark);
-    --color-header-invert-button-icon: var(--color-header-button-icon-dark);
 }
 
 :root {
@@ -58,38 +52,48 @@
     --color-secondary-dark: rgba(29, 31, 33, 1);
     --color-secondary-focus-dark: rgba(37, 40, 48, 1);
     --color-secondary-hover-dark: rgba(41, 44, 52, 1);
+    --color-third-dark: rgba(220, 220, 220, 1);
     --color-thumb-dark: rgba(80, 80, 80, 0.6);
     --color-thumb-hover-dark: rgba(80, 80, 80, 0.8);
     --color-accent-dark: rgba(98, 100, 211, 1);
     --brightness-card-thumb-focus-dark: 1.025;
     --brightness-card-thumb-hover-dark: 1.05;
-    --color-header-button-dark: var(--color-secondary-dark);
-    --color-header-button-focus-dark: var(--color-secondary-focus-dark);
-    --color-header-button-hover-dark: var(--color-secondary-hover-dark);
-    --color-header-button-icon-dark: var(--color-primary-dark);
-    --color-header-invert-button-dark: var(--color-secondary-light);
-    --color-header-invert-button-focus-dark: var(--color-secondary-focus-light);
-    --color-header-invert-button-hover-dark: var(--color-secondary-hover-light);
-    --color-header-invert-button-icon-dark: var(--color-primary-light);
+    --color-header-button-dark: var(--color-secondary-light);
+    --color-header-button-focus-dark: color-mix(
+        in srgb,
+        var(--color-secondary-light) 90%,
+        var(--color-secondary-dark)
+    );
+    --color-header-button-hover-dark: color-mix(
+        in srgb,
+        var(--color-secondary-light) 80%,
+        var(--color-secondary-dark)
+    );
+    --color-header-button-icon-dark: var(--color-primary-light);
 
     // Theme - Paper Outline
     --color-primary-light: rgba(54, 56, 58, 1);
     --color-secondary-light: rgba(240, 240, 240, 1);
     --color-secondary-focus-light: rgba(236, 236, 236, 1);
     --color-secondary-hover-light: rgba(232, 232, 232, 1);
+    --color-third-light: rgba(74, 76, 78, 1);
     --color-thumb-light: rgba(200, 200, 200, 1);
     --color-thumb-hover-light: var(--color-secondary-hover-light);
     --color-accent-light: rgba(98, 100, 211, 1);
     --brightness-card-thumb-focus-light: 0.985;
     --brightness-card-thumb-hover-light: 0.95;
-    --color-header-button-light: var(--color-secondary-light);
-    --color-header-button-focus-light: var(--color-secondary-focus-light);
-    --color-header-button-hover-light: var(--color-secondary-hover-light);
-    --color-header-button-icon-light: var(--color-primary-light);
-    --color-header-invert-button-light: var(--color-secondary-dark);
-    --color-header-invert-button-focus-light: var(--color-secondary-focus-dark);
-    --color-header-invert-button-hover-light: var(--color-secondary-hover-dark);
-    --color-header-invert-button-icon-light: var(--color-primary-dark);
+    --color-header-button-light: var(--color-secondary-dark);
+    --color-header-button-focus-light: color-mix(
+        in srgb,
+        var(--color-secondary-dark) 90%,
+        var(--color-secondary-light)
+    );
+    --color-header-button-hover-light: color-mix(
+        in srgb,
+        var(--color-secondary-dark) 80%,
+        var(--color-secondary-light)
+    );
+    --color-header-button-icon-light: var(--color-primary-dark);
 
     // End of theme
 

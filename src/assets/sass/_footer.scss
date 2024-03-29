@@ -8,8 +8,13 @@ footer {
     text-align: center;
     box-sizing: border-box;
     font-size: 0.85rem;
+    color: var(--color-third);
 
     .heart {
         color: rgba(255, 94, 94, 1);
+    }
+
+    a {
+        color: var(--color-third);
     }
 }
