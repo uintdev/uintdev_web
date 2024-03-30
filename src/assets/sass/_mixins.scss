@@ -3,7 +3,6 @@
 }
 
 @mixin image-loader($file) {
-    -webkit-mask-image: url(../img/#{$file});
     mask-image: url(../img/#{$file});
     mask-repeat: no-repeat;
 }
