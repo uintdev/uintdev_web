@@ -26,7 +26,7 @@ section {
     }
 
     .content-info {
-        @include content-area;
+        text-align: left;
 
         .sub-title {
             text-align: center;
