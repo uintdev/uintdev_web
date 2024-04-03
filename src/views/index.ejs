@@ -1,3 +1,5 @@
+<% const fs = require('fs') %>
+<% const process = require('process') %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,6 +54,24 @@
                 </div>
             </div>
         </div>
+        <section id="about">
+            <div class="content-title">About me</div>
+            <div class="content-info">
+                <div class="content-info">
+                    <% // Get about contents %>
+                    <% var aboutData = 'unknown_data' %>
+                    <% const aboutPath = process.cwd() + '/src/data/about.html' %>
+                    <% try { %>
+                    <%     var readData = fs.readFileSync(aboutPath, 'utf8') %>
+                    <%     aboutData = readData %>
+                    <% } catch (e) { %>
+                    <%     console.error('Failed to access file:') %>
+                    <%     console.error(e) %>
+                    <% } %>
+                    <%= aboutData %>
+                </div>
+            </div>
+        </section>
         <section id="projects">
             <% const project = require('../data/projects.json') %>
             <div class="content-title"><%= project.metadata.title %></div>
@@ -109,8 +129,6 @@
     <footer>
         <% // Get (shortened) commit hash %>
         <% var commitID = 'unknown_commit' %>
-        <% const fs = require('fs') %>
-        <% const process = require('process') %>
         <% const commitPath = process.cwd() + '/.git/FETCH_HEAD' %>
         <% try { %>
         <%     var readData = fs.readFileSync(commitPath, 'utf8') %>
