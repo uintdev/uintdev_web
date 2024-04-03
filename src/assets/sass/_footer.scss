@@ -65,15 +65,13 @@ footer {
                 color: var(--color-third);
             }
 
-            @media (hover: hover) {
-                &:hover {
-                    background-color: color-mix(
-                        in srgb,
-                        var(--color-secondary-hover) 20%,
-                        transparent
-                    );
-                    color: var(--color-third);
-                }
+            &:hover {
+                background-color: color-mix(
+                    in srgb,
+                    var(--color-secondary-hover) 20%,
+                    transparent
+                );
+                color: var(--color-third);
             }
 
             .git-icon-container {

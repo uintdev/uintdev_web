@@ -24,9 +24,7 @@ a {
     text-decoration: none;
     border-bottom: 0;
 
-    @media (hover: hover) {
-        &:hover {
-            color: color-mix(in srgb, var(--color-accent) 100%, transparent);
-        }
+    &:hover {
+        color: color-mix(in srgb, var(--color-accent) 100%, transparent);
     }
 }
