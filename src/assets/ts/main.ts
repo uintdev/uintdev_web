@@ -402,10 +402,11 @@ class DialogController {
         // Proficiency levels
         let proficiencyLevelResult: string
         let proficiencyLevelType: string
-        let proficiencyLevelStore: string | undefined = element.dataset['level']
+        let proficiencyLevelStore: string = element.dataset['level'] ?? ''
         let proficiencyLevelFallback = 'Unknown'
 
-        let proficiencyLevel: number = Number(proficiencyLevelStore)
+        let proficiencyLevel: number =
+            proficiencyLevelStore !== '' ? Number(proficiencyLevelStore) : NaN
 
         if (isNaN(proficiencyLevel)) {
             proficiencyLevelType = proficiencyLevelFallback
