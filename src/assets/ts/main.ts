@@ -401,7 +401,7 @@ class DialogController {
 
         // Proficiency levels
         let proficiencyLevelResult: string
-        let proficiencyLevelType: string | undefined
+        let proficiencyLevelType: string
         let proficiencyLevelStore: string | undefined = element.dataset['level']
         let proficiencyLevelFallback = 'Unknown'
 
@@ -411,7 +411,7 @@ class DialogController {
             proficiencyLevelType = proficiencyLevelFallback
         } else {
             proficiencyLevelType = ProficiencyType[proficiencyLevel - 1] ?? ''
-            if (typeof proficiencyLevelType === 'undefined') {
+            if (proficiencyLevelType === '') {
                 proficiencyLevelType = proficiencyLevelFallback
             }
         }
