@@ -21,10 +21,14 @@
     --color-accent: var(--color-accent-dark);
     --brightness-card-thumb-focus: var(--brightness-card-thumb-focus-dark);
     --brightness-card-thumb-hover: var(--brightness-card-thumb-hover-dark);
-    --color-header-button: var(--color-header-button-dark);
-    --color-header-button-focus: var(--color-header-button-focus-dark);
-    --color-header-button-hover: var(--color-header-button-hover-dark);
-    --color-header-button-icon: var(--color-header-button-icon-dark);
+    --color-secondary-inverted: var(--color-secondary-inverted-dark);
+    --color-secondary-inverted-focus: var(
+        --color-secondary-inverted-focus-dark
+    );
+    --color-secondary-inverted-hover: var(
+        --color-secondary-inverted-hover-dark
+    );
+    --color-secondary-inverted-icon: var(--color-secondary-inverted-icon-dark);
 }
 
 @mixin light_theme {
@@ -40,10 +44,14 @@
     --color-accent: var(--color-accent-light);
     --brightness-card-thumb-focus: var(--brightness-card-thumb-focus-light);
     --brightness-card-thumb-hover: var(--brightness-card-thumb-hover-light);
-    --color-header-button: var(--color-header-button-light);
-    --color-header-button-focus: var(--color-header-button-focus-light);
-    --color-header-button-hover: var(--color-header-button-hover-light);
-    --color-header-button-icon: var(--color-header-button-icon-light);
+    --color-secondary-inverted: var(--color-secondary-inverted-light);
+    --color-secondary-inverted-focus: var(
+        --color-secondary-inverted-focus-light
+    );
+    --color-secondary-inverted-hover: var(
+        --color-secondary-inverted-hover-light
+    );
+    --color-secondary-inverted-icon: var(--color-secondary-inverted-icon-light);
 }
 
 :root {
@@ -66,18 +74,18 @@
     --color-accent-dark: rgba(150, 166, 255, 1);
     --brightness-card-thumb-focus-dark: 1.025;
     --brightness-card-thumb-hover-dark: 1.05;
-    --color-header-button-dark: var(--color-secondary-light);
-    --color-header-button-focus-dark: color-mix(
+    --color-secondary-inverted-dark: var(--color-secondary-light);
+    --color-secondary-inverted-focus-dark: color-mix(
         in srgb,
         var(--color-secondary-light) 90%,
         var(--color-secondary-dark)
     );
-    --color-header-button-hover-dark: color-mix(
+    --color-secondary-inverted-hover-dark: color-mix(
         in srgb,
         var(--color-secondary-light) 80%,
         var(--color-secondary-dark)
     );
-    --color-header-button-icon-dark: var(--color-primary-light);
+    --color-secondary-inverted-icon-dark: var(--color-primary-light);
 
     // Theme - Paper Fill
     --color-primary-light: rgba(54, 56, 58, 1);
@@ -98,18 +106,18 @@
     --color-accent-light: rgba(105, 127, 255, 1);
     --brightness-card-thumb-focus-light: 0.985;
     --brightness-card-thumb-hover-light: 0.95;
-    --color-header-button-light: var(--color-secondary-dark);
-    --color-header-button-focus-light: color-mix(
+    --color-secondary-inverted-light: var(--color-secondary-dark);
+    --color-secondary-inverted-focus-light: color-mix(
         in srgb,
         var(--color-secondary-dark) 90%,
         var(--color-secondary-light)
     );
-    --color-header-button-hover-light: color-mix(
+    --color-secondary-inverted-hover-light: color-mix(
         in srgb,
         var(--color-secondary-dark) 80%,
         var(--color-secondary-light)
     );
-    --color-header-button-icon-light: var(--color-primary-dark);
+    --color-secondary-inverted-icon-light: var(--color-primary-dark);
 
     // End of theme
 
