@@ -274,9 +274,9 @@ class EventController {
 
         const buttonElement = event.currentTarget as HTMLElement
 
-        let targetClass: string | null = buttonElement.classList.item(0)
+        let targetClass: string = buttonElement.classList.item(0) ?? ''
 
-        if (targetClass === null) return
+        if (targetClass === '') return
 
         switch (targetClass) {
             case 'card':
