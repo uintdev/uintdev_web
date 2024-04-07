@@ -156,7 +156,7 @@ class UIController {
         if (!this.headerPresent) return
         if (this.overscrollDeadZone()) return
 
-        let headerElement: HTMLElement =
+        let headerElement: HTMLElement | undefined =
             document.getElementsByTagName('header')[0]
 
         if (typeof headerElement === 'undefined') {
@@ -360,9 +360,10 @@ class Egg {
 
         this.keysPressed.push(keyEventData)
 
-        let indexMatch: string = this.keysCombo[this.keysPressed.length - 1]
+        let indexMatch: string =
+            this.keysCombo[this.keysPressed.length - 1] ?? ''
 
-        if (typeof indexMatch === 'undefined' || indexMatch !== keyEventData) {
+        if (indexMatch === '' || indexMatch !== keyEventData) {
             this.keysPressed = []
             return
         }
@@ -399,8 +400,8 @@ class DialogController {
 
         // Proficiency levels
         let proficiencyLevelResult: string
-        let proficiencyLevelType: string
-        let proficiencyLevelStore: string | undefined = element.dataset.level
+        let proficiencyLevelType: string | undefined
+        let proficiencyLevelStore: string | undefined = element.dataset['level']
         let proficiencyLevelFallback = 'Unknown'
 
         let proficiencyLevel: number = Number(proficiencyLevelStore)
@@ -408,7 +409,7 @@ class DialogController {
         if (isNaN(proficiencyLevel)) {
             proficiencyLevelType = proficiencyLevelFallback
         } else {
-            proficiencyLevelType = ProficiencyType[proficiencyLevel - 1]
+            proficiencyLevelType = ProficiencyType[proficiencyLevel - 1] ?? ''
             if (typeof proficiencyLevelType === 'undefined') {
                 proficiencyLevelType = proficiencyLevelFallback
             }
@@ -445,8 +446,19 @@ class DialogController {
         dialogDetails = dialogDetails.replaceAll('"', '&quot;')
         dialogDetails = dialogDetails.replaceAll('\n', '<br>')
 
-        dialogMain.getElementsByClassName('header')[0].innerHTML = dialogTitle
-        dialogMain.getElementsByClassName('body')[0].innerHTML = dialogDetails
+        if (
+            typeof dialogMain.getElementsByClassName('header')[0] !==
+            'undefined'
+        ) {
+            dialogMain.getElementsByClassName('header')[0].innerHTML =
+                dialogTitle
+        }
+        if (
+            typeof dialogMain.getElementsByClassName('body')[0] !== 'undefined'
+        ) {
+            dialogMain.getElementsByClassName('body')[0].innerHTML =
+                dialogDetails
+        }
 
         dialogMain.showModal()
 
@@ -473,8 +485,17 @@ class DialogController {
 
         dialogMain.close()
 
-        dialogMain.getElementsByClassName('header')[0].innerHTML = ''
-        dialogMain.getElementsByClassName('body')[0].innerHTML = ''
+        if (
+            typeof dialogMain.getElementsByClassName('header')[0] !==
+            'undefined'
+        ) {
+            dialogMain.getElementsByClassName('header')[0].innerHTML = ''
+        }
+        if (
+            typeof dialogMain.getElementsByClassName('body')[0] !== 'undefined'
+        ) {
+            dialogMain.getElementsByClassName('body')[0].innerHTML = ''
+        }
     }
 }
 
