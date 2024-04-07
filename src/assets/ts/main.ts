@@ -326,6 +326,7 @@ class Egg {
 
         let audioController: HTMLAudioElement = new Audio(this.audioFile)
         audioController.volume = 0.6
+
         setTimeout(function (): void {
             audioController.play()
         }, this.initAudioDuration)
@@ -429,8 +430,6 @@ class DialogController {
      * @returns {void}
      */
     public build(title: string, body: string): void {
-        let dialogClose: HTMLElement | null =
-            document.querySelector('dialog .close')
         let dialogMain: HTMLDialogElement | null =
             document.querySelector('dialog')
 
@@ -438,6 +437,8 @@ class DialogController {
             return console.error(
                 'Cannot build message without dialog being present'
             )
+
+        let dialogClose: HTMLElement | null = dialogMain.querySelector('.close')
 
         let dialogTitle: string = title
         let dialogDetails: string = body
