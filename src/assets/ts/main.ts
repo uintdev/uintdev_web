@@ -146,6 +146,10 @@ class UIController {
     private headerPresent: boolean = true
     private headerDeadZone: number = 50
     private readonly headerHideClass = 'hide'
+    // Check for MobileSafari
+    private readonly platformMobileSafari: boolean =
+        !CSS.supports('user-select: none') &&
+        !window.matchMedia('(hover: hover)').matches
 
     /**
      * Controls header state
@@ -246,8 +250,7 @@ class UIController {
 
         let difference: number = overallHeight - currentPosition
 
-        let platformType: number = window.navigator.userAgent.indexOf('(iPhone')
-        if (platformType > -1) {
+        if (this.platformMobileSafari) {
             deadZone = 110
         }
 
