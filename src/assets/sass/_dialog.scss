@@ -49,4 +49,11 @@ dialog {
         animation: blurDialog var(--interactive-transition-speed) forwards;
         height: 120lvh;
     }
+
+    @media (prefers-reduced-motion) {
+        &,
+        &::backdrop {
+            animation: none;
+        }
+    }
 }
