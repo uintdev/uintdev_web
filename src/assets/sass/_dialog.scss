@@ -1,7 +1,7 @@
 dialog {
     padding: 25px 35px;
     background-color: var(--color-secondary);
-    animation: fadeDialog 0.1s forwards;
+    animation: showDialog var(--interactive-transition-speed) forwards;
     color: color-mix(in srgb, var(--color-primary) 100%, transparent);
     width: 450px;
     max-width: 90%;
@@ -46,7 +46,7 @@ dialog {
     }
 
     &::backdrop {
-        animation: blurDialog 0.1s forwards;
+        animation: blurDialog var(--interactive-transition-speed) forwards;
         height: 120lvh;
     }
 }
