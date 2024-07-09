@@ -119,10 +119,10 @@ header {
             cursor: pointer;
 
             &:focus {
+                background-color: var(--color-secondary-inverted-focus);
                 @media (hover: none) {
                     outline: none;
                 }
-                background-color: var(--color-secondary-inverted-focus);
             }
 
             &:focus:not(:focus-visible) {
