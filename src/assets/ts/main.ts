@@ -29,24 +29,26 @@ class Theme {
      * @returns {string}
      */
     private get(): string {
+        let result: string
         if (document.documentElement.hasAttribute(this.themeOverride)) {
-            return (
+            result =
                 document.documentElement.getAttribute(this.themeOverride) ??
                 this.themeDefault
-            )
         } else if (window.matchMedia) {
             if (window.matchMedia(this.schemeType(this.themeDark)).matches) {
-                return this.themeDark
+                result = this.themeDark
             } else if (
                 window.matchMedia(this.schemeType(this.themeLight)).matches
             ) {
-                return this.themeLight
+                result = this.themeLight
             } else {
-                return this.themeDefault
+                result = this.themeDefault
             }
         } else {
-            return this.themeDefault
+            result = this.themeDefault
         }
+
+        return result
     }
 
     /**
