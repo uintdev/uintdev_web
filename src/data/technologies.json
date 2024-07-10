@@ -32,7 +32,7 @@
                 },
                 {
                     "name": "MicroPython",
-                    "level": 2,
+                    "level": 3,
                     "details": "Python 3 but for microcontrollers"
                 },
                 {
@@ -58,7 +58,7 @@
                 {
                     "name": "TypeScript",
                     "level": 4,
-                    "details": "Mainly used in the development of this website for the purposes of type strictness -- ties in with JavaScript\n\nDeeming 'window.navigator.platform' (much like MDN) deprecated when there are no direct alternatives outside Chromium-based browsers"
+                    "details": "Mainly used in the development of this website for the purposes of type strictness and syntactically looking better -- ties in with JavaScript\n\nDeeming 'window.navigator.platform' (much like MDN) deprecated when there are no direct alternatives outside Chromium-based browsers"
                 },
                 {
                     "name": "JavaScript",
