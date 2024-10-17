@@ -1,3 +1,5 @@
+@use "mixins";
+
 header {
     position: fixed;
     top: 0px;
@@ -6,7 +8,7 @@ header {
     box-sizing: border-box;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    @include unselectable;
+    @include mixins.unselectable;
     z-index: 11;
     transition: top 0.5s;
     display: flex;
@@ -67,7 +69,7 @@ header {
             justify-content: center;
             align-items: center;
             justify-content: center;
-            @include unselectable;
+            @include mixins.unselectable;
             width: var(--header-icon-size);
             height: var(--header-icon-size);
             border-radius: var(--header-icon-size);
@@ -91,7 +93,7 @@ header {
             }
 
             .blog-icon {
-                @include image-loader('header/blog.svg');
+                @include mixins.image-loader('header/blog.svg');
                 background-color: color-mix(
                     in srgb,
                     var(--color-secondary-inverted-icon) 100%,
@@ -111,7 +113,7 @@ header {
             width: var(--header-icon-size);
             height: var(--header-icon-size);
             border-radius: var(--header-icon-size);
-            @include unselectable;
+            @include mixins.unselectable;
             z-index: 10;
             border: 1px solid var(--color-secondary-inverted-icon);
             transition: background-color var(--interactive-transition-speed),
@@ -131,7 +133,7 @@ header {
             }
 
             .theme-invert-icon {
-                @include image-loader('header/invert.svg');
+                @include mixins.image-loader('header/invert.svg');
                 background-color: color-mix(
                     in srgb,
                     var(--color-secondary-inverted-icon) 100%,

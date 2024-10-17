@@ -1,3 +1,4 @@
+@use "sass:meta";
 section {
     padding: 40px 20px;
 
@@ -65,7 +66,7 @@ section {
             }
         }
 
-        @import 'list';
-        @import 'cards';
+        @include meta.load-css('list');
+        @include meta.load-css('cards');
     }
 }

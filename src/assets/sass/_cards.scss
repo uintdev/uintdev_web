@@ -1,3 +1,5 @@
+@use "mixins";
+
 .card-container {
     display: flex;
     flex-wrap: wrap;
@@ -39,7 +41,7 @@
 
         .info {
             text-align: left;
-            @include unselectable;
+            @include mixins.unselectable;
 
             .name {
                 font-size: 1.1rem;
