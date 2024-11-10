@@ -366,11 +366,6 @@
                     "details": "Streaming and recording"
                 },
                 {
-                    "name": "HandBrake",
-                    "level": 3,
-                    "details": "Media conversion and compression"
-                },
-                {
                     "name": "Audacity",
                     "level": 3,
                     "details": "Audio editing"
