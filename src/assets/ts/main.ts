@@ -166,9 +166,7 @@ class UIController {
             document.getElementsByTagName('header')[0]
 
         if (typeof headerElement === 'undefined') {
-            console.error(
-                'Header no longer present -- locking header UI controller'
-            )
+            console.error('Header missing -- suspending header UI controller')
             this.headerPresent = false
             return
         }
@@ -219,9 +217,7 @@ class UIController {
             null
 
         if (elementObject === null) {
-            console.error(
-                'Cannot scroll to an element that does not exist: ' + element
-            )
+            console.error('Cannot scroll to nonexistent element: ' + element)
         } else {
             scrollBehavior = reduceMotion
                 ? ('instant' as ScrollBehavior)
@@ -472,7 +468,7 @@ class DialogController {
         dialogMain.showModal()
 
         if (dialogClose === null)
-            return console.error('Dialog is missing close button')
+            return console.error('Dialog missing close button')
 
         dialogClose.blur()
     }
