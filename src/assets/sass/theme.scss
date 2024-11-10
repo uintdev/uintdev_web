@@ -8,7 +8,7 @@
     }
 }
 
-@mixin dark_theme {
+@mixin theme_dark {
     color-scheme: dark;
 
     --color-primary: var(--color-primary-dark);
@@ -31,7 +31,7 @@
     --color-secondary-inverted-icon: var(--color-secondary-inverted-icon-dark);
 }
 
-@mixin light_theme {
+@mixin theme_light {
     color-scheme: light;
 
     --color-primary: var(--color-primary-light);
@@ -121,7 +121,7 @@
 
     // End of theme
 
-    @include dark_theme;
+    @include theme_dark;
 
     --radius-card: 10px;
 
@@ -138,14 +138,14 @@
 
 @media (prefers-color-scheme: light) {
     :root {
-        @include light_theme;
+        @include theme_light;
     }
 }
 
 [color-scheme='light'] {
-    @include light_theme;
+    @include theme_light;
 }
 
 [color-scheme='dark'] {
-    @include dark_theme;
+    @include theme_dark;
 }
