@@ -84,31 +84,6 @@
                     "name": "CSS",
                     "level": 4,
                     "details": "Giving websites a good look when used right\n\nPutting up with browser vendors either having a CSS property and/or value behind a browser flag, not available for years, or not ever being included"
-                },
-                {
-                    "name": "EJS",
-                    "level": 4,
-                    "details": "JavaScript template used for on-build server-side rendering\n\nCode blocks are somehow still not a thing"
-                }
-            ]
-        },
-        {
-            "category": "Scripting",
-            "list": [
-                {
-                    "name": "Zsh",
-                    "level": 3,
-                    "details": "Probably one of the best shells"
-                },
-                {
-                    "name": "Bash",
-                    "level": 3,
-                    "details": "The good old shell\n\nWe don't speak of Shellshock"
-                },
-                {
-                    "name": "PowerShell",
-                    "level": 2,
-                    "details": "It exists and has some Windows specific use cases"
                 }
             ]
         },
@@ -179,11 +154,6 @@
                     "name": "Proxmox VE",
                     "level": 3,
                     "details": "Hyper-converged infrastructure software"
-                },
-                {
-                    "name": "QEMU",
-                    "level": 2,
-                    "details": "A free and open-source machine emulator"
                 }
             ]
         },
@@ -224,16 +194,6 @@
                     "name": "Power Apps",
                     "level": 4,
                     "details": "Building Power applications"
-                }
-            ]
-        },
-        {
-            "category": "Automation",
-            "list": [
-                {
-                    "name": "Apple Shortcuts",
-                    "level": 3,
-                    "details": "Various actions bundled under a single task, that can be automated and/or used with on-device applications"
                 },
                 {
                     "name": "Power Automate",
@@ -373,7 +333,7 @@
             ]
         },
         {
-            "category": "Other",
+            "category": "Miscellaneous",
             "list": [
                 {
                     "name": "Web & software security",
