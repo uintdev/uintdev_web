@@ -2,7 +2,7 @@
     "compilerOptions": {
         "outDir": "./dist/",
         "noImplicitAny": true,
-        "module": "CommonJS",
+        "module": "esnext",
         "target": "ES2022",
         "allowJs": false,
         "esModuleInterop": true,
@@ -12,7 +12,9 @@
         "strict": true,
         "forceConsistentCasingInFileNames": true,
         "skipLibCheck": true,
-
+        "allowImportingTsExtensions": true,
+        "rewriteRelativeImportExtensions": true,
+        "verbatimModuleSyntax": true,
         "alwaysStrict": true,
         "exactOptionalPropertyTypes": true,
         "noFallthroughCasesInSwitch": true,
