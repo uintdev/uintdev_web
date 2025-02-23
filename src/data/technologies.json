@@ -233,26 +233,6 @@
             ]
         },
         {
-            "category": "Networking",
-            "list": [
-                {
-                    "name": "DNS",
-                    "level": 4,
-                    "details": "DNS records, DNS zones, name servers"
-                },
-                {
-                    "name": "Protocols",
-                    "level": 3,
-                    "details": "Concept of protocols and how some operate. Including, but not limited to: UDP, TCP, DHCP, IP, BGP, telnet, SMTP, IMAP, POP3, HTTP, HTTPS, TLS/SSL, FTP, SSH, SFTP"
-                },
-                {
-                    "name": "Firewall",
-                    "level": 4,
-                    "details": "Rules, ports, incoming and outgoing"
-                }
-            ]
-        },
-        {
             "category": "Document & design",
             "list": [
                 {
