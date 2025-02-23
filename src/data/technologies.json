@@ -8,12 +8,12 @@
                 {
                     "name": "Rust",
                     "level": 4,
-                    "details": "Tooling and backend APIs, among other use cases, with a higher guarantee of robustness and performance\n\nProgramming languages such as this so happen to have a large productivity boost when programming socks are worn and accompanied by a Blåhaj"
+                    "details": "Tooling and RESTful APIs, among other use cases while having a higher guarantee of performance, efficiency, and robustness\n\nProgramming languages such as this so happen to benefit from a large productivity boost when programming socks are worn and accompanied by a Blåhaj"
                 },
                 {
                     "name": "Dart / Flutter",
                     "level": 4,
-                    "details": "A cross-platform UI framework for producing graphical applications such as for Android and Windows platforms\n\nNot ideal if not prepared to use (modern) platform specific APIs (in specific ways) directly"
+                    "details": "A cross-platform UI framework for producing graphical applications such as for Android and Windows platforms\n\nNot ideal if very reliant on platform specific APIs"
                 },
                 {
                     "name": "Swift / SwiftUI",
@@ -32,7 +32,7 @@
                 },
                 {
                     "name": "MicroPython",
-                    "level": 3,
+                    "level": 4,
                     "details": "Python 3 but for microcontrollers"
                 },
                 {
@@ -68,7 +68,7 @@
                 {
                     "name": "PHP",
                     "level": 4,
-                    "details": "General purpose web application backend\n\nOnce you see the result of running `md5('240610708') == md5('QNKCDZO')`, you'd probably want to be running for the hills"
+                    "details": "General purpose web application backend that has only been getting better in recent years\n\nOnce you see the result of running `md5('240610708') == md5('QNKCDZO')`, you may feel like running for the hills"
                 },
                 {
                     "name": "SQL",
@@ -93,12 +93,12 @@
                 {
                     "name": "Git",
                     "level": 3,
-                    "details": "Highly praised, common, and well-known version control\n\nAn easy way to see who to (git) blame for a specific change and git reset away your sins"
+                    "details": "Highly praised, common, and well-known version control\n\nAn easy way to see who to (git) blame for a specific change"
                 },
                 {
                     "name": "Warp",
                     "level": 4,
-                    "details": "Fancy high performance terminal application\n\nWarp initiation commands and environment variables jump scare"
+                    "details": "Fancy high performance terminal application\n\nAI this, AI that"
                 },
                 {
                     "name": "RapidAPI",
@@ -107,7 +107,7 @@
                 },
                 {
                     "name": "Proxyman",
-                    "level": 3,
+                    "level": 4,
                     "details": "Versatile web debugging proxy\n\nThe convenience of certificate pinning"
                 },
                 {
@@ -123,7 +123,7 @@
                 {
                     "name": "Visual Studio",
                     "level": 3,
-                    "details": "Microsoft's IDE, primarily used for Windows development\n\nRequiring installation of entirely unnecessary dependencies"
+                    "details": "Microsoft's IDE, primarily used for Windows application development\n\nRequiring installation of entirely unnecessary dependencies"
                 },
                 {
                     "name": "Android Studio",
@@ -197,7 +197,7 @@
                 },
                 {
                     "name": "Power Automate",
-                    "level": 3,
+                    "level": 4,
                     "details": "Automated set of tasks for platforms such as SharePoint"
                 }
             ]
@@ -293,7 +293,7 @@
                 {
                     "name": "Clip Studio Paint",
                     "level": 3,
-                    "details": "Purely raster illustrations, sketches, animated\n\nReally hopping onto the subscription bandwagon"
+                    "details": "Purely raster illustrations, sketches, animated\n\nJust sticking with the subscription route"
                 },
                 {
                     "name": "Photoshop",
