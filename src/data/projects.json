@@ -16,7 +16,7 @@
             "type": "Website",
             "description": "Modular main website, with bundled goodness",
             "url": "https://github.com/uintdev/uintdev_web",
-            "tags": ["Webpack", "TypeScript", "SASS"]
+            "tags": ["Webpack", "TypeScript", "SCSS"]
         },
         {
             "name": "Email Addr Extract",

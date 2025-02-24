@@ -76,7 +76,7 @@
                     "details": "Relational databases, primarily\n\nUsing BLOB on rows that won't be containing binary data is an unforgivable sin"
                 },
                 {
-                    "name": "SASS",
+                    "name": "SCSS",
                     "level": 4,
                     "details": "Used for its styling rule inheritance though nesting and avoiding too much boilerplate\n\nThis is what CSS should've been like for the most part in the first place"
                 },
