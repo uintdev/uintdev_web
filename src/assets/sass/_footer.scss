@@ -1,4 +1,4 @@
-@use "mixins";
+@use 'mixins';
 
 footer {
     width: 100%;
@@ -91,11 +91,7 @@ footer {
                 .git-icon {
                     display: inline-block;
                     @include mixins.image-loader('footer/git.svg');
-                    background-color: color-mix(
-                        in srgb,
-                        var(--color-primary) 100%,
-                        transparent
-                    );
+                    background-color: var(--color-third);
                     height: 15px;
                     width: 100%;
                 }
