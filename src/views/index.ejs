@@ -92,34 +92,6 @@
                 </div>
             </div>
         </section>
-        <section id="technologies">
-            <% const technologies = require('../data/technologies.json') %>
-            <div class="content-title"><%= technologies.title %></div>
-            <div class="content-desc"><%= technologies.description %></div>
-            <div class="content-center">
-                <div class="content-info">
-                    <% technologies.list.forEach(function(technologiesEntry) { %>
-                    <div class="sub-title"><%= technologiesEntry.category %></div>
-                    <div class="list-container">
-                        <% technologiesEntry.list.forEach(function(record) { %>
-                        <a href="#" class="list" data-level="<%= record.level %>" title="<%= record.details %>">
-                            <%= record.name %>
-                            <div class="level_container">
-                                <% for (let i = 1; i <= 5; i++) { %>
-                                    <% let level_element = 'empty'; %>
-                                    <% if (record.level >= i) { %>
-                                    <%     level_element = 'fill'; %>
-                                    <% } %>
-                                    <span class="level <%= level_element %>"></span>
-                                <% } %>
-                            </div>
-                        </a>
-                        <% }); %>
-                    </div>
-                    <% }); %>
-                </div>
-            </div>
-        </section>
         <dialog>
             <div class="header"></div>
             <div class="body"></div>

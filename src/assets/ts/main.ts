@@ -5,14 +5,6 @@ interface NodeInterface extends Node {
     getAttribute: Function
 }
 
-enum ProficiencyType {
-    'Beginner',
-    'Intermediate',
-    'Competent',
-    'Proficient',
-    'Expert',
-}
-
 class Theme {
     public readonly themeMeta = 'meta[name="theme-color"]'
     private readonly themeOverride = 'color-scheme'
@@ -296,144 +288,15 @@ class EventController {
 
 const eventController = new EventController()
 
-class Egg {
-    private readonly audioFile: string = 'data/bg_audio.mp3'
-    private readonly initAudioDuration: number = 1000
-
-    /**
-     * Generate audio
-     * @method audioGen
-     * @param frequency {number} Frequency to be used
-     * @param type {OscillatorType} Oscillator to use
-     * @returns {void}
-     */
-    private audioGen(): void {
-        let audioContext: AudioContext = new AudioContext()
-        let createOscillator: OscillatorNode = audioContext.createOscillator()
-        let createGain: GainNode = audioContext.createGain()
-
-        createOscillator.type = 'triangle'
-        createOscillator.connect(createGain)
-        createOscillator.frequency.value = 90
-        createGain.connect(audioContext.destination)
-        createOscillator.start(0)
-
-        createGain.gain.exponentialRampToValueAtTime(
-            0.00001,
-            audioContext.currentTime + this.initAudioDuration / 1000
-        )
-    }
-
-    private payload = (): void => {
-        this.audioGen()
-
-        let audioController: HTMLAudioElement = new Audio(this.audioFile)
-        audioController.volume = 0.6
-
-        setTimeout(function (): void {
-            audioController.play()
-        }, this.initAudioDuration)
-    }
-
-    private keysPressed: string[] = []
-    private readonly keysCombo: string[] = [
-        'ArrowUp',
-        'ArrowUp',
-        'ArrowDown',
-        'ArrowDown',
-        'ArrowLeft',
-        'ArrowRight',
-        'ArrowLeft',
-        'ArrowRight',
-        'B',
-        'A',
-        'Enter',
-    ]
-
-    /**
-     * Easter egg
-     * @method init
-     * @param event {KeyboardEvent} Event information from the keyboard
-     * @returns {void}
-     */
-    public initiate = (event: KeyboardEvent): void => {
-        let keyEventData: string = event.key
-        if (keyEventData.length === 1) {
-            keyEventData = event.key.toUpperCase()
-        }
-
-        this.keysPressed.push(keyEventData)
-
-        let indexMatch: string =
-            this.keysCombo[this.keysPressed.length - 1] ?? ''
-
-        if (indexMatch === '' || indexMatch !== keyEventData) {
-            this.keysPressed = []
-            return
-        }
-
-        let keysPressedCombined: string = this.keysPressed.join('')
-        let keysComboCombined: string = this.keysCombo.join('')
-
-        if (keysPressedCombined.match(keysComboCombined)) {
-            this.keysPressed = []
-            document.removeEventListener('keydown', this.initiate)
-            this.payload()
-        }
-    }
-}
-
-const egg = new Egg()
-
 class DialogController {
     /**
      * Compose a dialog box
      * @method open
-     * @param event {MouseEvent} Event
-     * @param element {HTMLElement} HTML element
-     * @returns {void}
-     */
-    public open(event: Event, element: HTMLElement): void {
-        event.preventDefault()
-
-        let dialogTitle: string = element.innerHTML
-        let dialogDetails: string = element.title
-        if (dialogDetails === '') {
-            dialogDetails = 'No details yet'
-        }
-
-        // Proficiency levels
-        let proficiencyLevelResult: string
-        let proficiencyLevelType: string
-        let proficiencyLevelStore: string = element.dataset['level'] ?? ''
-        let proficiencyLevelFallback = 'Unknown'
-
-        let proficiencyLevel: number =
-            proficiencyLevelStore !== '' ? Number(proficiencyLevelStore) : NaN
-
-        if (isNaN(proficiencyLevel)) {
-            proficiencyLevelType = proficiencyLevelFallback
-        } else {
-            proficiencyLevelType = ProficiencyType[proficiencyLevel - 1] ?? ''
-            if (proficiencyLevelType === '') {
-                proficiencyLevelType = proficiencyLevelFallback
-            }
-        }
-
-        proficiencyLevelResult =
-            'Proficiency level: ' + proficiencyLevelType + '<br><br>'
-
-        this.build(dialogTitle, proficiencyLevelResult + dialogDetails)
-    }
-
-    /**
-     * Compose a dialog box
-     * @method build
      * @param title {string} Title of dialog
      * @param body {string} Body of dialog
      * @returns {void}
      */
-    public build(title: string, body: string): void {
+    public open(title: string, body: string): void {
         let dialogMain: HTMLDialogElement | null =
             document.querySelector('dialog')
 
@@ -506,6 +369,96 @@ class DialogController {
 
 const dialogController = new DialogController()
 
+class Egg {
+    private readonly audioFile: string = 'data/bg_audio.mp3'
+    private readonly initAudioDuration: number = 1000
+
+    /**
+     * Generate audio
+     * @method audioGen
+     * @param frequency {number} Frequency to be used
+     * @param type {OscillatorType} Oscillator to use
+     * @returns {void}
+     */
+    private audioGen(): void {
+        let audioContext: AudioContext = new AudioContext()
+        let createOscillator: OscillatorNode = audioContext.createOscillator()
+        let createGain: GainNode = audioContext.createGain()
+
+        createOscillator.type = 'triangle'
+        createOscillator.connect(createGain)
+        createOscillator.frequency.value = 90
+        createGain.connect(audioContext.destination)
+        createOscillator.start(0)
+
+        createGain.gain.exponentialRampToValueAtTime(
+            0.00001,
+            audioContext.currentTime + this.initAudioDuration / 1000
+        )
+    }
+
+    private payload = (): void => {
+        dialogController.open('Egg', 'Here is some audio.')
+        this.audioGen()
+
+        let audioController: HTMLAudioElement = new Audio(this.audioFile)
+        audioController.volume = 0.6
+
+        setTimeout(function (): void {
+            audioController.play()
+        }, this.initAudioDuration)
+    }
+
+    private keysPressed: string[] = []
+    private readonly keysCombo: string[] = [
+        'ArrowUp',
+        'ArrowUp',
+        'ArrowDown',
+        'ArrowDown',
+        'ArrowLeft',
+        'ArrowRight',
+        'ArrowLeft',
+        'ArrowRight',
+        'B',
+        'A',
+        'Enter',
+    ]
+
+    /**
+     * Easter egg
+     * @method init
+     * @param event {KeyboardEvent} Event information from the keyboard
+     * @returns {void}
+     */
+    public initiate = (event: KeyboardEvent): void => {
+        let keyEventData: string = event.key
+        if (keyEventData.length === 1) {
+            keyEventData = event.key.toUpperCase()
+        }
+
+        this.keysPressed.push(keyEventData)
+
+        let indexMatch: string =
+            this.keysCombo[this.keysPressed.length - 1] ?? ''
+
+        if (indexMatch === '' || indexMatch !== keyEventData) {
+            this.keysPressed = []
+            return
+        }
+
+        let keysPressedCombined: string = this.keysPressed.join('')
+        let keysComboCombined: string = this.keysCombo.join('')
+
+        if (keysPressedCombined.match(keysComboCombined)) {
+            this.keysPressed = []
+            document.removeEventListener('keydown', this.initiate)
+            this.payload()
+        }
+    }
+}
+
+const egg = new Egg()
+
 window.onload = function (): void {
     // Unhide option if there is JavaScript enabled
     let revealToggle: Element | null = document.querySelector('.theme-invert')
@@ -544,15 +497,6 @@ window.onload = function (): void {
             uiController.scrollHandler(event)
         })
     }
-
-    // Listen for list input
-    document
-        .querySelectorAll('.list')
-        .forEach(function (value: Element, _, __): void {
-            value.addEventListener('click', (event): void => {
-                dialogController.open(event, value as HTMLElement)
-            })
-        })
 
     // Allow dialog to be closed
     let dialogCloseOpt: Element | null = document.querySelector('dialog .close')
