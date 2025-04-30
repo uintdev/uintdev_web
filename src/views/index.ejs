@@ -82,8 +82,10 @@
                     <a class="card" href="<%= projectEntry.url %>">
                         <div class="info">
                             <div class="name"><%= projectEntry.name %></div>
-                            <div class="type">
-                                <%= projectEntry.type + ' - ' + projectEntry.tags.join(', ') %>
+                            <div class="tag-container">
+                                <% projectEntry.tags.forEach(function(tag) { %>
+                                    <span class="tag"><%= tag %></span>
+                                <% }); %>
                             </div>
                         </div>
                         <div class="description"> <%= projectEntry.description %> </div>

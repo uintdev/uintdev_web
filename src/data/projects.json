@@ -1,43 +1,38 @@
 {
     "metadata": {
         "title": "Projects",
-        "description": "See more on <a href='https://github.com/uintdev' class='clickable'>GitHub</a>"
+        "description": "Creations. See more on <a href='https://github.com/uintdev' class='clickable'>GitHub</a>"
     },
     "list": [
         {
             "name": "QRServ",
-            "type": "App",
             "description": "Transfer files with ease over a network",
             "url": "https://github.com/uintdev/qrserv",
-            "tags": ["Flutter", "Dart"]
+            "tags": ["App", "Flutter", "Dart"]
         },
         {
             "name": "uintdev web",
-            "type": "Website",
             "description": "Modular main website, with bundled goodness",
             "url": "https://github.com/uintdev/uintdev_web",
-            "tags": ["Webpack", "TypeScript", "SCSS"]
+            "tags": ["Website", "TypeScript", "SCSS"]
         },
         {
             "name": "Email Addr Extract",
-            "type": "CLI",
             "description": "High performance email address extraction tool",
             "url": "https://github.com/uintdev/email-addr-extract",
-            "tags": ["Rust"]
+            "tags": ["CLI", "Rust"]
         },
         {
             "name": "Discord Cache Dump",
-            "type": "CLI",
             "description": "Save and identify cached files from Discord's desktop clients",
             "url": "https://github.com/uintdev/Discord-Cache-Dump",
-            "tags": ["Go"]
+            "tags": ["CLI", "Go"]
         },
         {
             "name": "Ducky HID WSI",
-            "type": "Firmware",
             "description": "Custom USB Rubber Ducky HID only firmware with status indication",
             "url": "https://github.com/uintdev/Ducky_HID_WSI",
-            "tags": ["C"]
+            "tags": ["Firmware", "C"]
         }
     ]
 }
