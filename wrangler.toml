@@ -1,0 +1,11 @@
+name = "uintdev_main"
+compatibility_flags = [ "nodejs_compat" ]
+compatibility_date = "2025-06-04"
+
+routes = [
+    { pattern = "worker.uint.dev", custom_domain = true }
+]
+
+[assets]
+directory = "./dist/"
+not_found_handling = "404-page"
