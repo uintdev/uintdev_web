@@ -30,7 +30,7 @@
         },
         {
             "name": "Ducky HID WSI",
-            "description": "Custom USB Rubber Ducky HID only firmware with status indication",
+            "description": "Custom USB Rubber Ducky v1 HID only firmware with status indication",
             "url": "https://github.com/uintdev/Ducky_HID_WSI",
             "tags": ["Firmware", "C"]
         }
