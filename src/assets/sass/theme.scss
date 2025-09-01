@@ -124,6 +124,7 @@
     @include theme_dark;
 
     --radius-card: 10px;
+    --radius-tag: 8px;
 
     // If this changes, so should the hard coded value in the header media query
     // (it does not support CSS variables)
