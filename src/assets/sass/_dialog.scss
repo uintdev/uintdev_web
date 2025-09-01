@@ -21,14 +21,14 @@ dialog {
     }
     .close {
         color: color-mix(in srgb, var(--color-secondary) 100%, transparent);
-        border-radius: 20px;
+        border-radius: 18px;
         background-color: color-mix(
             in srgb,
             var(--color-primary) 100%,
             transparent
         );
         box-sizing: border-box;
-        padding: 20px 30px;
+        padding: 18px 26px;
         font-family: var(--font-stack);
         font-size: 0.75em;
         transition: background-color var(--interactive-transition-speed);
