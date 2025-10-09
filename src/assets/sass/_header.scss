@@ -28,12 +28,20 @@ header {
         height: 20px;
         background-color: color-mix(
             in srgb,
-            var(--color-primary) 100%,
+            rgba(var(--color-primary), 1) 100%,
             transparent
         );
-        color: color-mix(in srgb, var(--color-secondary) 100%, transparent);
+        color: color-mix(
+            in srgb,
+            rgba(var(--color-secondary), 1) 100%,
+            transparent
+        );
         border: 1px solid
-            color-mix(in srgb, var(--color-secondary) 100%, transparent);
+            color-mix(
+                in srgb,
+                rgba(var(--color-secondary), 1) 100%,
+                transparent
+            );
         transition: background-color var(--interactive-transition-speed),
             border var(--interactive-transition-speed);
         cursor: pointer;
@@ -72,7 +80,7 @@ header {
             z-index: 10;
             background-color: color-mix(
                 in srgb,
-                var(--color-primary) 100%,
+                rgba(var(--color-primary), 1) 100%,
                 transparent
             );
             border: 1px solid var(--color-secondary-inverted-icon);
@@ -92,7 +100,7 @@ header {
                 @include mixins.image-loader('header/blog.svg');
                 background-color: color-mix(
                     in srgb,
-                    var(--color-secondary-inverted-icon) 100%,
+                    rgba(var(--color-secondary-inverted-icon), 1) 100%,
                     transparent
                 );
                 height: var(--header-icon-size);
@@ -102,7 +110,7 @@ header {
         }
 
         .theme-invert {
-            background-color: var(--color-secondary-inverted);
+            background-color: rgba(var(--color-secondary-inverted), 1);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -132,7 +140,7 @@ header {
                 @include mixins.image-loader('header/invert.svg');
                 background-color: color-mix(
                     in srgb,
-                    var(--color-secondary-inverted-icon) 100%,
+                    rgba(var(--color-secondary-inverted-icon), 1) 100%,
                     transparent
                 );
                 height: var(--header-icon-size);

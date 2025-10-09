@@ -7,7 +7,11 @@
     justify-content: center;
 
     .button-link {
-        color: color-mix(in srgb, var(--color-secondary) 100%, transparent);
+        color: color-mix(
+            in srgb,
+            rgba(var(--color-secondary), 1) 100%,
+            transparent
+        );
         display: flex;
         font-size: 0.85rem;
         align-items: center;
@@ -16,7 +20,7 @@
         border-radius: 18px;
         background-color: color-mix(
             in srgb,
-            var(--color-primary) 100%,
+            rgba(var(--color-primary), 1) 100%,
             transparent
         );
         box-sizing: border-box;

@@ -1,10 +1,10 @@
 :root {
-    accent-color: var(--color-accent);
+    accent-color: rgba(var(--color-accent), 1);
 }
 
 ::selection {
-    color: var(--color-secondary);
-    background-color: var(--color-accent);
+    color: rgba(var(--color-secondary), 1);
+    background-color: rgba(var(--color-accent), 1);
 }
 
 html {
@@ -16,8 +16,8 @@ html {
 body {
     margin: 0;
     font-family: var(--font-stack);
-    color: color-mix(in srgb, var(--color-primary) 100%, transparent);
-    background-color: var(--color-secondary);
+    color: color-mix(in srgb, rgba(var(--color-primary), 1) 100%, transparent);
+    background-color: rgba(var(--color-secondary), 1);
     margin-left: auto;
     margin-right: auto;
     max-width: var(--max-width-ui);
@@ -25,11 +25,15 @@ body {
 }
 
 a {
-    color: color-mix(in srgb, var(--color-primary) 100%, transparent);
+    color: color-mix(in srgb, rgba(var(--color-primary), 1) 100%, transparent);
     text-decoration: none;
     border-bottom: 0;
 
     &:hover {
-        color: color-mix(in srgb, var(--color-accent) 100%, transparent);
+        color: color-mix(
+            in srgb,
+            rgba(var(--color-accent), 1) 100%,
+            transparent
+        );
     }
 }

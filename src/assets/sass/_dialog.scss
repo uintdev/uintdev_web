@@ -2,13 +2,14 @@
 
 dialog {
     padding: 25px;
-    background-color: var(--color-secondary);
+    background-color: rgba(var(--color-secondary), 1);
     animation: showDialog var(--interactive-transition-speed) forwards;
-    color: color-mix(in srgb, var(--color-primary) 100%, transparent);
+    color: color-mix(in srgb, rgba(var(--color-primary), 1) 100%, transparent);
     width: 450px;
     max-width: 90%;
     box-sizing: border-box;
-    border: 1px solid color-mix(in srgb, var(--color-primary) 100%, transparent);
+    border: 1px solid
+        color-mix(in srgb, rgba(var(--color-primary), 1) 100%, transparent);
     border-radius: 25px;
     .header {
         font-size: 1.1em;
@@ -27,11 +28,15 @@ dialog {
         margin-right: auto;
     }
     .close {
-        color: color-mix(in srgb, var(--color-secondary) 100%, transparent);
+        color: color-mix(
+            in srgb,
+            rgba(var(--color-secondary), 1) 100%,
+            transparent
+        );
         border-radius: 18px;
         background-color: color-mix(
             in srgb,
-            var(--color-primary) 100%,
+            rgba(var(--color-primary), 1) 100%,
             transparent
         );
         box-sizing: border-box;

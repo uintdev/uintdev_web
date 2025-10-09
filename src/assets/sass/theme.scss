@@ -56,66 +56,66 @@
 
 :root {
     // Theme - Noir Fill
-    --color-primary-dark: rgba(240, 240, 240, 1);
-    --color-secondary-dark: rgba(29, 31, 33, 1);
+    --color-primary-dark: 240, 240, 240;
+    --color-secondary-dark: 29, 31, 33;
     --color-secondary-focus-dark: color-mix(
         in srgb,
-        var(--color-secondary-light) 90%,
-        var(--color-secondary-dark)
+        rgba(var(--color-secondary-light), 1) 90%,
+        rgba(var(--color-secondary-dark), 1)
     );
     --color-secondary-hover-dark: color-mix(
         in srgb,
-        var(--color-secondary-light) 85%,
-        var(--color-secondary-dark)
+        rgba(var(--color-secondary-light), 1) 85%,
+        rgba(var(--color-secondary-dark), 1)
     );
-    --color-third-dark: rgba(220, 220, 220, 1);
+    --color-third-dark: 220, 220, 220;
     --color-thumb-dark: rgba(80, 80, 80, 0.6);
     --color-thumb-hover-dark: rgba(80, 80, 80, 0.8);
-    --color-accent-dark: rgba(56, 255, 97, 1);
+    --color-accent-dark: 56, 255, 97;
     --brightness-card-thumb-focus-dark: 1.025;
     --brightness-card-thumb-hover-dark: 1.05;
     --color-secondary-inverted-dark: var(--color-secondary-light);
     --color-secondary-inverted-focus-dark: color-mix(
         in srgb,
-        var(--color-secondary-light) 90%,
-        var(--color-secondary-dark)
+        rgba(var(--color-secondary-light), 1) 90%,
+        rgba(var(--color-secondary-dark), 1)
     );
     --color-secondary-inverted-hover-dark: color-mix(
         in srgb,
-        var(--color-secondary-light) 80%,
-        var(--color-secondary-dark)
+        rgba(var(--color-secondary-light), 1) 80%,
+        rgba(var(--color-secondary-dark), 1)
     );
     --color-secondary-inverted-icon-dark: var(--color-primary-light);
 
     // Theme - Paper Fill
-    --color-primary-light: rgba(54, 56, 58, 1);
-    --color-secondary-light: rgba(240, 240, 240, 1);
+    --color-primary-light: 54, 56, 58;
+    --color-secondary-light: 240, 240, 240;
     --color-secondary-focus-light: color-mix(
         in srgb,
-        var(--color-secondary-dark) 90%,
-        var(--color-secondary-light)
+        rgba(var(--color-secondary-dark), 1) 90%,
+        rgba(var(--color-secondary-light), 1)
     );
     --color-secondary-hover-light: color-mix(
         in srgb,
-        var(--color-secondary-dark) 80%,
-        var(--color-secondary-light)
+        rgba(var(--color-secondary-dark), 1) 80%,
+        rgba(var(--color-secondary-light), 1)
     );
-    --color-third-light: rgba(74, 76, 78, 1);
+    --color-third-light: 74, 76, 78;
     --color-thumb-light: rgba(200, 200, 200, 1);
     --color-thumb-hover-light: var(--color-secondary-hover-light);
-    --color-accent-light: rgba(105, 127, 255, 1);
+    --color-accent-light: 105, 127, 255;
     --brightness-card-thumb-focus-light: 0.985;
     --brightness-card-thumb-hover-light: 0.95;
     --color-secondary-inverted-light: var(--color-secondary-dark);
     --color-secondary-inverted-focus-light: color-mix(
         in srgb,
-        var(--color-secondary-dark) 90%,
-        var(--color-secondary-light)
+        rgba(var(--color-secondary-dark), 1) 90%,
+        rgba(var(--color-secondary-light), 1)
     );
     --color-secondary-inverted-hover-light: color-mix(
         in srgb,
-        var(--color-secondary-dark) 80%,
-        var(--color-secondary-light)
+        rgba(var(--color-secondary-dark), 1) 80%,
+        rgba(var(--color-secondary-light), 1)
     );
     --color-secondary-inverted-icon-light: var(--color-primary-dark);
 

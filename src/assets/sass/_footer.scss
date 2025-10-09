@@ -10,16 +10,16 @@ footer {
     text-align: center;
     box-sizing: border-box;
     font-size: 0.85rem;
-    color: var(--color-third);
+    color: rgba(var(--color-third), 1);
 
     a {
-        color: var(--color-third);
+        color: rgba(var(--color-third), 1);
 
         @media (hover: hover) {
             &:hover {
                 color: color-mix(
                     in srgb,
-                    var(--color-primary) 75%,
+                    rgba(var(--color-primary), 1) 75%,
                     transparent
                 );
             }
@@ -64,7 +64,7 @@ footer {
                     var(--color-secondary-focus) 20%,
                     transparent
                 );
-                color: var(--color-third);
+                color: rgba(var(--color-third), 1);
             }
 
             &:hover {
@@ -73,7 +73,7 @@ footer {
                     var(--color-secondary-hover) 20%,
                     transparent
                 );
-                color: var(--color-third);
+                color: rgba(var(--color-third), 1);
             }
 
             .git-icon-container {
@@ -91,7 +91,7 @@ footer {
                 .git-icon {
                     display: inline-block;
                     @include mixins.image-loader('footer/git.svg');
-                    background-color: var(--color-third);
+                    background-color: rgba(var(--color-third), 1);
                     height: 15px;
                     width: 100%;
                 }
