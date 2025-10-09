@@ -6,6 +6,7 @@ header {
     max-width: var(--max-width-ui);
     width: 100%;
     box-sizing: border-box;
+    background-color: rgba(var(--color-secondary), 0.4);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     @include mixins.unselectable;
@@ -83,7 +84,7 @@ header {
                 rgba(var(--color-primary), 1) 100%,
                 transparent
             );
-            border: 1px solid var(--color-secondary-inverted-icon);
+            border: 1px solid rgba(var(--color-secondary-inverted-icon), 1);
             transition: background-color var(--interactive-transition-speed),
                 border var(--interactive-transition-speed);
             cursor: pointer;
@@ -119,7 +120,7 @@ header {
             border-radius: var(--header-icon-size);
             @include mixins.unselectable;
             z-index: 10;
-            border: 1px solid var(--color-secondary-inverted-icon);
+            border: 1px solid rgba(var(--color-secondary-inverted-icon), 1);
             transition: background-color var(--interactive-transition-speed),
                 border var(--interactive-transition-speed);
             cursor: pointer;
