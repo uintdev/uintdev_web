@@ -2,15 +2,17 @@
 
 dialog {
     padding: 25px;
-    background-color: rgba(var(--color-secondary), 1);
+    background-color: rgba(var(--color-secondary), 0.7);
     animation: showDialog var(--interactive-transition-speed) forwards;
     color: color-mix(in srgb, rgba(var(--color-primary), 1) 100%, transparent);
     width: 450px;
     max-width: 90%;
     box-sizing: border-box;
     border: 1px solid
-        color-mix(in srgb, rgba(var(--color-primary), 1) 100%, transparent);
+        color-mix(in srgb, rgba(var(--color-primary), 0.4) 100%, transparent);
     border-radius: 25px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     .header {
         font-size: 1.1em;
         font-weight: bold;
@@ -22,7 +24,11 @@ dialog {
     .body {
         font-size: 0.9em;
         margin-bottom: 25px;
-        opacity: 0.8;
+        color: color-mix(
+            in srgb,
+            rgba(var(--color-primary), 0.8) 100%,
+            transparent
+        );
         width: 95%;
         margin-left: auto;
         margin-right: auto;
@@ -62,14 +68,7 @@ dialog {
     }
 
     &::backdrop {
-        animation: blurDialog var(--interactive-transition-speed) forwards;
         height: 120lvh;
-    }
-
-    @media (prefers-reduced-motion) {
-        &,
-        &::backdrop {
-            animation: none;
-        }
+        background-color: rgba(0, 0, 0, 0);
     }
 }
