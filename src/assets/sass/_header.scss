@@ -135,7 +135,7 @@ header {
     @media (hover: hover) {
         .title {
             &:hover {
-                background-color: rgba(var(--color-secondary-hover), 1);
+                background-color: var(--color-secondary-inverted-hover);
             }
         }
         .options {

@@ -22,12 +22,12 @@
         cursor: pointer;
 
         &:focus {
-            background-color: rgba(var(--color-secondary-focus), 1);
+            background-color: var(--color-secondary-inverted-focus);
         }
 
         @media (hover: hover) {
             &:hover {
-                background-color: rgba(var(--color-secondary-hover), 1);
+                background-color: var(--color-secondary-inverted-hover);
             }
         }
     }
