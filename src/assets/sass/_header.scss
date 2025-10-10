@@ -27,32 +27,19 @@ header {
         padding: 13px 18px;
         border-radius: 25px;
         height: 20px;
-        background-color: color-mix(
-            in srgb,
-            rgba(var(--color-primary), 1) 100%,
-            transparent
-        );
-        color: color-mix(
-            in srgb,
-            rgba(var(--color-secondary), 1) 100%,
-            transparent
-        );
-        border: 1px solid
-            color-mix(
-                in srgb,
-                rgba(var(--color-secondary), 1) 100%,
-                transparent
-            );
+        background-color: rgba(var(--color-primary), 1);
+        color: rgba(var(--color-secondary), 1);
+        border: 1px solid rgba(var(--color-secondary), 1);
         transition: background-color var(--interactive-transition-speed),
             border var(--interactive-transition-speed);
         cursor: pointer;
 
         &:focus {
-            background-color: var(--color-secondary-focus);
+            background-color: rgba(var(--color-secondary-focus), 1);
         }
 
         &:focus:not(:focus-visible) {
-            background-color: var(--color-secondary-focus);
+            background-color: rgba(var(--color-secondary-focus), 1);
         }
     }
 
@@ -79,31 +66,23 @@ header {
             height: var(--header-icon-size);
             border-radius: var(--header-icon-size);
             z-index: 10;
-            background-color: color-mix(
-                in srgb,
-                rgba(var(--color-primary), 1) 100%,
-                transparent
-            );
+            background-color: rgba(var(--color-primary), 1);
             border: 1px solid rgba(var(--color-secondary-inverted-icon), 1);
             transition: background-color var(--interactive-transition-speed),
                 border var(--interactive-transition-speed);
             cursor: pointer;
 
             &:focus {
-                background-color: var(--color-secondary-focus);
+                background-color: rgba(var(--color-secondary-focus), 1);
             }
 
             &:focus:not(:focus-visible) {
-                background-color: var(--color-secondary-focus);
+                background-color: rgba(var(--color-secondary-focus), 1);
             }
 
             .blog-icon {
                 @include mixins.image-loader('header/blog.svg');
-                background-color: color-mix(
-                    in srgb,
-                    rgba(var(--color-secondary-inverted-icon), 1) 100%,
-                    transparent
-                );
+                background-color: rgba(var(--color-secondary-inverted-icon), 1);
                 height: var(--header-icon-size);
                 width: 100%;
                 border-radius: inherit;
@@ -139,11 +118,7 @@ header {
 
             .theme-invert-icon {
                 @include mixins.image-loader('header/invert.svg');
-                background-color: color-mix(
-                    in srgb,
-                    rgba(var(--color-secondary-inverted-icon), 1) 100%,
-                    transparent
-                );
+                background-color: rgba(var(--color-secondary-inverted-icon), 1);
                 height: var(--header-icon-size);
                 width: 100%;
                 border-radius: inherit;
@@ -160,7 +135,7 @@ header {
     @media (hover: hover) {
         .title {
             &:hover {
-                background-color: var(--color-secondary-hover);
+                background-color: rgba(var(--color-secondary-hover), 1);
             }
         }
         .options {

@@ -15,31 +15,25 @@
         max-width: 100%;
         width: 100%;
         cursor: pointer;
+        box-sizing: border-box;
+        border: 1px solid rgba(var(--color-primary), 0.4);
 
         border-radius: var(--radius-card);
-        background-color: color-mix(
-            in srgb,
-            rgba(var(--color-primary), 1) 100%,
-            transparent
-        );
+        background-color: rgba(var(--color-secondary), 0.7);
         box-sizing: border-box;
         padding: 25px;
 
-        color: color-mix(
-            in srgb,
-            rgba(var(--color-secondary), 1) 100%,
-            transparent
-        );
+        color: rgba(var(--color-primary), 1);
 
         transition: background-color var(--interactive-transition-speed);
 
         &:focus {
-            background-color: var(--color-secondary-focus);
+            background-color: rgba(var(--color-secondary-focus), 1);
         }
 
         @media (hover: hover) {
             &:hover {
-                background-color: var(--color-secondary-hover);
+                background-color: rgba(var(--color-secondary-hover), 1);
             }
         }
 
@@ -49,7 +43,6 @@
 
             .name {
                 font-size: 1.1rem;
-                margin-bottom: 2px;
             }
 
             .tag-container {
@@ -60,13 +53,13 @@
                 justify-content: left;
                 align-items: stretch;
                 font-size: 0.74rem;
-                margin-top: 10px;
+                margin-top: 12px;
 
                 .tag {
                     border-radius: var(--radius-tag);
                     background-color: transparent;
-                    border: 1px solid rgba(var(--color-secondary), 1);
-                    color: rgba(var(--color-secondary), 1);
+                    border: 1px solid rgba(var(--color-primary), 1);
+                    color: rgba(var(--color-primary), 1);
                     padding: 6px 12px;
                 }
             }
@@ -74,7 +67,7 @@
 
         .description {
             font-size: 0.89rem;
-            margin-top: 15px;
+            margin-top: 12px;
         }
     }
 

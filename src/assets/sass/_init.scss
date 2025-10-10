@@ -28,11 +28,7 @@
                 display: block;
                 height: 150px;
                 width: 150px;
-                background-color: color-mix(
-                    in srgb,
-                    rgba(var(--color-primary), 1) 100%,
-                    transparent
-                );
+                background-color: rgba(var(--color-primary), 1);
                 border-radius: 40px;
                 @include mixins.image-loader('main/picture.svg');
             }

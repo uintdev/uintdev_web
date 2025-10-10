@@ -4,12 +4,11 @@ dialog {
     padding: 25px;
     background-color: rgba(var(--color-secondary), 0.7);
     animation: showDialog var(--interactive-transition-speed) forwards;
-    color: color-mix(in srgb, rgba(var(--color-primary), 1) 100%, transparent);
+    color: rgba(var(--color-primary), 1);
     width: 450px;
     max-width: 90%;
     box-sizing: border-box;
-    border: 1px solid
-        color-mix(in srgb, rgba(var(--color-primary), 0.4) 100%, transparent);
+    border: 1px solid rgba(var(--color-primary), 0.4);
     border-radius: 25px;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
@@ -24,27 +23,15 @@ dialog {
     .body {
         font-size: 0.9em;
         margin-bottom: 25px;
-        color: color-mix(
-            in srgb,
-            rgba(var(--color-primary), 0.8) 100%,
-            transparent
-        );
+        color: rgba(var(--color-primary), 0.8);
         width: 95%;
         margin-left: auto;
         margin-right: auto;
     }
     .close {
-        color: color-mix(
-            in srgb,
-            rgba(var(--color-secondary), 1) 100%,
-            transparent
-        );
+        color: rgba(var(--color-secondary), 1);
         border-radius: 18px;
-        background-color: color-mix(
-            in srgb,
-            rgba(var(--color-primary), 1) 100%,
-            transparent
-        );
+        background-color: rgba(var(--color-primary), 1);
         box-sizing: border-box;
         padding: 18px 26px;
         font-family: var(--font-stack);
@@ -57,12 +44,12 @@ dialog {
         text-align: center;
 
         &:focus {
-            background-color: var(--color-secondary-focus);
+            background-color: rgba(var(--color-secondary-focus), 1);
         }
 
         @media (hover: hover) {
             &:hover {
-                background-color: var(--color-secondary-hover);
+                background-color: rgba(var(--color-secondary-hover), 1);
             }
         }
     }

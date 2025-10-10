@@ -17,11 +17,7 @@ footer {
 
         @media (hover: hover) {
             &:hover {
-                color: color-mix(
-                    in srgb,
-                    rgba(var(--color-primary), 1) 75%,
-                    transparent
-                );
+                color: rgba(var(--color-primary), 1);
             }
         }
     }
@@ -59,20 +55,12 @@ footer {
             transition: background-color 0.1s;
 
             &:focus {
-                background-color: color-mix(
-                    in srgb,
-                    var(--color-secondary-focus) 20%,
-                    transparent
-                );
+                background-color: rgba(var(--color-secondary-focus), 1);
                 color: rgba(var(--color-third), 1);
             }
 
             &:hover {
-                background-color: color-mix(
-                    in srgb,
-                    var(--color-secondary-hover) 20%,
-                    transparent
-                );
+                background-color: rgba(var(--color-secondary-hover), 1);
                 color: rgba(var(--color-third), 1);
             }
 

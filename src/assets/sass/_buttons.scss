@@ -7,22 +7,14 @@
     justify-content: center;
 
     .button-link {
-        color: color-mix(
-            in srgb,
-            rgba(var(--color-secondary), 1) 100%,
-            transparent
-        );
+        color: rgba(var(--color-secondary), 1);
         display: flex;
         font-size: 0.85rem;
         align-items: center;
         justify-content: center;
         @include mixins.unselectable;
         border-radius: 18px;
-        background-color: color-mix(
-            in srgb,
-            rgba(var(--color-primary), 1) 100%,
-            transparent
-        );
+        background-color: rgba(var(--color-primary), 1);
         box-sizing: border-box;
         padding: 18px 26px;
         z-index: 10;
@@ -30,12 +22,12 @@
         cursor: pointer;
 
         &:focus {
-            background-color: var(--color-secondary-focus);
+            background-color: rgba(var(--color-secondary-focus), 1);
         }
 
         @media (hover: hover) {
             &:hover {
-                background-color: var(--color-secondary-hover);
+                background-color: rgba(var(--color-secondary-hover), 1);
             }
         }
     }

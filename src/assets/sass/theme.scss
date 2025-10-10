@@ -58,16 +58,8 @@
     // Theme - Noir Fill
     --color-primary-dark: 240, 240, 240;
     --color-secondary-dark: 29, 31, 33;
-    --color-secondary-focus-dark: color-mix(
-        in srgb,
-        rgba(var(--color-secondary-light), 1) 90%,
-        rgba(var(--color-secondary-dark), 1)
-    );
-    --color-secondary-hover-dark: color-mix(
-        in srgb,
-        rgba(var(--color-secondary-light), 1) 85%,
-        rgba(var(--color-secondary-dark), 1)
-    );
+    --color-secondary-focus-dark: 35, 37, 39;
+    --color-secondary-hover-dark: 40, 42, 44;
     --color-third-dark: 220, 220, 220;
     --color-thumb-dark: rgba(80, 80, 80, 0.6);
     --color-thumb-hover-dark: rgba(80, 80, 80, 0.8);
@@ -90,16 +82,8 @@
     // Theme - Paper Fill
     --color-primary-light: 54, 56, 58;
     --color-secondary-light: 240, 240, 240;
-    --color-secondary-focus-light: color-mix(
-        in srgb,
-        rgba(var(--color-secondary-dark), 1) 90%,
-        rgba(var(--color-secondary-light), 1)
-    );
-    --color-secondary-hover-light: color-mix(
-        in srgb,
-        rgba(var(--color-secondary-dark), 1) 80%,
-        rgba(var(--color-secondary-light), 1)
-    );
+    --color-secondary-focus-light: 235, 235, 235;
+    --color-secondary-hover-light: 230, 230, 230;
     --color-third-light: 74, 76, 78;
     --color-thumb-light: rgba(200, 200, 200, 1);
     --color-thumb-hover-light: var(--color-secondary-hover-light);

@@ -16,7 +16,7 @@ html {
 body {
     margin: 0;
     font-family: var(--font-stack);
-    color: color-mix(in srgb, rgba(var(--color-primary), 1) 100%, transparent);
+    color: rgba(var(--color-primary), 1);
     background-color: rgba(var(--color-secondary), 1);
     margin-left: auto;
     margin-right: auto;
@@ -25,15 +25,11 @@ body {
 }
 
 a {
-    color: color-mix(in srgb, rgba(var(--color-primary), 1) 100%, transparent);
+    color: rgba(var(--color-primary), 1);
     text-decoration: none;
     border-bottom: 0;
 
     &:hover {
-        color: color-mix(
-            in srgb,
-            rgba(var(--color-accent), 1) 100%,
-            transparent
-        );
+        color: rgba(var(--color-accent), 1);
     }
 }
