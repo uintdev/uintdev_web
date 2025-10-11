@@ -35,11 +35,15 @@ header {
         cursor: pointer;
 
         &:focus {
-            background-color: rgba(var(--color-secondary-focus), 1);
+            background-color: var(--color-secondary-inverted-focus);
+            @media (hover: none) {
+                outline: none;
+            }
         }
 
         &:focus:not(:focus-visible) {
-            background-color: rgba(var(--color-secondary-focus), 1);
+            outline: none;
+            background-color: var(--color-secondary-inverted-focus);
         }
     }
 
@@ -73,11 +77,15 @@ header {
             cursor: pointer;
 
             &:focus {
-                background-color: rgba(var(--color-secondary-focus), 1);
+                background-color: var(--color-secondary-inverted-focus);
+                @media (hover: none) {
+                    outline: none;
+                }
             }
 
             &:focus:not(:focus-visible) {
-                background-color: rgba(var(--color-secondary-focus), 1);
+                outline: none;
+                background-color: var(--color-secondary-inverted-focus);
             }
 
             .blog-icon {
