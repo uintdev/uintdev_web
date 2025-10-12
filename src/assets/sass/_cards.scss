@@ -17,14 +17,11 @@
         cursor: pointer;
         box-sizing: border-box;
         border: 1px solid rgba(var(--color-primary), 0.4);
-
         border-radius: var(--radius-card);
         background-color: rgba(var(--color-secondary), 0.7);
         box-sizing: border-box;
         padding: 25px;
-
         color: rgba(var(--color-primary), 1);
-
         transition: background-color var(--interactive-transition-speed);
 
         &:focus {
@@ -59,7 +56,7 @@
                     border-radius: var(--radius-tag);
                     background-color: transparent;
                     border: 1px solid rgba(var(--color-primary), 0.4);
-                    color: rgba(var(--color-primary), 1);
+                    color: rgba(var(--color-primary), 0.8);
                     padding: 6px 12px;
                 }
             }
@@ -68,6 +65,7 @@
         .description {
             font-size: 0.89rem;
             margin-top: 12px;
+            color: rgba(var(--color-primary), 0.8);
         }
     }
 
