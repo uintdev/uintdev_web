@@ -51,17 +51,18 @@ footer {
             justify-content: space-between;
             padding: 12px 16px;
             border-radius: 6px;
+            color: rgba(var(--color-third), 1);
             background-color: rgba(0, 0, 0, 0);
             transition: background-color 0.1s;
 
             &:focus {
                 background-color: rgba(var(--color-secondary-focus), 1);
-                color: rgba(var(--color-third), 1);
             }
 
-            &:hover {
-                background-color: rgba(var(--color-secondary-hover), 1);
-                color: rgba(var(--color-third), 1);
+            @media (hover: hover) {
+                &:hover {
+                    background-color: rgba(var(--color-secondary-hover), 1);
+                }
             }
 
             .git-icon-container {
