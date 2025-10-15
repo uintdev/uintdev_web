@@ -10,7 +10,6 @@ header {
     box-sizing: border-box;
     background-color: rgba(var(--color-secondary), 0.4);
     backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
     @include mixins.unselectable;
     z-index: 11;
     transition: top 0.5s;
