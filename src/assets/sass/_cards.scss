@@ -3,7 +3,7 @@
 .card-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 40px;
+    gap: 25px;
     height: 100%;
     max-width: 95%;
     justify-content: center;
@@ -12,7 +12,7 @@
     margin-right: auto;
 
     .card {
-        max-width: 100%;
+        max-width: 396px;
         width: 100%;
         cursor: pointer;
         box-sizing: border-box;
