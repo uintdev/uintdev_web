@@ -6,13 +6,13 @@
     "list": [
         {
             "name": "QRServ",
-            "description": "Transfer files with ease over a network",
+            "description": "An intuitive application for Android that enables downloading of a file selection over HTTP with the convenience of scanning a QR code",
             "url": "https://github.com/uintdev/qrserv",
             "tags": ["App", "Flutter", "Dart"]
         },
         {
             "name": "uintdev web",
-            "description": "Modular main website, with bundled goodness",
+            "description": "Source code and tooling for building this website",
             "url": "https://github.com/uintdev/uintdev_web",
             "tags": ["Website", "TypeScript", "SCSS"]
         },
@@ -24,13 +24,13 @@
         },
         {
             "name": "Discord Cache Dump",
-            "description": "Save and identify cached files from Discord's desktop clients",
+            "description": "Identification and saving of cache files from Discord's desktop clients",
             "url": "https://github.com/uintdev/Discord-Cache-Dump",
             "tags": ["CLI", "Go"]
         },
         {
             "name": "Ducky HID WSI",
-            "description": "Custom USB Rubber Ducky v1 HID only firmware with status indication",
+            "description": "Custom HID-only firmware for the USB Rubber Ducky v1 that implements LED status codes",
             "url": "https://github.com/uintdev/Ducky_HID_WSI",
             "tags": ["Firmware", "C"]
         }
