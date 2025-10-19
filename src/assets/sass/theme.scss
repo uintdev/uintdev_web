@@ -56,7 +56,7 @@
 
 :root {
     // Theme - Noir Fill
-    --color-primary-dark: 240, 240, 240;
+    --color-primary-dark: 205, 215, 240;
     --color-secondary-dark: 30, 30, 45;
     --color-secondary-focus-dark: 35, 35, 50;
     --color-secondary-hover-dark: 40, 40, 55;
@@ -69,13 +69,13 @@
     --color-secondary-inverted-dark: var(--color-secondary-light);
     --color-secondary-inverted-focus-dark: color-mix(
         in srgb,
-        rgba(var(--color-secondary-light), 1) 90%,
-        rgba(var(--color-secondary-dark), 1)
+        rgba(var(--color-primary), 1) 95%,
+        rgba(var(--color-secondary), 1)
     );
     --color-secondary-inverted-hover-dark: color-mix(
         in srgb,
-        rgba(var(--color-secondary-light), 1) 80%,
-        rgba(var(--color-secondary-dark), 1)
+        rgba(var(--color-primary), 1) 93%,
+        rgba(var(--color-secondary), 1)
     );
     --color-secondary-inverted-icon-dark: var(--color-primary-light);
 
@@ -93,13 +93,13 @@
     --color-secondary-inverted-light: var(--color-secondary-dark);
     --color-secondary-inverted-focus-light: color-mix(
         in srgb,
-        rgba(var(--color-secondary-dark), 1) 90%,
-        rgba(var(--color-secondary-light), 1)
+        rgba(var(--color-primary), 1) 95%,
+        rgba(var(--color-secondary), 1)
     );
     --color-secondary-inverted-hover-light: color-mix(
         in srgb,
-        rgba(var(--color-secondary-dark), 1) 80%,
-        rgba(var(--color-secondary-light), 1)
+        rgba(var(--color-primary), 1) 93%,
+        rgba(var(--color-secondary), 1)
     );
     --color-secondary-inverted-icon-light: var(--color-primary-dark);
 
