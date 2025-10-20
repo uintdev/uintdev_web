@@ -56,8 +56,8 @@
         </div>
         <section id="about">
             <div class="content-title">About me</div>
-            <div class="content-info">
-                <div class="content-info">
+            <div class="content-block">
+                <div class="sub-info">
                     <% // Get about contents %>
                     <% var aboutData = 'unknown_data' %>
                     <% const aboutPath = process.cwd() + '/src/data/about.html' %>
@@ -76,7 +76,7 @@
             <% const project = require('../data/projects.json') %>
             <div class="content-title"><%= project.metadata.title %></div>
             <div class="content-desc"><%= project.metadata.description %></div>
-            <div class="content-info">
+            <div class="content-block">
                 <div class="card-container">
                     <% project.list.forEach(function(projectEntry) { %>
                     <a class="card" href="<%= projectEntry.url %>">

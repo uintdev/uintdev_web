@@ -43,6 +43,7 @@
 
             .name {
                 font-size: 1.1rem;
+                font-weight: 600;
             }
 
             .tag-container {
@@ -70,6 +71,7 @@
 
         .description {
             font-size: 0.89rem;
+            font-weight: 300;
             margin-top: 12px;
             color: rgba(var(--color-primary), 0.8);
         }

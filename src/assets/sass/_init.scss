@@ -33,20 +33,11 @@
                 @include mixins.image-loader('main/picture.svg');
             }
 
-            @include meta.load-css('buttons');
-
-            .message {
-                display: inline-block;
-                text-align: center;
-                margin-left: auto;
-                margin-right: auto;
-                line-height: 3.2em;
-
-                .title {
-                    font-weight: 500;
-                    font-size: 5rem;
-                }
+            .about {
+                font-weight: 700;
             }
+
+            @include meta.load-css('buttons');
         }
 
         @media (prefers-reduced-motion) {

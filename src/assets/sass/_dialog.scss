@@ -16,12 +16,11 @@ dialog {
 
     .header {
         font-size: 1.1em;
-        font-weight: bold;
+        font-weight: 600;
         margin-bottom: 10px;
         width: 95%;
         margin-left: auto;
         margin-right: auto;
-        font-weight: 600;
     }
     .body {
         font-size: 0.9em;
@@ -39,6 +38,7 @@ dialog {
         padding: 18px 26px;
         font-family: var(--font-stack);
         font-size: 0.8em;
+        font-weight: 700;
         transition: background-color var(--interactive-transition-speed);
         cursor: pointer;
         @include mixins.unselectable;
