@@ -138,7 +138,7 @@ class UIController {
     private headerActive: boolean = false
     private headerState: headerStates = headerStates.ONLOAD
     private headerPresent: boolean = true
-    private headerDeadZone: number = 50
+    private headerDeadZoneTop: number = 100
     private readonly headerHideClass = 'hide'
     // Check for MobileSafari
     private readonly platformMobileSafari: boolean =
@@ -173,7 +173,7 @@ class UIController {
             }
         } else if (
             this.headerActive &&
-            window.scrollY > this.headerDeadZone &&
+            window.scrollY > this.headerDeadZoneTop &&
             window.scrollY > this.headerPast
         ) {
             // Hide header if scrolling down beyond the header dead zone
