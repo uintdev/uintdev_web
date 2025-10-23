@@ -5,7 +5,7 @@
     "main": "index.js",
     "type": "module",
     "scripts": {
-        "build": "node fetch_blog.ts && webpack --config webpack.config.ts"
+        "build": "pnpm dlx tsx fetch_blog.ts && webpack --config webpack.config.ts"
     },
     "keywords": [],
     "author": "uintdev",
@@ -29,8 +29,14 @@
         "terser-webpack-plugin": "^5.3.14",
         "ts-loader": "^9.5.4",
         "ts-node": "^10.9.2",
+        "tsx": "^4.20.6",
         "typescript": "^5.9.3",
         "webpack": "^5.102.1",
         "webpack-cli": "^5.1.4"
+    },
+    "pnpm": {
+        "ignoredBuiltDependencies": [
+            "esbuild"
+        ]
     }
 }
