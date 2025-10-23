@@ -8,7 +8,7 @@ This website is hosted using Cloudflare Workers.
 
 ### CLI
 
-Ideally, PNPM would be used. The usual NPM should work, if that is of preference.
+You would need to first install PNPM (unless modifications are made to the build commands).
 
 ```bash
 # Install modules (initial setup)
