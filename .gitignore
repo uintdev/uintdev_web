@@ -13,3 +13,6 @@ dist
 
 # macOS Desktop Services Store
 .DS_Store
+
+# Blog post data file
+src/data/blog.json

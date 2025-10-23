@@ -80,15 +80,33 @@
                 <div class="card-container">
                     <% project.list.forEach(function(projectEntry) { %>
                     <a class="card" href="<%= projectEntry.url %>">
-                        <div class="info">
+                        <div class="project-info">
                             <div class="name"><%= projectEntry.name %></div>
                             <div class="tag-container">
                                 <% projectEntry.tags.forEach(function(tag) { %>
                                     <span class="tag"><%= tag %></span>
                                 <% }); %>
                             </div>
+                            <div class="description"><%= projectEntry.description %></div>
                         </div>
-                        <div class="description"> <%= projectEntry.description %> </div>
+                    </a>
+                    <% }); %>
+                </div>
+            </div>
+        </section>
+        <section id="blog">
+            <% const blog = require('../data/blog.json') %>
+            <div class="content-title"><%= blog.metadata.title %></div>
+            <div class="content-desc"><%= blog.metadata.description %></div>
+            <div class="content-block">
+                <div class="card-container">
+                    <% blog.posts.forEach(function(blogEntry) { %>
+                    <a class="card full-width" href="<%= blog.metadata.base + blogEntry.link %>">
+                        <div class="blog-info">
+                            <div class="title"><%= blogEntry.title %></div>
+                            <div class="description"><%= blogEntry.description %></div>
+                            <div class="metadata"><%= blogEntry.metadata %></div>
+                        </div>
                     </a>
                     <% }); %>
                 </div>

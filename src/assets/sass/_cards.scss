@@ -37,7 +37,7 @@
             }
         }
 
-        .info {
+        .project-info {
             text-align: left;
             @include mixins.unselectable;
 
@@ -67,14 +67,60 @@
                         rgba(0, 0, 0, 0.2) 0px 2px 6px;
                 }
             }
+            .description {
+                font-size: 0.89rem;
+                font-weight: 300;
+                margin-top: 12px;
+                color: rgba(var(--color-primary), 0.8);
+            }
         }
 
-        .description {
-            font-size: 0.89rem;
-            font-weight: 300;
-            margin-top: 12px;
-            color: rgba(var(--color-primary), 0.8);
+        .blog-info {
+            text-align: left;
+            @include mixins.unselectable;
+
+            .title {
+                font-size: 1.1rem;
+                margin-bottom: 10px;
+                font-weight: 600;
+                line-height: 1.2em;
+            }
+            .description {
+                font-size: 0.89rem;
+                margin-bottom: 10px;
+                line-height: 1.2em;
+                color: rgba(var(--color-primary), 0.8);
+            }
+            .metadata {
+                font-size: 0.81rem;
+                color: rgba(var(--color-primary), 0.8);
+            }
+
+            /*
+
+            .title {
+                font-size: 1.1rem;
+                font-weight: 600;
+            }
+
+            .description {
+                font-size: 0.89rem;
+                font-weight: 300;
+                margin-top: 12px;
+                color: rgba(var(--color-primary), 0.8);
+            }
+
+            .metadata {
+                font-size: 0.89rem;
+                font-weight: 300;
+                margin-top: 12px;
+                color: rgba(var(--color-primary), 0.8);
+            }*/
         }
+    }
+
+    .full-width {
+        max-width: 100%;
     }
 
     @media (prefers-reduced-motion) {
