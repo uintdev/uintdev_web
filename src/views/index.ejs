@@ -2,149 +2,148 @@
 <% const process = require('process') %>
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <% const meta = require('../data/meta.json') %>
-    <meta name="robots" content="nosnippet">
-    <meta name="keywords" content="<%= meta.keywords %>">
-    <meta name="author" content="<%= meta.name %>">
-    <meta name="robots" content="max-snippet:0">
-    <meta name="description" content="<%= meta.description %>">
-    <meta property="og:description" content="<%= meta.description %>">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="<%= meta.title %>">
-    <meta property="og:url" content="<%= meta.url %>">
-    <meta name="twitter:card" content="summary">
-    <meta property="twitter:title" content="<%= meta.title %>">
-    <meta name="theme-color" content="<%= meta.theme.dark %>" media="(prefers-color-scheme: dark)">
-    <meta name="theme-color" content="<%= meta.theme.light %>" media="(prefers-color-scheme: light)">
-    <title><%= meta.title %></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="<%- require('../assets/img/main/favicon.png') %>">
-    <link rel="apple-touch-icon" href="<%- require('../assets/img/main/favicon.png') %>">
-    <link href="<%- htmlWebpackPlugin.files.css[0] %>" rel="stylesheet">
-    <script type="text/javascript" src="<%- htmlWebpackPlugin.files.js[0] %>"></script>
-</head>
-
-<body>
-    <header>
-        <a href="#" class="title" title="Title -- press to scroll to top">uint.dev</a>
-        <span class="options">
-            <a href="https://blog.uint.dev/" class="button-link" title="Blog">
-                <span class="blog-icon"></span>
-            </a>
-            <a href="#" class="theme-invert hide" title="Invert theme">
-                <span class="theme-invert-icon"></span>
-            </a>
-        </span>
-    </header>
-    <main>
-        <div class="init-blk">
-            <div class="splash-blk">
-                <div class="splash-info">
-                    <div class="picture"></div>
-                    <div class="about">Developer &bull; Designer &bull; Security</div>
-                    <div class="button-container">
-                        <% const contact = require('../data/contact.json') %>
-                        <% let contactEntry = contact %>
-                        <% for (let i = 0; i < contactEntry.length; i++) { %>
-                            <a href="<%= contactEntry[i].url %>" class="button-link" title="<%= contactEntry[i].name %>"><%= contactEntry[i].name %></a>
-                        <% } %>
+    <head>
+        <meta charset="utf-8">
+        <% const meta = require('../data/meta.json') %>
+        <meta name="robots" content="nosnippet">
+        <meta name="keywords" content="<%= meta.keywords %>">
+        <meta name="author" content="<%= meta.name %>">
+        <meta name="robots" content="max-snippet:0">
+        <meta name="description" content="<%= meta.description %>">
+        <meta property="og:description" content="<%= meta.description %>">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="<%= meta.title %>">
+        <meta property="og:url" content="<%= meta.url %>">
+        <meta name="twitter:card" content="summary">
+        <meta property="twitter:title" content="<%= meta.title %>">
+        <meta name="theme-color" content="<%= meta.theme.dark %>" media="(prefers-color-scheme: dark)">
+        <meta name="theme-color" content="<%= meta.theme.light %>" media="(prefers-color-scheme: light)">
+        <title><%= meta.title %></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="<%- require('../assets/img/main/favicon.png') %>">
+        <link rel="apple-touch-icon" href="<%- require('../assets/img/main/favicon.png') %>">
+        <link href="<%- htmlWebpackPlugin.files.css[0] %>" rel="stylesheet">
+        <script type="text/javascript" src="<%- htmlWebpackPlugin.files.js[0] %>"></script>
+    </head>
+    <body>
+        <header>
+            <a href="#" class="title" title="Title -- press to scroll to top">uint.dev</a>
+            <span class="options">
+                <a href="https://blog.uint.dev/" class="button-link" title="Blog">
+                    <span class="blog-icon"></span>
+                </a>
+                <a href="#" class="theme-invert hide" title="Invert theme">
+                    <span class="theme-invert-icon"></span>
+                </a>
+            </span>
+        </header>
+        <main>
+            <div class="init-blk">
+                <div class="splash-blk">
+                    <div class="splash-info">
+                        <div class="picture"></div>
+                        <div class="about">Developer &bull; Designer &bull; Security</div>
+                        <div class="button-container">
+                            <% const contact = require('../data/contact.json') %>
+                            <% let contactEntry = contact %>
+                            <% for (let i = 0; i < contactEntry.length; i++) { %>
+                                <a href="<%= contactEntry[i].url %>" class="button-link" title="<%= contactEntry[i].name %>"><%= contactEntry[i].name %></a>
+                            <% } %>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <section id="about">
-            <div class="content-title">About me</div>
-            <div class="content-block">
-                <div class="sub-info">
-                    <% // Get about contents %>
-                    <% var aboutData = 'unknown_data' %>
-                    <% const aboutPath = process.cwd() + '/src/data/about.html' %>
-                    <% try { %>
-                    <%     var readData = fs.readFileSync(aboutPath, 'utf8') %>
-                    <%     aboutData = readData %>
-                    <% } catch (e) { %>
-                    <%     console.error('Failed to access file:') %>
-                    <%     console.error(e) %>
-                    <% } %>
-                    <%= aboutData %>
+            <section id="about">
+                <div class="content-title">About me</div>
+                <div class="content-block">
+                    <div class="sub-info">
+                        <% // Get about contents %>
+                        <% var aboutData = 'unknown_data' %>
+                        <% const aboutPath = process.cwd() + '/src/data/about.html' %>
+                        <% try { %>
+                        <%     var readData = fs.readFileSync(aboutPath, 'utf8') %>
+                        <%     aboutData = readData %>
+                        <% } catch (e) { %>
+                        <%     console.error('Failed to access file:') %>
+                        <%     console.error(e) %>
+                        <% } %>
+                        <%= aboutData %>
+                    </div>
                 </div>
-            </div>
-        </section>
-        <section id="projects">
-            <% const project = require('../data/projects.json') %>
-            <div class="content-title"><%= project.metadata.title %></div>
-            <div class="content-desc"><%= project.metadata.description %></div>
-            <div class="content-block">
-                <div class="card-container">
-                    <% project.list.forEach(function(projectEntry) { %>
-                    <a class="card" href="<%= projectEntry.url %>">
-                        <div class="project-info">
-                            <div class="name"><%= projectEntry.name %></div>
-                            <div class="tag-container">
-                                <% projectEntry.tags.forEach(function(tag) { %>
-                                    <span class="tag"><%= tag %></span>
-                                <% }); %>
+            </section>
+            <section id="projects">
+                <% const project = require('../data/projects.json') %>
+                <div class="content-title"><%= project.metadata.title %></div>
+                <div class="content-desc"><%= project.metadata.description %></div>
+                <div class="content-block">
+                    <div class="card-container">
+                        <% project.list.forEach(function(projectEntry) { %>
+                        <a class="card" href="<%= projectEntry.url %>">
+                            <div class="project-info">
+                                <div class="name"><%= projectEntry.name %></div>
+                                <div class="tag-container">
+                                    <% projectEntry.tags.forEach(function(tag) { %>
+                                        <span class="tag"><%= tag %></span>
+                                    <% }); %>
+                                </div>
+                                <div class="description"><%= projectEntry.description %></div>
                             </div>
-                            <div class="description"><%= projectEntry.description %></div>
-                        </div>
-                    </a>
-                    <% }); %>
+                        </a>
+                        <% }); %>
+                    </div>
                 </div>
-            </div>
-        </section>
-        <section id="blog">
-            <% const blog = require('../data/blog.json') %>
-            <div class="content-title"><%= blog.metadata.title %></div>
-            <div class="content-desc"><%= blog.metadata.description %></div>
-            <div class="content-block">
-                <div class="card-container">
-                    <% blog.posts.forEach(function(blogEntry) { %>
-                    <a class="card full-width" href="<%= blog.metadata.base + blogEntry.link %>">
-                        <div class="blog-info">
-                            <div class="title"><%= blogEntry.title %></div>
-                            <div class="description"><%= blogEntry.description %></div>
-                            <div class="metadata"><%= blogEntry.metadata %></div>
-                        </div>
-                    </a>
-                    <% }); %>
+            </section>
+            <section id="blog">
+                <% const blog = require('../data/blog.json') %>
+                <div class="content-title"><%= blog.metadata.title %></div>
+                <div class="content-desc"><%= blog.metadata.description %></div>
+                <div class="content-block">
+                    <div class="card-container">
+                        <% blog.posts.forEach(function(blogEntry) { %>
+                        <a class="card full-width" href="<%= blog.metadata.base + blogEntry.link %>">
+                            <div class="blog-info">
+                                <div class="title"><%= blogEntry.title %></div>
+                                <div class="description"><%= blogEntry.description %></div>
+                                <div class="metadata"><%= blogEntry.metadata %></div>
+                            </div>
+                        </a>
+                        <% }); %>
+                    </div>
                 </div>
+            </section>
+            <dialog>
+                <div class="header"></div>
+                <div class="body"></div>
+                <a href="#" class="close">Close</a>
+            </dialog>
+        </main>
+        <footer>
+            <% // Get (shortened) commit hash %>
+            <% var commitID = 'unknown_commit' %>
+            <% const commitPath = process.cwd() + '/.git/FETCH_HEAD' %>
+            <% try { %>
+            <%     var readData = fs.readFileSync(commitPath, 'utf8') %>
+            <%     commitID = readData %>
+            <%     var commitIDPartial = commitID.slice(0, 7) %>
+            <% } catch (e) { %>
+            <%     console.error('Failed to access file:') %>
+            <%     console.error(e) %>
+            <% } %>
+            <% // Construct URL to commit on GitHub %>
+            <% var commitURL = commitID.split("\x20") %>
+            <% commitURL = commitURL[commitURL.length - 1] %>
+            <% commitURL = commitURL.trim() %>
+            <% commitFull = commitID.split("\x09")[0] %>
+            <% // Output results %>
+            <div class="content">
+                <div class="label">made with <span class="heart">&#10084;</span></div>
+                <a href="<%= commitURL %>/commit/<%= commitFull %>" title="View latest commit on GitHub" class="commit">
+                    <span class="git-icon-container"><span class="git-icon"></span></span>
+                    <span class="commit-id">
+                        <%= commitIDPartial %>
+                    </span>
+                </a>
             </div>
-        </section>
-        <dialog>
-            <div class="header"></div>
-            <div class="body"></div>
-            <a href="#" class="close">Close</a>
-        </dialog>
-    </main>
-    <footer>
-        <% // Get (shortened) commit hash %>
-        <% var commitID = 'unknown_commit' %>
-        <% const commitPath = process.cwd() + '/.git/FETCH_HEAD' %>
-        <% try { %>
-        <%     var readData = fs.readFileSync(commitPath, 'utf8') %>
-        <%     commitID = readData %>
-        <%     var commitIDPartial = commitID.slice(0, 7) %>
-        <% } catch (e) { %>
-        <%     console.error('Failed to access file:') %>
-        <%     console.error(e) %>
-        <% } %>
-        <% // Construct URL to commit on GitHub %>
-        <% var commitURL = commitID.split("\x20") %>
-        <% commitURL = commitURL[commitURL.length - 1] %>
-        <% commitURL = commitURL.trim() %>
-        <% commitFull = commitID.split("\x09")[0] %>
-        <% // Output results %>
-        <div class="content">
-            <div class="label">made with <span class="heart">&#10084;</span></div>
-            <a href="<%= commitURL %>/commit/<%= commitFull %>" title="View latest commit on GitHub" class="commit">
-                <span class="git-icon-container"><span class="git-icon"></span></span>
-                <span class="commit-id">
-                    <%= commitIDPartial %>
-                </span>
-            </a>
-        </div>
-    </footer>
-</body>
+        </footer>
+    </body>
 </html>
