@@ -5,7 +5,7 @@
     "main": "index.js",
     "type": "module",
     "scripts": {
-        "build": "pnpm dlx tsx fetch_blog.ts && pnpm dlx tsx node_modules/webpack-cli/bin/cli.js --config webpack.config.ts"
+        "build": "pnpm dlx tsx fetch_blog.ts && NODE_OPTIONS=\"--no-experimental-webstorage\" pnpm dlx tsx node_modules/webpack-cli/bin/cli.js --config webpack.config.ts"
     },
     "keywords": [],
     "author": "uintdev",
@@ -15,7 +15,7 @@
         "url": "git://github.com/uintdev/uintdev_web.git"
     },
     "devDependencies": {
-        "@types/node": "^24.10.0",
+        "@types/node": "^24.10.1",
         "axios": "^1.13.2",
         "cheerio": "^1.1.2",
         "copy-webpack-plugin": "^12.0.2",
@@ -24,7 +24,7 @@
         "html-loader": "^5.1.0",
         "html-webpack-plugin": "^5.6.4",
         "mini-css-extract-plugin": "^2.9.4",
-        "sass": "^1.93.3",
+        "sass": "^1.94.0",
         "sass-loader": "^16.0.6",
         "terser-webpack-plugin": "^5.3.14",
         "ts-loader": "^9.5.4",
