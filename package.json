@@ -5,7 +5,7 @@
     "main": "index.js",
     "type": "module",
     "scripts": {
-        "build": "pnpm dlx tsx fetch_blog.ts && NODE_OPTIONS=\"--no-experimental-webstorage\" pnpm dlx tsx node_modules/webpack-cli/bin/cli.js --config webpack.config.ts"
+        "build": "pnpm dlx tsx fetch_blog.ts && pnpm dlx tsx node_modules/webpack-cli/bin/cli.js --config webpack.config.ts"
     },
     "keywords": [],
     "author": "uintdev",
