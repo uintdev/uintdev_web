@@ -1,11 +1,11 @@
 {
-    "keywords": "uintdev, uint, dev, portfolio, personal, site, web, software, development, art, illustrations, illustrator, code, projects, security",
-    "name": "uintdev",
-    "title": "uint.dev",
-    "description": "Web and software developer. System administrator. Illustrator.",
-    "url": "https://uint.dev/",
-    "theme": {
-        "dark": "#1d1f21",
-        "light": "#f0f0f0"
-    }
+  "keywords": "uintdev, uint, dev, portfolio, personal, site, web, software, development, art, illustrations, illustrator, code, projects, security",
+  "name": "uintdev",
+  "title": "uint.dev",
+  "description": "Web and software developer. System administrator. Illustrator.",
+  "url": "https://uint.dev/",
+  "theme": {
+    "dark": "#1d1f21",
+    "light": "#f0f0f0"
+  }
 }

@@ -1,4 +1,4 @@
-@use 'mixins';
+@use "mixins";
 
 header {
     position: fixed;
@@ -18,7 +18,8 @@ header {
     padding: 16px 20px;
     border-radius: 50px;
     border: 1px solid rgba(var(--color-primary), 0.1);
-    box-shadow: inset 0 0 20px rgba(var(--color-primary), 0.05),
+    box-shadow:
+        inset 0 0 20px rgba(var(--color-primary), 0.05),
         rgba(0, 0, 0, 0.2) 0px 4px 20px;
 
     &.hide {
@@ -90,7 +91,7 @@ header {
             }
 
             .blog-icon {
-                @include mixins.image-loader('header/blog.svg');
+                @include mixins.image-loader("header/blog.svg");
                 background-color: rgba(var(--color-secondary-inverted-icon), 1);
                 height: var(--header-icon-size);
                 width: 100%;
@@ -124,7 +125,7 @@ header {
             }
 
             .theme-invert-icon {
-                @include mixins.image-loader('header/invert.svg');
+                @include mixins.image-loader("header/invert.svg");
                 background-color: rgba(var(--color-secondary-inverted-icon), 1);
                 height: var(--header-icon-size);
                 width: 100%;

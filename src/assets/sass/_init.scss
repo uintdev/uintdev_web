@@ -1,5 +1,5 @@
-@use 'sass:meta';
-@use 'mixins';
+@use "sass:meta";
+@use "mixins";
 
 .init-blk {
     max-width: 100%;
@@ -30,14 +30,14 @@
                 width: 150px;
                 background-color: rgba(var(--color-primary), 1);
                 border-radius: 40px;
-                @include mixins.image-loader('main/picture.svg');
+                @include mixins.image-loader("main/picture.svg");
             }
 
             .about {
                 font-weight: 700;
             }
 
-            @include meta.load-css('buttons');
+            @include meta.load-css("buttons");
         }
 
         @media (prefers-reduced-motion) {

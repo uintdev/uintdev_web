@@ -116,7 +116,7 @@
 
     --interactive-transition-speed: 0.2s;
 
-    --font-stack: 'Nunito', sans-serif;
+    --font-stack: "Nunito", sans-serif;
 }
 
 @media (prefers-color-scheme: light) {
@@ -125,10 +125,10 @@
     }
 }
 
-[color-scheme='light'] {
+[color-scheme="light"] {
     @include theme_light;
 }
 
-[color-scheme='dark'] {
+[color-scheme="dark"] {
     @include theme_dark;
 }
