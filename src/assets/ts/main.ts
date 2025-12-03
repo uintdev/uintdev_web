@@ -6,12 +6,12 @@ interface NodeInterface extends Node {
 }
 
 class Theme {
-  public readonly themeMeta = 'meta[name="theme-color"]';
-  private readonly themeOverride = "color-scheme";
+  public readonly themeMeta: string = 'meta[name="theme-color"]';
+  private readonly themeOverride: string = "color-scheme";
   private readonly themeDark: string = "dark";
   private readonly themeLight: string = "light";
   private readonly themeDefault: string = this.themeDark;
-  private readonly schemeType: Function = (schemeColor: string) => {
+  private readonly schemeType: Function = (schemeColor: string): string => {
     return "(prefers-color-scheme: " + schemeColor + ")";
   };
 
@@ -107,7 +107,7 @@ class Theme {
 
   public rateLimit(): boolean {
     let timeCurrent: number = Date.now();
-    let timeDifference = timeCurrent - this.executionLast;
+    let timeDifference: number = timeCurrent - this.executionLast;
 
     if (timeDifference <= this.executionRate) return true;
 
@@ -117,7 +117,7 @@ class Theme {
   }
 }
 
-const theme = new Theme();
+const theme: Theme = new Theme();
 
 // Header state types
 enum headerStates {
@@ -133,7 +133,7 @@ class UIController {
   private headerState: headerStates = headerStates.ONLOAD;
   private headerPresent: boolean = true;
   private headerDeadZoneTop: number = 100;
-  private readonly headerHideClass = "hide";
+  private readonly headerHideClass: string = "hide";
   // Check for MobileSafari
   private readonly platformMobileSafari: boolean =
     !CSS.supports("user-select: none") &&
@@ -215,7 +215,7 @@ class UIController {
     }
   }
 
-  public scrollHandler(event: Event) {
+  public scrollHandler(event: Event): void {
     event.preventDefault();
     this.scroll("body");
   }
@@ -246,7 +246,7 @@ class UIController {
   }
 }
 
-const uiController = new UIController();
+const uiController: UIController = new UIController();
 
 class EventController {
   public readonly selector: string =
@@ -255,7 +255,7 @@ class EventController {
   /**
    * Initiate input event
    * @method init
-   * @param event {Event} Event data to utilise
+   * @param event {Event} Event data to utilize
    * @returns {void}
    */
   public init(event: Event): void {
@@ -280,7 +280,7 @@ class EventController {
   }
 }
 
-const eventController = new EventController();
+const eventController: EventController = new EventController();
 
 class DialogController {
   /**
@@ -375,7 +375,7 @@ class Egg {
     );
   }
 
-  private payload = (): void => {
+  private payload: Function = (): void => {
     dialogController.open("Egg", "Here is some audio.");
     this.audioGen();
 
@@ -408,7 +408,7 @@ class Egg {
    * @param event {KeyboardEvent} Event information from the keyboard
    * @returns {void}
    */
-  public initiate = (event: KeyboardEvent): void => {
+  public initiate(event: KeyboardEvent): void {
     let keyEventData: string = event.key;
     if (keyEventData.length === 1) {
       keyEventData = event.key.toUpperCase();
@@ -431,16 +431,16 @@ class Egg {
       document.removeEventListener("keydown", this.initiate);
       this.payload();
     }
-  };
+  }
 }
 
 const egg = new Egg();
 
 window.onload = function (): void {
-  // Unhide option if there is JavaScript enabled
+  // Show option if there is JavaScript enabled
   let revealToggle: Element | null = document.querySelector(".theme-invert");
   if (revealToggle === null) {
-    console.error("Unable to unhide theme toggle");
+    console.error("Unable to show theme toggle");
   } else {
     revealToggle.classList.remove("hide");
   }
