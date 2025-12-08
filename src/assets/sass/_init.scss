@@ -38,6 +38,14 @@
             }
 
             @include meta.load-css("buttons");
+
+            .message {
+                line-height: 2.5rem;
+
+                .title {
+                    font-size: 64px;
+                }
+            }
         }
 
         @media (prefers-reduced-motion) {
