@@ -6,7 +6,7 @@ import CssMinimizerPlugin from "css-minimizer-webpack-plugin";
 import CopyPlugin from "copy-webpack-plugin";
 
 import { fileURLToPath } from "url";
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const __dirname: string = path.dirname(fileURLToPath(import.meta.url));
 
 const configBuild = {
   entry: {
