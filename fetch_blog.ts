@@ -109,6 +109,8 @@ console.log("Stage 2: write blog posts to file");
 
 await writeJsonToFile(directory, filename, data);
 
-console.log("Done! Proceeding with actual build.");
+console.log("Done! Proceeding with build.");
 
 console.log("------------------------------------------");
+
+console.log("Creating build...");
