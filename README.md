@@ -8,13 +8,11 @@ This website is hosted using Cloudflare Workers.
 
 ### CLI
 
-You would need to first install PNPM (unless modifications are made to the build commands).
+This mainly uses the Bun runtime. Node.js has to still be installed due to Webpack being hardcoded to use it.
+In the case of Cloudflare Workers, it offers a Node compatibility layer that effectively acts like Node.js down to the name.
 
 ```bash
-# Install modules (initial setup)
-pnpm install
-# (Re)build distribution files from 'src/'
-pnpm run build
+bun run build
 ```
 
 ### Web server
