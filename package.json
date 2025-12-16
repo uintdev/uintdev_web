@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "build": "bun run fetch_blog.ts && bunx --bun webpack --config webpack.config.ts --loader=ts-node/esm"
+    "build": "bun run fetch_blog.ts && bunx tsx node_modules/webpack-cli/bin/cli.js --config webpack.config.ts"
   },
   "keywords": [],
   "author": "uintdev",
