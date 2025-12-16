@@ -1,6 +1,5 @@
 console.log("---------- Blog Entry Collector ----------");
 
-import fs from "fs/promises";
 import path from "path";
 import axios from "axios";
 import * as cheerio from "cheerio";
@@ -88,12 +87,9 @@ async function writeJsonToFile(
   data: object,
 ) {
   try {
-    await fs.mkdir(directory, { recursive: true });
     const filePath = path.join(directory, filename);
-
     console.log(`Writing to ${filePath}...`);
-    await fs.writeFile(filePath, JSON.stringify(data, null, 2), "utf8");
-
+    await Bun.write(filePath, JSON.stringify(data, null, 2));
     console.log(`Successfully wrote to ${filePath}`);
   } catch (error) {
     console.error("Error writing to JSON file:", error);
