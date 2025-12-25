@@ -1,6 +1,6 @@
 # uintdev web
 
-This is the source code of the Node.js application behind bundling assets for the website [uint.dev](https://uint.dev/).
+This is the source code of a JavaScript application behind bundling assets for the website [uint.dev](https://uint.dev/).
 
 This website is hosted using Cloudflare Workers.
 
