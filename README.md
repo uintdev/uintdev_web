@@ -12,6 +12,7 @@ This mainly uses the Bun runtime. Node.js has to still be installed due to Webpa
 In the case of Cloudflare Workers, it offers a Node compatibility layer that effectively acts like Node.js down to the name.
 
 ```bash
+bun update
 bun run build
 ```
 
