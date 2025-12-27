@@ -345,11 +345,25 @@ class DialogController {
   }
 }
 
-const dialogController = new DialogController();
+const dialogController: DialogController = new DialogController();
 
 class Egg {
   private readonly audioFile: string = "data/bg_audio.mp3";
   private readonly initAudioDuration: number = 1000;
+  private keysPressed: string[] = [];
+  private readonly keysCombo: string[] = [
+    "ArrowUp",
+    "ArrowUp",
+    "ArrowDown",
+    "ArrowDown",
+    "ArrowLeft",
+    "ArrowRight",
+    "ArrowLeft",
+    "ArrowRight",
+    "B",
+    "A",
+    "Enter",
+  ];
 
   /**
    * Generate audio
@@ -375,7 +389,7 @@ class Egg {
     );
   }
 
-  private payload: Function = (): void => {
+  private payload(): void {
     dialogController.open("Egg", "Here is some audio.");
     this.audioGen();
 
@@ -385,22 +399,7 @@ class Egg {
     setTimeout(function (): void {
       audioController.play();
     }, this.initAudioDuration);
-  };
-
-  private keysPressed: string[] = [];
-  private readonly keysCombo: string[] = [
-    "ArrowUp",
-    "ArrowUp",
-    "ArrowDown",
-    "ArrowDown",
-    "ArrowLeft",
-    "ArrowRight",
-    "ArrowLeft",
-    "ArrowRight",
-    "B",
-    "A",
-    "Enter",
-  ];
+  }
 
   /**
    * Easter egg
@@ -408,7 +407,7 @@ class Egg {
    * @param event {KeyboardEvent} Event information from the keyboard
    * @returns {void}
    */
-  public initiate(event: KeyboardEvent): void {
+  public initiate = (event: KeyboardEvent): void => {
     let keyEventData: string = event.key;
     if (keyEventData.length === 1) {
       keyEventData = event.key.toUpperCase();
@@ -431,10 +430,10 @@ class Egg {
       document.removeEventListener("keydown", this.initiate);
       this.payload();
     }
-  }
+  };
 }
 
-const egg = new Egg();
+const egg: Egg = new Egg();
 
 window.onload = function (): void {
   // Show option if there is JavaScript enabled
