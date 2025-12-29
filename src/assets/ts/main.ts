@@ -25,7 +25,7 @@ class Theme {
    * @returns {string}
    */
   private get(): string {
-    let result: string;
+    let result: string = this.themeDefault;
     if (document.documentElement.hasAttribute(this.themeOverride)) {
       result =
         document.documentElement.getAttribute(this.themeOverride) ??
@@ -35,13 +35,8 @@ class Theme {
         result = themeType.DARK;
       } else if (window.matchMedia(this.schemeType(themeType.LIGHT)).matches) {
         result = themeType.LIGHT;
-      } else {
-        result = this.themeDefault;
       }
-    } else {
-      result = this.themeDefault;
     }
-
     return result;
   }
 
