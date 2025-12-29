@@ -249,8 +249,7 @@ class UIController {
 const uiController: UIController = new UIController();
 
 class EventController {
-  public readonly selector: string =
-    ".fab-scroll, .button-link, .card, .theme-invert";
+  public readonly selector: string = ".button-link, .card, .theme-invert";
 
   /**
    * Initiate input event
