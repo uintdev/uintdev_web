@@ -5,12 +5,16 @@ interface NodeInterface extends Node {
   getAttribute: Function;
 }
 
+enum themeType {
+  LIGHT = "light",
+  DARK = "dark",
+  UNKNOWN = "unknown",
+}
+
 class Theme {
   public readonly themeMeta: string = 'meta[name="theme-color"]';
   private readonly themeOverride: string = "color-scheme";
-  private readonly themeDark: string = "dark";
-  private readonly themeLight: string = "light";
-  private readonly themeDefault: string = this.themeDark;
+  private readonly themeDefault: string = themeType.DARK;
   private readonly schemeType: Function = (schemeColor: string): string => {
     return "(prefers-color-scheme: " + schemeColor + ")";
   };
@@ -27,10 +31,10 @@ class Theme {
         document.documentElement.getAttribute(this.themeOverride) ??
         this.themeDefault;
     } else if (window.matchMedia) {
-      if (window.matchMedia(this.schemeType(this.themeDark)).matches) {
-        result = this.themeDark;
-      } else if (window.matchMedia(this.schemeType(this.themeLight)).matches) {
-        result = this.themeLight;
+      if (window.matchMedia(this.schemeType(themeType.DARK)).matches) {
+        result = themeType.DARK;
+      } else if (window.matchMedia(this.schemeType(themeType.LIGHT)).matches) {
+        result = themeType.LIGHT;
       } else {
         result = this.themeDefault;
       }
@@ -47,26 +51,26 @@ class Theme {
    * @returns {string}
    */
   public set(): void {
-    let themeNext: string = "unknown";
+    let themeNext: string = themeType.UNKNOWN;
     let themeAuto: boolean = false;
     let themeCurrent: string = this.get();
 
-    if (themeCurrent === this.themeDark) {
-      themeNext = this.themeLight;
-    } else if (themeCurrent === this.themeLight) {
-      themeNext = this.themeDark;
+    if (themeCurrent === themeType.DARK) {
+      themeNext = themeType.LIGHT;
+    } else if (themeCurrent === themeType.LIGHT) {
+      themeNext = themeType.DARK;
     }
 
     if (window.matchMedia) {
       if (
-        window.matchMedia(this.schemeType(this.themeDark)).matches &&
-        themeNext === this.themeDark
+        window.matchMedia(this.schemeType(themeType.DARK)).matches &&
+        themeNext === themeType.DARK
       ) {
         document.documentElement.removeAttribute(this.themeOverride);
         themeAuto = true;
       } else if (
-        window.matchMedia(this.schemeType(this.themeLight)).matches &&
-        themeNext === this.themeLight
+        window.matchMedia(this.schemeType(themeType.LIGHT)).matches &&
+        themeNext === themeType.LIGHT
       ) {
         document.documentElement.removeAttribute(this.themeOverride);
         themeAuto = true;
@@ -87,9 +91,9 @@ class Theme {
       let themeColor: string;
       let themeIndex: number = 0;
 
-      if (themeNext === this.themeDark) {
+      if (themeNext === themeType.DARK) {
         themeIndex = 0;
-      } else if (themeNext === this.themeLight) {
+      } else if (themeNext === themeType.LIGHT) {
         themeIndex = 1;
       }
 
