@@ -291,8 +291,10 @@ class DialogController {
   public open(title: string, body: string): void {
     let dialogMain: HTMLDialogElement | null = document.querySelector("dialog");
 
-    if (dialogMain === null)
-      return console.error("Cannot build message without dialog being present");
+    if (dialogMain === null) {
+      console.error("Cannot build message without dialog being present");
+      return;
+    }
 
     let dialogClose: HTMLElement | null = dialogMain.querySelector(".close");
 
@@ -312,8 +314,10 @@ class DialogController {
 
     dialogMain.showModal();
 
-    if (dialogClose === null)
-      return console.error("Dialog missing close button");
+    if (dialogClose === null) {
+      console.error("Dialog missing close button");
+      return;
+    }
 
     dialogClose.blur();
   }
@@ -329,8 +333,10 @@ class DialogController {
 
     let dialogMain: HTMLDialogElement | null = document.querySelector("dialog");
 
-    if (dialogMain === null)
-      return console.error("Dialog not present while attempting to close");
+    if (dialogMain === null) {
+      console.error("Dialog not present while attempting to close");
+      return;
+    }
 
     dialogMain.close();
 
