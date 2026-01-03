@@ -17,6 +17,17 @@ interface Post {
   metadata: string;
 }
 
+interface BlogEntryMetadata {
+  title: string;
+  description: string;
+  base: string;
+}
+
+interface BlogEntry {
+  metadata: BlogEntryMetadata;
+  posts: Post[];
+}
+
 async function fetchData(
   url: string,
   className: string,
@@ -64,10 +75,7 @@ async function fetchData(
   }
 }
 
-let blogEntryObject: {
-  metadata: object;
-  posts: Post[];
-} = {
+let blogEntryObject: BlogEntry = {
   metadata: {
     title: title,
     description: description,
