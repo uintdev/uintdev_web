@@ -7,8 +7,8 @@ import * as cheerio from "cheerio";
 const url: string = "https://blog.uint.dev";
 const className: string = ".listing .card";
 const postLimit: number = 5;
-const title: string = "Recent posts";
-const description: string = `More can be viewed <a href="${url}">here</a>.`;
+const title: string = "Blog";
+const description: string = `View all posts <a href="${url}">here</a>.`;
 
 interface Post {
   link: string | undefined;
