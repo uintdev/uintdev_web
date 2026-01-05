@@ -46,7 +46,7 @@ async function fetchData(
       let link: string | undefined = card.attr("href");
       let title: string = card.find(".title").eq(0).text();
       let description: string = card.find(".description").eq(0).text();
-      let metadata: string = card.find(".metadata").eq(0).text();
+      let metadata: string = card.find(".metadata").eq(0).html() ?? "";
 
       console.log(`--- Index ${index} ---`);
       console.log(link);
