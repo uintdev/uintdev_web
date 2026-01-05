@@ -97,6 +97,8 @@
             .metadata {
                 font-size: 0.81rem;
                 color: rgba(var(--color-primary), 0.8);
+                display: flex;
+                gap: 10px;
             }
         }
     }
