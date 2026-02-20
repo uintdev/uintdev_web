@@ -55,7 +55,7 @@ async function fetchData(
       console.log(metadata);
       console.log(`----------------------`);
 
-      let entryData = {
+      let entryData: Post = {
         link: link,
         title: title,
         description: description,
@@ -93,7 +93,7 @@ async function writeJsonToFile(
   directory: string,
   filename: string,
   data: object,
-) {
+): Promise<void> {
   try {
     const filePath = path.join(directory, filename);
     console.log(`Writing to ${filePath}...`);
@@ -107,7 +107,7 @@ async function writeJsonToFile(
 
 const directory = "./src/data";
 const filename = "blog.json";
-const data = blogEntryObject;
+const data: BlogEntry = blogEntryObject;
 
 console.log("Stage 2: write blog posts to file");
 
