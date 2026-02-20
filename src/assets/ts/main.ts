@@ -435,7 +435,7 @@ class Egg {
 
 const egg: Egg = new Egg();
 
-window.onload = function (): void {
+document.addEventListener("DOMContentLoaded", (): void => {
   // Show option if there is JavaScript enabled
   let revealToggle: Element | null = document.querySelector(".theme-invert");
   if (revealToggle === null) {
@@ -485,4 +485,4 @@ window.onload = function (): void {
   }
 
   document.addEventListener("keydown", egg.initiate);
-};
+});
