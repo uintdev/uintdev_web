@@ -1,7 +1,7 @@
 // Store theme color data
 let themeOriginalColors: string[] = [];
 
-enum themeType {
+enum ThemeType {
   LIGHT = "light",
   DARK = "dark",
   UNKNOWN = "unknown",
@@ -10,7 +10,7 @@ enum themeType {
 class Theme {
   public readonly themeMeta: string = 'meta[name="theme-color"]';
   private readonly themeOverride: string = "color-scheme";
-  private readonly themeDefault: string = themeType.DARK;
+  private readonly themeDefault: string = ThemeType.DARK;
   private readonly schemeType: Function = (schemeColor: string): string => {
     return "(prefers-color-scheme: " + schemeColor + ")";
   };
@@ -27,10 +27,10 @@ class Theme {
         document.documentElement.getAttribute(this.themeOverride) ??
         this.themeDefault;
     } else if (window.matchMedia) {
-      if (window.matchMedia(this.schemeType(themeType.DARK)).matches) {
-        result = themeType.DARK;
-      } else if (window.matchMedia(this.schemeType(themeType.LIGHT)).matches) {
-        result = themeType.LIGHT;
+      if (window.matchMedia(this.schemeType(ThemeType.DARK)).matches) {
+        result = ThemeType.DARK;
+      } else if (window.matchMedia(this.schemeType(ThemeType.LIGHT)).matches) {
+        result = ThemeType.LIGHT;
       }
     }
     return result;
@@ -42,26 +42,26 @@ class Theme {
    * @returns {string}
    */
   public set(): void {
-    let themeNext: string = themeType.UNKNOWN;
+    let themeNext: string = ThemeType.UNKNOWN;
     let themeAuto: boolean = false;
     let themeCurrent: string = this.get();
 
-    if (themeCurrent === themeType.DARK) {
-      themeNext = themeType.LIGHT;
-    } else if (themeCurrent === themeType.LIGHT) {
-      themeNext = themeType.DARK;
+    if (themeCurrent === ThemeType.DARK) {
+      themeNext = ThemeType.LIGHT;
+    } else if (themeCurrent === ThemeType.LIGHT) {
+      themeNext = ThemeType.DARK;
     }
 
     if (window.matchMedia) {
       if (
-        window.matchMedia(this.schemeType(themeType.DARK)).matches &&
-        themeNext === themeType.DARK
+        window.matchMedia(this.schemeType(ThemeType.DARK)).matches &&
+        themeNext === ThemeType.DARK
       ) {
         document.documentElement.removeAttribute(this.themeOverride);
         themeAuto = true;
       } else if (
-        window.matchMedia(this.schemeType(themeType.LIGHT)).matches &&
-        themeNext === themeType.LIGHT
+        window.matchMedia(this.schemeType(ThemeType.LIGHT)).matches &&
+        themeNext === ThemeType.LIGHT
       ) {
         document.documentElement.removeAttribute(this.themeOverride);
         themeAuto = true;
@@ -82,9 +82,9 @@ class Theme {
       let themeColor: string;
       let themeIndex: number = 0;
 
-      if (themeNext === themeType.DARK) {
+      if (themeNext === ThemeType.DARK) {
         themeIndex = 0;
-      } else if (themeNext === themeType.LIGHT) {
+      } else if (themeNext === ThemeType.LIGHT) {
         themeIndex = 1;
       }
 
@@ -115,7 +115,7 @@ class Theme {
 const theme: Theme = new Theme();
 
 // Header state types
-enum headerStates {
+enum HeaderState {
   SHOW,
   HIDE,
   ONLOAD,
@@ -125,7 +125,7 @@ class UIController {
   // Manage header state
   private headerPast: number = window.scrollY;
   private headerActive: boolean = false;
-  private headerState: headerStates = headerStates.ONLOAD;
+  private headerState: HeaderState = HeaderState.ONLOAD;
   private headerPresent: boolean = true;
   private headerDeadZoneTop: number = 100;
   private readonly headerHideClass: string = "hide";
@@ -155,8 +155,8 @@ class UIController {
     if (!this.headerActive && window.scrollY <= this.headerPast) {
       // Show header if scrolling up
       this.headerPast = window.scrollY;
-      if (this.headerState !== headerStates.SHOW) {
-        this.headerState = headerStates.SHOW;
+      if (this.headerState !== HeaderState.SHOW) {
+        this.headerState = HeaderState.SHOW;
         headerElement.classList.remove(this.headerHideClass);
         this.headerActive = true;
       }
@@ -166,15 +166,15 @@ class UIController {
       window.scrollY > this.headerPast
     ) {
       // Hide header if scrolling down beyond the header dead zone
-      if (this.headerState !== headerStates.HIDE) {
-        this.headerState = headerStates.HIDE;
+      if (this.headerState !== HeaderState.HIDE) {
+        this.headerState = HeaderState.HIDE;
         headerElement.classList.add(this.headerHideClass);
         this.headerActive = false;
       }
     } else if (!this.headerActive && window.scrollY > 0) {
       // Hide header if it should be hidden after page load
-      if (this.headerState !== headerStates.ONLOAD) {
-        this.headerState = headerStates.ONLOAD;
+      if (this.headerState !== HeaderState.ONLOAD) {
+        this.headerState = HeaderState.ONLOAD;
         headerElement.classList.add(this.headerHideClass);
       }
     }
@@ -256,10 +256,8 @@ class EventController {
     event.preventDefault();
 
     const buttonElement = event.currentTarget as HTMLElement;
-
-    let targetClass: string = buttonElement.classList.item(0) ?? "";
-
-    if (targetClass === "") return;
+    const targetClass: string | null = buttonElement.classList.item(0);
+    if (targetClass === null) return;
 
     switch (targetClass) {
       case "card":
@@ -298,8 +296,9 @@ class DialogController {
     let dialogDetails: string = body;
 
     // Escape and convert special characters/bytes
-    dialogDetails = dialogDetails.replaceAll('"', "&quot;");
-    dialogDetails = dialogDetails.replaceAll("\n", "<br>");
+    dialogDetails = dialogDetails
+      .replaceAll('"', "&quot;")
+      .replaceAll("\n", "<br>");
 
     if (typeof dialogMain.getElementsByClassName("header")[0] !== "undefined") {
       dialogMain.getElementsByClassName("header")[0].innerHTML = dialogTitle;
