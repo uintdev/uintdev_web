@@ -1,10 +1,6 @@
 // Store theme color data
 let themeOriginalColors: string[] = [];
 
-interface NodeInterface extends Node {
-  getAttribute: Function;
-}
-
 enum themeType {
   LIGHT = "light",
   DARK = "dark",
@@ -457,7 +453,7 @@ window.onload = function (): void {
 
   // Build list of themes
   document.querySelectorAll(theme.themeMeta).forEach(function (
-    element: NodeInterface,
+    element: Element,
   ) {
     themeOriginalColors.push(element.getAttribute("content") ?? "");
   });
