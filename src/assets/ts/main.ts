@@ -218,7 +218,7 @@ class UIController {
 const uiController: UIController = new UIController();
 
 class EventController {
-  public readonly selector: string = ".card, .button-link, .theme-invert";
+  public readonly selector: string = ".card, .button-link, .theme-invert-icon";
 
   /**
    * Handle click events on interactive elements
@@ -229,8 +229,8 @@ class EventController {
   public init(event: Event): void {
     event.preventDefault();
 
-    const buttonElement = event.currentTarget as HTMLElement;
-    const firstClass: string = buttonElement.classList[0];
+    const buttonElement = event.target as HTMLElement;
+    const firstClass: string | null = buttonElement.classList[0];
 
     if (!firstClass) return;
 
@@ -241,7 +241,7 @@ class EventController {
         if (href) location.href = href;
         break;
       }
-      case "theme-invert": {
+      case "theme-invert-icon": {
         if (!theme || theme.rateLimit()) return;
         theme.set();
         break;
@@ -438,29 +438,24 @@ document.addEventListener("DOMContentLoaded", (): void => {
     revealToggle.classList.remove("hide");
   }
 
-  const setupEventListeners = (): void => {
-    document.addEventListener("click", (event) => {
-      const target = event.target as HTMLElement;
+  document.addEventListener("click", (event: PointerEvent): void => {
+    const target = event.target as HTMLElement;
 
-      // Handle theme toggle
-      if (target.matches(eventController.selector)) {
-        event.preventDefault();
-        eventController.init(event);
-      }
+    // Handle theme toggle
+    if (target.matches(eventController.selector)) {
+      eventController.init(event);
+    }
 
-      // Handle header scroll
-      if (target.matches("header .title")) {
-        uiController.scrollHandler(event);
-      }
+    // Handle header scroll
+    if (target.matches("header .title")) {
+      uiController.scrollHandler(event);
+    }
 
-      // Handle dialog close
-      if (target.matches("dialog .close")) {
-        dialogController.close(event as MouseEvent);
-      }
-    });
-  };
-
-  setupEventListeners();
+    // Handle dialog close
+    if (target.matches("dialog .close")) {
+      dialogController.close(event as MouseEvent);
+    }
+  });
 
   try {
     document
