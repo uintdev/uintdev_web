@@ -16,90 +16,77 @@ class Theme {
   };
 
   /**
-   * Gather current theme
+   * Get current theme
    * @method get
-   * @returns {string}
+   * @returns {string} Current theme value
    */
   private get(): string {
-    let result: string = this.themeDefault;
     if (document.documentElement.hasAttribute(this.themeOverride)) {
-      result =
+      return (
         document.documentElement.getAttribute(this.themeOverride) ??
-        this.themeDefault;
-    } else if (window.matchMedia) {
-      if (window.matchMedia(this.schemeType(ThemeType.DARK)).matches) {
-        result = ThemeType.DARK;
-      } else if (window.matchMedia(this.schemeType(ThemeType.LIGHT)).matches) {
-        result = ThemeType.LIGHT;
-      }
-    }
-    return result;
-  }
-
-  /**
-   * Set theme
-   * @method set
-   * @returns {string}
-   */
-  public set(): void {
-    let themeNext: string = ThemeType.UNKNOWN;
-    let themeAuto: boolean = false;
-    let themeCurrent: string = this.get();
-
-    if (themeCurrent === ThemeType.DARK) {
-      themeNext = ThemeType.LIGHT;
-    } else if (themeCurrent === ThemeType.LIGHT) {
-      themeNext = ThemeType.DARK;
+        this.themeDefault
+      );
     }
 
     if (window.matchMedia) {
-      if (
-        window.matchMedia(this.schemeType(ThemeType.DARK)).matches &&
-        themeNext === ThemeType.DARK
-      ) {
-        document.documentElement.removeAttribute(this.themeOverride);
-        themeAuto = true;
-      } else if (
-        window.matchMedia(this.schemeType(ThemeType.LIGHT)).matches &&
-        themeNext === ThemeType.LIGHT
-      ) {
-        document.documentElement.removeAttribute(this.themeOverride);
-        themeAuto = true;
+      if (window.matchMedia(this.schemeType(ThemeType.DARK)).matches) {
+        return ThemeType.DARK;
       }
 
-      if (themeAuto) {
-        let themeIndex: number = 0;
-        let themeData: string;
-        document.querySelectorAll(this.themeMeta).forEach(function (element) {
-          themeData = themeOriginalColors[themeIndex];
-          element.setAttribute("content", themeData);
-          themeIndex++;
-        });
+      if (window.matchMedia(this.schemeType(ThemeType.LIGHT)).matches) {
+        return ThemeType.LIGHT;
       }
     }
 
-    if (!themeAuto) {
-      let themeColor: string;
-      let themeIndex: number = 0;
+    return this.themeDefault;
+  }
 
-      if (themeNext === ThemeType.DARK) {
-        themeIndex = 0;
-      } else if (themeNext === ThemeType.LIGHT) {
-        themeIndex = 1;
-      }
+  /**
+   * Toggle between light and dark themes
+   * @method set
+   */
+  public set(): void {
+    const currentTheme: string = this.get();
+    const nextTheme: ThemeType =
+      currentTheme === ThemeType.DARK ? ThemeType.LIGHT : ThemeType.DARK;
 
-      document.documentElement.setAttribute(this.themeOverride, themeNext);
-      themeColor = themeOriginalColors[themeIndex];
+    const useSystemTheme: boolean =
+      window.matchMedia &&
+      window.matchMedia(this.schemeType(nextTheme)).matches;
 
-      document.querySelectorAll(this.themeMeta).forEach(function (element) {
-        element.setAttribute("content", themeColor);
+    if (useSystemTheme) {
+      document.documentElement.removeAttribute(this.themeOverride);
+
+      themeOriginalColors.forEach((color, index) => {
+        const element: HTMLElement | null =
+          document.querySelectorAll<HTMLElement>(this.themeMeta)[index];
+        if (element) {
+          element.setAttribute("content", color);
+        }
       });
+    } else {
+      // Use explicit theme override
+      document.documentElement.setAttribute(this.themeOverride, nextTheme);
+
+      // Apply theme color to all meta elements
+      const themeColorIndex = nextTheme === ThemeType.DARK ? 0 : 1;
+      const themeColor: string = themeOriginalColors[themeColorIndex];
+
+      document
+        .querySelectorAll<HTMLElement>(this.themeMeta)
+        .forEach((element) => {
+          element.setAttribute("content", themeColor);
+        });
     }
   }
 
   private readonly executionRate: number = 250;
   private executionLast: number = 0;
 
+  /**
+   * Throttle theme toggle
+   * @returns {string}
+   */
   public rateLimit(): boolean {
     let timeCurrent: number = Date.now();
     let timeDifference: number = timeCurrent - this.executionLast;
@@ -135,50 +122,50 @@ class UIController {
     !window.matchMedia("(hover: hover)").matches;
 
   /**
-   * Controls header state
+   * Controls header state based on scroll position
    * @method header
    * @returns {void}
    */
   public header(): void {
-    if (!this.headerPresent) return;
-    if (this.overscrollDeadZone()) return;
+    if (!this.headerPresent || this.overscrollDeadZone()) return;
 
-    let headerElement: HTMLElement | undefined =
-      document.getElementsByTagName("header")[0];
+    const headerElement: HTMLElement | null =
+      document.querySelector<HTMLElement>("header");
 
-    if (typeof headerElement === "undefined") {
+    if (!headerElement) {
       console.error("Header missing -- suspending header UI controller");
       this.headerPresent = false;
       return;
     }
 
-    if (!this.headerActive && window.scrollY <= this.headerPast) {
-      // Show header if scrolling up
-      this.headerPast = window.scrollY;
-      if (this.headerState !== HeaderState.SHOW) {
-        this.headerState = HeaderState.SHOW;
-        headerElement.classList.remove(this.headerHideClass);
-        this.headerActive = true;
-      }
-    } else if (
-      this.headerActive &&
-      window.scrollY > this.headerDeadZoneTop &&
-      window.scrollY > this.headerPast
-    ) {
-      // Hide header if scrolling down beyond the header dead zone
-      if (this.headerState !== HeaderState.HIDE) {
-        this.headerState = HeaderState.HIDE;
-        headerElement.classList.add(this.headerHideClass);
-        this.headerActive = false;
-      }
-    } else if (!this.headerActive && window.scrollY > 0) {
-      // Hide header if it should be hidden after page load
-      if (this.headerState !== HeaderState.ONLOAD) {
-        this.headerState = HeaderState.ONLOAD;
-        headerElement.classList.add(this.headerHideClass);
-      }
+    const currentScroll: number = window.scrollY;
+    const scrollUp: boolean = currentScroll <= this.headerPast;
+    const scrollDownPastThreshold: boolean =
+      currentScroll > this.headerDeadZoneTop && currentScroll > this.headerPast;
+
+    // Show header when scrolling up
+    if (!this.headerActive && scrollUp) {
+      this.headerState = HeaderState.SHOW;
+      headerElement.classList.remove(this.headerHideClass);
+      this.headerActive = true;
     }
-    this.headerPast = window.scrollY;
+    // Hide header when scrolling down past threshold
+    else if (this.headerActive && scrollDownPastThreshold) {
+      this.headerState = HeaderState.HIDE;
+      headerElement.classList.add(this.headerHideClass);
+      this.headerActive = false;
+    }
+    // Hide header on initial scroll after page load
+    else if (
+      !this.headerActive &&
+      currentScroll > 0 &&
+      this.headerState !== HeaderState.ONLOAD
+    ) {
+      this.headerState = HeaderState.ONLOAD;
+      headerElement.classList.add(this.headerHideClass);
+    }
+
+    this.headerPast = currentScroll;
   }
 
   /**
@@ -188,26 +175,21 @@ class UIController {
    * @returns {void}
    */
   public scroll(element: string): void {
-    let reduceMotion: boolean =
-      !!window.matchMedia &&
-      window.matchMedia("(prefers-reduced-motion)").matches;
-    let scrollBehavior: ScrollBehavior;
-    let elementObject: HTMLElement | null =
+    const reduceMotion: boolean =
+      window.matchMedia?.("(prefers-reduced-motion)")?.matches ?? false;
+    const elementObject: HTMLElement | null =
       document.getElementById(element) ??
-      document.querySelector(element) ??
-      null;
+      document.querySelector<HTMLElement>(element);
 
-    if (elementObject === null) {
+    if (!elementObject) {
       console.error("Cannot scroll to nonexistent element: " + element);
-    } else {
-      scrollBehavior = reduceMotion
-        ? ("instant" as ScrollBehavior)
-        : ("smooth" as ScrollBehavior);
-      window.scrollTo({
-        top: elementObject.offsetTop,
-        behavior: scrollBehavior,
-      });
+      return;
     }
+
+    window.scrollTo({
+      top: elementObject.offsetTop,
+      behavior: reduceMotion ? "instant" : "smooth",
+    });
   }
 
   public scrollHandler(event: Event): void {
@@ -216,28 +198,20 @@ class UIController {
   }
 
   /**
-   * Determine the dead zone to use when overscrolling (Safari mobile specific quirk)
+   * Determine if overscroll should be prevented (Safari mobile specific quirk)
    * @method overscrollDeadZone
-   * @returns {boolean}
+   * @returns {boolean} true if overscroll should be prevented
    */
   private overscrollDeadZone(): boolean {
-    let result: boolean = true;
-    let deadZone: number = 0;
+    const currentPosition: number = window.scrollY;
+    const scrollHeight: number = document.documentElement.scrollHeight;
+    const clientHeight: number = document.documentElement.clientHeight;
+    const scrollableHeight: number = scrollHeight - clientHeight;
 
-    let currentPosition: number = window.scrollY;
-    let overallHeight: number =
-      document.documentElement.scrollHeight -
-      document.documentElement.clientHeight;
+    const deadZone: number = this.platformMobileSafari ? 110 : 0;
+    const distanceToBottom: number = scrollableHeight - currentPosition;
 
-    let difference: number = overallHeight - currentPosition;
-
-    if (this.platformMobileSafari) {
-      deadZone = 110;
-    }
-
-    if (difference > deadZone) result = false;
-
-    return result;
+    return distanceToBottom <= deadZone;
   }
 }
 
@@ -247,27 +221,31 @@ class EventController {
   public readonly selector: string = ".card, .button-link, .theme-invert";
 
   /**
-   * Initiate input event
+   * Handle click events on interactive elements
    * @method init
-   * @param event {Event} Event data to utilize
+   * @param event {Event} Click event
    * @returns {void}
    */
   public init(event: Event): void {
     event.preventDefault();
 
     const buttonElement = event.currentTarget as HTMLElement;
-    const targetClass: string | null = buttonElement.classList.item(0);
-    if (targetClass === null) return;
+    const firstClass: string = buttonElement.classList[0];
 
-    switch (targetClass) {
+    if (!firstClass) return;
+
+    switch (firstClass) {
       case "card":
-      case "button-link":
-        location.href = buttonElement.getAttribute("href") ?? "";
+      case "button-link": {
+        const href: string | null = buttonElement.getAttribute("href");
+        if (href) location.href = href;
         break;
-      case "theme-invert":
-        if (theme.rateLimit()) return;
+      }
+      case "theme-invert": {
+        if (!theme || theme.rateLimit()) return;
         theme.set();
         break;
+      }
     }
   }
 }
@@ -283,33 +261,38 @@ class DialogController {
    * @returns {void}
    */
   public open(title: string, body: string): void {
-    let dialogMain: HTMLDialogElement | null = document.querySelector("dialog");
+    const dialogMain: HTMLDialogElement | null =
+      document.querySelector<HTMLDialogElement>("dialog");
 
-    if (dialogMain === null) {
+    if (!dialogMain) {
       console.error("Cannot build message without dialog being present");
       return;
     }
 
-    let dialogClose: HTMLElement | null = dialogMain.querySelector(".close");
-
     let dialogTitle: string = title;
     let dialogDetails: string = body;
 
-    // Escape and convert special characters/bytes
     dialogDetails = dialogDetails
       .replaceAll('"', "&quot;")
       .replaceAll("\n", "<br>");
 
-    if (typeof dialogMain.getElementsByClassName("header")[0] !== "undefined") {
-      dialogMain.getElementsByClassName("header")[0].innerHTML = dialogTitle;
+    const dialogClose: HTMLElement | null =
+      dialogMain.querySelector<HTMLElement>(".close");
+    const dialogHeader: HTMLElement | null =
+      dialogMain.querySelector<HTMLElement>(".header");
+    const dialogBody: HTMLElement | null =
+      dialogMain.querySelector<HTMLElement>(".body");
+
+    if (dialogHeader) {
+      dialogHeader.innerHTML = dialogTitle;
     }
-    if (typeof dialogMain.getElementsByClassName("body")[0] !== "undefined") {
-      dialogMain.getElementsByClassName("body")[0].innerHTML = dialogDetails;
+    if (dialogBody) {
+      dialogBody.innerHTML = dialogDetails;
     }
 
     dialogMain.showModal();
 
-    if (dialogClose === null) {
+    if (!dialogClose) {
       console.error("Dialog missing close button");
       return;
     }
@@ -326,20 +309,26 @@ class DialogController {
   public close(event: MouseEvent): void {
     event.preventDefault();
 
-    let dialogMain: HTMLDialogElement | null = document.querySelector("dialog");
+    const dialogMain: HTMLDialogElement | null =
+      document.querySelector<HTMLDialogElement>("dialog");
 
-    if (dialogMain === null) {
+    if (!dialogMain) {
       console.error("Dialog not present while attempting to close");
       return;
     }
 
     dialogMain.close();
 
-    if (typeof dialogMain.getElementsByClassName("header")[0] !== "undefined") {
-      dialogMain.getElementsByClassName("header")[0].innerHTML = "";
+    const dialogHeader: HTMLElement | null =
+      dialogMain.querySelector<HTMLElement>(".header");
+    const dialogBody: HTMLElement | null =
+      dialogMain.querySelector<HTMLElement>(".body");
+
+    if (dialogHeader) {
+      dialogHeader.innerHTML = "";
     }
-    if (typeof dialogMain.getElementsByClassName("body")[0] !== "undefined") {
-      dialogMain.getElementsByClassName("body")[0].innerHTML = "";
+    if (dialogBody) {
+      dialogBody.innerHTML = "";
     }
   }
 }
@@ -365,26 +354,31 @@ class Egg {
   ];
 
   /**
-   * Generate audio
+   * Generate audio tone
    * @method audioGen
-   * @param frequency {number} Frequency to be used
-   * @param type {OscillatorType} Oscillator to use
    * @returns {void}
    */
   private audioGen(): void {
-    let audioContext: AudioContext = new AudioContext();
-    let createOscillator: OscillatorNode = audioContext.createOscillator();
-    let createGain: GainNode = audioContext.createGain();
+    const audioContext: AudioContext = new AudioContext();
 
-    createOscillator.type = "triangle";
-    createOscillator.connect(createGain);
-    createOscillator.frequency.value = 90;
-    createGain.connect(audioContext.destination);
-    createOscillator.start(0);
+    const oscillator: OscillatorNode = audioContext.createOscillator();
+    const gainNode: GainNode = audioContext.createGain();
 
-    createGain.gain.exponentialRampToValueAtTime(
+    oscillator.type = "triangle";
+    oscillator.frequency.value = 90;
+
+    oscillator.connect(gainNode);
+    gainNode.connect(audioContext.destination);
+
+    oscillator.start();
+
+    gainNode.gain.exponentialRampToValueAtTime(
       0.00001,
       audioContext.currentTime + this.initAudioDuration / 1000,
+    );
+
+    oscillator.stop(
+      audioContext.currentTime + this.initAudioDuration / 1000 + 0.1,
     );
   }
 
@@ -392,39 +386,40 @@ class Egg {
     dialogController.open("Egg", "Here is some audio.");
     this.audioGen();
 
-    let audioController: HTMLAudioElement = new Audio(this.audioFile);
+    const audioController = new Audio(this.audioFile);
     audioController.volume = 0.6;
 
-    setTimeout(function (): void {
-      audioController.play();
+    setTimeout(async () => {
+      try {
+        const playPromise: Promise<void> = audioController.play();
+        if (playPromise !== undefined) {
+          await playPromise;
+        }
+      } catch (error) {
+        console.warn("Audio playback failed:", error);
+      }
     }, this.initAudioDuration);
   }
 
   /**
-   * Easter egg
-   * @method init
-   * @param event {KeyboardEvent} Event information from the keyboard
+   * Handle easter egg key sequence detection
+   * @method initiate
+   * @param event {KeyboardEvent} Keyboard event
    * @returns {void}
    */
   public initiate = (event: KeyboardEvent): void => {
-    let keyEventData: string = event.key;
-    if (keyEventData.length === 1) {
-      keyEventData = event.key.toUpperCase();
-    }
+    const key: string =
+      event.key.length === 1 ? event.key.toUpperCase() : event.key;
 
-    this.keysPressed.push(keyEventData);
+    this.keysPressed.push(key);
 
-    let indexMatch: string = this.keysCombo[this.keysPressed.length - 1] ?? "";
-
-    if (indexMatch === "" || indexMatch !== keyEventData) {
+    const expectedKey: string = this.keysCombo[this.keysPressed.length - 1];
+    if (!expectedKey || key !== expectedKey) {
       this.keysPressed = [];
       return;
     }
 
-    let keysPressedCombined: string = this.keysPressed.join("");
-    let keysComboCombined: string = this.keysCombo.join("");
-
-    if (keysPressedCombined.match(keysComboCombined)) {
+    if (this.keysPressed.join("") === this.keysCombo.join("")) {
       this.keysPressed = [];
       document.removeEventListener("keydown", this.initiate);
       this.payload();
@@ -435,52 +430,56 @@ class Egg {
 const egg: Egg = new Egg();
 
 document.addEventListener("DOMContentLoaded", (): void => {
-  // Show option if there is JavaScript enabled
-  let revealToggle: Element | null = document.querySelector(".theme-invert");
-  if (revealToggle === null) {
-    console.error("Unable to show theme toggle");
+  const revealToggle: HTMLElement | null =
+    document.querySelector<HTMLElement>(".theme-invert");
+  if (!revealToggle) {
+    console.error("Unable to show theme toggle - element not found");
   } else {
     revealToggle.classList.remove("hide");
   }
 
-  // Set up listener
-  document
-    .querySelectorAll(eventController.selector)
-    .forEach(function (element) {
-      element.addEventListener("click", eventController.init);
+  const setupEventListeners = (): void => {
+    document.addEventListener("click", (event) => {
+      const target = event.target as HTMLElement;
+
+      // Handle theme toggle
+      if (target.matches(eventController.selector)) {
+        event.preventDefault();
+        eventController.init(event);
+      }
+
+      // Handle header scroll
+      if (target.matches("header .title")) {
+        uiController.scrollHandler(event);
+      }
+
+      // Handle dialog close
+      if (target.matches("dialog .close")) {
+        dialogController.close(event as MouseEvent);
+      }
     });
-
-  // Build list of themes
-  document.querySelectorAll(theme.themeMeta).forEach(function (
-    element: Element,
-  ) {
-    themeOriginalColors.push(element.getAttribute("content") ?? "");
-  });
-
-  // Initiate and listen to header
-  uiController.header();
-  window.onscroll = (): void => {
-    uiController.header();
   };
 
-  // Listen for title interaction, for scrolling up
-  let headerScroll: Element | null = document.querySelector("header .title");
-  if (headerScroll === null) {
-    console.error("Failed to initiate header scroll event listener");
-  } else {
-    headerScroll.addEventListener("click", (event): void => {
-      uiController.scrollHandler(event);
-    });
+  setupEventListeners();
+
+  try {
+    document
+      .querySelectorAll<HTMLElement>(theme.themeMeta)
+      .forEach((element: Element) => {
+        themeOriginalColors.push(element.getAttribute("content") ?? "");
+      });
+  } catch (error) {
+    console.error("Failed to initialize theme metadata:", error);
   }
 
-  // Allow dialog to be closed
-  let dialogCloseOpt: Element | null = document.querySelector("dialog .close");
-  if (dialogCloseOpt === null) {
-    console.error("Failed to initiate dialog closure event listener");
-  } else {
-    dialogCloseOpt.addEventListener("click", (event): void => {
-      dialogController.close(event as MouseEvent);
-    });
+  try {
+    uiController.header();
+
+    window.onscroll = (): void => {
+      uiController.header();
+    };
+  } catch (error) {
+    console.error("Failed to initialize UI components:", error);
   }
 
   document.addEventListener("keydown", egg.initiate);
