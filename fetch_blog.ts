@@ -4,12 +4,14 @@ import path from "path";
 import axios from "axios";
 import * as cheerio from "cheerio";
 
-const url: string = "https://blog.uint.dev";
-const className: string = ".listing .card";
-const postLimit: number = 5;
-const title: string = "Blog";
-const description: string = `View all posts <a href="${url}">here</a>.`;
+// Configuration constants
+const BLOG_URL: string = "https://blog.uint.dev";
+const SELECTOR: string = ".listing .card";
+const POST_LIMIT: number = 5;
+const BLOG_TITLE: string = "Blog";
+const BLOG_DESCRIPTION: string = `View all posts <a href="${BLOG_URL}">here</a>.`;
 
+// Data structures
 interface Post {
   link: string | undefined;
   title: string;
@@ -28,74 +30,61 @@ interface BlogEntry {
   posts: Post[];
 }
 
+// Initialize blog entry object
+const blogEntryObject: BlogEntry = {
+  metadata: {
+    title: BLOG_TITLE,
+    description: BLOG_DESCRIPTION,
+    base: BLOG_URL,
+  },
+  posts: [],
+};
+
+// Fetch and parse blog data
 async function fetchData(
   url: string,
-  className: string,
-  postLimit: number,
+  selector: string,
+  limit: number,
 ): Promise<void> {
   try {
     const { data } = await axios.get(url);
-
     const $ = cheerio.load(data);
-    const elements = $(`${className}`);
-
-    elements.each((index, element) => {
-      if (index >= postLimit) return;
-
-      let card = $(element);
-      let link: string | undefined = card.attr("href");
-      let title: string = card.find(".title").eq(0).text();
-      let description: string = card.find(".description").eq(0).text();
-      let metadata: string = card.find(".metadata").eq(0).html() ?? "";
-
-      console.log(`--- Index ${index} ---`);
-      console.log(link);
-      console.log(title);
-      console.log(description);
-      console.log(metadata);
-      console.log(`----------------------`);
-
-      let entryData: Post = {
-        link: link,
-        title: title,
-        description: description,
-        metadata: metadata,
-      };
-
-      blogEntryObject.posts.push(entryData);
-    });
+    const elements = $(selector);
 
     if (elements.length === 0) {
-      console.log(`No elements found with class '${className}'`);
+      console.log(`No elements found with selector '${selector}'`);
       process.exit(1);
     }
+
+    elements.each((index, element) => {
+      if (index >= limit) return;
+
+      const card = $(element);
+      const link: string | undefined = card.attr("href");
+      const title: string = card.find(".title").eq(0).text();
+      const description: string = card.find(".description").eq(0).text();
+      const metadata: string = card.find(".metadata").eq(0).html() ?? "";
+
+      console.log(`--- Index ${index} ---`);
+      console.log({ link, title, description, metadata });
+      console.log(`----------------------`);
+
+      blogEntryObject.posts.push({ link, title, description, metadata });
+    });
   } catch (error) {
     console.error("Error fetching or parsing the page:", error);
     process.exit(1);
   }
 }
 
-let blogEntryObject: BlogEntry = {
-  metadata: {
-    title: title,
-    description: description,
-    base: url,
-  },
-  posts: [],
-};
-
-console.log("Stage 1: fetch blog posts");
-await fetchData(url, className, postLimit);
-
-console.log(blogEntryObject);
-
+// Write data to JSON file
 async function writeJsonToFile(
   directory: string,
   filename: string,
   data: object,
 ): Promise<void> {
   try {
-    const filePath = path.join(directory, filename);
+    const filePath: string = path.join(directory, filename);
     console.log(`Writing to ${filePath}...`);
     await Bun.write(filePath, JSON.stringify(data, null, 2));
     console.log(`Successfully wrote to ${filePath}`);
@@ -105,16 +94,14 @@ async function writeJsonToFile(
   }
 }
 
-const directory = "./src/data";
-const filename = "blog.json";
-const data: BlogEntry = blogEntryObject;
+// Execution flow
+console.log("Stage 1: fetch blog posts");
+await fetchData(BLOG_URL, SELECTOR, POST_LIMIT);
+console.log(blogEntryObject);
 
 console.log("Stage 2: write blog posts to file");
-
-await writeJsonToFile(directory, filename, data);
+await writeJsonToFile("./src/data", "blog.json", blogEntryObject);
 
 console.log("Done! Proceeding with build.");
-
 console.log("------------------------------------------");
-
 console.log("Creating build...");
