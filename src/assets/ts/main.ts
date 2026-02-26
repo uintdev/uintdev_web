@@ -69,12 +69,12 @@ class Theme {
       document.documentElement.setAttribute(this.themeOverride, nextTheme);
 
       // Apply theme color to all meta elements
-      const themeColorIndex = nextTheme === ThemeType.DARK ? 0 : 1;
+      const themeColorIndex: number = nextTheme === ThemeType.DARK ? 0 : 1;
       const themeColor: string = themeOriginalColors[themeColorIndex];
 
       document
         .querySelectorAll<HTMLElement>(this.themeMeta)
-        .forEach((element) => {
+        .forEach((element: HTMLElement): void => {
           element.setAttribute("content", themeColor);
         });
     }
@@ -389,7 +389,7 @@ class Egg {
     const audioController = new Audio(this.audioFile);
     audioController.volume = 0.6;
 
-    setTimeout(async () => {
+    setTimeout(async (): Promise<void> => {
       try {
         const playPromise: Promise<void> = audioController.play();
         if (playPromise !== undefined) {
