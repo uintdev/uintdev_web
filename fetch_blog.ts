@@ -48,7 +48,7 @@ async function fetchData(
 ): Promise<void> {
   try {
     const { data } = await axios.get(url);
-    const $ = cheerio.load(data);
+    const $: cheerio.CheerioAPI = cheerio.load(data);
     const elements = $(selector);
 
     if (elements.length === 0) {
