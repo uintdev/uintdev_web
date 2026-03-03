@@ -56,7 +56,7 @@ async function fetchData(
       process.exit(1);
     }
 
-    elements.each((index, element) => {
+    elements.each((index, element): void => {
       if (index >= limit) return;
 
       const card = $(element);
