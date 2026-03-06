@@ -81,7 +81,7 @@ async function fetchData(
 async function writeJsonToFile(
   directory: string,
   filename: string,
-  data: object,
+  data: BlogEntry,
 ): Promise<void> {
   try {
     const filePath: string = path.join(directory, filename);
