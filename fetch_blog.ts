@@ -13,7 +13,7 @@ const BLOG_DESCRIPTION: string = `View all posts <a href="${BLOG_URL}">here</a>.
 
 // Data structures
 interface Post {
-  link: string | undefined;
+  link: string;
   title: string;
   description: string;
   metadata: string;
@@ -60,7 +60,7 @@ async function fetchData(
       if (index >= limit) return;
 
       const card = $(element);
-      const link: string | undefined = card.attr("href");
+      const link: string = card.attr("href") ?? "#";
       const title: string = card.find(".title").eq(0).text();
       const description: string = card.find(".description").eq(0).text();
       const metadata: string = card.find(".metadata").eq(0).html() ?? "";
