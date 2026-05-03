@@ -9,7 +9,7 @@ const BLOG_URL: string = "https://blog.uint.dev";
 const SELECTOR: string = ".listing .card";
 const POST_LIMIT: number = 5;
 const BLOG_TITLE: string = "Blog";
-const BLOG_DESCRIPTION: string = `View all posts <a href="${BLOG_URL}">here</a>.`;
+const BLOG_DESCRIPTION: string = `See all <a href="${BLOG_URL}">here</a>.`;
 
 // Data structures
 interface Post {
