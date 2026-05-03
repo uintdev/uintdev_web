@@ -102,6 +102,4 @@ console.log(blogEntryObject);
 console.log("Stage 2: write blog posts to file");
 await writeJsonToFile("./src/data", "blog.json", blogEntryObject);
 
-console.log("Done! Proceeding with build.");
-console.log("------------------------------------------");
-console.log("Creating build...");
+console.log("Stage 3: Creating build...");
